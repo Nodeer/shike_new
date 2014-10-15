@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/register1" >
+
+    <LinearLayout
+        android:id="@+id/li_tea_myshike"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/bottom_widow_color" >
+
+        <TextView
+            android:id="@+id/tv_tea_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="@dimen/share_text" />
+
+        <TextView
+            android:id="@+id/action_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:text="关于师课"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="@dimen/title_text" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/li_tea_myshike"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tv_wenti_fankui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="问题反馈"
+                android:textColorHint="@color/button_teather_typeface_color"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/tv_wenti_fankui_shuru"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/tv_wenti_fankui"
+                android:layout_marginTop="10dp"
+                android:background="@color/button_teather_typeface_color"
+                android:gravity="top"
+                android:textColor="@color/button_typeface_color"
+                android:hint="请输入您宝贵的意见，请您控制在200字以内。"
+                android:textColorHint="@color/button_typeface_color"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tv_wenti_send"
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tv_wenti_fankui_shuru"
+                android:layout_marginTop="10dp"
+                android:background="@color/button_teather_typeface_color"
+                android:gravity="center"
+                android:text="发送"
+                android:textColor="@color/button_typeface_color"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tv_premiere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_wenti_send"
+                android:layout_marginTop="20dp"
+                android:text="功能介绍"
+                android:textColor="@color/button_teather_typeface_color"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/ev_premiere"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/tv_premiere"
+                android:layout_marginTop="20dp"
+                android:background="@color/button_teather_typeface_color"
+                android:text="“师课”是在职老师对学生一对一作业辅导的移动应用......."
+                android:paddingLeft="3dp"
+                android:textColor="@color/button_typeface_color"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tv_seek_all"
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/ev_premiere"
+                android:layout_marginTop="10dp"
+                android:background="@color/button_teather_typeface_color"
+                android:gravity="center"
+                android:text="查看全部"
+                android:textColor="@color/button_typeface_color"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tv_faq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_seek_all"
+                android:layout_marginTop="20dp"
+                android:text="FAQ问答"
+                android:textColor="@color/button_teather_typeface_color"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/ev_faq_huida"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/tv_faq"
+                android:layout_marginTop="10dp"
+                android:background="@color/button_teather_typeface_color"
+                android:gravity="top"
+                android:text="如何“制作题目”？如何创建自己的题库？......"
+                android:paddingLeft="3dp"
+                android:textColor="@color/button_typeface_color"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tv_faq_seek_all"
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/ev_faq_huida"
+                android:layout_marginTop="10dp"
+                android:background="@color/button_teather_typeface_color"
+                android:gravity="center"
+                android:text="查看全部"
+                android:textColor="@color/button_typeface_color"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tv_xin_shou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_faq_seek_all"
+                android:layout_marginTop="20dp"
+                android:text="新手入门"
+                android:textColor="@color/button_teather_typeface_color"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_onclick_seek_all"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tv_xin_shou"
+                android:layout_marginTop="10dp"
+                android:background="@color/button_teather_typeface_color"
+                android:gravity="center"
+                android:text="点击查看全部"
+                android:textColor="@color/button_typeface_color"
+                android:textSize="15dp" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/register1"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/stu_quescoun"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/sk_student_main_color"
+        >
+        <TextView
+        android:id="@+id/tv_stu_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="返回"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/button_typeface_color"
+        android:textSize="@dimen/share_text"
+        />
+    <TextView
+        android:id="@+id/action_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我的题库"
+        android:gravity="center"
+        android:layout_weight="3"
+        android:textColor="@color/button_typeface_color"
+        android:textSize="@dimen/title_text" />
+    <TextView
+        android:id="@+id/tv_stu_deleter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="删除"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textColor="@color/button_typeface_color"
+        android:textSize="@dimen/share_text"
+        />
+     </LinearLayout>
+ <LinearLayout
+        android:id="@+id/rl_tillte"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stu_quescoun"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/tv_subject_fen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="3dp"
+            android:text="按学科"
+            android:textColor="@color/reg"
+            android:textSize="@dimen/share_text" />
+          <TextView
+              android:id="@+id/tv_time_fen"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:gravity="center"
+              android:paddingTop="3dp"
+              android:text="按时间"
+              android:textColor="@color/sk_student_main_color"
+              android:textSize="@dimen/share_text" />
+    </LinearLayout>
+       <View
+           android:id="@+id/coun_coun_huise"
+           android:layout_width="fill_parent"
+           android:layout_height="60dp"
+           android:layout_alignBottom="@+id/undine_linearLayout"
+           android:layout_alignParentLeft="true"
+           android:background="#578f8f8f" />
+    <LinearLayout
+        android:id="@+id/undine_linearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_tillte"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:background="#CFCFCF" >
+        <View
+            android:id="@+id/stu_coun_undline"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="@color/reg" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/undine_linearLayout"
+        android:orientation="vertical" >
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/register" >
+    <LinearLayout
+        android:id="@+id/li_stu_quescoun"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/sk_student_main_color"
+        >
+        <TextView
+            android:id="@+id/tx_info_back"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="返回"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="@dimen/share_text" />
+        <TextView
+            android:id="@+id/action_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="老师信息"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="@dimen/title_text" />
+    <TextView
+        android:id="@+id/tx_info_tiwen"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="提问"
+        android:gravity="center"
+        android:textColor="@color/button_typeface_color"
+        android:textSize="@dimen/share_text"
+        />
+     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/li_stu_quescoun"
+        android:layout_marginTop="20dp" >
+     　　　<FrameLayout 
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/tudent_picture"
+            android:layout_width="71dp"
+            android:layout_height="71dp"
+            android:src="@drawable/my_tea_phon"
+             />
+        <ImageView
+            android:id="@+id/iv_xuan_zhong"
+            android:visibility="gone"
+            android:layout_width="71dp"
+            android:layout_height="71dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/xuanzhong"
+            />
+        </FrameLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal" >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical" >
+                <TextView
+                    android:id="@+id/tv_teacher_nick"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:background="@color/sk_student_main_color"
+                    android:paddingLeft="6dp"
+                    android:text="用户名:  "
+                    android:textColor="#FFFFFF"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/tv_strdent_count"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="3dp"
+                    android:background="@color/sk_student_main_color"
+                    android:paddingLeft="6dp"
+                    android:text="学生数量:"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/tv_subject"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="3dp"
+                    android:paddingLeft="6dp"
+                    android:background="@color/sk_student_main_color"
+                    android:text="学科:"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+            <TextView
+                android:id="@+id/tv_attention"
+                android:layout_width="fill_parent"
+                android:layout_height="71dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/sk_student_main_color"
+                android:gravity="center"
+                android:text="关注"
+                android:textColor="#FFFFFF"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_teacher_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_info"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical" >
+        <TextView
+            android:id="@+id/action_settings"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"          
+            android:text="自我介绍"
+            android:textColor="#34CD2E"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/tv_guan_zhu"
+            android:layout_width="306dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:background="@color/sk_student_main_color"
+            android:text="自我关注"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_teacher_info"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical" >
+        <TextView
+            android:id="@+id/tv_jieti_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="接题次数:"
+            android:textColor="@color/sk_student_main_color"
+            android:textSize="16dp" />
+        <TextView
+            android:id="@+id/tv_zan_coun"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#34CD2E"
+             android:text="学生攒美:"
+            android:textSize="16dp" />
+    </LinearLayout>
+   <!--  <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/jieti"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/linearLayout2">
+         <TextView
+             android:id="@+id/tv_shike_fen"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:layout_marginLeft="10dp"
+             android:text="学生攒美:"
+             android:textColor="@color/sk_student_main_color"
+             android:textSize="16dp" /> -->
+<!--          
+      <TextView
+             android:id="@+id/tv_zan_shu"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:layout_marginLeft="10dp"
+             android:text="赞数分"
+             android:textColor="#34CD2E"
+             android:textSize="16dp" />
+   </LinearLayout> -->
+</RelativeLayout>

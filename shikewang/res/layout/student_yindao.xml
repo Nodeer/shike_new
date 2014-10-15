@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/yindao_1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/stu_yindao_1" />
+
+    <ImageView
+        android:id="@+id/yindao_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stu_yd2"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/yindao_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stu_yd3"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/yindao_4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stu_yd4"
+        android:visibility="gone" />
+
+   
+    <ImageView
+       android:id="@+id/yindao_5"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:background="@drawable/stu_yd5"
+       android:visibility="gone" />
+
+        
+
+</LinearLayout>

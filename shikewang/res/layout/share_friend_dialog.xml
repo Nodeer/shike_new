@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    android:id="@+id/re_share"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/account_pop_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@color/tr_80"
+        android:orientation="vertical" >
+        <TextView
+            android:id="@+id/share_dialog_weixin"
+            android:text="微信分享"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:padding="10dp"
+             android:textColor="@color/button_typeface_color"
+             android:textSize="20dp"
+             /> 
+         <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/reg_fenge_xian"/>
+           <TextView
+            android:id="@+id/share_weixin_friend"
+            android:text="微信朋友圈"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:padding="10dp"
+             android:textColor="@color/button_typeface_color"
+             android:textSize="20dp"
+             /> 
+        <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/reg_fenge_xian"/>
+        <TextView
+            android:id="@+id/share_dialog_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="短信分享"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/reg_fenge_xian"/>
+        <TextView
+            android:id="@+id/share_dialog_email"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:padding="10dp"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="20dp"
+            android:text="e-mail分享"
+            android:textStyle="bold" />
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/reg_fenge_xian"/>
+        <TextView
+            android:id="@+id/share_dialog_cancle"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:padding="10dp"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="20dp"
+            android:text="取消"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

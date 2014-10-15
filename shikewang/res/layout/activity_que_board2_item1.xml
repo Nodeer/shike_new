@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    <RelativeLayout
+        android:layout_marginLeft="1dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/im_que2_item1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="@drawable/boart_bac"
+        android:padding="1dp"
+        android:layout_marginLeft="2dp"
+       	 />
+        <ImageView
+            android:id="@+id/iv_stu_dele"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
+            android:layout_alignRight="@+id/im_que2_item1"
+            android:src="@drawable/stu_bra_dele"
+            android:visibility="gone"
+             /> 
+    </RelativeLayout>
+<!--   <ImageView
+        android:id="@+id/iv_Que_board2_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/select_file"
+        />  -->
+</LinearLayout>

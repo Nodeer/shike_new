@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+     <LinearLayout
+     android:id="@+id/ll_paizhao"
+    android:background="@color/tr_80"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginLeft="30dp"
+     android:layout_marginRight="30dp"
+     android:orientation="vertical"
+     >
+     <TextView
+         android:id="@+id/tv_pai_zhao"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="70dp"
+         android:layout_marginRight="70dp"
+         android:gravity="center"
+         android:textSize="20dp"
+         android:padding="10dp"
+         android:textColor="@color/button_typeface_color"
+         android:text="拍照" />
+     <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/reg_fenge_xian"/>
+        <TextView
+            android:id="@+id/tv_xiagnc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:padding="10dp"
+         android:textColor="@color/button_typeface_color"
+        android:text="相册"
+       android:textSize="20dp"
+        android:gravity="center"
+     />
+    <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@drawable/reg_fenge_xian"/>
+   <TextView
+        android:id="@+id/tv_tea_cancel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:textColor="@color/button_typeface_color"
+        android:text="取消"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:gravity="center"
+     />
+    </LinearLayout>
+</LinearLayout>

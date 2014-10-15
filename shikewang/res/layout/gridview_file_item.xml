@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/ll_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/bottom_widow_color"
+        android:orientation="vertical" >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_sing_file"
+            android:layout_width="120dp"
+           android:layout_height="120dp"
+            android:background="@drawable/teather_bg_message_image"
+            android:scaleType="fitXY"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:src="@drawable/sing_file_back_gound" />
+        <ImageView
+            android:id="@+id/iv_tea_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
+            android:layout_alignRight="@+id/iv_sing_file"
+            android:src="@drawable/stu_bra_dele"
+            android:visibility="gone"
+             /> 
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/file_name"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:hint=""
+            android:layout_gravity="center"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="15dp" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/iv_point_file"
+        android:layout_toRightOf="@+id/ll_file"
+        android:layout_alignParentTop="true"
+        android:padding="3dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/select_file"
+        />
+    </RelativeLayout>
+</RelativeLayout>

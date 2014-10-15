@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/register"
+    android:orientation="vertical" >
+
+  <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/userregister_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="老师注册"
+            android:textColor="@color/top_title_color"
+             android:textSize="15dp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/sturegister_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="老师资格证"
+            android:textColor="#DC143C"
+            android:textSize="25dp" >
+        </TextView>
+    </LinearLayout>
+<TextView
+                android:id="@+id/tv_ShagnChuan"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/main_layout"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="60dp"
+                 android:background="@color/bottom_widow_color"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="上传 "
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" >
+            </TextView>
+    <TextView
+                android:id="@+id/tv_give_up"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/tv_ShagnChuan"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginTop="40dp"
+                 android:background="@color/bottom_widow_color"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="跳过 "
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" >
+            </TextView>
+    <include
+         android:id="@+id/incl_two_buttom_anim"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        layout="@layout/i_bottom_navigation" />
+</RelativeLayout>

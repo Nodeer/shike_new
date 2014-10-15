@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/register1"
+    android:orientation="vertical" >
+    <LinearLayout
+	    android:id="@+id/tv_file_tiban"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottom_widow_color"
+        android:padding="@dimen/pd_tp_bm">
+      <TextView
+         android:id="@+id/tv_file__back"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="返回"
+         android:textColor="@color/button_typeface_color"
+         android:textSize="@dimen/share_text" />
+	  <TextView
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="题板"
+	       android:gravity="center"
+	       android:layout_weight="1"
+	       android:textColor="@color/button_typeface_color"
+	       android:textSize="@dimen/title_text" />
+	  <TextView
+          android:id="@+id/tv_file_comf"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:text="确定"
+          android:textColor="@color/button_typeface_color"
+          android:textSize="@dimen/share_text"/>
+	</LinearLayout>
+<!--     <LinearLayout
+        android:id="@+id/ll_record"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/et_file_name" >
+        <ImageView
+            android:id="@+id/iv_voide"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/select_tea_void" />
+    </LinearLayout> -->
+    
+    
+    
+    
+    
+<!--     <RelativeLayout
+        android:id="@+id/rl_file_three"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        > -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rl_file_three"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bottom_widow_color"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/pd_tp_bm" >
+<!--         <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_file_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="3dp"
+                android:drawableLeft="@drawable/select_voice"
+                android:text="语音"
+                android:textColor="@color/button_typeface_color"
+                android:textSize="@dimen/share_text" />
+           </LinearLayout> -->
+          <LinearLayout
+              android:gravity="center"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="1">
+            <TextView
+                android:id="@+id/tv_file_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="3dp"
+                android:drawableLeft="@drawable/select_tianjiar"
+                android:text="添加"
+                android:textColor="@color/button_typeface_color"
+                android:textSize="@dimen/share_text"/>
+            </LinearLayout>
+          <LinearLayout
+              android:gravity="center"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_weight="1">
+            <TextView
+                android:id="@+id/tv_file_dele"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="3dp"
+                android:drawableLeft="@drawable/select_delete"
+                android:text="删除"
+                android:textColor="@color/button_typeface_color"
+               android:textSize="@dimen/share_text"/>
+          </LinearLayout>
+        </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_file_three"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/pd_tp_bm"
+        android:layout_marginTop="@dimen/pd_tp_bm"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/linearLayout1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_file_tiban" />
+</RelativeLayout>

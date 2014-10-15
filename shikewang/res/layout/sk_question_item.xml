@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+    <ImageView
+        android:id="@+id/iv_question_picture"
+        android:layout_width="@dimen/iamge_scan"
+        android:layout_height="@dimen/iamge_scan"
+        android:background="@drawable/bg_message_image"
+        android:padding="@dimen/iamg_side"
+        android:src="@drawable/xiaoxi_moren" />
+       <ImageView
+           android:id="@+id/iv_red_small_point"
+           android:layout_width="@dimen/reg_point"
+           android:layout_height="@dimen/reg_point"
+           android:layout_alignParentTop="true"
+           android:layout_alignRight="@+id/iv_question_picture"
+           android:background="@drawable/red_point"
+           android:visibility="gone" />
+    <ImageView
+        android:id="@+id/iv_stu_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/iv_question_picture"
+        android:visibility="gone"
+        android:src="@drawable/stu_bra_dele" />
+</RelativeLayout>

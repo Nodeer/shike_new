@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/bottom_layout"
+            >
+        <ImageView
+                android:id="@+id/ima_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#CDC9C9"
+                android:layout_alignParentRight="true"
+                android:padding="10dp"
+                android:src="@drawable/button_download"/>
+        <TextView
+                android:id="@+id/voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/select_pazhao"
+                android:drawablePadding="@dimen/padding_topandbuttom"
+                android:gravity="center"
+                android:text="录音"
+                android:layout_centerInParent="true"
+                android:textColor="@color/button_typeface_color"
+                android:textSize="@dimen/share_text"/>
+
+    </RelativeLayout>
+    <com.yshow.shike.widget.MatrixImageview
+            android:id="@+id/large_img"
+            android:layout_above="@id/bottom_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+    </com.yshow.shike.widget.MatrixImageview>
+
+    <HorizontalScrollView
+            android:layout_above="@id/bottom_layout"
+            android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+                      android:id="@+id/voice_layout"
+                      android:orientation="horizontal"
+                ></LinearLayout>
+
+    </HorizontalScrollView>
+
+    <RelativeLayout
+            android:id="@+id/ll_volume_control"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            >
+        <ImageView
+                android:id="@+id/iv_board_picture5"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/volume_control"/>
+
+        <TextView
+                android:id="@+id/tv_back_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"/>
+    </RelativeLayout>
+</RelativeLayout>

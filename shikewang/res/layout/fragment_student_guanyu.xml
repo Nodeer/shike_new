@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/register1"
+     >
+      <LinearLayout
+        android:id="@+id/li_myshike"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@color/sk_student_main_color"
+        >
+        <TextView
+        android:id="@+id/tv_sk_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="返回"
+        android:gravity="center"
+        android:textColor="@color/button_typeface_color"
+        android:textSize="@dimen/share_text"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:id="@+id/action_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关于师课"
+        android:gravity="center"
+        android:layout_weight="7"
+        android:textColor="@color/button_typeface_color"
+        android:textSize="@dimen/title_text" />
+   </LinearLayout>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:scrollbars="none"
+        android:layout_below="@+id/li_myshike"
+        android:orientation="vertical" >
+       <RelativeLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+            >
+         <TextView
+            android:id="@+id/tv_wenti_fankui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="问题反馈"
+            android:textColor="@color/sk_student_main_color"
+            android:textSize="@dimen/share_text" />
+        <EditText
+            android:id="@+id/tv_wenti_fankui_shuru"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:gravity="top" 
+            android:layout_below="@id/tv_wenti_fankui"
+            android:layout_marginTop="10dp"
+            android:background="@color/sk_student_main_color"
+            android:hint="请输入您宝贵的意见，请控制在200字以内。"
+            android:textColorHint="@color/button_typeface_color"
+            android:textSize="@dimen/user_text"
+            android:textColor="@color/button_typeface_color" />
+
+        <TextView
+            android:id="@+id/tv_wenti_send"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_wenti_fankui_shuru"
+            android:layout_marginTop="10dp"
+            android:background="@color/sk_student_main_color"
+            android:gravity="center"
+            android:text="发送"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="@dimen/user_text" />
+
+        <TextView
+            android:id="@+id/tv_premiere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_wenti_send"
+            android:layout_marginTop="20dp"
+            android:text="功能介绍"
+            android:textColor="@color/sk_student_main_color"
+            android:textSize="@dimen/share_text" />
+
+        <TextView
+            android:id="@+id/ev_premiere"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/tv_premiere"
+            android:layout_marginTop="10dp"
+            android:background="@color/sk_student_main_color"
+            android:paddingLeft="3dp"
+             android:gravity="top" 
+            android:hint="“师课”是在职教师对学生一对一作业辅导的移动应用......"
+            android:textColorHint="@color/button_typeface_color"
+            android:textSize="@dimen/user_text"
+            android:textColor="@color/button_typeface_color"  />
+
+        <TextView
+            android:id="@+id/tv_seek_all"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/ev_premiere"
+            android:layout_marginTop="10dp"
+            android:background="@color/sk_student_main_color"
+            android:gravity="center"
+            android:text="查看全部"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="@dimen/user_text" />
+
+        <TextView
+            android:id="@+id/tv_faq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_seek_all"
+            android:layout_marginTop="20dp"
+            android:text="FAQ问答"
+            android:textColor="@color/sk_student_main_color"
+            android:textSize="@dimen/share_text" />
+
+        <TextView
+            android:id="@+id/ev_faq_huida"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/tv_faq"
+            android:layout_marginTop="10dp"
+            android:background="@color/sk_student_main_color"
+            android:paddingLeft="3dp"
+             android:gravity="top" 
+            android:text="如何获得“学分”？如何“制作题目”？如何发送？......"
+            android:textSize="@dimen/user_text"
+            android:textColor="@color/button_typeface_color"  />
+
+        <TextView
+            android:id="@+id/tv_faq_seek_all"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/ev_faq_huida"
+            android:layout_marginTop="10dp"
+            android:background="@color/sk_student_main_color"
+            android:gravity="center"
+            android:text="查看全部"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="@dimen/user_text"
+             />
+
+        <TextView
+            android:id="@+id/tv_xin_shou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_faq_seek_all"
+            android:layout_marginTop="20dp"
+            android:text="新手入门"
+            android:textColor="@color/sk_student_main_color"
+            android:textSize="@dimen/share_text" />
+
+        <TextView
+            android:id="@+id/tv_onclick_seek_all"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_xin_shou"
+            android:layout_marginTop="10dp"
+            android:background="@color/sk_student_main_color"
+            android:gravity="center"
+            android:text="点击查看全部"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="@dimen/user_text" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tv_onclick_seek_all" />
+    </RelativeLayout>
+    </ScrollView>
+ </RelativeLayout>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/register_student_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/register"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+        <TextView
+            android:id="@+id/userregister_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="老师注册"
+            android:textColor="@color/top_title_color"
+             android:textSize="15dp"  >
+        </TextView>
+        <TextView
+            android:id="@+id/sturegister_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="填写资料"
+            android:textColor="#DC143C"
+            android:textSize="25dp" >
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="130dp"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+           >
+            <TextView
+                android:id="@+id/tv_pasword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:text="用户名:"
+                android:textColor="#0997F7"
+                android:textSize="15dp"
+                 >
+            </TextView>
+            <EditText
+                android:id="@+id/login_nickname_edit"
+                android:hint="请输入用户名"
+                android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/eee"
+            android:cursorVisible="false"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:textSize="30px" />
+        </LinearLayout>
+         <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            >
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/tv_pasword"
+                android:text="学    科:"
+                 android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="#0997F7"
+                    android:textSize="15dp" >
+
+            </TextView>
+            <TextView
+                android:id="@+id/tv_teather_subject"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:background="@color/bottom_widow_color"
+                android:gravity="center"
+                android:hint="请选择"
+                android:layout_marginLeft="5dp"
+                android:paddingRight="10dp"
+                android:drawableRight="@drawable/pulldown1"
+                android:textColorHint="@color/button_typeface_color"
+                android:textSize="15dp"
+                android:textColor="@color/button_typeface_color" >
+            </TextView>
+           </LinearLayout>
+           <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+              android:layout_marginRight="10dp"
+               >
+            <TextView
+                android:id="@+id/tv_pasword"
+                android:text="地    区:"
+                android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="#0997F7"
+                    android:textSize="15dp" >
+            </TextView>
+            <TextView
+                android:id="@+id/tv_teather_diqu"
+                android:layout_width="fill_parent"
+                    android:layout_height="48dp"
+                    android:background="@color/bottom_widow_color"
+                    android:gravity="center"
+                    android:hint="请选择"
+                    android:layout_marginLeft="5dp"
+                    android:paddingRight="10dp"
+                    android:drawableRight="@drawable/pulldown1"
+                    android:textColorHint="@color/button_typeface_color"
+                    android:textSize="15dp"
+                    android:textColor="@color/button_typeface_color" >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/tv_pasword"
+                android:text="阶   段 :"
+                android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="#0997F7"
+                    android:textSize="15dp" >
+            </TextView>
+            <TextView
+                android:id="@+id/tv_teather_jiduan"
+              android:layout_width="fill_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/bottom_widow_color"
+                    android:gravity="center"
+                    android:hint="请选择"
+                    android:paddingRight="10dp"
+                    android:drawableRight="@drawable/pulldown1"
+                    android:textColorHint="@color/button_typeface_color"
+                    android:textSize="15dp"
+                    android:textColor="@color/button_typeface_color" >
+            </TextView>
+            </LinearLayout>
+            </LinearLayout>
+    </LinearLayout>
+    <include
+        android:id="@+id/incl_buttom_anim_material"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        layout="@layout/i_bottom_navigation" />
+
+</RelativeLayout>
