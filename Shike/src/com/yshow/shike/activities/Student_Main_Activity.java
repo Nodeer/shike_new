@@ -5,15 +5,12 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
@@ -35,10 +32,12 @@ import com.yshow.shike.activities.Activity_My_Board2.Callback;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKStudent;
 import com.yshow.shike.entity.VersionModel;
+import com.yshow.shike.fragments.ContentFragment;
 import com.yshow.shike.fragments.Fragment_Find_Teacher;
 import com.yshow.shike.fragments.Fragment_Message;
 import com.yshow.shike.fragments.Fragment_My_Teacher;
 import com.yshow.shike.fragments.Fragment_Student_GuanYu;
+import com.yshow.shike.fragments.MenuFragment;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.*;
 
@@ -47,7 +46,7 @@ import java.io.File;
 /**
  * 学生登录后的主页,有我要提问,消息,我的老师,找老师4个tab
  */
-public class Student_Main_Activity extends FragmentActivity implements Callback {
+public class Student_Main_Activity extends SlidingFragmentActivity implements Callback {
 	private FragmentManager manager;
 	private FragmentTransaction ft;
 	private View undline, bac_huise;
@@ -66,8 +65,10 @@ public class Student_Main_Activity extends FragmentActivity implements Callback 
 	private WeixinManager weixinManager;
 
     private String localVersion = "";
+    private Fragment mContent;
+    private SlidingMenu sm;
 
-	@Override
+    @Override
 	protected void onNewIntent(Intent intent) {// 从"完成注册"成功注册以后的回调
 		super.onNewIntent(intent);
 		student = LoginManage.getInstance().getStudent();
@@ -80,125 +81,118 @@ public class Student_Main_Activity extends FragmentActivity implements Callback 
 	@Override
 	public void onCreate(Bundle saveInsanceState) {
 		super.onCreate(saveInsanceState);
-		setContentView(R.layout.student_main_activity);
+//		setContentView(R.layout.student_main_activity);
 		mInstance = this;
 		context = this;
-		RelativeLayout stu_main_page = (RelativeLayout) findViewById(R.id.stu_main_page);
-		weixinManager = new WeixinManager(Student_Main_Activity.this);
-		dialog = new Dilog_Share().Dilog_Anim(context, listener);
-		tv_ques = (TextView) findViewById(R.id.tv_stu_ques);
-		tv_find_tea = (TextView) findViewById(R.id.tv_find_tea);
-		tv_mess = (TextView) findViewById(R.id.tv_mess);
-		mess_num = (ImageView) findViewById(R.id.mess_num);
-		tv_my_tea = (TextView) findViewById(R.id.tv_my_tea);
-		view_button = findViewById(R.id.view_button);
-		tv_ques.setOnClickListener(listener);
-		tv_find_tea.setOnClickListener(listener);
-		tv_my_tea.setOnClickListener(listener);
-		tv_mess.setOnClickListener(listener);
-		undline = findViewById(R.id.stu_move_undline);
-		bac_huise = findViewById(R.id.stu_bac_huise);
-		tv_back = (TextView) findViewById(R.id.tv_stumain_back);
-		tv_back.setOnClickListener(listener);
-		findViewById(R.id.three_point).setOnClickListener(listener);
-		findViewById(R.id.tv_information).setOnClickListener(listener);
-		findViewById(R.id.tv_recharge).setOnClickListener(listener);
-		findViewById(R.id.tv_account_information).setOnClickListener(listener);
-		findViewById(R.id.tv_share_student).setOnClickListener(listener);
-		findViewById(R.id.tv_my_shike).setOnClickListener(listener);
-		findViewById(R.id.tv_stu_chongz).setOnClickListener(listener);
-		in_wo_de_shi_ke = (RelativeLayout) findViewById(R.id.in_wo_de_shi_ke);
-		tv_delete = (TextView) findViewById(R.id.tv_delete);
-		tv_delete.setOnClickListener(listener);
-		student = LoginManage.getInstance().getStudent();
-		if (student.getMob() != null) {
-			tv_back.setText("退出");
-			tv_back.setTextColor(context.getResources().getColor(R.color.button_typeface_color));
-		} else {
-		}
-		Init_Anim();
-		SKAsyncApiController.Sof_Info(new MyAsyncHttpResponseHandler(context, true) {
-			@Override
-			public void onSuccess(String json) {
-				super.onSuccess(json);
-				VersionModel model = SKResolveJsonUtil.getInstance().getNewVersion(json);
-				checkNewVersion(model);
-			}
-		});
+//		RelativeLayout stu_main_page = (RelativeLayout) findViewById(R.id.stu_main_page);
+//		weixinManager = new WeixinManager(Student_Main_Activity.this);
+//		dialog = new Dilog_Share().Dilog_Anim(context, listener);
+//		tv_ques = (TextView) findViewById(R.id.tv_stu_ques);
+//		tv_find_tea = (TextView) findViewById(R.id.tv_find_tea);
+//		tv_mess = (TextView) findViewById(R.id.tv_mess);
+//		mess_num = (ImageView) findViewById(R.id.mess_num);
+//		tv_my_tea = (TextView) findViewById(R.id.tv_my_tea);
+//		view_button = findViewById(R.id.view_button);
+//		tv_ques.setOnClickListener(listener);
+//		tv_find_tea.setOnClickListener(listener);
+//		tv_my_tea.setOnClickListener(listener);
+//		tv_mess.setOnClickListener(listener);
+//		undline = findViewById(R.id.stu_move_undline);
+//		bac_huise = findViewById(R.id.stu_bac_huise);
+//		tv_back = (TextView) findViewById(R.id.tv_stumain_back);
+//		tv_back.setOnClickListener(listener);
+//		findViewById(R.id.three_point).setOnClickListener(listener);
+//		findViewById(R.id.tv_information).setOnClickListener(listener);
+//		findViewById(R.id.tv_recharge).setOnClickListener(listener);
+//		findViewById(R.id.tv_account_information).setOnClickListener(listener);
+//		findViewById(R.id.tv_share_student).setOnClickListener(listener);
+//		findViewById(R.id.tv_my_shike).setOnClickListener(listener);
+//		findViewById(R.id.tv_stu_chongz).setOnClickListener(listener);
+//		in_wo_de_shi_ke = (RelativeLayout) findViewById(R.id.in_wo_de_shi_ke);
+//		tv_delete = (TextView) findViewById(R.id.tv_delete);
+//		tv_delete.setOnClickListener(listener);
+//		student = LoginManage.getInstance().getStudent();
+//		if (student.getMob() != null) {
+//			tv_back.setText("退出");
+//			tv_back.setTextColor(context.getResources().getColor(R.color.button_typeface_color));
+//		} else {
+//		}
+//		Init_Anim();
+//		SKAsyncApiController.Sof_Info(new MyAsyncHttpResponseHandler(context, true) {
+//			@Override
+//			public void onSuccess(String json) {
+//				super.onSuccess(json);
+//				VersionModel model = SKResolveJsonUtil.getInstance().getNewVersion(json);
+//				checkNewVersion(model);
+//			}
+//		});
+//
+//        PackageManager packageManager = getPackageManager();
+//        // getPackageName()是你当前类的包名，0代表是获取版本信息
+//        PackageInfo packInfo = null;
+//        try {
+//            packInfo = packageManager.getPackageInfo(getPackageName(), 0);
+//        } catch (PackageManager.NameNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        localVersion = packInfo.versionName;
+//        TextView versiontext = (TextView) findViewById(R.id.version);
+//        versiontext.setText("版本号: V"+localVersion);
 
-        PackageManager packageManager = getPackageManager();
-        // getPackageName()是你当前类的包名，0代表是获取版本信息
-        PackageInfo packInfo = null;
-        try {
-            packInfo = packageManager.getPackageInfo(getPackageName(), 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        localVersion = packInfo.versionName;
-        TextView versiontext = (TextView) findViewById(R.id.version);
-        versiontext.setText("版本号: V"+localVersion);
-
-//        initSlide();
+        initSlide();
 
 	}
 
     private void initSlide() {
-        setContentView(R.layout.layout_main);
+        setContentView(R.layout.main_frame);
 
-        // check if the content frame contains the menu frame
-//        if (findViewById(R.id.menu_frame) == null) {
-//            setBehindContentView(R.layout.menu_frame);
-//            getSlidingMenu().setSlidingEnabled(true);
-//            getSlidingMenu()
-//                    .setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-//        } else {
-//            // add a dummy view
-//            View v = new View(this);
-//            setBehindContentView(v);
-//            getSlidingMenu().setSlidingEnabled(false);
-//            getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
-//        }
+//        check if the content frame contains the menu frame
+        if (findViewById(R.id.menu_frame) == null) {
+            setBehindContentView(R.layout.menu_frame);
+            getSlidingMenu().setSlidingEnabled(true);
+            getSlidingMenu()
+                    .setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        } else {
+            // add a dummy view
+            View v = new View(this);
+            setBehindContentView(v);
+            getSlidingMenu().setSlidingEnabled(false);
+            getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+        }
 
-//        // set the Above View Fragment
-//        if (savedInstanceState != null) {
-//            mContent = getSupportFragmentManager().getFragment(
-//                    savedInstanceState, "mContent");
-//        }
-//
-//        if (mContent == null) {
-//            mContent = new ContentFragment();
-//        }
-//        getSupportFragmentManager().beginTransaction()
-//                .replace(R.id.content_frame, mContent).commit();
-//
-//        // set the Behind View Fragment
-//        getSupportFragmentManager().beginTransaction()
-//                .replace(R.id.menu_frame, new MenuFragment()).commit();
-//
-//        // customize the SlidingMenu
-//        sm = getSlidingMenu();
-//        sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-//        sm.setFadeEnabled(true);
-//        sm.setBehindScrollScale(0.1f);
-//        sm.setFadeDegree(0.25f);
-//
-//        sm.setBackgroundImage(R.drawable.img_frame_background);
-//        sm.setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
-//            @Override
-//            public void transformCanvas(Canvas canvas, float percentOpen) {
-//                float scale = (float) (percentOpen * 0.25 + 0.75);
-//                canvas.scale(scale, scale, -canvas.getWidth() / 2,
-//                        canvas.getHeight() / 2);
-//            }
-//        });
-//
-//        sm.setAboveCanvasTransformer(new SlidingMenu.CanvasTransformer() {
-//            @Override
-//            public void transformCanvas(Canvas canvas, float percentOpen) {
-//                float scale = (float) (1 - percentOpen * 0.25);
-//                canvas.scale(scale, scale, 0, canvas.getHeight() / 2);
-//            }
-//        });
+        if (mContent == null) {
+            mContent = new ContentFragment();
+        }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content_frame, mContent).commit();
+
+        // set the Behind View Fragment
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.menu_frame, new MenuFragment()).commit();
+
+        // customize the SlidingMenu
+        sm = getSlidingMenu();
+        sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+        sm.setFadeEnabled(true);
+        sm.setBehindScrollScale(0.5f);//位移.数字越大,水平位移越小
+        sm.setFadeDegree(0.5f);//透明度变化.数字越大,透明度变化越明显
+
+        sm.setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
+            @Override
+            public void transformCanvas(Canvas canvas, float percentOpen) {
+                float scale = (float) (percentOpen * 0.25 + 0.75);
+                canvas.scale(scale, scale, -canvas.getWidth() / 2,
+                        canvas.getHeight() / 2);
+            }
+        });
+
+        sm.setAboveCanvasTransformer(new SlidingMenu.CanvasTransformer() {
+            @Override
+            public void transformCanvas(Canvas canvas, float percentOpen) {
+                float scale = (float) (1 - percentOpen * 0.25);
+                canvas.scale(scale, scale, 0, canvas.getHeight() / 2);
+            }
+        });
     }
 
     private void checkNewVersion(VersionModel model) {
@@ -254,19 +248,19 @@ public class Student_Main_Activity extends FragmentActivity implements Callback 
 
 	}
 
-	@Override
-	public void onWindowFocusChanged(boolean hasFocus) {
-		super.onWindowFocusChanged(hasFocus);
-		if (hasFocus) {
-			if (startX == 0) {
-				if (student.getMob() != null) {
-					HelpUtil.showHelp(this, HelpUtil.HELP_STU_6, null);
-				} else {
-					HelpUtil.showHelp(this, HelpUtil.HELP_STU_1, null);
-				}
-			}
-		}
-	}
+//	@Override
+//	public void onWindowFocusChanged(boolean hasFocus) {
+//		super.onWindowFocusChanged(hasFocus);
+//		if (hasFocus) {
+//			if (startX == 0) {
+//				if (student.getMob() != null) {
+//					HelpUtil.showHelp(this, HelpUtil.HELP_STU_6, null);
+//				} else {
+//					HelpUtil.showHelp(this, HelpUtil.HELP_STU_1, null);
+//				}
+//			}
+//		}
+//	}
 
 	private OnClickListener listener = new OnClickListener() {
 		@Override
