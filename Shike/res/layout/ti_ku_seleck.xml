@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/register1" >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+    <TextView
+        android:id="@+id/iv_tiku_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/register_student_schoolage_false"
+        android:text="文件夹"
+        android:gravity="center"
+        android:textColor="@color/button_typeface_color"
+        android:textSize="15dp"
+        />
+        <TextView
+        android:id="@+id/iv_tiku_time"
+        android:layout_below="@+id/iv_tiku_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/register_student_schoolage_false"
+        android:text="时间"
+        android:gravity="center"
+        android:textColor="@color/button_typeface_color"
+        android:textSize="15dp"
+        />
+    </RelativeLayout>
+    
+   <RelativeLayout
+            android:id="@+id/rl_tiku"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="-18dp"
+            android:padding="5dp"
+            android:background="@color/bottom_widow_color" >
+                <ImageView
+                    android:id="@+id/iv_tiku_anim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:paddingBottom="30dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="6dp"
+                    android:src="@drawable/select_trees_points" />
+
+                <TextView
+                    android:id="@+id/iv_tiku_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="52dp"
+                    android:layout_toLeftOf="@+id/iv_tiku_confirm"
+                    android:drawablePadding="4dp"
+                    android:drawableTop="@drawable/select_back"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="返回"
+                    android:textColor="@color/button_typeface_color"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/iv_tiku_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="39dp"
+                    android:layout_toLeftOf="@+id/iv_tiku_anim"
+                    android:drawablePadding="4dp"
+                    android:drawableTop="@drawable/select_confirm1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="返回"
+                    android:textColor="@color/button_typeface_color"
+                    android:textSize="10dp" />
+        </RelativeLayout>
+
+</RelativeLayout>

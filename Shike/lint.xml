@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="CommitPrefEdits" severity="ignore" />
+    <issue id="ContentDescription" severity="ignore" />
+    <issue id="CutPasteId" severity="ignore">
+        <ignore path="src/com/example/shike/activities/Activity_Message_Three.java" />
+        <ignore path="src/com/example/shike/activities/Activity_Ttudent_Tool.java" />
+        <ignore path="src/com/example/shike/activities/LookupPassword.java" />
+        <ignore path="src/com/example/shike/fragments/Fragment_Star_Teacher.java" />
+        <ignore path="src/com/example/shike/fragments/Fragment_Teacher_My_Student.java" />
+    </issue>
+    <issue id="Deprecated" severity="ignore" />
+    <issue id="DisableBaselineAlignment" severity="ignore">
+        <ignore path="res/layout/activity_my_board.xml" />
+        <ignore path="res/layout/activity_teacher_info.xml" />
+    </issue>
+    <issue id="DuplicateIds" severity="ignore">
+        <ignore path="res/layout/bottom_navigation.xml" />
+    </issue>
+    <issue id="HandlerLeak" severity="ignore">
+        <ignore path="src/com/example/shike/activities/Activity_Message_Three.java" />
+        <ignore path="src/com/example/shike/activities/Activity_My_Board.java" />
+        <ignore path="src/com/example/shike/activities/Activity_ReadQuestion.java" />
+    </issue>
+    <issue id="HardcodedText" severity="ignore" />
+    <issue id="InefficientWeight" severity="ignore">
+        <ignore path="res/layout/sk_fragment_userlogin.xml" />
+    </issue>
+    <issue id="InlinedApi">
+        <ignore path="src/com/yshow/shike/fragments/UserRegisterFragment.java" />
+        <ignore path="src/com/yshow/shike/utils/MediaRecorderUtil.java" />
+    </issue>
+    <issue id="NestedScrolling">
+        <ignore path="res/layout/activity_que_board2.xml" />
+    </issue>
+    <issue id="NestedWeights">
+        <ignore path="res/layout/activity_teacher_info.xml" />
+        <ignore path="res/layout/activty_student_info.xml" />
+    </issue>
+    <issue id="NewApi" severity="ignore" />
+    <issue id="Orientation">
+        <ignore path="res/layout/fragment_teacher.xml" />
+    </issue>
+    <issue id="PxUsage" severity="ignore" />
+    <issue id="ResourceAsColor" severity="ignore">
+        <ignore path="src/com/example/shike/activities/Activity_Message_Three.java" />
+        <ignore path="src/com/example/shike/activities/Activity_Ttudent_Tool.java" />
+        <ignore path="src/com/example/shike/activities/Teacher_Add_Tool.java" />
+        <ignore path="src/com/example/shike/activities/WebActivity.java" />
+        <ignore path="src/com/yshow/shike/activities/Activity_MyShiKe.java" />
+        <ignore path="src/com/yshow/shike/activities/Activity_Teather_Material_Two.java" />
+        <ignore path="src/com/yshow/shike/activities/Login_Reg_Activity.java" />
+        <ignore path="src/com/yshow/shike/activities/Student_Main_Activity.java" />
+        <ignore path="src/com/yshow/shike/fragments/Fragment_Search_Teacher.java" />
+        <ignore path="src/com/yshow/shike/fragments/Fragment_Teacher_Zhanghu_Kaihu.java" />
+    </issue>
+    <issue id="ScrollViewSize">
+        <ignore path="res/layout/fragment_teacher.xml" />
+        <ignore path="res/layout/sk_activity_choose_towrow.xml" />
+    </issue>
+    <issue id="SdCardPath" severity="ignore">
+        <ignore path="src/com/example/shike/activities/Activity_My_Board.java" />
+    </issue>
+    <issue id="SetJavaScriptEnabled">
+        <ignore path="src/com/example/shike/activities/WebActivity.java" />
+        <ignore path="src/com/yshow/shike/activities/WebActivity.java" />
+    </issue>
+    <issue id="ShowToast" severity="ignore">
+        <ignore path="src/com/example/shike/activities/Activity_My_Board.java" />
+        <ignore path="src/com/example/shike/activities/Activity_Ttudent_Tool.java" />
+        <ignore path="src/com/example/shike/activities/StudentRegisterActivity.java" />
+        <ignore path="src/com/example/shike/fragments/UserLoginFragment.java" />
+    </issue>
+    <issue id="SpUsage" severity="ignore">
+        <ignore path="res/layout/activity_phone.xml" />
+    </issue>
+    <issue id="TextFields" severity="ignore">
+        <ignore path="res/layout/sk_fragment_stumess.xml" />
+    </issue>
+    <issue id="UnknownIdInLayout" severity="ignore" />
+    <issue id="UseCompoundDrawables" severity="ignore" />
+    <issue id="UseValueOf">
+        <ignore path="src/com/yshow/shike/fragments/Fragment_Teacher_Zhanghu_Kaihu.java" />
+    </issue>
+    <issue id="UselessLeaf" severity="ignore" />
+    <issue id="UselessParent" severity="ignore" />
+    <issue id="ValidFragment">
+        <ignore path="src/com/example/shike/fragments/UserLoginFragment.java" />
+        <ignore path="src/com/yshow/shike/fragments/Fragment_Account_Prepraid.java" />
+    </issue>
+    <issue id="ViewConstructor">
+        <ignore path="src/com/example/shike/bottompopwindow/SelectPicPopupWindow.java" />
+    </issue>
+    <issue id="WorldReadableFiles" severity="ignore" />
+</lint>

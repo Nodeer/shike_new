@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.yshow.shike"
+          android:versionCode="4"
+          android:versionName="1.3">
+    <uses-sdk
+            android:minSdkVersion="8"
+            android:targetSdkVersion="19"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <!-- 支付用的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <application
+            android:name="com.yshow.shike.UIApplication"
+            android:allowBackup="true"
+            android:icon="@drawable/icon"
+            android:label="@string/app_name"
+            android:largeHeap="true"
+            android:theme="@style/AppTheme">
+
+        <meta-data android:value="53acfc3d56240bb78d09f9e2" android:name="UMENG_APPKEY"></meta-data>
+        <meta-data android:value="ShikeAndroid" android:name="UMENG_CHANNEL"/>
+
+        <activity
+                android:name="com.yshow.shike.activities.StartingUp"
+                android:label="@string/app_name"
+                android:stateNotNeeded="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- 支付宝Activity声明 -->
+        <activity
+                android:name="com.alipay.android.app.sdk.WapPayActivity"
+                android:screenOrientation="portrait"/>
+        <!-- 微信分享 -->
+        <activity
+                android:name="com.yshow.shike.wxapi.WXEntryActivity"
+                android:exported="true"
+                android:screenOrientation="portrait"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity
+                android:name="com.yshow.shike.activities.My_Question_Count_Two"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Age_Person_Info"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustPan"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_TiKu_second"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Teather_Ti_Ku"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustPan"/>
+        <activity
+                android:name="com.yshow.shike.activities.Com_Per_Data"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.WebActivity"
+                android:screenOrientation="portrait"/>
+        <activity android:name="com.yshow.shike.activities.Activity_My_SkSeting"/>
+        <activity android:name="com.yshow.shike.fragments.Fragment_Teacher_About_Shike"/>
+        <activity
+                android:name="com.yshow.shike.fragments.Fragment_Student_GuanYu"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_My_Teacher_Info"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Forget_Pass_Activity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_TiKu_Commit"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_File_four"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Student_Account_Message"
+                android:screenOrientation="portrait"/>
+        <activity android:name="com.yshow.shike.activities.Activity_Teacher_Account"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Teacher_zhanghu"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Teather_Main_Activity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                />
+        <activity
+                android:name="com.yshow.shike.activities.Activity_File_Three"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Acticity_Ttudent_Info"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Recharge"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Meggage_Teacher_Info"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Data_SubJect"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Tea_chg_Mon_Acy"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Tea_chg_Comm_Act"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Teather_Ti_Ku_seleck"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.My_Question_Count"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Compain_Teather"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Teacher_Add_Tool"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Login_Reg_Activity"
+                android:screenOrientation="portrait"
+                />
+        <activity
+                android:name="com.yshow.shike.activities.StudentRegisterActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.fragments.Fragment_Region"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Thank_Teacher"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.TeacherRegisterActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Recommend_Teacher"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Teacher_Info"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Stu_Tool_Sele"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Tea_Tool_Sele"
+                android:screenOrientation="portrait"/>
+        <activity android:name="com.yshow.shike.activities.Stu_Paint_Activity"
+                  android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.LookupPassword"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.PhoneProving"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.PasswordSetting"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Teather_Material"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Teather_Material_Two"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_MyShiKe"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_My_Board"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Message_Three"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Teather_ShiKe"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.ImageActivity"
+                android:screenOrientation="portrait"
+                />
+        <activity
+                android:name="com.yshow.shike.activities.Student_Main_Activity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Stu_FenLei_Findtea"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustPan"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_My_Board2"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Teather_Material_Three"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_SelectSubjectOrTeacher"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Que_board2"
+                android:windowSoftInputMode="adjustPan"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Board_File"
+                android:windowSoftInputMode="adjustPan"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_ReadQuestion"
+                android:screenOrientation="portrait"/>
+
+        <service android:name="com.yshow.shike.service.MySKService">
+        </service>
+
+
+        <!-- push应用定义消息receiver声明 -->
+        <receiver android:name="com.yshow.shike.push.MyPushMessageReceiver">
+            <intent-filter>
+                <!-- 接收push消息 -->
+                <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+                <!-- 接收bind,unbind,fetch,delete等反馈消息 -->
+                <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+            </intent-filter>
+        </receiver>
+
+        <!-- push必须的receviver和service声明 -->
+        <receiver android:name="com.baidu.android.pushservice.PushServiceReceiver"
+                  android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
+                <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.baidu.android.pushservice.RegistrationReceiver"
+                  android:process=":bdservice_v1">
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.METHOD" />
+                <action android:name="com.baidu.android.pushservice.action.BIND_SYNC" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <service
+                android:name="com.baidu.android.pushservice.PushService"
+                android:exported="true"
+                android:process=":bdservice_v1"  >
+            <intent-filter>
+                <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
+            </intent-filter>
+        </service>
+        <!-- push结束 -->
+
+        <!-- 在百度开发者中心查询应用的API Key -->
+        <meta-data android:name="api_key" android:value="ePcKsunwv1KfNrcS4FNlAGIZ" />
+
+    </application>
+
+</manifest>

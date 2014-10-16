@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/register1"
+    android:orientation="vertical" >
+   <LinearLayout
+	   android:id="@+id/zizuotimu"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:padding="@dimen/pd_tp_bm"
+       android:background="@color/bottom_widow_color"
+       >
+       <TextView
+          android:id="@+id/tv_four_back"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:drawablePadding="3dp"
+          android:gravity="center"
+          android:text="返回"
+          android:textColor="@color/button_typeface_color"
+          android:textSize="@dimen/share_text" />
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/button_typeface_color"
+	        android:text="制作题目"
+	        android:gravity="center"
+	        android:layout_weight="1"
+	        android:textSize="@dimen/title_text" 
+	        />
+	    <TextView
+          android:id="@+id/tv_four_comfing"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:text="确定"
+          android:textColor="@color/button_typeface_color"
+          android:textSize="@dimen/share_text" />
+    </LinearLayout>
+<!--     <TextView
+        android:id="@+id/tiban"
+        android:layout_below="@+id/zizuotimu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red_color"
+        android:text="题板"
+        android:paddingBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="25dp"
+        /> -->
+    <ImageView
+        android:id="@+id/iv_file_picture"
+        android:layout_below="@+id/zizuotimu"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="@dimen/pd_tp_bm"
+        android:layout_marginLeft="@dimen/pd_tp_bm"
+        android:padding="1dp"
+        android:background="@drawable/teather_bg_message_image"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/iv_file_picture"
+        android:layout_marginTop="10dp"
+        >
+     <EditText
+         android:id="@+id/tv_timu_name"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:background="@color/bottom_widow_color"
+         android:hint="输入标题"
+         android:paddingBottom="3dp"
+         android:paddingLeft="10dp"
+         android:paddingRight="10dp"
+         android:paddingTop="3dp"
+         android:textColorHint="@color/button_typeface_color"
+         android:textSize="15dp"
+         android:textColor="@color/button_typeface_color" 
+        />
+        <TextView
+           android:id="@+id/et_file_name"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+           android:background="@color/bottom_widow_color"
+           android:drawablePadding="10dp"
+           android:drawableRight="@drawable/pulldown1"
+           android:hint="选择文件夹"
+           android:paddingBottom="3dp"
+           android:paddingLeft="10dp"
+           android:paddingRight="10dp"
+           android:paddingTop="3dp"
+           android:textColorHint="@color/button_typeface_color"
+           android:textSize="15dp"
+           android:textColor="@color/button_typeface_color"
+        />
+        </LinearLayout>
+
+  <!-- <RelativeLayout
+      android:id="@+id/rl_four_anim"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_marginBottom="-20dp"
+      android:padding="3dp"
+      android:background="@color/bottom_widow_color"
+      android:gravity="center" >
+
+      <ImageView
+          android:id="@+id/iv_four_anim"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="10dp"
+          android:padding="10dp"
+           android:layout_alignParentRight="true"
+          android:src="@drawable/select_trees_points"
+          android:textSize="13dp" />
+
+      <TextView
+          android:id="@+id/tv_four_comfing"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="63dp"
+          android:layout_toLeftOf="@+id/iv_four_anim"
+          android:drawablePadding="3dp"
+          android:drawableTop="@drawable/select_confirm1"
+          android:gravity="center"
+          android:text="确定"
+          android:textColor="@color/button_typeface_color"
+          android:textSize="13dp" />
+      <TextView
+          android:id="@+id/tv_four_back"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="110dp"
+          android:drawablePadding="3dp"
+          android:drawableTop="@drawable/select_confirm"
+          android:gravity="center"
+          android:text="返回"
+          android:textColor="@color/button_typeface_color"
+          android:textSize="13dp" />
+  </RelativeLayout> -->
+
+</RelativeLayout>

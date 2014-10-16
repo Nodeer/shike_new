@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/register1"
+    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="按时间"
+        android:background="@drawable/ti_ku"
+        android:textColor="#FFFFFF"
+        android:textSize="29dp" />
+<RelativeLayout
+        android:id="@+id/rl_data_relativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="-21dp"
+        android:background="#34CD2E"
+        android:padding="5dp" >
+        <ImageView
+            android:id="@+id/iv_data_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:src="@drawable/select_trees_points"
+            android:textSize="13dp" />
+        <TextView
+            android:id="@+id/tv_data_comfige"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_data_animation"
+            android:layout_marginRight="28dp"
+            android:layout_toLeftOf="@+id/iv_data_animation"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/select_confirm1"
+            android:text="删除"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="13dp" />
+        <TextView
+            android:id="@+id/tv_data_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="85dp"
+            android:layout_toLeftOf="@+id/tv_data_comfige"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/select_confirm"
+            android:text="返回"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="13dp" />
+    </RelativeLayout>
+<TextView
+    android:id="@+id/tv_subject"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/tv_data"
+    android:layout_below="@+id/tv_data"
+    android:layout_marginTop="20dp"
+   android:background="@drawable/ti_ku"
+    android:gravity="center"
+    android:text="按学科"
+    android:textColor="#FFFFFF"
+    android:textSize="29dp" />
+
+</RelativeLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="top_title_color">#185B9B</color>
+    <color name="sk_student_main_color">#34CD2E</color>
+    <color name="stu_main_color_lucency">#CC34CD2E</color>
+    <color name="boart_three_color">#EE2C2C</color>
+    <color name="button_teather_typeface_color">#1874CD</color>
+    <color name="button_typeface_color">#FFFFFF</color>
+    <color name="red_color">#FF3030</color>
+     <color name="bottom_widow_color">#3A5FCD</color>
+     <color name="tea_add_remark_lucency">#CC3A5FCD</color>
+      <color name="et_file_name">#1C86EE</color>
+   <color name="reg">#DC143C</color>
+     <color name="log">#1874CD</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#CFCFCF</color>
+    <color name="blue">#5da9ff</color>
+    <color name="green1">#6ea822</color>
+    <color name="tr_80">#cc000000</color>
+    <color name="qian_lan">#1874CD</color>
+    <color name="YD_BAC">#8f000000</color>
+    <color name="reg_color">#fff600</color>
+     <color name="reg_finsh">#21acfd</color>
+</resources>

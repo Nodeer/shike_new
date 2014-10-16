@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/register" >
+
+    <LinearLayout
+        android:id="@+id/rl_tillte"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/tv_tuijian_tea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="推荐老师"
+            android:textColor="@color/reg"
+            android:textSize="15dp" />
+    <TextView
+        android:id="@+id/tv_start_tea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="明星老师"
+        android:textColor="@color/sk_student_main_color"
+        android:textSize="15dp" />
+     <TextView
+        android:id="@+id/tv_online_tea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="在线老师"
+        android:textColor="@color/sk_student_main_color"
+        android:textSize="15dp" /> 
+    <TextView
+        android:id="@+id/tv_hunt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingTop="5dp"
+        android:text="搜索"
+        android:gravity="center"
+        android:textColor="@color/sk_student_main_color"
+        android:textSize="15dp" />
+    </LinearLayout>
+    <View
+           android:id="@+id/find_tea_huise"
+           android:layout_width="wrap_content"
+           android:layout_height="60dp"
+           android:layout_alignBottom="@+id/undine_linearLayout"
+           android:layout_alignParentLeft="true"
+           android:background="#578f8f8f" />
+    <LinearLayout
+        android:id="@+id/undine_linearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_tillte"
+        android:layout_marginBottom="10dp"
+        android:background="#CFCFCF" >
+        <View
+            android:id="@+id/stu_findtea_undline"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="@color/reg" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/find_tea_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/undine_linearLayout"
+        android:orientation="vertical"
+        android:layout_above="@+id/li_tea_fenlei_back"
+        android:layout_marginBottom="@dimen/margin_topandbuttom">
+    </LinearLayout>
+     <include
+         android:id="@+id/li_tea_fenlei_back"
+         android:layout_alignParentBottom="true"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         layout="@layout/buttom_back"
+         />
+</RelativeLayout>
