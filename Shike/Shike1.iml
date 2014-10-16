@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="APK_PATH" value="/." />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/.classpath" />
+      <excludeFolder url="file://$MODULE_DIR$/.project" />
+      <excludeFolder url="file://$MODULE_DIR$/.settings" />
+      <excludeFolder url="file://$MODULE_DIR$/.unaligned" />
+      <excludeFolder url="file://$MODULE_DIR$/AndroidManifest.xml" />
+      <excludeFolder url="file://$MODULE_DIR$/MyShiKe1.iml" />
+      <excludeFolder url="file://$MODULE_DIR$/Shike.iml" />
+      <excludeFolder url="file://$MODULE_DIR$/Shike1.iml" />
+      <excludeFolder url="file://$MODULE_DIR$/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/doc" />
+      <excludeFolder url="file://$MODULE_DIR$/ic_launcher-web.png" />
+      <excludeFolder url="file://$MODULE_DIR$/key" />
+      <excludeFolder url="file://$MODULE_DIR$/libs" />
+      <excludeFolder url="file://$MODULE_DIR$/lint.xml" />
+      <excludeFolder url="file://$MODULE_DIR$/local.properties" />
+      <excludeFolder url="file://$MODULE_DIR$/proguard-project.txt" />
+      <excludeFolder url="file://$MODULE_DIR$/project.properties" />
+      <excludeFolder url="file://$MODULE_DIR$/res" />
+      <excludeFolder url="file://$MODULE_DIR$/shikewang.iml" />
+      <excludeFolder url="file://$MODULE_DIR$/src" />
+    </content>
+    <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="libs1" level="project" />
+    <orderEntry type="module" module-name="alipay" />
+    <orderEntry type="module" module-name="SlideLib" />
+  </component>
+</module>
+
