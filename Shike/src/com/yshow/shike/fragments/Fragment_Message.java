@@ -44,9 +44,7 @@ public class Fragment_Message extends Fragment implements OnScrollListener {
 	private static Fragment_Message instance = null;
 
 	public synchronized static Fragment_Message getInstance() {
-		if (instance == null) {
 			instance = new Fragment_Message();
-		}
 		return instance;
 	}
 

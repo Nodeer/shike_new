@@ -2,13 +2,23 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+
+
+
+
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
+
+
+
+
+
         -->
     </style>
 
@@ -22,7 +32,9 @@
         <style name="AppBaseTheme1">
         <item name="android:windowNoTitle">true</item>
         <item name="android:w">true</item>
-    </style>
+    </style>
+
+
     -->
     <style name="AppTheme" parent="android:Theme.Light" />
 
@@ -79,6 +91,45 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="list_cell_divider">
+        <item name="android:background">@color/ui_bg_divider</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">2.0px</item>
+    </style>
+
+    <style name="list_cell_divider_vertical">
+        <item name="android:background">@color/ui_bg_divider</item>
+        <item name="android:layout_width">2.0px</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+
+    <style name="text_14_green">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@drawable/text_color_green</item>
+    </style>
+
+    <style name="text_14_white">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="text_20_white">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="text_30_white">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="text_40_white">
+        <item name="android:textSize">40dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="text_50_white">
+        <item name="android:textSize">50dp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

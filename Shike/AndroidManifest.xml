@@ -97,6 +97,11 @@
                 android:screenOrientation="portrait"
                 />
         <activity
+                android:name="com.yshow.shike.activities.MessageActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                />
+        <activity
                 android:name="com.yshow.shike.activities.Activity_File_Three"
                 android:screenOrientation="portrait"/>
         <activity
@@ -215,6 +220,9 @@
                 android:windowSoftInputMode="adjustPan"/>
         <activity
                 android:name="com.yshow.shike.activities.Activity_ReadQuestion"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.FindTeacherActivity"
                 android:screenOrientation="portrait"/>
 
         <service android:name="com.yshow.shike.service.MySKService">
