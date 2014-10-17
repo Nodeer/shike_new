@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="bin">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/AliPay/bin/alipay_lib.jar!/" />
-      <root url="jar://$PROJECT_DIR$/AliPay/bin/msp_lib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/alipay/bin/alipay_lib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/alipay/bin/msp_lib.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

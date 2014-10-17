@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Shike/Shike.iml" filepath="$PROJECT_DIR$/Shike/Shike.iml" />
       <module fileurl="file://$PROJECT_DIR$/SlideLib/SlideLib.iml" filepath="$PROJECT_DIR$/SlideLib/SlideLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AliPay/alipay.iml" filepath="$PROJECT_DIR$/AliPay/alipay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alipay/alipay.iml" filepath="$PROJECT_DIR$/alipay/alipay.iml" />
     </modules>
   </component>
 </project>
