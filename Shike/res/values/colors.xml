@@ -31,20 +31,20 @@
 
 
     <!--学生侧边栏按钮颜色-->
-    <color name="stu_slide_btn1_bg_nor">#5db887</color>
-    <color name="stu_slide_btn1_bg_press">#4da877</color>
-    <color name="stu_slide_btn2_bg_nor">#7cb873</color>
-    <color name="stu_slide_btn2_bg_press">#6ca863</color>
-    <color name="slide_btn3_bg_nor">#82b4ed</color>
-    <color name="slide_btn3_bg_press">#72a4dd</color>
-    <color name="slide_btn4_bg_nor">#b588c2</color>
-    <color name="slide_btn4_bg_press">#a578b2</color>
-    <color name="slide_btn5_bg_nor">#d1aaa3</color>
-    <color name="slide_btn5_bg_press">#c19a93</color>
-    <color name="slide_btn6_bg_nor">#d6a7bb</color>
-    <color name="slide_btn6_bg_press">#c697ab</color>
-    <color name="slide_btn7_bg_nor">#bbae9e</color>
-    <color name="slide_btn7_bg_press">#ab9e8e</color>
+    <color name="stu_slide_btn1_bg_nor">#87b85d</color>
+    <color name="stu_slide_btn1_bg_press">#77a84d</color>
+    <color name="stu_slide_btn2_bg_nor">#73b87c</color>
+    <color name="stu_slide_btn2_bg_press">#63a86c</color>
+    <color name="slide_btn3_bg_nor">#edb482</color>
+    <color name="slide_btn3_bg_press">#dda472</color>
+    <color name="slide_btn4_bg_nor">#c288b5</color>
+    <color name="slide_btn4_bg_press">#b278a5</color>
+    <color name="slide_btn5_bg_nor">#a3aad1</color>
+    <color name="slide_btn5_bg_press">#939ac1</color>
+    <color name="slide_btn6_bg_nor">#bba7d6</color>
+    <color name="slide_btn6_bg_press">#ab97c6</color>
+    <color name="slide_btn7_bg_nor">#9eaebb</color>
+    <color name="slide_btn7_bg_press">#8e9eab</color>
 
     <color name="tea_slide_btn1_bg_nor">#529cd1</color>
     <color name="tea_slide_btn1_bg_press">#428cc1</color>

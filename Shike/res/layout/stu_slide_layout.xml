@@ -62,7 +62,7 @@
                 <RelativeLayout
                     android:layout_width="110dp"
                     android:clickable="true"
-                    android:background="@drawable/stu_slide_btn2_bg"
+                    android:background="@drawable/stu_slide_btn1_bg"
                     android:id="@+id/find_tea_btn"
                     android:layout_height="110dp">
 

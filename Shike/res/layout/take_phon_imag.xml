@@ -1,48 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="fill_parent"
-             android:layout_height="fill_parent"
-             android:id="@+id/rootview"
-             android:background="@color/button_typeface_color">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/stu_take_phone"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="fill_parent">
+
     <RelativeLayout
-            android:id="@+id/stu_take_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent">
-        <LinearLayout
-                android:id="@+id/li_take_phon_back"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:background="@color/sk_student_main_color"
-                >
-            <TextView
-                    android:id="@+id/tv_tool_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="返回"
-                    android:textColor="@color/button_typeface_color"
-                    android:textSize="@dimen/share_text"/>
-            <TextView
-                    android:id="@+id/action_settings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:paddingRight="35dp"
-                    android:text="提问"
-                    android:gravity="center"
-                    android:textColor="@color/button_typeface_color"
-                    android:textSize="25dp"/>
-        </LinearLayout>
+        android:id="@+id/li_take_phon_back"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp">
+
         <ImageView
-                android:id="@+id/iv_take_phon"
+            android:id="@+id/tv_tool_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/icon_back" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/action_settings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="85dp"
-                android:layout_below="@id/li_take_phon_back"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:src="@drawable/pai_zhao"/>
+                android:layout_weight="2"
+                android:text="第一步:"
+                style="@style/text_20_gray"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/action_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="拍照提问"
+                style="@style/text_20_black"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+
     </RelativeLayout>
-</FrameLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="60dp"
+        android:background="@color/main_bg">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/stu_slide_btn1_bg"
+            android:layout_marginRight="40dp"
+            android:padding="20dp"
+            android:id="@+id/camera_btn"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/icon_ask_ques_big"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="点此拍照"
+                    style="@style/text_30_white" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/stu_slide_btn2_bg"
+            android:id="@+id/restudy_btn"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/icon_restudy_big"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="相机选择"
+                    style="@style/text_30_white" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>
