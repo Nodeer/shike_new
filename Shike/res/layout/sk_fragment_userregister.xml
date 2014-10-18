@@ -1,59 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-    <LinearLayout
-        android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:orientation="vertical" >
-        <LinearLayout
-            android:id="@+id/student_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/studentbacgound" 
-            android:orientation="vertical">
+        android:text="注    册"
+        android:background="@color/white"
+        style="@style/text_20_black"
+        android:gravity="center"
+        android:padding="20dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_bg"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/stu_slide_btn1_bg"
+            android:layout_marginRight="40dp"
+            android:padding="20dp"
+            android:id="@+id/ask_question_btn"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/icon_ask_ques_big"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="马上提问"
+                    style="@style/text_30_white" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/stu_slide_btn2_bg"
+            android:id="@+id/stu_reg_btn"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/icon_restudy_big"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="学生注册"
+                    style="@style/text_30_white" />
+            </LinearLayout>
+        </RelativeLayout>
+
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/student_register"
-            android:layout_gravity="center"
-             >
-        </ImageView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我是学生"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="center"
-            />
-       </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/teacherbacgound" 
-             android:layout_marginTop="20dp"
-            android:orientation="vertical">
-        <ImageView
-            android:id="@+id/teacher_register" 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/teacher"
-            android:layout_gravity="center"
-             >
-        </ImageView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我是老师"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="center"
-            />
-       </LinearLayout>
-   </LinearLayout>
+            android:src="@drawable/reg_divider_img" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/tea_slide_btn1_bg"
+            android:layout_marginRight="40dp"
+            android:padding="20dp"
+            android:id="@+id/tea_reg_btn"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/make_topic_big"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="老师注册"
+                    style="@style/text_30_white" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/slide_img"
+        android:scaleType="fitXY"
+        android:src="@drawable/top_slide_img_up" />
+
 </LinearLayout>

@@ -7,30 +7,30 @@
 
     <FrameLayout
         android:layout_width="fill_parent"
-        android:padding="20dp"
+        android:padding="10dp"
         android:background="@drawable/slide_up_bg"
         android:layout_height="100dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
+            android:layout_height="fill_parent">
 
             <ImageView
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:id="@+id/stu_headicon"
-                android:layout_height="80dp" />
+                android:layout_height="60dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_gravity="center_vertical"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/text_14_white"
+                    style="@style/text_14_black"
                     android:id="@+id/username"
                     android:text="用户名:阿童木" />
 
@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/grade"
-                    style="@style/text_14_white"
+                    style="@style/text_14_black"
                     android:layout_marginTop="5dp"
                     android:text="授    课:小学一年级" />
 
@@ -46,7 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/fenbi_num"
-                    style="@style/text_14_white"
+                    style="@style/text_14_black"
                     android:layout_marginTop="5dp"
                     android:text="粉笔数:100" />
             </LinearLayout>
@@ -70,8 +70,8 @@
                 <RelativeLayout
                     android:layout_width="110dp"
                     android:clickable="true"
-                    android:background="@drawable/stu_slide_btn2_bg"
-                    android:id="@+id/find_tea_btn"
+                    android:background="@drawable/tea_slide_btn1_bg"
+                    android:id="@+id/get_timu_btn"
                     android:layout_height="110dp">
 
                     <LinearLayout
@@ -91,7 +91,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             style="@style/text_14_white"
-                            android:text="找老师" />
+                            android:text="接题目" />
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -100,8 +100,8 @@
                     android:layout_width="110dp"
                     android:clickable="true"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/restudy_btn"
-                    android:background="@drawable/stu_slide_btn2_bg"
+                    android:id="@+id/exchange_btn"
+                    android:background="@drawable/tea_slide_btn2_bg"
                     android:layout_height="110dp">
 
                     <LinearLayout
@@ -121,7 +121,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             style="@style/text_14_white"
-                            android:text="复习" />
+                            android:text="兑换" />
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -157,7 +157,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             style="@style/text_14_white"
-                            android:text="账户充值" />
+                            android:text="账户明细" />
                     </LinearLayout>
 
                 </RelativeLayout>

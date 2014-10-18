@@ -42,7 +42,7 @@ public class YD {
    }
    public boolean getYD(Context context,String Key,Boolean Value){
 	   FileService fileService = new FileService(context);
-	   boolean SYD = fileService.putBoolean(context, Key, Value);
+	   boolean SYD = fileService.putBoolean(Key, Value);
 	   return SYD;
    }
 }

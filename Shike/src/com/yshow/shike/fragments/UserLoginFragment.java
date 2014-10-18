@@ -107,7 +107,7 @@ public class UserLoginFragment extends Fragment implements OnClickListener {
 							instance.setmLoginSuccess(true);
 							SKStudent student = SKResolveJsonUtil.getInstance().resolveLoginInfo(json);
 							instance.setStudent(student);
-							fileService.putBoolean(context, "is_tea", student.getTypes().equals("1"));
+							fileService.putBoolean("is_tea", student.getTypes().equals("1"));
 							Bundle bundle = new Bundle();
 							//如果不是老师
 							if (!LoginManage.getInstance().isTeacher(context)) {

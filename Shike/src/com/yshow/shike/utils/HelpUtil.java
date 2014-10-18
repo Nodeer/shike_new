@@ -92,7 +92,7 @@ public class HelpUtil {
                 break;
         }
         sPopWindow.setContentView(content);
-        fileService.putBoolean(context, "help" + type, true);
+        fileService.putBoolean("help" + type, true);
         if(root==null){
             sPopWindow.showAtLocation(context.getWindow().getDecorView(), Gravity.NO_GRAVITY, 0, 0);
         }else{

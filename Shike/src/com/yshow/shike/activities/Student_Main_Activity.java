@@ -179,6 +179,7 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
                 canvas.scale(scale, scale, 0, canvas.getHeight() / 2);
             }
         });
+        startService(new Intent(this, MySKService.class));
     }
 
 
@@ -217,22 +218,6 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
         request.setDescription(url);
         downloadManager.enqueue(request);
         Toast.makeText(Student_Main_Activity.this, "开始下载新版本", Toast.LENGTH_SHORT).show();
-    }
-
-    private void Init_Anim() {
-        // 初始化红线的长度
-        mea_view = ScreenSizeUtil.getScreenWidth(context, 4);
-        int view_hig = ScreenSizeUtil.Dp2Px(context, 48);
-        layoutParams = new RelativeLayout.LayoutParams(mea_view, view_hig);
-        LayoutParams params = new LinearLayout.LayoutParams(mea_view, 2);
-        bac_huise.setLayoutParams(layoutParams);
-        undline.setLayoutParams(params);
-        manager = getSupportFragmentManager();
-        ft = manager.beginTransaction();
-        ft.replace(R.id.content, new Stu_madequestionFragment());
-        ft.commit();
-        startService(new Intent(this, MySKService.class));
-
     }
 
 //	@Override

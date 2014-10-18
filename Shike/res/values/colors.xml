@@ -8,13 +8,18 @@
     <color name="button_teather_typeface_color">#1874CD</color>
     <color name="button_typeface_color">#FFFFFF</color>
     <color name="red_color">#FF3030</color>
+    <color name="red_btn_bg">#e25661</color>
+    <color name="red_btn_press_bg">#c25661</color>
     <color name="bottom_widow_color">#3A5FCD</color>
     <color name="tea_add_remark_lucency">#CC3A5FCD</color>
     <color name="et_file_name">#1C86EE</color>
     <color name="reg">#DC143C</color>
     <color name="log">#1874CD</color>
     <color name="white">#ffffff</color>
-    <color name="gray">#CFCFCF</color>
+    <color name="black">#000000</color>
+    <color name="text_gray">#999999</color>
+    <color name="gray">#999999</color>
+    <color name="btn_stroke_gray">#cccccc</color>
     <color name="blue">#5da9ff</color>
     <color name="green1">#6ea822</color>
     <color name="tr_80">#cc000000</color>
@@ -41,10 +46,10 @@
     <color name="slide_btn7_bg_nor">#bbae9e</color>
     <color name="slide_btn7_bg_press">#ab9e8e</color>
 
-    <color name="tea_slide_btn1_bg_nor">#d19c52</color>
-    <color name="tea_slide_btn1_bg_press">#c18c42</color>
-    <color name="tea_slide_btn2_bg_nor">#b57a41</color>
-    <color name="tea_slide_btn2_bg_press">#a56a31</color>
+    <color name="tea_slide_btn1_bg_nor">#529cd1</color>
+    <color name="tea_slide_btn1_bg_press">#428cc1</color>
+    <color name="tea_slide_btn2_bg_nor">#417ab5</color>
+    <color name="tea_slide_btn2_bg_press">#316aa5</color>
 
 
 

@@ -52,7 +52,7 @@ public class Auto_Login_User {
                         student.setTypes("-1");
                         student.setUid(auTo_Pase.getUid());
                         LoginManage.getInstance().setStudent(student);
-                        save_auto_uid.putBoolean(context, "is_tea", false);
+                        save_auto_uid.putBoolean("is_tea", false);
                         com.yshow.shike.utils.Dialog.Intent(context, Student_Main_Activity.class);
                         ((Activity)context).finish();
 					} else {
@@ -60,7 +60,7 @@ public class Auto_Login_User {
 						instance.setmLoginSuccess(true);
 						SKStudent student = SKResolveJsonUtil.getInstance().resolveLoginInfo(json);
 						instance.setStudent(student);
-						save_auto_uid.putBoolean(context, "is_tea", student.getTypes().equals("1"));
+						save_auto_uid.putBoolean("is_tea", student.getTypes().equals("1"));
 						Bundle bundle = new Bundle();
 						UIApplication.getInstance().setAuid_flag(true);
 						bundle.putString("!reg_user", student.getName());

@@ -142,6 +142,7 @@ public class GalleryView extends LinearLayout {
     public GalleryView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+        System.out.println("sadf");
         layoutParamsFF = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         layoutParamsFW = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         layoutParamsWF = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);

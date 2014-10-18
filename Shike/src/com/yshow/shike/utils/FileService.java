@@ -85,7 +85,7 @@ public class FileService {
 	/**
 	 * 用来判断是否第一次登陆  存取数据
 	 */
-	public boolean putBoolean(final Context pContext, final String Key,final boolean Value) {
+	public boolean putBoolean(final String Key,final boolean Value) {
 		try {
 			final SharedPreferences.Editor editor = sp.edit();
 			editor.putBoolean(Key, Value);
