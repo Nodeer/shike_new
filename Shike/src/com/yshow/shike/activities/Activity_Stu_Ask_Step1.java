@@ -2,29 +2,22 @@ package com.yshow.shike.activities;
 
 import java.io.File;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.umeng.analytics.MobclickAgent;
 import com.yshow.shike.R;
-import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.utils.Dialog;
-import com.yshow.shike.utils.Dilog_Share;
-import com.yshow.shike.utils.HelpUtil;
 import com.yshow.shike.utils.Take_Phon_album;
 
 /**
- * 学生点击提问以后进入的页面,显示照相机背景,点击弹框选择照相还是相册
+ * 学生点击提问以后进入的页面,选择拍照还是从相册选择
  */
-public class Activity_Stu_Tool_Sele extends BaseActivity {
+public class Activity_Stu_Ask_Step1 extends BaseActivity {
     private Context context;
     // 相册回调
     private final int ALBUM_PIC = 10001;
@@ -32,13 +25,11 @@ public class Activity_Stu_Tool_Sele extends BaseActivity {
     private final int PHOTO_PIC = 10002;
     private Take_Phon_album intence;
 
-    private RelativeLayout mCameraButton, mDcimButton;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-        setContentView(R.layout.take_phon_imag);
+        setContentView(R.layout.stu_ask_step1_layout);
         initData();
     }
 
@@ -63,10 +54,10 @@ public class Activity_Stu_Tool_Sele extends BaseActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.camera_btn:
-                    intence.startImageCapture(Activity_Stu_Tool_Sele.this, PHOTO_PIC);
+                    intence.startImageCapture(Activity_Stu_Ask_Step1.this, PHOTO_PIC);
                     break;
                 case R.id.dcim_btn:
-                    intence.gotoSysPic(Activity_Stu_Tool_Sele.this, ALBUM_PIC);
+                    intence.gotoSysPic(Activity_Stu_Ask_Step1.this, ALBUM_PIC);
                     break;
                 case R.id.tv_tool_back:
                     finish();
@@ -82,10 +73,10 @@ public class Activity_Stu_Tool_Sele extends BaseActivity {
             if (Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
                 if (requestCode == ALBUM_PIC) {
                     if (data != null && resultCode == -1) {
-                        String bitmap_url = intence.uriToPath(Activity_Stu_Tool_Sele.this, data.getData());
+                        String bitmap_url = intence.uriToPath(Activity_Stu_Ask_Step1.this, data.getData());
                         Bundle bundle = new Bundle();
                         bundle.putString("bitmap", bitmap_url);
-                        Dialog.intent(context, Stu_Paint_Activity.class, bundle);
+                        Dialog.intent(context, Activity_Stu_Ask_Step2.class, bundle);
                         finish();
                     }
                 } else if (requestCode == PHOTO_PIC && resultCode == -1) {
@@ -94,7 +85,7 @@ public class Activity_Stu_Tool_Sele extends BaseActivity {
                         String bitmap_url = cameraFile.getAbsolutePath();
                         Bundle bundle = new Bundle();
                         bundle.putString("bitmap", bitmap_url);
-                        Dialog.intent(context, Stu_Paint_Activity.class, bundle);
+                        Dialog.intent(context, Activity_Stu_Ask_Step2.class, bundle);
                         finish();
                     }
                 }

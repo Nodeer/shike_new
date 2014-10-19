@@ -1194,7 +1194,7 @@ public final class R {
         public static final int stu_reg_dialog=0x7f03007d;
         public static final int student_main_activity=0x7f03007e;
         public static final int student_yindao=0x7f03007f;
-        public static final int take_phon_imag=0x7f030080;
+        public static final int stu_ask_step1_layout =0x7f030080;
         public static final int tea_age_info=0x7f030081;
         public static final int tea_reg_dialog=0x7f030082;
         public static final int tea_take_phon=0x7f030083;

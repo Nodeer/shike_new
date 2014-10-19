@@ -23,7 +23,7 @@
             android:icon="@drawable/icon"
             android:label="@string/app_name"
             android:largeHeap="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/Theme.Shike">
 
         <meta-data android:value="53acfc3d56240bb78d09f9e2" android:name="UMENG_APPKEY"></meta-data>
         <meta-data android:value="ShikeAndroid" android:name="UMENG_CHANNEL"/>
@@ -157,7 +157,7 @@
                 android:name="com.yshow.shike.activities.Activity_Teacher_Info"
                 android:screenOrientation="portrait"/>
         <activity
-                android:name="com.yshow.shike.activities.Activity_Stu_Tool_Sele"
+                android:name=".activities.Activity_Stu_Ask_Step1"
                 android:screenOrientation="portrait"/>
         <activity
                 android:name="com.yshow.shike.activities.Activity_Tea_Tool_Sele"
@@ -223,6 +223,9 @@
                 android:screenOrientation="portrait"/>
         <activity
                 android:name="com.yshow.shike.activities.FindTeacherActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Stu_Ask_Step2"
                 android:screenOrientation="portrait"/>
 
         <service android:name="com.yshow.shike.service.MySKService">

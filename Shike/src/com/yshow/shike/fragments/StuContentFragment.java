@@ -11,11 +11,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivity;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
-import com.yshow.shike.activities.Activity_Stu_Tool_Sele;
+import com.yshow.shike.activities.Activity_Stu_Ask_Step1;
 import com.yshow.shike.activities.MessageActivity;
 import com.yshow.shike.activities.My_Question_Count;
 import com.yshow.shike.utils.PartnerConfig;
@@ -69,7 +68,7 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
                 PartnerConfig.SUBJECT_ID = null;
                 PartnerConfig.TEATHER_NAME = null;
                 PartnerConfig.SUBJECT_NAME = null;
-                startActivity(new Intent(getActivity(), Activity_Stu_Tool_Sele.class));
+                startActivity(new Intent(getActivity(), Activity_Stu_Ask_Step1.class));
                 break;
             case R.id.restudy_btn:
                 Intent intent = new Intent(getActivity(), My_Question_Count.class);

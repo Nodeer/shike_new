@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="第一步:"
+                android:text="第1步:"
                 style="@style/text_20_gray"
                 android:gravity="center" />
 

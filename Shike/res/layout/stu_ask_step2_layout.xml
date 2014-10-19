@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/stu_take_phone"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/tv_tool_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/icon_back" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/action_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="第2步:"
+                style="@style/text_20_gray"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/action_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="添加备注"
+                style="@style/text_20_black"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next_btn"
+            android:padding="5dp"
+            android:text="下一步"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@style/text_16_white"
+            android:background="@drawable/stu_slide_btn2_bg" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:id="@+id/select_kumu_layout"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/select_kemu_icon" />
+
+
+            </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:clickable="true"
+                    android:id="@+id/yuwen_btn"
+                    android:padding="20dp"
+                    android:background="@drawable/yuwen_btn_bg"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/yuwen_icon"
+                            android:duplicateParentState="true"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            style="@style/text_14_white"
+                            android:text="语文" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yuwen_select_icon"
+                    android:src="@drawable/checked_icon"
+                    android:visibility="gone"
+                    android:layout_gravity="right" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:clickable="true"
+                    android:id="@+id/shuxue_btn"
+                    android:padding="20dp"
+                    android:background="@drawable/shuxue_btn_bg"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/shuxue_icon"
+                            android:duplicateParentState="true"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            style="@style/text_14_white"
+                            android:text="数学" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/shuxue_select_icon"
+                    android:src="@drawable/checked_icon"
+                    android:visibility="gone"
+                    android:layout_gravity="right" />
+            </FrameLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:clickable="true"
+                    android:id="@+id/yingyu_btn"
+                    android:padding="20dp"
+                    android:background="@drawable/yingyu_btn_bg"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/yingyu_icon"
+                            android:duplicateParentState="true"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            style="@style/text_14_white"
+                            android:text="英语" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yingyu_select_icon"
+                    android:src="@drawable/checked_icon"
+                    android:visibility="gone"
+                    android:layout_gravity="right" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:clickable="true"
+                    android:padding="20dp"
+                    android:id="@+id/wuli_btn"
+                    android:background="@drawable/wuli_btn_bg"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/wuli_icon"
+                            android:duplicateParentState="true"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            style="@style/text_14_white"
+                            android:text="物理" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wuli_select_icon"
+                    android:src="@drawable/checked_icon"
+                    android:visibility="gone"
+                    android:layout_gravity="right" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:clickable="true"
+                    android:id="@+id/huaxue_btn"
+                    android:padding="20dp"
+                    android:background="@drawable/huaxue_btn_bg"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/huaxue_icon"
+                            android:duplicateParentState="true"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            style="@style/text_14_white"
+                            android:text="化学" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/huaxue_select_icon"
+                    android:src="@drawable/checked_icon"
+                    android:visibility="gone"
+                    android:layout_gravity="right" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:id="@+id/image"
+        android:layout_below="@id/title_layout"
+        android:layout_above="@id/select_kumu_layout"
+        android:background="@drawable/blackboard_bg_img"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

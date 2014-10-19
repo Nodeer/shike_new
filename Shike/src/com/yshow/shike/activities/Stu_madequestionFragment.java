@@ -1,7 +1,5 @@
 package com.yshow.shike.activities;
 
-import android.app.Activity;
-import com.umeng.analytics.MobclickAgent;
 import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
 import com.yshow.shike.entity.LoginManage;
@@ -14,7 +12,7 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.yshow.shike.utils.HelpUtil;
+
 import com.yshow.shike.utils.PartnerConfig;
 
 /**
@@ -58,7 +56,7 @@ public class Stu_madequestionFragment extends Fragment implements
                 PartnerConfig.SUBJECT_ID = null;
                 PartnerConfig.TEATHER_NAME = null;
                 PartnerConfig.SUBJECT_NAME = null;
-                startActivity(new Intent(getActivity(), Activity_Stu_Tool_Sele.class));
+                startActivity(new Intent(getActivity(), Activity_Stu_Ask_Step1.class));
                 break;
         }
     }

@@ -51,6 +51,17 @@
     <color name="tea_slide_btn2_bg_nor">#417ab5</color>
     <color name="tea_slide_btn2_bg_press">#316aa5</color>
 
+    <!--学科选择按钮颜色-->
+    <color name="yuwen_btn_nor">#68BA63</color>
+    <color name="yuwen_btn_press">#58aa53</color>
+    <color name="shuxue_btn_nor">#87B85D</color>
+    <color name="shuxue_btn_press">#77a84d</color>
+    <color name="yingyu_btn_nor">#5EB68E</color>
+    <color name="yingyu_btn_press">#4ea67e</color>
+    <color name="wuli_btn_nor">#73B87C</color>
+    <color name="wuli_btn_press">#63a86c</color>
+    <color name="huaxue_btn_nor">#9BB85C</color>
+    <color name="huaxue_btn_press">#8ba84c</color>
 
 
     <color name="text_color_press">#63ba68</color>
