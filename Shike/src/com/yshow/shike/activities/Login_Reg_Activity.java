@@ -100,6 +100,7 @@ public class Login_Reg_Activity extends BaseActivity implements OnClickListener 
 
         if (fileService.getBoolean("isfirstuse", true)) {
             FragmentExchangeController.addFragment(getSupportFragmentManager(), new UserRegisterFragment(), Window.ID_ANDROID_CONTENT, "reg", R.anim.dialog_enter_from_top, R.anim.dialog_exit_to_top, R.anim.dialog_enter_from_top, R.anim.dialog_exit_to_top);
+            changeSlide(true);
             fileService.putBoolean("isfirstuse", false);
         }
 

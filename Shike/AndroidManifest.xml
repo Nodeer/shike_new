@@ -227,6 +227,9 @@
         <activity
                 android:name="com.yshow.shike.activities.Activity_Stu_Ask_Step2"
                 android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Add_Remark"
+                android:screenOrientation="portrait"/>
 
         <service android:name="com.yshow.shike.service.MySKService">
         </service>

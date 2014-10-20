@@ -3,19 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingBottom="5dp"
-    android:paddingTop="5dp" >
-    <ImageView
-        android:id="@+id/iv_message_delete_control"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/delete_message_control_false"
-        android:visibility="gone" />
+    android:background="@color/main_bg"
+    android:padding="5dp">
 
     <FrameLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_message_teacher"
@@ -35,35 +28,39 @@
             android:textColor="@color/button_typeface_color"
             android:visibility="invisible" />
     </FrameLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="5dp"
-       android:background="@color/gray"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp" >
+        android:paddingRight="10dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
+
             <LinearLayout
                 android:id="@+id/message_item"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:orientation="vertical" >
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tv_message_teacher_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="爱飞的鱼"
-                    android:textColor="#FFF"
-                    android:textSize="@dimen/user_text"/>
+                    style="@style/text_16_black" />
+
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
                     android:gravity="bottom"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/tv_small_gift"
                         android:layout_width="wrap_content"
@@ -73,23 +70,27 @@
                         android:drawablePadding="5dp"
                         android:textColor="@color/button_typeface_color"
                         android:visibility="gone"
-                        android:text="wolaiye"
-                        />
+                        android:text="wolaiye" />
+
                     <TextView
                         android:id="@+id/tv_message_content"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:lines="1"
-                        android:textColor="#FFF" />
-                    <TextView
-                        android:id="@+id/tv_message_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="10:30"
-                        android:textColor="#FFF" />
+                        android:lines="1"
+                        style="@style/text_14_gray" />
+
+
                 </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:30"
+                android:layout_marginTop="5dp"
+                style="@style/text_14_gray" />
+
             <Button
                 android:id="@+id/bt_cancle_message"
                 android:layout_width="wrap_content"
@@ -98,6 +99,7 @@
                 android:text="撤销"
                 android:visibility="gone" />
         </LinearLayout>
+
         <Button
             android:id="@+id/bt_delete_message"
             android:layout_width="wrap_content"

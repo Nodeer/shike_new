@@ -31,7 +31,7 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
         View view = inflater.inflate(R.layout.tea_content_layout, null);
 
         GalleryView gallery = (GalleryView) view.findViewById(R.id.gallery);
-//        gallery.setData();
+        gallery.setData(new int[]{R.drawable.blackboard_ad_img, R.drawable.blackboard_ad_img}, false);
 
         ImageView mTitleLeft = (ImageView) view.findViewById(R.id.title_left);
         mTitleLeft.setOnClickListener(this);

@@ -46,7 +46,6 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
 	private ArrayList<SKMessageList> list;
 	private DisplayImageOptions s_options,t_options;
 	private ImageLoader imageLoader;
-	private Boolean dele_mark = false; // 控制删除按钮的显示和隐藏
 	public SKMessageAdapter(Context context, ArrayList<SKMessageList> list) {
 		this.context = context;
 		this.list = list;
@@ -61,7 +60,6 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
 	}
 	// 改变删除按钮的标记
 	public void Dete_Mess() {
-		dele_mark = !dele_mark;
 		notifyDataSetChanged();
 	}
 	@Override
@@ -84,9 +82,9 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
 	}
 	private View getMessageList(SKMessageList skMessageList, int position) {
 		View inflate = View.inflate(context, R.layout.sk_message_list, null);
-		TextView date = (TextView) inflate.findViewById(R.id.message_date);
+//		TextView date = (TextView) inflate.findViewById(R.id.message_date);
 		LinearLayout messageList = (LinearLayout) inflate.findViewById(R.id.message_list);
-		date.setText(skMessageList.getDate());
+//		date.setText(skMessageList.getDate());
 		ArrayList<SKMessage> sKMessagelist = skMessageList.getList();//这里获取当前日期下的消息列表
 		int size = sKMessagelist.size();
 		for (int i = 0; i < size; i++) {
@@ -129,23 +127,7 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
 				}
 			});
 		}
-		// 设置删除按钮的点击事件
-		if (dele_mark) {
-			viewholer.stu_mess_dele = (ImageView) inflate.findViewById(R.id.iv_message_delete_control);
-			viewholer.stu_mess_dele.setVisibility(View.VISIBLE);
-			viewholer.stu_mess_dele.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					if (viewholer.delete_bt.getVisibility() == View.GONE) {
-						viewholer.delete_bt.setVisibility(View.VISIBLE);
-					} else {
-						viewholer.delete_bt.setVisibility(View.GONE);
-					}
-				}
-			});
-		}
 		viewholer.sKMessage = sKMessage;
-		viewholer.delete_control = (ImageView) inflate.findViewById(R.id.iv_message_delete_control);
 		viewholer.teacher = (ImageView) inflate.findViewById(R.id.iv_message_teacher);
 		viewholer.teacher.setOnClickListener(new OnClickListener() {
 			@Override
@@ -482,7 +464,6 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
 		return false;
 	}
 	class MessageHolder {
-		ImageView delete_control, stu_mess_dele;
 		TextView score;
 		ImageView teacher;
 		TextView teacherName;

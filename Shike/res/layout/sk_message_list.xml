@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="2014-12-22"
         android:textColor="#FF0000"
+        android:visibility="gone"
         android:textSize="18sp" />
 
     <LinearLayout

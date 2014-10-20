@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-     android:layout_marginLeft="10dp"
-     android:layout_marginRight="10dp"
-    tools:context=".StudentActivity" >
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical"
+    android:background="@color/main_bg"
+    tools:context=".StudentActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/tv_tool_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/icon_back" />
+
+
+        <TextView
+            android:id="@+id/action_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="消息"
+            android:layout_centerInParent="true"
+            style="@style/text_20_black"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next_btn"
+            android:padding="5dp"
+            android:text="新问题"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@style/text_16_white"
+            android:background="@drawable/stu_slide_btn2_bg" />
+
+
+    </RelativeLayout>
+
     <ListView
         android:id="@+id/listview"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:divider="@null"
         android:listSelector="#00000000"
         android:scrollbars="none" />
-</RelativeLayout>
+</LinearLayout>

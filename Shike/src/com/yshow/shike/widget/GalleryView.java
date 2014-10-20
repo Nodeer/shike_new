@@ -259,9 +259,9 @@ public class GalleryView extends LinearLayout {
     public void setData(List<Map<String, String>> data, int type, boolean isAdd) {
         int count = data.size();
 
-        if(count<2){
+        if (count < 2) {
             pageLineLayout.setVisibility(View.GONE);
-        }else{
+        } else {
             pageLineLayout.setVisibility(View.VISIBLE);
         }
 
@@ -316,9 +316,9 @@ public class GalleryView extends LinearLayout {
         }
         int count = images.length;
 
-        if(count<2){
+        if (count < 2) {
             pageLineLayout.setVisibility(View.GONE);
-        }else{
+        } else {
             pageLineLayout.setVisibility(View.VISIBLE);
         }
 
@@ -331,8 +331,9 @@ public class GalleryView extends LinearLayout {
             mImage.setImageResource(images[i]);
 
         }
-        if (count != 1)
-            startPlay();
+//        if (count != 1) {
+//            startPlay();
+//        }
 
     }
 

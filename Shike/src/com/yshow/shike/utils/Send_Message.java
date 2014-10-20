@@ -197,7 +197,7 @@ public class Send_Message {
                         PartnerConfig.SUBJECT_NAME = null;
                         UIApplication.getInstance().getPicUrls().clear();
                         Dialog.Intent(context, Student_Main_Activity.class);
-                        Student_Main_Activity.mInstance.back("dd");
+//                        Student_Main_Activity.mInstance.back("dd");
                         ((Activity) context).finish();
                     }
                 });
