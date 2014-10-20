@@ -7,7 +7,7 @@
 
     <FrameLayout
         android:layout_width="fill_parent"
-        android:padding="20dp"
+        android:padding="10dp"
         android:background="@drawable/slide_up_bg"
         android:layout_height="100dp">
 
@@ -17,9 +17,9 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:id="@+id/stu_headicon"
-                android:layout_height="50dp" />
+                android:layout_height="60dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/text_14_white"
+                    style="@style/text_14_black"
                     android:id="@+id/username"
                     android:text="用户名:阿童木" />
 
@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/grade"
-                    style="@style/text_14_white"
+                    style="@style/text_14_black"
                     android:layout_marginTop="10dp"
                     android:text="学    龄:小学一年级" />
             </LinearLayout>
@@ -62,7 +62,7 @@
                 <RelativeLayout
                     android:layout_width="110dp"
                     android:clickable="true"
-                    android:background="@drawable/stu_slide_btn2_bg"
+                    android:background="@drawable/stu_slide_btn1_bg"
                     android:id="@+id/find_tea_btn"
                     android:layout_height="110dp">
 

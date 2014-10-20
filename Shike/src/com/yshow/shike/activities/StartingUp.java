@@ -21,14 +21,14 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 import android.app.Activity;
 
-public class StartingUp extends Activity {
+public class StartingUp extends BaseActivity {
 	private ImageView view;
 	private String save_one_auto; // 判断用户是否是第一次自动登录
 	private Auto_Login_User auto_Login; // 自动登录用户如不是第一次就联网登录
 	private FileService fileService;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.welcome);
@@ -36,36 +36,35 @@ public class StartingUp extends Activity {
         save_one_auto = fileService.getSp_Date("auto_user");
         view = (ImageView) findViewById(R.id.image_view);
         auto_Login = new Auto_Login_User(this);
-        // User_Login();
         Start_Anim();
-        PushManager.startWork(getApplicationContext(),
-                PushConstants.LOGIN_TYPE_API_KEY,
-                PushUtil.getMetaValue(StartingUp.this, "api_key"));
+//        PushManager.startWork(getApplicationContext(),
+//                PushConstants.LOGIN_TYPE_API_KEY,
+//                PushUtil.getMetaValue(StartingUp.this, "api_key"));
     }
 
 	/**
 	 * 检查登录用户是否已登录过
 	 */
 	private void User_Login() {
-		if (save_one_auto.equals("")) {
-			String name = fileService.getSp_Date("autologin_name");
-			if (!name.equals("")) {
-				String pass = fileService.getSp_Date("autologin_pass");
-				autoLogin(name, pass);
-			} else {
+//		if (save_one_auto.equals("")) {//正式用户,自动登陆
+//			String name = fileService.getSp_Date("autologin_name");
+//			if (!name.equals("")) {
+//				String pass = fileService.getSp_Date("autologin_pass");
+//				autoLogin(name, pass);
+//			} else {
 				Dialog.Intent(StartingUp.this, Login_Reg_Activity.class);
 				finish();
-			}
-		} else {
-			auto_Login.auto_login_info();
-		}
+//			}
+//		} else {//用户上次使用的立即提问
+//			auto_Login.auto_login_info();
+//		}
 
 	}
 
 	// 开机动画
 	private void Start_Anim() {
 		AlphaAnimation animation = new AlphaAnimation(0.1f, 1.0f);
-		animation.setDuration(1000);
+		animation.setDuration(100);
 		view.setAnimation(animation);
 		animation.start();
 		animation.setAnimationListener(new AnimationListener() {
@@ -96,7 +95,7 @@ public class StartingUp extends Activity {
 					instance.setmLoginSuccess(true);
 					SKStudent student = SKResolveJsonUtil.getInstance().resolveLoginInfo(json);
 					instance.setStudent(student);
-					fileService.putBoolean(StartingUp.this, "is_tea", student.getTypes().equals("1"));
+					fileService.putBoolean("is_tea", student.getTypes().equals("1"));
 					if (instance.isTeacher()) {
 						// 是老师就登陆老师界面
 						Dialog.Intent(StartingUp.this, Teather_Main_Activity.class);

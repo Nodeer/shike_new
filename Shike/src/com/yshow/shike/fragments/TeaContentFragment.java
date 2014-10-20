@@ -11,10 +11,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
-import com.yshow.shike.R;
 import com.yshow.shike.activities.MessageActivity;
 import com.yshow.shike.widget.GalleryView;
+
+import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
+import com.yshow.shike.R;
 
 /**
  * Created by Administrator on 2014-10-16.
@@ -22,7 +23,7 @@ import com.yshow.shike.widget.GalleryView;
  */
 public class TeaContentFragment extends Fragment implements View.OnClickListener {
     ImageView mMessRedIcon;
-    RelativeLayout mAskButton,mReStudyButton;
+    RelativeLayout mMakeTopicBtn, mTikuButton;
     private TextView mOnlineTextView;
 
     @Override
@@ -37,10 +38,10 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
         ImageView mTitleRight = (ImageView) view.findViewById(R.id.title_right);
         mTitleRight.setOnClickListener(this);
         mMessRedIcon = (ImageView) view.findViewById(R.id.mess_red);
-        mAskButton = (RelativeLayout) view.findViewById(R.id.ask_question_btn);
-        mAskButton.setOnClickListener(this);
-        mReStudyButton = (RelativeLayout) view.findViewById(R.id.restudy_btn);
-        mReStudyButton.setOnClickListener(this);
+        mMakeTopicBtn = (RelativeLayout) view.findViewById(R.id.make_topic_btn);
+        mMakeTopicBtn.setOnClickListener(this);
+        mTikuButton = (RelativeLayout) view.findViewById(R.id.tiku_btn);
+        mTikuButton.setOnClickListener(this);
         mOnlineTextView = (TextView) view.findViewById(R.id.now_online);
         return view;
     }
