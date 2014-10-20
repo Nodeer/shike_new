@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/stu_take_phone"
     android:layout_width="fill_parent"
+    android:background="@color/main_bg"
     android:layout_height="fill_parent">
 
     <RelativeLayout
@@ -107,7 +108,7 @@
 
                         <ImageView
                             android:layout_width="wrap_content"
-                            android:src="@drawable/yuwen_icon"
+                            android:src="@drawable/yuwen_icon_bg"
                             android:duplicateParentState="true"
                             android:layout_height="wrap_content" />
 
@@ -115,7 +116,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            style="@style/text_14_white"
+                            android:textSize="14dp"
+                            android:textColor="@drawable/text_color_green"
                             android:text="语文" />
                     </LinearLayout>
 
@@ -154,7 +156,7 @@
 
                         <ImageView
                             android:layout_width="wrap_content"
-                            android:src="@drawable/shuxue_icon"
+                            android:src="@drawable/shuxue_icon_bg"
                             android:duplicateParentState="true"
                             android:layout_height="wrap_content" />
 
@@ -162,7 +164,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            style="@style/text_14_white"
+                            android:textSize="14dp"
+                            android:textColor="@drawable/text_color_green"
                             android:text="数学" />
                     </LinearLayout>
 
@@ -206,7 +209,7 @@
 
                         <ImageView
                             android:layout_width="wrap_content"
-                            android:src="@drawable/yingyu_icon"
+                            android:src="@drawable/yingyu_icon_bg"
                             android:duplicateParentState="true"
                             android:layout_height="wrap_content" />
 
@@ -214,7 +217,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            style="@style/text_14_white"
+                            android:textSize="14dp"
+                            android:textColor="@drawable/text_color_green"
                             android:text="英语" />
                     </LinearLayout>
 
@@ -252,7 +256,7 @@
 
                         <ImageView
                             android:layout_width="wrap_content"
-                            android:src="@drawable/wuli_icon"
+                            android:src="@drawable/wuli_icon_bg"
                             android:duplicateParentState="true"
                             android:layout_height="wrap_content" />
 
@@ -260,7 +264,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            style="@style/text_14_white"
+                            android:textSize="14dp"
+                            android:textColor="@drawable/text_color_green"
                             android:text="物理" />
                     </LinearLayout>
 
@@ -297,7 +302,7 @@
 
                         <ImageView
                             android:layout_width="wrap_content"
-                            android:src="@drawable/huaxue_icon"
+                            android:src="@drawable/huaxue_icon_bg"
                             android:duplicateParentState="true"
                             android:layout_height="wrap_content" />
 
@@ -305,7 +310,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            style="@style/text_14_white"
+                            android:textSize="14dp"
+                            android:textColor="@drawable/text_color_green"
                             android:text="化学" />
                     </LinearLayout>
 

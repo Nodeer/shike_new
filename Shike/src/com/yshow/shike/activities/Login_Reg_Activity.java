@@ -17,6 +17,7 @@ import com.yshow.shike.utils.SKResolveJsonUtil;
 import com.yshow.shike.utils.ScreenSizeUtil;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -34,6 +35,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -57,6 +59,8 @@ public class Login_Reg_Activity extends BaseActivity implements OnClickListener 
     private FileService fileService; //实例化业务对象
     private ArrayAdapter<String> adapter;
     private boolean checked = false;
+
+    private FrameLayout mSlideFrameLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,10 +98,12 @@ public class Login_Reg_Activity extends BaseActivity implements OnClickListener 
         isRemember.setOnClickListener(this);
         tv_pasword.setOnClickListener(this);
 
-        if(fileService.getBoolean("isfirstuse",true)){
-            FragmentExchangeController.addFragment(getSupportFragmentManager(), new UserRegisterFragment(), Window.ID_ANDROID_CONTENT, "reg", R.anim.dialog_enter_from_top, R.anim.dialog_exit_to_top,R.anim.dialog_enter_from_top,R.anim.dialog_exit_to_top);
-            fileService.putBoolean("isfirstuse",false);
+        if (fileService.getBoolean("isfirstuse", true)) {
+            FragmentExchangeController.addFragment(getSupportFragmentManager(), new UserRegisterFragment(), Window.ID_ANDROID_CONTENT, "reg", R.anim.dialog_enter_from_top, R.anim.dialog_exit_to_top, R.anim.dialog_enter_from_top, R.anim.dialog_exit_to_top);
+            fileService.putBoolean("isfirstuse", false);
         }
+
+        mSlideFrameLayout = (FrameLayout) findViewById(R.id.slide_bg_frame);
     }
 
     //点击屏幕 关闭输入弹出框
@@ -164,7 +170,8 @@ public class Login_Reg_Activity extends BaseActivity implements OnClickListener 
         switch (v.getId()) {
             case R.id.button_reg:
             case R.id.title_slide:
-                FragmentExchangeController.addFragment(getSupportFragmentManager(), new UserRegisterFragment(), Window.ID_ANDROID_CONTENT, "reg", R.anim.dialog_enter_from_top, R.anim.dialog_exit_to_top,R.anim.dialog_enter_from_top,R.anim.dialog_exit_to_top);
+                FragmentExchangeController.addFragment(getSupportFragmentManager(), new UserRegisterFragment(), Window.ID_ANDROID_CONTENT, "reg", R.anim.dialog_enter_from_top, R.anim.dialog_exit_to_top, R.anim.dialog_enter_from_top, R.anim.dialog_exit_to_top);
+                changeSlide(true);
                 break;
             case R.id.login_button:
                 if (checkRegister()) {
@@ -176,6 +183,16 @@ public class Login_Reg_Activity extends BaseActivity implements OnClickListener 
             case R.id.isremember:
                 checked = isRemember.isChecked();
                 break;
+        }
+    }
+
+    public void changeSlide(boolean isshow) {
+        if (isshow) {
+            mSlideFrameLayout.setVisibility(View.VISIBLE);
+//            mSlideFrameLayout.setBackgroundColor(R.color.gray);
+        }else{
+            mSlideFrameLayout.setVisibility(View.GONE);
+//            mSlideFrameLayout.setBackgroundColor(R.color.transparent);
         }
     }
 }

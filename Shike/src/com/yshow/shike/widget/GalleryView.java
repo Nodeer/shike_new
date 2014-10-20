@@ -15,6 +15,7 @@ import android.util.AttributeSet;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -127,7 +128,7 @@ public class GalleryView extends LinearLayout {
     /**
      * 圆点默认居右
      */
-    private int pageLineHorizontalGravity = Gravity.LEFT;
+    private int pageLineHorizontalGravity = Gravity.CENTER;
 
     DisplayImageOptions options;
     ImageLoader loader;
@@ -142,7 +143,6 @@ public class GalleryView extends LinearLayout {
     public GalleryView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        System.out.println("sadf");
         layoutParamsFF = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         layoutParamsFW = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         layoutParamsWF = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
@@ -258,6 +258,13 @@ public class GalleryView extends LinearLayout {
      */
     public void setData(List<Map<String, String>> data, int type, boolean isAdd) {
         int count = data.size();
+
+        if(count<2){
+            pageLineLayout.setVisibility(View.GONE);
+        }else{
+            pageLineLayout.setVisibility(View.VISIBLE);
+        }
+
         if (!isAdd) {
             removeAllViews();
         }
@@ -308,6 +315,13 @@ public class GalleryView extends LinearLayout {
             removeAllViews();
         }
         int count = images.length;
+
+        if(count<2){
+            pageLineLayout.setVisibility(View.GONE);
+        }else{
+            pageLineLayout.setVisibility(View.VISIBLE);
+        }
+
         for (int i = 0; i < count; i++) {
             View view = LayoutInflater.from(context).inflate(R.layout.mygallery_view_item, null);
             ImageView mImage = (ImageView) view.findViewById(R.id.mImage);

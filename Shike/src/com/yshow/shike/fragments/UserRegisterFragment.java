@@ -1,6 +1,7 @@
 package com.yshow.shike.fragments;
 
 import com.yshow.shike.R;
+import com.yshow.shike.activities.Login_Reg_Activity;
 import com.yshow.shike.activities.StudentRegisterActivity;
 import com.yshow.shike.activities.TeacherRegisterActivity;
 import com.yshow.shike.utils.Auto_Login_User;
@@ -71,4 +72,11 @@ public class UserRegisterFragment extends Fragment {
             }
         }
     };
+
+
+    @Override
+    public void onDestroy() {
+        ((Login_Reg_Activity)getActivity()).changeSlide(false);
+        super.onDestroy();
+    }
 }

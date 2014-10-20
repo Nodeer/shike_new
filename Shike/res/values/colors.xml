@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="transparent">#00000000</color>
     <color name="top_title_color">#185B9B</color>
+    <color name="bg_dark">#66000000</color>
+
     <color name="sk_student_main_color">#34CD2E</color>
     <color name="stu_main_color_lucency">#CC34CD2E</color>
     <color name="main_bg">#fff5f5f5</color>
@@ -64,7 +67,7 @@
     <color name="huaxue_btn_press">#8ba84c</color>
 
 
-    <color name="text_color_press">#63ba68</color>
+    <color name="text_color_green">#63ba68</color>
 
     <color name="pageline_bg">#88f8f4ed</color>
 

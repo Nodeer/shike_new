@@ -150,7 +150,7 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
         setBehindContentView(R.layout.menu_frame);
         getSlidingMenu().setSlidingEnabled(true);
         getSlidingMenu()
-                .setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+                .setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
         mContent = new StuContentFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content_frame, mContent).commit();

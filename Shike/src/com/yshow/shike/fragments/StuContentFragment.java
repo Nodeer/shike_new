@@ -26,7 +26,7 @@ import com.yshow.shike.widget.GalleryView;
  */
 public class StuContentFragment extends Fragment implements View.OnClickListener {
     ImageView mMessRedIcon;
-    RelativeLayout mAskButton,mReStudyButton;
+    RelativeLayout mAskButton, mReStudyButton;
     private TextView mOnlineTextView;
 
     @Override
@@ -34,7 +34,7 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
         View view = inflater.inflate(R.layout.stu_content_layout, null);
 
         GalleryView gallery = (GalleryView) view.findViewById(R.id.gallery);
-//        gallery.setData();
+        gallery.setData(new int[]{R.drawable.blackboard_ad_img,R.drawable.blackboard_ad_img}, false);
 
         ImageView mTitleLeft = (ImageView) view.findViewById(R.id.title_left);
         mTitleLeft.setOnClickListener(this);

@@ -3,6 +3,7 @@
     android:id="@+id/stu_take_phone"
     android:layout_width="fill_parent"
     android:orientation="vertical"
+    android:background="@color/main_bg"
     android:layout_height="fill_parent">
 
     <RelativeLayout
