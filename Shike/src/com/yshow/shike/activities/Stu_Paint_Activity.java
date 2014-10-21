@@ -1,7 +1,6 @@
 package com.yshow.shike.activities;
 import android.util.DisplayMetrics;
 import com.umeng.analytics.MobclickAgent;
-import com.yshow.shike.entity.Question_Bank;
 import com.yshow.shike.utils.*;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,10 +16,8 @@ import android.graphics.BitmapFactory.Options;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
@@ -30,10 +27,6 @@ import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
 import com.yshow.shike.customview.PaletteView;
 import com.yshow.shike.entity.LoginManage;
-import com.yshow.shike.fragments.Fragment_Message;
-import com.yshow.shike.service.MySKService;
-
-import java.io.Serializable;
 
 /**
  * 老师题库页面,点添加以后进入/学生提问时,拍照或者选择照片以后进入..
@@ -82,38 +75,38 @@ public class Stu_Paint_Activity extends Activity implements OnClickListener {
 		dialogUtil = new ProgressDialogUtil(this);
 	}
 	private void initData() {
-		bitmap_intence = Bitmap_Manger_utils.getIntence();
-		paletteView = (PaletteView) findViewById(R.id.stu_palette);
-		extras = getIntent().getExtras();
-        if(extras!=null){//这个地方..有的页面没有传东西过来...做个空保护
-            questionId = extras.getString("questionId");
-            booleanExtra = extras.getBoolean("isContinue");
-        }
-        next_tool = (TextView) findViewById(R.id.tv_stu_nextplan);
-        if (booleanExtra && !questionId.equals("")) {
-			next_tool.setText("发送");
-		}
-		ll_title = (LinearLayout) findViewById(R.id.li_stu_plain);
-		buttom_plain = (LinearLayout) findViewById(R.id.buttom_plain);
-		findViewById(R.id.tv_stu_planback).setOnClickListener(this);
-		next_tool.setOnClickListener(this);
-		findViewById(R.id.plan_cexiao).setOnClickListener(this);
-		pain_huifu = (TextView) findViewById(R.id.pain_huifu);
-		pain_huifu.setOnClickListener(this);
-		paletteView.setCurrentColor(Color.RED);
-		// 是否是 照相还是 从相册里面拿图片 进行判断
-		String path  = null;
-        if(extras!=null){
-            path = getIntent().getExtras().getString("bitmap");
-        }
-        if (path != null) {
-			Bitmap press_bitmap = press_bitmap(path);
-			int pbw=press_bitmap.getWidth();
-			int pbh=press_bitmap.getHeight();
-			ScreenSizeUtil.ScreenWidth=pbw;
-			ScreenSizeUtil.ScreenHeight=pbh;
-			paletteView.setBgBitmap1(press_bitmap,path);
-		}
+//		bitmap_intence = Bitmap_Manger_utils.getIntence();
+//		paletteView = (PaletteView) findViewById(R.id.stu_palette);
+//		extras = getIntent().getExtras();
+//        if(extras!=null){//这个地方..有的页面没有传东西过来...做个空保护
+//            questionId = extras.getString("questionId");
+//            booleanExtra = extras.getBoolean("isContinue");
+//        }
+//        next_tool = (TextView) findViewById(R.id.tv_stu_nextplan);
+//        if (booleanExtra && !questionId.equals("")) {
+//			next_tool.setText("发送");
+//		}
+//		ll_title = (LinearLayout) findViewById(R.id.li_stu_plain);
+//		buttom_plain = (LinearLayout) findViewById(R.id.buttom_plain);
+//		findViewById(R.id.tv_stu_planback).setOnClickListener(this);
+//		next_tool.setOnClickListener(this);
+//		findViewById(R.id.plan_cexiao).setOnClickListener(this);
+//		pain_huifu = (TextView) findViewById(R.id.pain_huifu);
+//		pain_huifu.setOnClickListener(this);
+//		paletteView.setCurrentColor(Color.RED);
+//		// 是否是 照相还是 从相册里面拿图片 进行判断
+//		String path  = null;
+//        if(extras!=null){
+//            path = getIntent().getExtras().getString("bitmap");
+//        }
+//        if (path != null) {
+//			Bitmap press_bitmap = press_bitmap(path);
+//			int pbw=press_bitmap.getWidth();
+//			int pbh=press_bitmap.getHeight();
+//			ScreenSizeUtil.ScreenWidth=pbw;
+//			ScreenSizeUtil.ScreenHeight=pbh;
+//			paletteView.setBgBitmap1(press_bitmap,path);
+//		}
 	}
 	private Bitmap press_bitmap(String path) {
 		// 手机屏幕的宽
@@ -154,34 +147,34 @@ public class Stu_Paint_Activity extends Activity implements OnClickListener {
 	}
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.tv_stu_planback:
-			finish();
-			break;
-		case R.id.tv_stu_nextplan:
-            dialogUtil.show();
-			new Thread(){
-				public void run() {
-					//查看华过后的原图
-					bigBitmapUrl = paletteView.getBigBitmapUrl();
-					UIApplication.getInstance().addPicUrls(bigBitmapUrl);
-					// 预览图片
-					bitmap = paletteView.getNewBitmap();
-					int pbw=bitmap.getWidth();
-					int pbh=bitmap.getHeight();
-					handler.sendEmptyMessage(0);
-				};
-			}.start();
-			break;
-		// 删除画板上的数据
-		case R.id.plan_cexiao:
-			paletteView.Delete();
-			break;
-		// 恢复画板上的数据
-		case R.id.pain_huifu:
-			paletteView.Recover();
-			break;
-		}
+//		switch (v.getId()) {
+//		case R.id.tv_stu_planback:
+//			finish();
+//			break;
+//		case R.id.tv_stu_nextplan:
+//            dialogUtil.show();
+//			new Thread(){
+//				public void run() {
+//					//查看华过后的原图
+//					bigBitmapUrl = paletteView.getBigBitmapUrl();
+//					UIApplication.getInstance().addPicUrls(bigBitmapUrl);
+//					// 预览图片
+//					bitmap = paletteView.getNewBitmap();
+//					int pbw=bitmap.getWidth();
+//					int pbh=bitmap.getHeight();
+//					handler.sendEmptyMessage(0);
+//				};
+//			}.start();
+//			break;
+//		// 删除画板上的数据
+//		case R.id.plan_cexiao:
+//			paletteView.Delete();
+//			break;
+//		// 恢复画板上的数据
+//		case R.id.pain_huifu:
+//			paletteView.clear();
+//			break;
+//		}
 	}
 	private void skUploadeImage(final String questionId, Bitmap bitmap) {
 		// 改成 上传图片 改成原图的url了
@@ -212,17 +205,6 @@ public class Stu_Paint_Activity extends Activity implements OnClickListener {
         }
 	}
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            if (LoginManage.getInstance().isTeacher(this)) {
-                HelpUtil.showHelp(Stu_Paint_Activity.this, HelpUtil.HELP_TEA_6, findViewById(R.id.rl_stu_remark));
-            } else {
-                HelpUtil.showHelp(Stu_Paint_Activity.this, HelpUtil.HELP_STU_3, findViewById(R.id.rl_stu_remark));
-            }
-        }
-    }
 
     private void skSend_messge(final String questionId, String isSend) {
 		SKAsyncApiController.skSend_messge(questionId, "", isSend,

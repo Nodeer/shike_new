@@ -1,9 +1,8 @@
 package com.yshow.shike.activities;
 
+import android.content.Intent;
 import android.util.DisplayMetrics;
 
-import com.umeng.analytics.MobclickAgent;
-import com.yshow.shike.entity.Question_Bank;
 import com.yshow.shike.utils.*;
 
 import org.json.JSONException;
@@ -21,11 +20,9 @@ import android.graphics.BitmapFactory.Options;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,11 +31,6 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
 import com.yshow.shike.customview.PaletteView;
-import com.yshow.shike.entity.LoginManage;
-import com.yshow.shike.fragments.Fragment_Message;
-import com.yshow.shike.service.MySKService;
-
-import java.io.Serializable;
 
 /**
  * 老师题库页面,点添加以后进入/学生提问时,拍照或者选择照片以后进入..
@@ -47,9 +39,7 @@ import java.io.Serializable;
 public class Activity_Add_Remark extends BaseActivity implements OnClickListener {
     private Context context;
     private PaletteView paletteView = null; // 初始化画笔
-    private LinearLayout ll_title, buttom_plain;
     private ProgressDialogUtil dialogUtil;// 连网精度条
-    private TextView pain_huifu;
     private TextView next_tool;
     private Bitmap bitmap;
     private Bundle extras;
@@ -57,21 +47,15 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
     private boolean booleanExtra;
     private String bigBitmapUrl;
     private Bitmap_Manger_utils bitmap_intence;
+    private ImageView mRedPaint, mBluePaint;
     private Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
                 case 0:
-                    if (extras != null) {
-                        if (booleanExtra && !questionId.equals("")) {//如果是从制作题目进来的话,这两个是进不去的.直接发送图片地址到下一个页面
-                            skUploadeImage(questionId, bitmap);
-                            dialogUtil.show();
-                            return;
-                        }
-                    }
                     dialogUtil.dismiss();
-                    Bundle bun = new Bundle();
-                    bun.putParcelable("bitmap", bitmap);
-                    Dialog.intent(context, Activity_My_Board.class, bun);
+                    Intent it = new Intent();
+                    it.putExtra("path",bigBitmapUrl);
+                    setResult(Activity.RESULT_OK,it);
                     finish();
                     break;
             }
@@ -86,7 +70,6 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
         setContentView(R.layout.stu_paint_activity);
         context = this;
         initData();
-        Tea_Stu();
         dialogUtil = new ProgressDialogUtil(this);
     }
 
@@ -98,18 +81,20 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
             questionId = extras.getString("questionId");
             booleanExtra = extras.getBoolean("isContinue");
         }
-        next_tool = (TextView) findViewById(R.id.tv_stu_nextplan);
+        next_tool = (TextView) findViewById(R.id.next_btn);
         if (booleanExtra && !questionId.equals("")) {
             next_tool.setText("发送");
         }
-        ll_title = (LinearLayout) findViewById(R.id.li_stu_plain);
-        buttom_plain = (LinearLayout) findViewById(R.id.buttom_plain);
-        findViewById(R.id.tv_stu_planback).setOnClickListener(this);
+        findViewById(R.id.tv_tool_back).setOnClickListener(this);
         next_tool.setOnClickListener(this);
-        findViewById(R.id.plan_cexiao).setOnClickListener(this);
-        pain_huifu = (TextView) findViewById(R.id.pain_huifu);
-        pain_huifu.setOnClickListener(this);
+        findViewById(R.id.pain_cexiao).setOnClickListener(this);
+        findViewById(R.id.pain_clear).setOnClickListener(this);
+        mRedPaint = (ImageView) findViewById(R.id.paint_red);
+        mRedPaint.setOnClickListener(this);
+        mBluePaint = (ImageView) findViewById(R.id.paint_blue);
+        mBluePaint.setOnClickListener(this);
         paletteView.setCurrentColor(Color.RED);
+        mRedPaint.setSelected(true);
         // 是否是 照相还是 从相册里面拿图片 进行判断
         String path = null;
         if (extras != null) {
@@ -140,8 +125,6 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
         } else {
             h = screenWidth * op_h / op_w;
         }
-        LayoutParams p = new LayoutParams(LayoutParams.FILL_PARENT, h);
-        paletteView.setLayoutParams(p);
         if (rotateDegree == 90) {
             op.inSampleSize = op_h / screenWidth;
         } else {
@@ -166,33 +149,41 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tv_stu_planback:
+            case R.id.tv_tool_back:
                 finish();
                 break;
-            case R.id.tv_stu_nextplan:
+            case R.id.next_btn:
                 dialogUtil.show();
                 new Thread() {
                     public void run() {
                         //查看华过后的原图
                         bigBitmapUrl = paletteView.getBigBitmapUrl();
-                        UIApplication.getInstance().addPicUrls(bigBitmapUrl);
+//                        UIApplication.getInstance().addPicUrls(bigBitmapUrl);
                         // 预览图片
-                        bitmap = paletteView.getNewBitmap();
-                        int pbw = bitmap.getWidth();
-                        int pbh = bitmap.getHeight();
+//                        bitmap = paletteView.getNewBitmap();
                         handler.sendEmptyMessage(0);
                     }
 
                     ;
                 }.start();
                 break;
-            // 删除画板上的数据
-            case R.id.plan_cexiao:
+            // 返回上一步画板上的数据
+            case R.id.pain_cexiao:
                 paletteView.Delete();
                 break;
-            // 恢复画板上的数据
-            case R.id.pain_huifu:
-                paletteView.Recover();
+            // 清除画板上的数据
+            case R.id.pain_clear:
+                paletteView.clear();
+                break;
+            case R.id.paint_red:
+                mRedPaint.setSelected(true);
+                mBluePaint.setSelected(false);
+                paletteView.setCurrentColor(Color.RED);
+                break;
+            case R.id.paint_blue:
+                mBluePaint.setSelected(true);
+                mRedPaint.setSelected(false);
+                paletteView.setCurrentColor(Color.BLUE);
                 break;
         }
     }
@@ -219,13 +210,6 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
                 });
     }
 
-    // 判断是老师登陆还是学生登陆
-    private void Tea_Stu() {
-        if (LoginManage.getInstance().isTeacher(this)) {
-            ll_title.setBackgroundResource(R.color.bottom_widow_color);
-            buttom_plain.setBackgroundResource(R.color.tea_add_remark_lucency);
-        }
-    }
 
     private void skSend_messge(final String questionId, String isSend) {
         SKAsyncApiController.skSend_messge(questionId, "", isSend,
@@ -279,17 +263,5 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
             bitmap = null;
         }
         System.gc();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(this);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(this);
     }
 }

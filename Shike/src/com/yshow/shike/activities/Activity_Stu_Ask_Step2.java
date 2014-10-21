@@ -140,4 +140,12 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
         Bitmap new_rotae_bitmap = bitmapUtil.rotaingImageView(rotateDegree, getbitmap);
         return new_rotae_bitmap;
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1){
+            mImageview.setImageBitmap(press_bitmap(data.getStringExtra("path")));
+        }
+    }
 }
