@@ -97,6 +97,7 @@ public class Login_Reg_Activity extends BaseActivity implements OnClickListener 
         username_edit.setAdapter(adapter);
         isRemember.setOnClickListener(this);
         tv_pasword.setOnClickListener(this);
+        mSlideFrameLayout = (FrameLayout) findViewById(R.id.slide_bg_frame);
 
         if (fileService.getBoolean("isfirstuse", true)) {
             FragmentExchangeController.addFragment(getSupportFragmentManager(), new UserRegisterFragment(), Window.ID_ANDROID_CONTENT, "reg", R.anim.dialog_enter_from_top, R.anim.dialog_exit_to_top, R.anim.dialog_enter_from_top, R.anim.dialog_exit_to_top);
@@ -104,7 +105,6 @@ public class Login_Reg_Activity extends BaseActivity implements OnClickListener 
             fileService.putBoolean("isfirstuse", false);
         }
 
-        mSlideFrameLayout = (FrameLayout) findViewById(R.id.slide_bg_frame);
     }
 
     //点击屏幕 关闭输入弹出框
