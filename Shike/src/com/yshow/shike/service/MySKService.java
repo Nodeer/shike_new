@@ -46,7 +46,7 @@ public class MySKService extends Service {
 		super.onCreate();
 		initNotifiManager();
 		soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
-		soundId = soundPool.load(getApplicationContext(), R.raw.message, 1);
+		soundId = soundPool.load(getApplicationContext(), R.raw.shike, 1);
 		soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
 			@Override
 			public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
