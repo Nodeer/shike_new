@@ -27,6 +27,7 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
     private ImageView mImageview, mRemarkButton;
     private Bitmap_Manger_utils bitmapUtil;
     String imgPath;
+    private Bitmap mBitmap;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,8 +57,10 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
         bitmapUtil = Bitmap_Manger_utils.getIntence();
         imgPath = getIntent().getStringExtra("bitmap");
         if (imgPath != null) {
-            mImageview.setImageBitmap(press_bitmap(imgPath));
+            mBitmap = press_bitmap(imgPath);
+            mImageview.setImageBitmap(mBitmap);
         }
+        findViewById(R.id.next_btn).setOnClickListener(this);
     }
 
     @Override
@@ -83,6 +86,11 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
                 break;
             case R.id.tv_tool_back:
                 finish();
+                break;
+            case R.id.next_btn:
+                Bundle bun = new Bundle();
+                bun.putParcelable("bitmap",mBitmap);
+                Dialog.intent(Activity_Stu_Ask_Step2.this, Activity_Stu_Add_Voice.class, bun);
                 break;
         }
     }
@@ -144,8 +152,9 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1){
-            mImageview.setImageBitmap(press_bitmap(data.getStringExtra("path")));
+        if (requestCode == 1) {
+            mBitmap = press_bitmap(data.getStringExtra("path"));
+            mImageview.setImageBitmap(mBitmap);
         }
     }
 }

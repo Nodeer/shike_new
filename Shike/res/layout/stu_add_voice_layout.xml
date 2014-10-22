@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/stu_take_phone"
+    android:layout_width="fill_parent"
+    android:background="@color/main_bg"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/tv_tool_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/icon_back" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/action_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="第3步:"
+                style="@style/text_20_gray"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/action_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="添加录音"
+                style="@style/text_20_333333"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next_btn"
+            android:padding="5dp"
+            android:text="下一步"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@style/text_16_white"
+            android:background="@drawable/stu_slide_btn2_bg" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/select_kumu_layout"
+        android:layout_alignParentBottom="true">
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100dp">
+
+            <LinearLayout
+                android:id="@+id/voice_layout"
+                android:layout_width="fill_parent"
+                android:padding="10dp"
+                android:orientation="horizontal"
+                android:layout_height="100dp"></LinearLayout>
+
+            <include
+                android:id="@+id/voice_recordding_layout"
+                layout="@layout/voice_recording_layout"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/delete_voice"
+                android:layout_width="0dp"
+                android:drawableLeft="@drawable/icon_del_voice"
+                android:background="@drawable/gray_btn_bg"
+                android:padding="5dp"
+                android:text="删除录音"
+                style="@style/text_18_333333"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/record_btn"
+                android:layout_width="0dp"
+                android:drawableLeft="@drawable/record_icon_bg"
+                android:background="@drawable/gray_btn_bg"
+                android:padding="5dp"
+                android:text="录音"
+                style="@style/text_18_333333"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_below="@id/title_layout"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/img_frame"
+        android:background="@drawable/blackboard_bg_img"
+        android:layout_above="@id/select_kumu_layout"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:id="@+id/image"
+            android:layout_below="@id/title_layout"
+            android:layout_above="@id/select_kumu_layout"
+            android:scaleType="fitXY"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/img_frame"
+        android:layout_alignRight="@id/img_frame"
+        android:src="@drawable/icon_big_image"
+        android:layout_margin="15dp"
+        android:id="@+id/remark_btn" />
+
+</RelativeLayout>

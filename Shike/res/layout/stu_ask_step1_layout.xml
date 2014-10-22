@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="拍照提问"
-                style="@style/text_20_black"
+                style="@style/text_20_333333"
                 android:gravity="center" />
 
         </LinearLayout>

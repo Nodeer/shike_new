@@ -230,6 +230,9 @@
         <activity
                 android:name="com.yshow.shike.activities.Activity_Add_Remark"
                 android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.Activity_Stu_Add_Voice"
+                android:screenOrientation="portrait"/>
 
         <service android:name="com.yshow.shike.service.MySKService">
         </service>
