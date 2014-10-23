@@ -34,8 +34,6 @@ public class PaletteView extends SurfaceView implements Runnable, SurfaceHolder.
     // 画板的坐标以及宽高
     private int bgBitmapX = 0;
     private int bgBitmapY = 0;
-    private int bgBitmapHeight;
-    private int bgBitmapWidth;
     private int currentColor = Color.BLACK;
     private int currentSize = 3; // 1,3,5
     private int currentPaintIndex = -1;
@@ -48,11 +46,7 @@ public class PaletteView extends SurfaceView implements Runnable, SurfaceHolder.
     SurfaceHolder mSurfaceHolder = null;
     // 绘图区背景图片
     private Bitmap bgBitmap = null;
-    // 临时画板用来显示之前已经绘制过的图像
-//	private Bitmap newbit = null;
     private Paint mPaint = null;
-    //	private Canvas canvasTemp;
-//	private Context context;
     private Bitmap_Manger_utils bitmap_utils;
     private float scaleX;
     private float scaleY;
@@ -64,16 +58,9 @@ public class PaletteView extends SurfaceView implements Runnable, SurfaceHolder.
         this.currentColor = currentColor;
     }
 
-    // 设置画笔的大小
-    public void setCurrentSize(int currentSize) {
-        this.currentSize = currentSize;
-    }
-
     public PaletteView(Context context, AttributeSet arr) {
         super(context, arr);
 //		this.context = context;
-        bgBitmapHeight = ScreenSizeUtil.getScreenHeight(getContext()); // 获取手机屏幕的高
-        bgBitmapWidth = ScreenSizeUtil.getScreenWidth(getContext(), 1);// 获取手机屏幕的宽
         mPaint = new Paint();
         actionList = new ArrayList<Action>();
         mSurfaceHolder = this.getHolder();
@@ -196,9 +183,6 @@ public class PaletteView extends SurfaceView implements Runnable, SurfaceHolder.
         scaleX = (float) getWidth() / bgBitmap.getWidth();
         scaleY = (float) getHeight() / bgBitmap.getHeight();
         matrix.setScale((float) getWidth() / bgBitmap.getWidth(), (float) getHeight() / bgBitmap.getHeight());
-//		newbit = Bitmap.createBitmap(getWidth(), getHeight(), Config.ARGB_4444);
-//		canvasTemp = new Canvas(newbit);
-//		canvasTemp.drawColor(Color.TRANSPARENT);
         canvas.drawBitmap(bgBitmap, matrix, mPaint);
         for (int i = 0; i <= currentPaintIndex; i++) {
             actionList.get(i).draw(canvas);

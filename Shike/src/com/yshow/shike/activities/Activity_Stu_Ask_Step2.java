@@ -1,5 +1,6 @@
 package com.yshow.shike.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -28,6 +29,8 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
     private Bitmap_Manger_utils bitmapUtil;
     String imgPath;
     private Bitmap mBitmap;
+
+    public static Bitmap sUploadBitmap;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,7 +92,7 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
                 break;
             case R.id.next_btn:
                 Bundle bun = new Bundle();
-                bun.putParcelable("bitmap",mBitmap);
+                sUploadBitmap = mBitmap;
                 Dialog.intent(Activity_Stu_Ask_Step2.this, Activity_Stu_Add_Voice.class, bun);
                 break;
         }
@@ -125,8 +128,8 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
         BitmapFactory.Options op = new BitmapFactory.Options();
         op.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(path, op);
-        int op_h = op.outHeight;
-        int op_w = op.outWidth;
+        int op_h = op.outHeight-1;//防止图片分辨率和屏幕分辨率一样的情况下被缩小
+        int op_w = op.outWidth-1;
         int rotateDegree = bitmapUtil.readPictureDegree(path);
         if (rotateDegree == 90) {
             op.inSampleSize = op_h / screenWidth;
@@ -153,8 +156,10 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
-            mBitmap = press_bitmap(data.getStringExtra("path"));
-            mImageview.setImageBitmap(mBitmap);
+            if(resultCode== Activity.RESULT_OK){
+                mBitmap = press_bitmap(data.getStringExtra("path"));
+                mImageview.setImageBitmap(mBitmap);
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ant.liao.GifView;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
@@ -25,20 +26,23 @@ import com.yshow.shike.widget.GalleryView;
  * 学生首页
  */
 public class StuContentFragment extends Fragment implements View.OnClickListener {
-    ImageView mMessRedIcon;
-    RelativeLayout mAskButton, mReStudyButton;
+    private ImageView mMessRedIcon;
+    private RelativeLayout mAskButton, mReStudyButton;
     private TextView mOnlineTextView;
+    private GifView mTitleRight;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.stu_content_layout, null);
 
         GalleryView gallery = (GalleryView) view.findViewById(R.id.gallery);
-        gallery.setData(new int[]{R.drawable.blackboard_ad_img,R.drawable.blackboard_ad_img}, false);
+        gallery.setData(new int[]{R.drawable.blackboard_ad_img, R.drawable.blackboard_ad_img}, false);
 
         ImageView mTitleLeft = (ImageView) view.findViewById(R.id.title_left);
         mTitleLeft.setOnClickListener(this);
-        ImageView mTitleRight = (ImageView) view.findViewById(R.id.title_right);
+
+        mTitleRight = (GifView) view.findViewById(R.id.title_right);
+        mTitleRight.setGifImage(R.drawable.stu_ring_gif);
         mTitleRight.setOnClickListener(this);
         mMessRedIcon = (ImageView) view.findViewById(R.id.mess_red);
         mAskButton = (RelativeLayout) view.findViewById(R.id.ask_question_btn);

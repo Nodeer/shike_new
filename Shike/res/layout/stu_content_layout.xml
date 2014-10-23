@@ -18,12 +18,11 @@
             android:layout_alignParentLeft="true"
             android:layout_height="wrap_content" />
 
-        <ImageView
+        <com.ant.liao.GifView
             android:id="@+id/title_right"
-            android:layout_width="wrap_content"
-            android:src="@drawable/stu_ring_icon"
+            android:layout_width="40dp"
             android:layout_alignParentRight="true"
-            android:layout_height="wrap_content" />
+            android:layout_height="40dp" />
 
         <ImageView
             android:layout_width="wrap_content"

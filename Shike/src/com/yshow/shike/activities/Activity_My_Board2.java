@@ -93,7 +93,7 @@ public class Activity_My_Board2 extends Activity implements OnClickListener {
             int screenWidth = ScreenSizeUtil.ScreenWidth;
             int screenHeight = ScreenSizeUtil.ScreenHeight;
             //这里换成之前的高清大图
-            bitmap = Dialog.getbitmap(picUrls.get(0), screenWidth, screenHeight);
+//            bitmap = Dialog.getbitmap(picUrls.get(0), screenWidth, screenHeight);
         }
         // 对是否是从我的老师的提问按钮进行交互的判断
         String tiwen_teacher_Id = PartnerConfig.TEATHER_ID;

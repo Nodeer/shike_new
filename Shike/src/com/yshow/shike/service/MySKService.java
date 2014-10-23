@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
+import android.text.TextUtils;
 import android.util.Log;
 import com.yshow.shike.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -174,7 +175,7 @@ public class MySKService extends Service {
 		int icon = R.drawable.icon;
 		mNotification = new Notification();
 		mNotification.icon = icon;
-		mNotification.sound = Uri.parse("android.resource://" + getApplicationContext().getPackageName() + "/" + R.raw.message);
+		mNotification.sound = Uri.parse("android.resource://" + getApplicationContext().getPackageName() + "/" + R.raw.shike);
 		mNotification.tickerText = "您有一条新师课消息";
 		mNotification.defaults |= Notification.DEFAULT_SOUND;
 		mNotification.flags = Notification.FLAG_AUTO_CANCEL;

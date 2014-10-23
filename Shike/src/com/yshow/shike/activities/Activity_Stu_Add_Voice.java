@@ -91,6 +91,7 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
 //        iv_record2 = (ImageView) findViewById(R.id.iv_record2);
 //        iv_record3 = (ImageView) findViewById(R.id.iv_record3);
         voiceRecorddingLayout = findViewById(R.id.voice_recordding_layout);
+        voiceRecorddingLayout.setVisibility(View.GONE);
         recordTimeRemainText = (TextView) findViewById(R.id.record_remain_text);
         delVoice = (Button) findViewById(R.id.delete_voice);
 //        dele_record1 = (ImageView) findViewById(R.id.iv_dele_record1);
@@ -105,14 +106,11 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
 //        iv_record2.setOnClickListener(this);
 //        iv_record3.setOnClickListener(this);
         Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        bitmap = (Bitmap) bundle.get("bitmap");
-        int pbw = bitmap.getWidth();
-        int pbh = bitmap.getHeight();
+        bitmap = Activity_Stu_Ask_Step2.sUploadBitmap;
         iv_board_picture = (ImageView) findViewById(R.id.image);
         iv_board_picture.setImageBitmap(bitmap);
         // 把从照相和拍照的图片存放到一个 AppliCtion 作用应用不退出 他就一直存在
-        ((UIApplication) UIApplication.getInstance()).getList().add(bitmap);
+        UIApplication.getInstance().getList().add(bitmap);
         urllist = new ArrayList<String>();
         iv_board_picture.setOnClickListener(this);
         mRecordButton.setOnTouchListener(new OnTouchListener() {
@@ -210,10 +208,10 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tv_down_step:
+            case R.id.next_btn:
                 Distinction_Stu_Tea();
                 break;
-            case R.id.tv_up_Step:
+            case R.id.tv_tool_back:
                 finish();
                 break;
             case R.id.iv_board_picture:
