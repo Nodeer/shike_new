@@ -2,7 +2,6 @@ package com.yshow.shike.activities;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
@@ -24,7 +23,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -340,8 +338,8 @@ public class Activity_My_Board extends Activity implements OnClickListener {
 //		bundle.putParcelable("bitmap", bitmap);
         if (!LoginManage.getInstance().isTeacher(this)) {//是学生
             bundle.putStringArrayList("urllist", urllist);
-            Activity_My_Board2.saveBitmap = bitmap;
-            Dialog.intent(this, Activity_My_Board2.class, bundle);
+            Activity_Select_Tea.saveBitmap = bitmap;
+            Dialog.intent(this, Activity_Select_Tea.class, bundle);
         } else {//如果是老师...显然就是拍照制作题目,下一个页面应该是给题目设置标题和选择文件夹
             Dialog.intent(this, Activity_Que_board2.class, bundle);
             finish();

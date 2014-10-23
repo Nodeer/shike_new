@@ -204,13 +204,13 @@
                 android:screenOrientation="portrait"
                 android:windowSoftInputMode="adjustPan"/>
         <activity
-                android:name="com.yshow.shike.activities.Activity_My_Board2"
+                android:name=".activities.Activity_Select_Tea"
                 android:screenOrientation="portrait"/>
         <activity
                 android:name="com.yshow.shike.activities.Activity_Teather_Material_Three"
                 android:screenOrientation="portrait"/>
         <activity
-                android:name="com.yshow.shike.activities.Activity_SelectSubjectOrTeacher"
+                android:name=".activities.Activity_SelectTeacher"
                 android:screenOrientation="portrait"/>
         <activity
                 android:name="com.yshow.shike.activities.Activity_Que_board2"

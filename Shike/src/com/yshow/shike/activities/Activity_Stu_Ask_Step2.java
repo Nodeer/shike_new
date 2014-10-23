@@ -10,8 +10,10 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.yshow.shike.R;
+import com.yshow.shike.SubjectIds;
 import com.yshow.shike.utils.Bitmap_Manger_utils;
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.ScreenSizeUtil;
@@ -31,6 +33,8 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
     private Bitmap mBitmap;
 
     public static Bitmap sUploadBitmap;
+
+    private String mSubjectId = "-1";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,18 +75,23 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.yuwen_btn:
                 changeSelectBtn(v, 0);
+                mSubjectId = SubjectIds.YUWEN;
                 break;
             case R.id.shuxue_btn:
                 changeSelectBtn(v, 1);
+                mSubjectId = SubjectIds.SHUXUE;
                 break;
             case R.id.yingyu_btn:
                 changeSelectBtn(v, 2);
+                mSubjectId = SubjectIds.YINGYU;
                 break;
             case R.id.wuli_btn:
                 changeSelectBtn(v, 3);
+                mSubjectId = SubjectIds.WULI;
                 break;
             case R.id.huaxue_btn:
                 changeSelectBtn(v, 4);
+                mSubjectId = SubjectIds.HUAXUE;
                 break;
             case R.id.remark_btn:
                 goRemarkScreen();
@@ -91,9 +100,14 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
                 finish();
                 break;
             case R.id.next_btn:
-                Bundle bun = new Bundle();
-                sUploadBitmap = mBitmap;
-                Dialog.intent(Activity_Stu_Ask_Step2.this, Activity_Stu_Add_Voice.class, bun);
+                if (!mSubjectId.equals("-1")) {
+                    SubjectIds.mSubjectId = mSubjectId;
+                    Bundle bun = new Bundle();
+                    sUploadBitmap = mBitmap;
+                    Dialog.intent(Activity_Stu_Ask_Step2.this, Activity_Stu_Add_Voice.class, bun);
+                } else {
+                    Toast.makeText(Activity_Stu_Ask_Step2.this, "请选择学科", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
@@ -128,8 +142,8 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
         BitmapFactory.Options op = new BitmapFactory.Options();
         op.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(path, op);
-        int op_h = op.outHeight-1;//防止图片分辨率和屏幕分辨率一样的情况下被缩小
-        int op_w = op.outWidth-1;
+        int op_h = op.outHeight - 1;//防止图片分辨率和屏幕分辨率一样的情况下被缩小
+        int op_w = op.outWidth - 1;
         int rotateDegree = bitmapUtil.readPictureDegree(path);
         if (rotateDegree == 90) {
             op.inSampleSize = op_h / screenWidth;
@@ -156,7 +170,7 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
-            if(resultCode== Activity.RESULT_OK){
+            if (resultCode == Activity.RESULT_OK) {
                 mBitmap = press_bitmap(data.getStringExtra("path"));
                 mImageview.setImageBitmap(mBitmap);
             }

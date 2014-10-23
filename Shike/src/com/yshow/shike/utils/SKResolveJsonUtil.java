@@ -839,7 +839,7 @@ public class SKResolveJsonUtil {
     }
 
     /**
-     * 用于提问时解析�?师数�?
+     * 用于提问时解析指定科目下面有没有对应老师
      */
     public ArrayList<SKTeacherOrSubject> resolveTeacher(String json, String subjectId) {
         ArrayList<SKTeacherOrSubject> sKClasses = new ArrayList<SKTeacherOrSubject>();
@@ -860,6 +860,7 @@ public class SKResolveJsonUtil {
                             steacher.setName(jsonObject2.optString("nickname"));
                             steacher.setSubjectId(jsonObject2.optString("subjectId"));
                             steacher.setTeacherId(jsonObject2.optString("uid"));
+                            steacher.icon = jsonObject2.optString("icon");
                             sKClasses.add(steacher);
                         }
 

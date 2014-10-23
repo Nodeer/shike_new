@@ -415,7 +415,7 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
 	// 重发消息
 	private void reSendMessage(SKMessage message) {
 		Log.e("SKMessageAdapter", "重发消息");
-		Intent intent = new Intent(context, Activity_My_Board2.class);
+		Intent intent = new Intent(context, Activity_Select_Tea.class);
 		intent.putExtra("try_messge", true);
 		intent.putExtra("message", message);
 		context.startActivity(intent);

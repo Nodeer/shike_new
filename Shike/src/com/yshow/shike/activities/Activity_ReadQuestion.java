@@ -4,14 +4,11 @@ import java.util.Date;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.IBinder;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -126,7 +123,7 @@ public class Activity_ReadQuestion extends Activity implements OnClickListener {
 	}
 	// 重发消息
 	private void reSendMessage(SKMessage message) {
-		Intent intent = new Intent(this, Activity_My_Board2.class);
+		Intent intent = new Intent(this, Activity_Select_Tea.class);
 		intent.putExtra("try_messge", true);
 		intent.putExtra("message", message);
 		context.startActivity(intent);

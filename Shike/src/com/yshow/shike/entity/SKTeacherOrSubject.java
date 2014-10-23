@@ -7,42 +7,44 @@ import java.io.Serializable;
  */
 public class SKTeacherOrSubject implements Serializable {
 
-	private static final long serialVersionUID = 8049001092579301464L;
-	private String teacherId;
-	private String name;
-	private String subjectId;
-	public SKTeacherOrSubject() {
-		super();
-	}
+    private static final long serialVersionUID = 8049001092579301464L;
+    private String teacherId;
+    private String name;
+    private String subjectId;
+    public String icon;
 
-	public String getTeacherId() {
-		return teacherId;
-	}
+    public SKTeacherOrSubject() {
+        super();
+    }
 
-	public void setTeacherId(String teacherId) {
-		this.teacherId = teacherId;
-	}
+    public String getTeacherId() {
+        return teacherId;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getSubjectId() {
-		return subjectId;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setSubjectId(String subjectId) {
-		this.subjectId = subjectId;
-	}
+    public String getSubjectId() {
+        return subjectId;
+    }
 
-	@Override
-	public String toString() {
-		return "SKTeacherOnQuestion [teacherId=" + teacherId + ", name=" + name
-				+ ", subjectId=" + subjectId + "]";
-	}
-   
+    public void setSubjectId(String subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    @Override
+    public String toString() {
+        return "SKTeacherOnQuestion [teacherId=" + teacherId + ", name=" + name
+                + ", subjectId=" + subjectId + "]";
+    }
+
 }

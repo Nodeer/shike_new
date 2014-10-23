@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -38,7 +37,7 @@ public class Activity_Recommend_Teacher extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.select_subject);
+		setContentView(R.layout.select_teacher_layout);
 		select = getIntent().getStringExtra("select");
 		findViewById(R.id.ll_my_board_back).setOnClickListener(this);
 		findViewById(R.id.ll_configm).setOnClickListener(this);

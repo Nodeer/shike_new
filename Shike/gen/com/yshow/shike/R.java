@@ -1080,7 +1080,7 @@ public final class R {
         public static final int activity_indao=0x7f03000b;
         public static final int activity_message_three=0x7f03000c;
         public static final int activity_my_board=0x7f03000d;
-        public static final int activity_my_board2=0x7f03000e;
+        public static final int select_teacher_layout =0x7f03000e;
         public static final int activity_my_shike=0x7f03000f;
         public static final int activity_my_skseting=0x7f030010;
         public static final int activity_pass_set=0x7f030011;
@@ -1170,7 +1170,7 @@ public final class R {
         public static final int quecount_subject=0x7f030065;
         public static final int question_count=0x7f030066;
         public static final int second_pager_item=0x7f030067;
-        public static final int select_subject=0x7f030068;
+        public static final int select_teacher_layout =0x7f030068;
         public static final int send_gif=0x7f030069;
         public static final int sh_select_subject_itme=0x7f03006a;
         public static final int share_friend_dialog=0x7f03006b;
