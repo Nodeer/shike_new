@@ -2,6 +2,7 @@ package com.yshow.shike.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,7 +30,8 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
     private ImageView mMessRedIcon;
     private RelativeLayout mAskButton, mReStudyButton;
     private TextView mOnlineTextView;
-    private GifView mTitleRight;
+    private ImageView mTitleRight;
+    private AnimationDrawable ani;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,9 +43,11 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
         ImageView mTitleLeft = (ImageView) view.findViewById(R.id.title_left);
         mTitleLeft.setOnClickListener(this);
 
-        mTitleRight = (GifView) view.findViewById(R.id.title_right);
-        mTitleRight.setGifImage(R.drawable.stu_ring_gif);
+        mTitleRight = (ImageView) view.findViewById(R.id.title_right);
         mTitleRight.setOnClickListener(this);
+
+        ani = (AnimationDrawable) mTitleRight.getDrawable();
+        ani.start();
         mMessRedIcon = (ImageView) view.findViewById(R.id.mess_red);
         mAskButton = (RelativeLayout) view.findViewById(R.id.ask_question_btn);
         mAskButton.setOnClickListener(this);
@@ -75,8 +79,10 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
                 startActivity(new Intent(getActivity(), Activity_Stu_Ask_Step1.class));
                 break;
             case R.id.restudy_btn:
-                Intent intent = new Intent(getActivity(), My_Question_Count.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), My_Question_Count.class);
+//                startActivity(intent);
+                ani.stop();
+                ani.start();
                 break;
 
         }
