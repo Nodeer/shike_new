@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -29,7 +30,7 @@ import com.yshow.shike.utils.*;
 public class Activity_Select_Tea extends BaseActivity implements OnClickListener {
     private String subjectid = "-1";
     private RelativeLayout myTeacherButton;
-    private String teacherId = "-1";
+    private String teacherId = "0";
     private Bitmap bitmap;
     private SkUpLoadQuestion skUpLoadQuestion;
     private boolean isReSendmessge;
@@ -47,6 +48,8 @@ public class Activity_Select_Tea extends BaseActivity implements OnClickListener
     private ImageView mTeacherImg;
     private ImageLoader imageLoader;
 
+    private TextView mTeaTextView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +61,7 @@ public class Activity_Select_Tea extends BaseActivity implements OnClickListener
     private void initData() {
         findViewById(R.id.tv_tool_back).setOnClickListener(this);
         findViewById(R.id.next_btn).setOnClickListener(this);
+        mTeaTextView = (TextView) findViewById(R.id.my_teacher_text);
         onLineTeacherButton = (RelativeLayout) findViewById(R.id.online_tea_button);
         onLineTeacherButton.setOnClickListener(this);
         myTeacherButton = (RelativeLayout) findViewById(R.id.my_tea_button);
@@ -71,7 +75,6 @@ public class Activity_Select_Tea extends BaseActivity implements OnClickListener
         imageLoader = ImageLoader.getInstance();
         if (isReSendmessge) {
             SKMessage message = (SKMessage) getIntent().getSerializableExtra("message");
-
             isTry_questionId = message.getQuestionId();
             subjectid = message.getSubjectId();
         } else {
@@ -93,6 +96,7 @@ public class Activity_Select_Tea extends BaseActivity implements OnClickListener
             imageLoader.displayImage(tea_img, mTeacherImg, ImageLoadOption.getImageOption(R.drawable.my_tea_big_icon));
             mTeacherName.setVisibility(View.VISIBLE);
             mTeacherName.setText(tea_name);
+            mTeaTextView.setTextColor(R.color.stu_slide_btn1_bg_nor);
             myTeacherButton.setBackgroundResource(R.drawable.white_btn_green_bg);
         } else {
             isOnlineImg.setVisibility(View.VISIBLE);
@@ -125,6 +129,8 @@ public class Activity_Select_Tea extends BaseActivity implements OnClickListener
                 teacherId = "0";
                 mTeacherName.setVisibility(View.GONE);
                 myTeacherButton.setBackgroundResource(R.drawable.stu_slide_btn2_bg);
+                mTeaTextView.setTextColor(Color.WHITE);
+                mTeacherImg.setImageResource(R.drawable.my_tea_big_icon);
                 break;
         }
     }
@@ -152,7 +158,7 @@ public class Activity_Select_Tea extends BaseActivity implements OnClickListener
                     bundle.putStringArrayList("urllist", urllist);
                     Dialog.intent(context, Com_Per_Data.class, bundle);
                 } else {
-                    Toast.makeText(this, "请选择学科", 0).show();
+                    Toast.makeText(this, "请选择学科", Toast.LENGTH_SHORT).show();
                 }
             } else if (isReSendmessge) {
                 tryQusetion();
@@ -166,24 +172,20 @@ public class Activity_Select_Tea extends BaseActivity implements OnClickListener
      * 发送新消息
      */
     private void Send_New_Mess() {
-        if (!teacherId.equals("-1")) {
-            if (!teacherId.equals("0")) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage("同学，您现在是找“我的老师”为您解答，如果长时间不回答，希望您重发给其他在线老师！");
-                builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        send_Message = new Send_Message(context, bitmap, skUpLoadQuestion, teacherId);
-                        send_Message.skCreateQuestion(subjectid);
-                    }
-                });
-                builder.show();
-            } else {//发给在线老师
-                send_Message = new Send_Message(context, bitmap, skUpLoadQuestion, teacherId);
-                send_Message.skCreateQuestion(subjectid);
-            }
-        } else {
-            Toast.makeText(this, "你还没选择老师呢！", 0).show();
+        if (!teacherId.equals("0")) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setMessage("同学，您现在是找“我的老师”为您解答，如果长时间不回答，希望您重发给其他在线老师！");
+            builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    send_Message = new Send_Message(context, bitmap, skUpLoadQuestion, teacherId);
+                    send_Message.skCreateQuestion(subjectid);
+                }
+            });
+            builder.show();
+        } else {//发给在线老师
+            send_Message = new Send_Message(context, bitmap, skUpLoadQuestion, teacherId);
+            send_Message.skCreateQuestion(subjectid);
         }
     }
 
@@ -213,10 +215,11 @@ public class Activity_Select_Tea extends BaseActivity implements OnClickListener
                 teacherId = item.getTeacherId();
                 isMyTeaImg.setVisibility(View.VISIBLE);
                 isOnlineImg.setVisibility(View.GONE);
-                imageLoader.displayImage(item.icon, mTeacherImg, ImageLoadOption.getImageOption(R.drawable.my_tea_big_icon));
+                imageLoader.displayImage(item.icon, mTeacherImg, ImageLoadOption.getImageOption(R.drawable.my_tea_big_icon_green));
                 mTeacherName.setVisibility(View.VISIBLE);
                 mTeacherName.setText(item.getName());
                 myTeacherButton.setBackgroundResource(R.drawable.white_btn_green_bg);
+                mTeaTextView.setTextColor(Color.rgb(135, 184, 93));
             }
         }
     }

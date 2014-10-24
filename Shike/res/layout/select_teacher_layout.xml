@@ -153,12 +153,14 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/my_teacher_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="我的老师"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="5dp"
-                    style="@style/text_30_white" />
+                    android:textSize="30dp" />
             </LinearLayout>
         </RelativeLayout>
 

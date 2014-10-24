@@ -56,7 +56,7 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
     private RelativeLayout in_wo_de_shi_ke;
     private boolean isUnfold = false;
     private android.app.Dialog dialog;
-    private TextView tv_mess, tv_my_tea, tv_find_tea, tv_ques, tv_delete, tv_back;// 学生端 提问 消息 我的老师 找老师 切换按钮 消息刪除按鈕 退出按钮
+    private TextView tv_mess, tv_my_tea, tv_find_tea, tv_ques, tv_delete;// 学生端 提问 消息 我的老师 找老师 切换按钮 消息刪除按鈕 退出按钮
     private ImageView mess_num;
     public static Student_Main_Activity mInstance;
     private android.widget.RelativeLayout.LayoutParams layoutParams;
@@ -72,8 +72,6 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
         super.onNewIntent(intent);
         student = LoginManage.getInstance().getStudent();
         if (student.getMob() != null) {
-            tv_back.setText("退出");
-            tv_back.setTextColor(context.getResources().getColor(R.color.button_typeface_color));
         }
     }
 

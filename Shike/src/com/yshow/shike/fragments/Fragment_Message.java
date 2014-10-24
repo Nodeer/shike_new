@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.yshow.shike.R;
+import com.yshow.shike.activities.Activity_Stu_Ask_Step1;
 import com.yshow.shike.activities.Student_Main_Activity;
 import com.yshow.shike.activities.Teather_Main_Activity;
 import com.yshow.shike.adapter.SKMessageAdapter;
@@ -82,6 +83,8 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
         mListview.setOnScrollListener(this);
         ImageView backBtn = (ImageView) view.findViewById(R.id.tv_tool_back);
         backBtn.setOnClickListener(this);
+
+        view.findViewById(R.id.right_button).setOnClickListener(this);
         // getSKMessage();
     }
 
@@ -162,6 +165,9 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
         switch (v.getId()) {
             case R.id.tv_tool_back:
                 getActivity().finish();
+                break;
+            case R.id.right_button:
+                startActivity(new Intent(getActivity(), Activity_Stu_Ask_Step1.class));
                 break;
         }
     }

@@ -13,8 +13,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ import com.yshow.shike.UIApplication;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.MediaPlayerUtil;
+import com.yshow.shike.widget.StuTapeImage;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,15 +38,12 @@ import java.util.TimerTask;
 /**
  * 学生涂鸦完成后,进入的添加语音页面
  */
-public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListener {
+public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListener, StuTapeImage.VoiceImageClickListener {
     private Button mRecordButton;// 录音键
     private ImageView iv_board_picture; // 被画图片
     private Bitmap bitmap;
     private MediaRecorder mr;
     private int Count = 0;
-    //    private ImageView iv_record1, dele_record1;
-//    private ImageView iv_record2, dele_record2;
-//    private ImageView iv_record3, dele_record3;
     private ArrayList<String> urllist;
     private View voiceRecorddingLayout;
     private TextView recordTimeRemainText;
@@ -52,7 +52,6 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
     private Button delVoice;
     private File file;
     private String url;
-    private boolean dele_mes_flag = true;
     private Boolean dele_list = false;
     private MediaPlayerUtil mediaPlayerUtil;
     final Handler handler = new Handler() {
@@ -73,6 +72,8 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
     private TimerTask task;
     private boolean isRecordCancel = false;
 
+    private LinearLayout mVoiceLayout;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,25 +87,13 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
         mRecordButton = (Button) findViewById(R.id.record_btn);
         findViewById(R.id.tv_tool_back).setOnClickListener(this);
         findViewById(R.id.next_btn).setOnClickListener(this);
-//        iv_record1 = (ImageView) findViewById(R.id.iv_record1);
-//        iv_record2 = (ImageView) findViewById(R.id.iv_record2);
-//        iv_record3 = (ImageView) findViewById(R.id.iv_record3);
+        mVoiceLayout = (LinearLayout) findViewById(R.id.voice_layout);
         voiceRecorddingLayout = findViewById(R.id.voice_recordding_layout);
         voiceRecorddingLayout.setVisibility(View.GONE);
         recordTimeRemainText = (TextView) findViewById(R.id.record_remain_text);
         delVoice = (Button) findViewById(R.id.delete_voice);
-//        dele_record1 = (ImageView) findViewById(R.id.iv_dele_record1);
-//        dele_record2 = (ImageView) findViewById(R.id.iv_dele_record2);
-//        dele_record3 = (ImageView) findViewById(R.id.iv_dele_record3);
-//        dele_record1.setOnClickListener(this);
-//        dele_record2.setOnClickListener(this);
-//        dele_record3.setOnClickListener(this);
         delVoice.setOnClickListener(this);
         mRecordButton.setOnClickListener(this);
-//        iv_record1.setOnClickListener(this);
-//        iv_record2.setOnClickListener(this);
-//        iv_record3.setOnClickListener(this);
-        Intent intent = getIntent();
         bitmap = Activity_Stu_Ask_Step2.sUploadBitmap;
         iv_board_picture = (ImageView) findViewById(R.id.image);
         iv_board_picture.setImageBitmap(bitmap);
@@ -170,7 +159,6 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
     }
 
 
-    @SuppressWarnings("static-access")
     private void REC() {
         voiceRecorddingLayout.setVisibility(View.VISIBLE);
         recLen = 30;
@@ -216,79 +204,17 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
             case R.id.iv_board_picture:
                 Dialog.IntentParamet(this, ImageActivity.class, "bitmap", bitmap);
                 break;
-            case R.id.iv_record1:
-                try {
-                    String url = urllist.get(0);
-                    mediaPlayerUtil.VoidePlay(url);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
-            case R.id.iv_record2:
-                try {
-                    String url1 = urllist.get(1);
-                    mediaPlayerUtil.VoidePlay(url1);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
-            case R.id.iv_record3:
-                try {
-                    String url2 = urllist.get(2);
-                    mediaPlayerUtil.VoidePlay(url2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
             // 控制三个删除按钮的出现
-            case R.id.rl_dele_mes:
-//                if (iv_record1.getVisibility() == View.VISIBLE) {
-//                    if (dele_mes_flag) {
-//                        dele_record1.setVisibility(View.VISIBLE);
-//                    } else {
-//                        dele_record1.setVisibility(View.GONE);
-//                    }
-//                }
-//                if (iv_record2.getVisibility() == View.VISIBLE) {
-//                    if (dele_mes_flag) {
-//                        dele_record2.setVisibility(View.VISIBLE);
-//                    } else {
-//                        dele_record2.setVisibility(View.GONE);
-//                    }
-//                }
-//                if (iv_record3.getVisibility() == View.VISIBLE) {
-//                    if (dele_mes_flag) {
-//                        dele_record3.setVisibility(View.VISIBLE);
-//                    } else {
-//                        dele_record3.setVisibility(View.GONE);
-//                    }
-//                }
-                dele_mes_flag = !dele_mes_flag;
+            case R.id.delete_voice:
+                int size = mVoiceLayout.getChildCount();
+                for (int i = 0; i < size; i++) {
+                    StuTapeImage img = (StuTapeImage) mVoiceLayout.getChildAt(i);
+                    img.changeDelView();
+                }
                 break;
             // 设置老师照相的点击事件
             case R.id.tv_paizhao:
                 Dialog.Intent(this, Activity_Tea_Tool_Sele.class);
-                break;
-            // 删除消息1
-            case R.id.iv_dele_record1:
-                urllist.remove(0);
-                dele_list = true;
-                Count--;
-//                View_Hide(iv_record1, dele_record1);
-                break;
-            case R.id.iv_dele_record2:
-                if (dele_list) {
-                    urllist.remove(0);
-                } else {
-                    urllist.remove(1);
-                }
-                Count--;
-//                View_Hide(iv_record2, dele_record2);
-                break;
-            case R.id.iv_dele_record3:
-                urllist.remove(urllist.size() - 1);
-//                View_Hide(iv_record3, dele_record3);
-                Count--;
                 break;
         }
     }
@@ -315,18 +241,30 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
     }
 
     public void VoideShow() {
-//        if (Count == 0) {
-//            iv_record1.setVisibility(View.VISIBLE);
-//        } else if (Count == 1) {
-//            iv_record2.setVisibility(View.VISIBLE);
-//        } else {
-//            iv_record3.setVisibility(View.VISIBLE);
-//        }
+        StuTapeImage tapeimg = new StuTapeImage(this);
+        LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        pa.leftMargin = 20;
+        tapeimg.setLayoutParams(pa);
+        tapeimg.setmVoiceImageClickListener(this);
+        tapeimg.setVoicePath(url);
+        mVoiceLayout.addView(tapeimg);
     }
 
     @Override
     protected void onStop() {
         mediaPlayerUtil.Stop_Play();
         super.onStop();
+    }
+
+    @Override
+    public void onImageClick(StuTapeImage img) {
+        mediaPlayerUtil.VoidePlay(img.getVoicePath());
+    }
+
+    @Override
+    public void onDelClick(StuTapeImage img) {
+        urllist.remove(img.getVoicePath());
+        ((ViewGroup) (img.getParent())).removeView(img);
+        Count--;
     }
 }
