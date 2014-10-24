@@ -167,7 +167,7 @@ public class Activity_Message_Three extends Activity implements OnClickListener 
 		iniData();
 		mediaRecorderUtil = new MediaRecorderUtil(this);
 		MySKService.handler = handler;
-		if (!sKMessage.getMsgType().equals("1")) {
+		if (!sKMessage.getMsgType().equals("1")) {//如果此题还没有进入交互状态
 			Teather_Decide();
 		}
 	}

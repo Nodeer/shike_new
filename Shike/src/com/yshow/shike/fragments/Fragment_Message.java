@@ -130,7 +130,7 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
         }
     }
 
-    private void getModeSKMessage(int pagea) {
+    private void getModeSKMessage() {
         SKAsyncApiController.skGetMessage(page, new MyAsyncHttpResponseHandler(context, true) {
             @Override
             public void onSuccess(String json) {
@@ -151,7 +151,7 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         if (scrollState == OnScrollListener.SCROLL_STATE_IDLE && lastVisibleIndex == skMessageAdapter.getCount()) {
-            getModeSKMessage(page);
+            getModeSKMessage();
         }
     }
 
