@@ -410,7 +410,7 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
 
     // 查看消息
     private void readQuest(SKMessage message) {
-        Intent intent = new Intent(context, Activity_ReadQuestion.class);
+        Intent intent = new Intent(context, Activity_Stu_Message_Detail.class);
         intent.putExtra("SKMessage", message);
         intent.putExtra("tag", "2");
         context.startActivity(intent);

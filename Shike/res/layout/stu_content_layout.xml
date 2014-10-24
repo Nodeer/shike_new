@@ -46,6 +46,8 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="#eaeaea"
+        android:paddingTop="5dp"
         android:id="@+id/gallery" />
 
     <RelativeLayout
