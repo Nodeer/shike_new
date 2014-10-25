@@ -7,7 +7,6 @@
     android:layout_height="fill_parent">
 
     <RelativeLayout
-        android:id="@+id/li_take_phon_back"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -36,6 +35,7 @@
     <GridView
         android:id="@+id/gridview"
         android:layout_width="fill_parent"
+        android:numColumns="3"
         android:layout_height="fill_parent"></GridView>
 
 </LinearLayout>

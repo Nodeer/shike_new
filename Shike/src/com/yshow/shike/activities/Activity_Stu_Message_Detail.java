@@ -53,6 +53,7 @@ import com.yshow.shike.utils.PartnerConfig;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
 import com.yshow.shike.utils.YD;
+import com.yshow.shike.widget.StuTapeImage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,7 +67,7 @@ import java.util.TimerTask;
 /**
  * 学生进入的消息交互页面
  */
-public class Activity_Stu_Message_Detail extends BaseActivity implements OnClickListener {
+public class Activity_Stu_Message_Detail extends BaseActivity implements OnClickListener, ViewPager.OnPageChangeListener, StuTapeImage.VoiceImageClickListener {
     private LinearLayout bottom_navigation;
     private ArrayList<SkMessage_Res> reslist;
     private List<String> bitmap_list = new ArrayList<String>(); // ViewPager显示的一个集合
@@ -84,13 +85,13 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
     private TextView tv_visits, tv_data;
     private SKMessage sKMessage;
     private TextView back_time, mEndButton;
-    private DatabaseDao databaseDao;
-    private List<String> query_voidce; // 查询所有数据库的录音
     private MediaPlayerUtil mediaPlayer;
 
 
     private String mTeacherName;
     private String mName;
+
+    private LinearLayout mVoiceShowLayout;
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -162,8 +163,6 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
         setContentView(R.layout.stu_message_detail_layout);
         context = this;
         mediaPlayer = new MediaPlayerUtil();
-        databaseDao = new DatabaseDao(context);
-        query_voidce = databaseDao.Query();
         iniData();
         mediaRecorderUtil = new MediaRecorderUtil(this);
         MySKService.handler = handler;
@@ -179,6 +178,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
         Bundle bundle = getIntent().getExtras();
         sKMessage = (SKMessage) bundle.getSerializable("sKMessage");
         curquestionId = sKMessage.getQuestionId();
+        mVoiceShowLayout = (LinearLayout) findViewById(R.id.voice_layout);
         ll_volume_control = findViewById(R.id.voice_recordding_layout);
         ll_volume_control.setVisibility(View.GONE);
         bottom_navigation = (LinearLayout) findViewById(R.id.bottom_layout);
@@ -221,6 +221,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
         myAdapter = new MyAdapter(reslist);
         viewPager.setAdapter(myAdapter);
         viewPager.setOffscreenPageLimit(3);
+        viewPager.setOnPageChangeListener(this);
         viewPager.setCurrentItem(pointion);
         findViewById(R.id.tv_tool_back).setOnClickListener(this);
 
@@ -331,6 +332,52 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
         }
     };
 
+    @Override
+    public void onPageScrolled(int i, float v, int i2) {
+
+    }
+
+    @Override
+    public void onPageSelected(int i) {
+        addVoiceView(i);
+    }
+
+    private void addVoiceView(int index) {
+        mVoiceShowLayout.removeAllViews();
+
+        ArrayList<SkMessage_Voice> voice = reslist.get(index).getVoice();
+        for (int voice_count = 0; voice_count < voice.size(); voice_count++) {
+            SkMessage_Voice voiceitem = voice.get(voice_count);
+            StuTapeImage tapeimg = new StuTapeImage(this);
+            LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            pa.leftMargin = 20;
+            tapeimg.setLayoutParams(pa);
+            tapeimg.setmVoiceImageClickListener(this);
+
+            tapeimg.setVoicePath(voiceitem.getFile());
+            mVoiceShowLayout.addView(tapeimg);
+        }
+
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int i) {
+
+    }
+
+    @Override
+    public void onImageClick(StuTapeImage img) {
+        String file = img.getVoicePath();
+        mediaPlayer.Down_Void(file, context);
+    }
+
+    @Override
+    public void onDelClick(StuTapeImage img) {
+
+    }
+
+
     /**
      * 页面数据适配器
      */
@@ -364,33 +411,6 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
             View view = View.inflate(Activity_Stu_Message_Detail.this, R.layout.img_page_item, null);
             ImageView iv_picture = (ImageView) view.findViewById(R.id.iv_picture);
             iv_picture.setTag(files);
-//            GridView itme_gridview = (GridView) view.findViewById(R.id.itme_gridview);
-//            FrameLayout iv_picture1 = (FrameLayout) view.findViewById(R.id.iv_picture1);
-            if (LoginManage.getInstance().isTeacher()) {
-//                iv_picture1.setBackgroundResource(R.drawable.teather_bg_message_image);
-            }
-//            // 这个是用来显示数据的一个集合
-//            ArrayList<SkMessage_Voice> voice = reslist.get(position).getVoice();
-//            for (int voice_count = 0; voice_count < voice.size(); voice_count++) {
-//                itme_gridview.setSelection(voice.size());
-//            }
-//            itme_gridview.setAdapter(new GridviewAdapter(voice, Activity_Stu_Message_Detail.this));
-//            // 添加是否读过语音的标识
-//            itme_gridview.setOnItemClickListener(new OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    GridviewAdapter adapter = (GridviewAdapter) parent.getAdapter();
-//                    SkMessage_Voice item = adapter.getItem(position);
-//                    String file = item.getFile();
-//                    // 对语音进行添加和判断判断
-//                    if (!query_voidce.contains(file)) {
-//                        databaseDao.insert(file);
-//                    }
-//                    adapter.notifyDataSetChanged();
-//                    // 通知上一个界面刷新页面
-//                    mediaPlayer.Down_Void(file, context);
-//                }
-//            });
             iv_picture.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
@@ -411,67 +431,6 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
         }
     }
 
-    class GridviewAdapter extends BaseAdapter {
-        private ArrayList<SkMessage_Voice> voice;
-        private Context context;
-
-        public GridviewAdapter(ArrayList<SkMessage_Voice> voice, Context context) {
-            super();
-            this.context = context;
-            this.voice = voice;
-        }
-
-        @Override
-        public int getCount() {
-            return voice.size();
-        }
-
-        @Override
-        public SkMessage_Voice getItem(int position) {
-            return voice.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            SkMessage_Voice skMessage_Voice = voice.get(position);
-            String isStudent = skMessage_Voice.getIsStudent();
-            String uid = skMessage_Voice.getUid();
-            String uid2 = LoginManage.getInstance().getStudent().getUid();
-            View view = View.inflate(context, R.layout.mess_three_item, null);
-            ImageView voidce_image = (ImageView) view.findViewById(R.id.mess_voidce_make);
-            ImageView red_point = (ImageView) view.findViewById(R.id.iv_red_point);
-            List<String> query = databaseDao.Query();
-            if (isStudent.equals("1")) { // 显示学生录音标示
-                voidce_image.setBackgroundResource(R.drawable.teather_student);
-                if (uid.equals(uid2)) {
-                    red_point.setVisibility(View.GONE);
-                } else {
-                    if (query.contains(skMessage_Voice.getFile())) {
-                        red_point.setVisibility(View.GONE);
-                    } else {
-                        red_point.setVisibility(View.VISIBLE);
-                    }
-                }
-            } else {// 显示老师录音标示
-                voidce_image.setBackgroundResource(R.drawable.teather_void);
-                if (uid.equals(uid2)) {
-                    red_point.setVisibility(View.GONE);
-                } else {
-                    if (query.contains(skMessage_Voice.getFile())) {
-                        red_point.setVisibility(View.GONE);
-                    } else {
-                        red_point.setVisibility(View.VISIBLE);
-                    }
-                }
-            }
-            return view;
-        }
-    }
 
     private void skUploadMp3(final String questionId, final String imgid, String mapPath, String posID) {
         SKAsyncApiController.skUploadMp3(questionId, imgid, mapPath, posID, new AsyncHttpResponseHandler() {
@@ -503,7 +462,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
                             Toast.makeText(context, "確定結束消息", Toast.LENGTH_SHORT).show();
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("message", sKMessage);
-                            Dialog.intent(context, Activity_Thank_Teacher.class, bundle);
+                            Dialog.intent(context, AppraiseMainActivity.class, bundle);
                             finish();
                         } else {
                             Toast.makeText(context, "確定結束消息失败", Toast.LENGTH_SHORT).show();

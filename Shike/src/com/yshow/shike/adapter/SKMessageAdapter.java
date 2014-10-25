@@ -430,7 +430,7 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
     private void acknowledgeTeacher(SKMessage message) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("message", message);
-        Dialog.intent(context, Activity_Thank_Teacher.class, bundle);
+        Dialog.intent(context, AppraiseMainActivity.class, bundle);
     }
 
     // 投诉老师

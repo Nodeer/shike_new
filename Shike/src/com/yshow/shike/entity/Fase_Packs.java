@@ -1,6 +1,8 @@
 package com.yshow.shike.entity;
 
-public class Fase_Packs {
+import java.io.Serializable;
+
+public class Fase_Packs implements Serializable{
    String id;
    String face_id;
    String name;

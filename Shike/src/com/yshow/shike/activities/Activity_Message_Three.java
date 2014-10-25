@@ -552,7 +552,7 @@ public class Activity_Message_Three extends Activity implements OnClickListener 
 							Toast.makeText(context, "確定結束消息", Toast.LENGTH_SHORT).show();
 							Bundle bundle = new Bundle();
 							bundle.putSerializable("message", sKMessage);
-							Dialog.intent(context, Activity_Thank_Teacher.class, bundle);
+							Dialog.intent(context, AppraiseMainActivity.class, bundle);
 							finish();
 						} else {
 							Toast.makeText(context, "確定結束消息失败", Toast.LENGTH_SHORT).show();
