@@ -236,6 +236,15 @@
         <activity
                 android:name="com.yshow.shike.activities.Activity_Stu_Message_Detail"
                 android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.AppraiseMainActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.GivePraiseActivity"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name="com.yshow.shike.activities.GiveGiftActivity"
+                android:screenOrientation="portrait"/>
 
         <service android:name="com.yshow.shike.service.MySKService">
         </service>

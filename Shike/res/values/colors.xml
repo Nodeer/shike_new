@@ -71,4 +71,6 @@
 
     <color name="pageline_bg">#88f8f4ed</color>
 
+    <drawable name="list_selector_color">#ffffffff</drawable>
+
 </resources>

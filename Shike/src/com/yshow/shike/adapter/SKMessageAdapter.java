@@ -410,11 +410,20 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
 
     // 查看消息
     private void readQuest(SKMessage message) {
-        Intent intent = new Intent(context, Activity_Stu_Message_Detail.class);
-        intent.putExtra("SKMessage", message);
-        intent.putExtra("tag", "2");
-        context.startActivity(intent);
-        Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
+        boolean isTeacher = LoginManage.getInstance().isTeacher();
+        if(isTeacher){
+            Intent intent = new Intent(context, Activity_Message_Three.class);
+            intent.putExtra("sKMessage", message);
+            intent.putExtra("tag", "2");
+            context.startActivity(intent);
+            Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
+        }else{
+            Intent intent = new Intent(context, Activity_Stu_Message_Detail.class);
+            intent.putExtra("sKMessage", message);
+            intent.putExtra("tag", "2");
+            context.startActivity(intent);
+            Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
+        }
     }
 
     // 感谢老师

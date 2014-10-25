@@ -15,10 +15,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
 import com.yshow.shike.entity.SKTeacherOrSubject;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
@@ -30,12 +32,13 @@ public class Activity_SelectTeacher extends BaseActivity implements
     private ListView mListview;
     private TeacherAdapter teaAdapter;
     private SKTeacherOrSubject item;
+    private ImageLoader imgLoader;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teacher_list_layout);
-        findViewById(R.id.ll_my_board_back).setOnClickListener(this);
+        findViewById(R.id.tv_tool_back).setOnClickListener(this);
         mListview = (ListView) findViewById(R.id.listview);
         mListview.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -47,6 +50,7 @@ public class Activity_SelectTeacher extends BaseActivity implements
                 finish();
             }
         });
+        imgLoader = ImageLoader.getInstance();
         skGetTeacher(getIntent().getStringExtra("subjectid"));
     }
 
@@ -109,7 +113,11 @@ public class Activity_SelectTeacher extends BaseActivity implements
                 convertView = View.inflate(context, R.layout.sh_select_subject_itme, null);
             }
             TextView subject_text = (TextView) convertView.findViewById(R.id.subject_text);
-            subject_text.setText(skSubject.getName());
+            subject_text.setText(skSubject.subject);
+            TextView teacherName = (TextView) convertView.findViewById(R.id.teacher_name);
+            teacherName.setText(skSubject.getName());
+            ImageView teacherImage = (ImageView) convertView.findViewById(R.id.teacher_img);
+            imgLoader.displayImage(skSubject.icon, teacherImage);
             return convertView;
         }
     }

@@ -88,6 +88,10 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
     private List<String> query_voidce; // 查询所有数据库的录音
     private MediaPlayerUtil mediaPlayer;
 
+
+    private String mTeacherName;
+    private String mName;
+
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -173,22 +177,25 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
 
     private void iniData() {
         Bundle bundle = getIntent().getExtras();
-        sKMessage = (SKMessage) bundle.getSerializable("SKMessage");
+        sKMessage = (SKMessage) bundle.getSerializable("sKMessage");
         curquestionId = sKMessage.getQuestionId();
         ll_volume_control = findViewById(R.id.voice_recordding_layout);
-        bottom_navigation = (LinearLayout) findViewById(R.id.ll_bottom_navigation);
+        ll_volume_control.setVisibility(View.GONE);
+        bottom_navigation = (LinearLayout) findViewById(R.id.bottom_layout);
         Button stu_voice = (Button) findViewById(R.id.record_btn);
         Button tv_tianjian = (Button) findViewById(R.id.img_button);
         mEndButton = (TextView) findViewById(R.id.right_button);
-//        if (sKMessage.isDone()) {
-            bottom_navigation.setVisibility(View.GONE);
-            mEndButton.setVisibility(View.GONE);
-//        }
+        if (sKMessage.isDone()) {
+            bottom_navigation.setVisibility(View.INVISIBLE);
+            mEndButton.setVisibility(View.INVISIBLE);
+        }
         TextView nickName = (TextView) findViewById(R.id.nick_name);
         back_time = (TextView) findViewById(R.id.record_remain_text);
         tv_visits = (TextView) findViewById(R.id.tiwen_times);
         tv_data = (TextView) findViewById(R.id.tv_data);
-        nickName.setText(sKMessage.getNickname());
+        mTeacherName = sKMessage.getNickname();
+        mName = LoginManage.getInstance().getStudent().getName();
+        nickName.setText(mTeacherName);
         String count = sKMessage.getResCount();
         if (!count.equals("")) {
             Integer valueOf = Integer.valueOf(count);

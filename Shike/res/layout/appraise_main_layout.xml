@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/stu_take_phone"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/main_bg"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:id="@+id/li_take_phon_back"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/tv_tool_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/icon_back" />
+
+
+        <TextView
+            android:id="@+id/action_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="评价老师"
+            style="@style/text_20_333333"
+            android:gravity="center" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next_btn"
+            android:padding="5dp"
+            android:text="确定"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@style/text_16_white"
+            android:background="@drawable/stu_slide_btn2_bg" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="60dp"
+        android:background="@color/main_bg">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/stu_slide_btn1_bg"
+            android:layout_marginRight="40dp"
+            android:padding="20dp"
+            android:id="@+id/give_praise_btn"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_arrow_right_big"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="送赞美"
+                android:layout_centerVertical="true"
+                android:id="@+id/left_text"
+                style="@style/text_30_white"
+                android:layout_height="wrap_content" />
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/left_text"
+                android:layout_toLeftOf="@id/right_arrow">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/white_btn_nor"
+                    android:src="@drawable/icon_give_praise"
+                    android:layout_height="100dp" />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/stu_slide_btn2_bg"
+            android:id="@+id/give_gift_btn"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_arrow_right_big"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/left_text"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="送礼物"
+                    style="@style/text_30_white"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/text_16_white"
+                    android:layout_gravity="center_horizontal"
+                    android:text="(需要学分)" />
+
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/left_text"
+                android:layout_toLeftOf="@id/right_arrow">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/white_btn_nor"
+                    android:src="@drawable/icon_give_gift"
+                    android:layout_height="100dp" />
+            </FrameLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

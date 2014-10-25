@@ -12,6 +12,7 @@ public class SKTeacherOrSubject implements Serializable {
     private String name;
     private String subjectId;
     public String icon;
+    public String subject;
 
     public SKTeacherOrSubject() {
         super();

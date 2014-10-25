@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:id="@+id/stu_take_phone"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
     android:background="@color/main_bg"
-    android:orientation="vertical">
+    android:layout_height="fill_parent">
 
     <RelativeLayout
         android:id="@+id/li_take_phon_back"
@@ -25,17 +26,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="选择老师"
+            android:text="送个礼物"
             style="@style/text_20_333333"
             android:gravity="center" />
 
 
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:divider="@null"
-        android:listSelector="@drawable/list_selector_color"></ListView>
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></GridView>
+
 </LinearLayout>

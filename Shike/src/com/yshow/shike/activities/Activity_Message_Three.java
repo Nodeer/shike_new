@@ -14,14 +14,11 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.IBinder;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -87,6 +84,8 @@ public class Activity_Message_Three extends Activity implements OnClickListener 
 	private DatabaseDao databaseDao;
 	private List<String> query_voidce; // 查询所有数据库的录音
 	private MediaPlayerUtil mediaPlayer;
+
+    private String mTeacherName;
 
 	private boolean isNeedShowEndDialog = true;
 	private Handler handler = new Handler() {
@@ -164,7 +163,7 @@ public class Activity_Message_Three extends Activity implements OnClickListener 
 		mediaPlayer = new MediaPlayerUtil();
 		databaseDao = new DatabaseDao(context);
 		query_voidce = databaseDao.Query();
-		iniData();
+		initData();
 		mediaRecorderUtil = new MediaRecorderUtil(this);
 		MySKService.handler = handler;
 		if (!sKMessage.getMsgType().equals("1")) {//如果此题还没有进入交互状态
@@ -178,7 +177,7 @@ public class Activity_Message_Three extends Activity implements OnClickListener 
 		super.onStop();
 	}
 
-	private void iniData() {
+	private void initData() {
 		// TEA_YD2 = (ImageView) findViewById(R.id.tea_yindao_2);
 		// TEA_YD3 = (ImageView) findViewById(R.id.tea_yindao_3);
 		Bundle bundle = getIntent().getExtras();
@@ -189,6 +188,7 @@ public class Activity_Message_Three extends Activity implements OnClickListener 
 		curquestionId = sKMessage.getQuestionId();
 		claim_uid = sKMessage.getClaim_uid();
 		ll_volume_control = (RelativeLayout) findViewById(R.id.ll_volume_control);
+        ll_volume_control.setVisibility(View.GONE);
 		bottom_navigation = (RelativeLayout) findViewById(R.id.ll_bottom_navigation);
 		LinearLayout stu_voice = (LinearLayout) findViewById(R.id.tv_stu_voice);
 		TextView tv_tianjian = (TextView) findViewById(R.id.tv_tianjian);
@@ -211,6 +211,7 @@ public class Activity_Message_Three extends Activity implements OnClickListener 
 		findViewById(R.id.tv_give_up).setOnClickListener(this);
 		tv_visits = (TextView) findViewById(R.id.tv_visits);
 		tv_data = (TextView) findViewById(R.id.tv_data);
+        mTeacherName = sKMessage.getNickname();
 		tv_xiaohongyu.setText(sKMessage.getNickname());
 		String count = sKMessage.getResCount();
 		if (!count.equals("")) {

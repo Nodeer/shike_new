@@ -5,14 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.yshow.shike.entity.*;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yshow.shike.activities.Login_Reg_Activity;
@@ -49,7 +52,7 @@ public class SKResolveJsonUtil {
                     context.stopService(new Intent(context, MySKService.class));
                     break;
                 case 1:
-                    if(LoginManage.getInstance().getStudent()==null){
+                    if (LoginManage.getInstance().getStudent() == null) {
                         return;
                     }
                     LoginManage.getInstance().setStudent(null);
@@ -860,7 +863,11 @@ public class SKResolveJsonUtil {
                             steacher.setName(jsonObject2.optString("nickname"));
                             steacher.setSubjectId(jsonObject2.optString("subjectId"));
                             steacher.setTeacherId(jsonObject2.optString("uid"));
-                            steacher.icon = jsonObject2.optString("icon");
+                            steacher.subject = jsonObject2.optString("subject");
+                            JSONObject imgurl = jsonObject2.optJSONObject("url");
+                            if (imgurl != null) {
+                                steacher.icon = imgurl.optString("tub");
+                            }
                             sKClasses.add(steacher);
                         }
 
