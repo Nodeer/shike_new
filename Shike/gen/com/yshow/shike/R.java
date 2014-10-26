@@ -1085,7 +1085,7 @@ public final class R {
         public static final int activity_my_skseting=0x7f030010;
         public static final int activity_pass_set=0x7f030011;
         public static final int activity_pasword=0x7f030012;
-        public static final int activity_phone=0x7f030013;
+        public static final int stu_register_userinfo_layout =0x7f030013;
         public static final int activity_popupwindow=0x7f030014;
         public static final int activity_que_board2=0x7f030015;
         public static final int activity_que_board2_item=0x7f030016;
@@ -1175,7 +1175,7 @@ public final class R {
         public static final int sh_select_subject_itme=0x7f03006a;
         public static final int share_friend_dialog=0x7f03006b;
         public static final int sk_activity_choose_towrow=0x7f03006c;
-        public static final int sk_activity_studetnregister=0x7f03006d;
+        public static final int student_register_layout =0x7f03006d;
         public static final int sk_fragment_stumake_answer=0x7f03006e;
         public static final int sk_fragment_stumess=0x7f03006f;
         public static final int sk_fragment_userlogin=0x7f030070;

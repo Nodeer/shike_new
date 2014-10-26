@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/register_student_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_layout" />
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/login_name_edit"
+            android:hint="输入手机号码"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/white_btn_nor"
+            android:layout_weight="2"
+            android:paddingTop="10dp"
+            android:drawableLeft="@drawable/icon_phone"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:numeric="integer"
+            android:gravity="center_vertical"
+            style="@style/text_16_gray" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/white_btn_nor"
+            android:layout_marginTop="20dp"
+            android:padding="1dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/login_pwd_edit"
+                android:hint="输入验证码"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:paddingTop="5dp"
+                android:singleLine="true"
+                android:paddingBottom="5dp"
+                android:background="@color/white"
+                style="@style/text_16_gray"
+                android:drawableLeft="@drawable/icon_auth_code"
+                android:paddingLeft="5dp"
+                android:numeric="integer"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tv_pasword"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/gray_btn_bg"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="发送验证码"
+                style="@style/text_16_white"></TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:padding="1dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/extra_code_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:paddingTop="5dp"
+                android:singleLine="true"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp" />
+
+            <EditText
+                android:id="@+id/extra_code"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/white_btn_nor"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="请输入您的手机号码或识别码"
+                android:gravity="center"
+                style="@style/text_16_white"></EditText>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="40dp"
+        android:text="下一步"
+        style="@style/text_30_white"
+        android:padding="10dp"
+        android:background="@drawable/blue_btn_bg"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

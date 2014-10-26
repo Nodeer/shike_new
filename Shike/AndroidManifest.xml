@@ -173,7 +173,7 @@
             android:name="com.yshow.shike.activities.LookupPassword"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.yshow.shike.activities.PhoneProving"
+            android:name=".activities.StudentRegisterUserinfoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.PasswordSetting"
