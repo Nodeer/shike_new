@@ -1171,7 +1171,7 @@ public final class R {
         public static final int question_count=0x7f030066;
         public static final int second_pager_item=0x7f030067;
         public static final int select_teacher_layout =0x7f030068;
-        public static final int send_gif=0x7f030069;
+        public static final int give_gift_item =0x7f030069;
         public static final int sh_select_subject_itme=0x7f03006a;
         public static final int share_friend_dialog=0x7f03006b;
         public static final int sk_activity_choose_towrow=0x7f03006c;

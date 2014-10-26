@@ -6,9 +6,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
 import com.yshow.shike.entity.Fase_Packs;
 import com.yshow.shike.entity.SKMessage;
@@ -41,6 +43,10 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
 
     private Fase_Packs mFaceModel;
 
+    private ImageView mGiftImg;
+
+    private ImageLoader mImageLoader;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,8 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
         findViewById(R.id.next_btn).setOnClickListener(this);
         findViewById(R.id.give_gift_btn).setOnClickListener(this);
         findViewById(R.id.give_praise_btn).setOnClickListener(this);
+        mGiftImg = (ImageView) findViewById(R.id.gift_img);
+        mImageLoader = ImageLoader.getInstance();
         message = (SKMessage) getIntent().getExtras().getSerializable("message");
         if (message != null) {
             String claim_uid = message.getClaim_uid();
@@ -314,8 +322,11 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
                 if (count != 0) {
                     String files = data.getStringExtra("data");
                     Jifen_file_id = files.split(",");
+                    String url = data.getStringExtra("url");
+                    mImageLoader.displayImage(url,mGiftImg);
                 } else {
                     Jifen_file_id = new String[0];
+                    mGiftImg.setImageResource(R.drawable.icon_give_gift);
                 }
             }
         }

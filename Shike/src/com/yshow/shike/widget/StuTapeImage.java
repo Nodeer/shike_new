@@ -1,13 +1,17 @@
 package com.yshow.shike.widget;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.yshow.shike.R;
+import com.yshow.shike.utils.MediaPlayerUtil;
 
 /**
  * Created by iceman.xu on 2014/10/24.
@@ -16,6 +20,11 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
     private String voicePath;
     private VoiceImageClickListener mVoiceImageClickListener;
     private ImageView del;
+    private MediaPlayerUtil mediaPlayerUtil;
+    private ImageView imageView;
+    private boolean isTeacher = false;
+
+    public static StuTapeImage surrentPlayingTapeView;
 
     public StuTapeImage(Context context) {
         super(context);
@@ -32,8 +41,22 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
         addChilds();
     }
 
+    public void setPlayer(MediaPlayerUtil player) {
+        this.mediaPlayerUtil = player;
+    }
+
+    public void setIsTeacher(boolean b) {
+        this.isTeacher = b;
+        if (isTeacher) {
+            imageView.setImageResource(R.drawable.tea_tape_bg);
+        } else {
+            imageView.setImageResource(R.drawable.stu_tape_bg);
+        }
+    }
+
     private void addChilds() {
-        ImageView imageView = new ImageView(getContext());
+
+        imageView = new ImageView(getContext());
         imageView.setImageResource(R.drawable.stu_tape_bg);
         addView(imageView);
         imageView.setTag("img");
@@ -54,6 +77,21 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
     public void onClick(View v) {
         if (mVoiceImageClickListener != null) {
             if (v.getTag().equals("img")) {
+//                mediaPlayerUtil.setTapeImg(this);
+                if (surrentPlayingTapeView != null) {
+                    surrentPlayingTapeView.stopPlay();
+                }
+                mediaPlayerUtil.Down_Void(voicePath, getContext());
+                if (isTeacher) {
+                    imageView.setImageResource(R.drawable.tea_tape_ani);
+                } else {
+                    imageView.setImageResource(R.drawable.stu_tape_ani);
+                }
+                AnimationDrawable drawable = (AnimationDrawable) imageView.getDrawable();
+                drawable.stop();
+                drawable.setOneShot(false);
+                drawable.start();
+                surrentPlayingTapeView = this;
                 mVoiceImageClickListener.onImageClick(this);
             } else {
                 mVoiceImageClickListener.onDelClick(this);
@@ -61,10 +99,26 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
         }
     }
 
+    public void stopPlay() {
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof AnimationDrawable) {
+            ((AnimationDrawable) drawable).stop();
+        }
+        if (isTeacher) {
+            imageView.setImageResource(R.drawable.tea_tape_bg);
+        } else {
+            imageView.setImageResource(R.drawable.stu_tape_bg);
+        }
+    }
+
     public interface VoiceImageClickListener {
         void onImageClick(StuTapeImage img);
 
         void onDelClick(StuTapeImage img);
+    }
+
+    public void startPlaying() {
+
     }
 
     public void setVoicePath(String path) {

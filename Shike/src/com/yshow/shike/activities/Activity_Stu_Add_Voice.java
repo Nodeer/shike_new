@@ -247,6 +247,7 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
         tapeimg.setLayoutParams(pa);
         tapeimg.setmVoiceImageClickListener(this);
         tapeimg.setVoicePath(url);
+        tapeimg.setPlayer(mediaPlayerUtil);
         mVoiceLayout.addView(tapeimg);
     }
 
@@ -258,7 +259,7 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
 
     @Override
     public void onImageClick(StuTapeImage img) {
-        mediaPlayerUtil.VoidePlay(img.getVoicePath());
+//        mediaPlayerUtil.VoidePlay(img.getVoicePath());
     }
 
     @Override

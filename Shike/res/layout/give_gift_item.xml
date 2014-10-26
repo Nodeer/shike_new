@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
+    android:orientation="vertical"
     android:layout_height="wrap_content">
 
     <RelativeLayout
@@ -24,7 +24,17 @@
             android:visibility="gone"
             android:src="@drawable/checked_icon" />
 
+        <TextView
+            android:id="@+id/fenshu_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/image"
+            android:layout_centerHorizontal="true"
+            android:text="分数"
+            android:background="@color/green1"
+            style="@style/text_16_white" />
     </RelativeLayout>
 
 
-</FrameLayout>
+</LinearLayout>

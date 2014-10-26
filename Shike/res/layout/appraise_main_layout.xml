@@ -145,6 +145,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_gravity="center"
+                    android:id="@+id/gift_img"
                     android:background="@drawable/white_btn_nor"
                     android:src="@drawable/icon_give_gift"
                     android:layout_height="100dp" />

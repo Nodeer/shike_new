@@ -37,6 +37,9 @@
         android:id="@+id/gridview"
         android:layout_width="fill_parent"
         android:numColumns="3"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:listSelector="@color/transparent"
         android:layout_height="fill_parent"></GridView>
 
 </LinearLayout>

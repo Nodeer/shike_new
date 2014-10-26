@@ -219,10 +219,11 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
         options = Net_Servse.getInstence().Picture_Shipei(R.drawable.back);
         imageLoader = ImageLoader.getInstance();
         myAdapter = new MyAdapter(reslist);
+        viewPager.setOnPageChangeListener(this);
         viewPager.setAdapter(myAdapter);
         viewPager.setOffscreenPageLimit(3);
-        viewPager.setOnPageChangeListener(this);
         viewPager.setCurrentItem(pointion);
+        addVoiceView(0);
         findViewById(R.id.tv_tool_back).setOnClickListener(this);
 
         if (sKMessage.getMsgType().equals("1")) {// 这里表示是系统消息
@@ -344,7 +345,6 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
 
     private void addVoiceView(int index) {
         mVoiceShowLayout.removeAllViews();
-
         ArrayList<SkMessage_Voice> voice = reslist.get(index).getVoice();
         for (int voice_count = 0; voice_count < voice.size(); voice_count++) {
             SkMessage_Voice voiceitem = voice.get(voice_count);
@@ -353,7 +353,8 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
             pa.leftMargin = 20;
             tapeimg.setLayoutParams(pa);
             tapeimg.setmVoiceImageClickListener(this);
-
+            tapeimg.setIsTeacher(!voiceitem.getIsStudent().equals("1"));
+            tapeimg.setPlayer(mediaPlayer);
             tapeimg.setVoicePath(voiceitem.getFile());
             mVoiceShowLayout.addView(tapeimg);
         }
@@ -368,8 +369,8 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
 
     @Override
     public void onImageClick(StuTapeImage img) {
-        String file = img.getVoicePath();
-        mediaPlayer.Down_Void(file, context);
+//        String file = img.getVoicePath();
+//        mediaPlayer.Down_Void(file, context);
     }
 
     @Override

@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
-import com.yshow.shike.entity.Fase_Packs;
 import com.yshow.shike.entity.Send_Gife;
 import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
@@ -37,6 +36,8 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
     private int mTotalCount;
 
     private boolean[] mSelectedTags;
+
+    private String url;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,14 +63,17 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_tool_back:
+                Intent it = new Intent();
                 if (arrayList.size() > 0) {
-                    Intent it = new Intent();
                     calIdAndCounts();
                     it.putExtra("count", mTotalCount);
                     it.putExtra("data", mSelcetFileIds.toString());
+                    it.putExtra("url", url);
                     setResult(Activity.RESULT_OK, it);
                     finish();
                 } else {
+                    it.putExtra("count", mTotalCount);
+                    setResult(Activity.RESULT_OK, it);
                     finish();
                 }
                 break;
@@ -78,14 +82,17 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onBackPressed() {
+        Intent it = new Intent();
         if (arrayList.size() > 0) {
-            Intent it = new Intent();
             calIdAndCounts();
             it.putExtra("count", mTotalCount);
             it.putExtra("data", mSelcetFileIds.toString());
+            it.putExtra("url", url);
             setResult(Activity.RESULT_OK, it);
             finish();
         } else {
+            it.putExtra("count", mTotalCount);
+            setResult(Activity.RESULT_OK, it);
             finish();
         }
 
@@ -94,6 +101,7 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
     private void calIdAndCounts() {
         mTotalCount = 0;
         mSelcetFileIds = new StringBuilder();
+        int lastFileid = -1;
         if (arrayList.size() > 0) {
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
@@ -101,10 +109,12 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
                 if (mSelectedTags[i]) {
                     mTotalCount += Integer.parseInt(item.getPoints());
                     mSelcetFileIds.append(item.getFileId() + ",");
+                    lastFileid = i;
                 }
             }
             if (mSelcetFileIds.length() != 0) {
                 mSelcetFileIds.deleteCharAt(mSelcetFileIds.length() - 1);
+                url = arrayList.get(lastFileid).getFaceuri();
             }
         }
     }
@@ -134,7 +144,7 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
 
         @Override
         public View getView(int arg0, View contentView, ViewGroup arg2) {
-            View view = View.inflate(GiveGiftActivity.this, R.layout.send_gif, null);
+            View view = View.inflate(GiveGiftActivity.this, R.layout.give_gift_item, null);
             ImageView image = (ImageView) view.findViewById(R.id.image);
             ImageView select_img = (ImageView) view.findViewById(R.id.select_icon);
             TextView tv_send_fen = (TextView) view.findViewById(R.id.fenshu_text);
