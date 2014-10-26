@@ -21,29 +21,14 @@
 
 
         <TextView
-            android:id="@+id/tiwen_times"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:layout_centerInParent="true"
-            android:text="提问次数1/10"
+            android:text="题板"
             style="@style/text_20_333333"
             android:gravity="center" />
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/right_button"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="结束"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            style="@style/text_16_white"
-            android:background="@drawable/stu_slide_btn2_bg" />
 
     </RelativeLayout>
 
@@ -124,37 +109,73 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="fill_parent"
-        android:padding="10dp"
-        android:id="@+id/bottom_layout"
-        android:background="@color/white"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/img_button"
-            android:layout_width="0dp"
-            android:drawableLeft="@drawable/icon_camera_nor"
-            android:background="@drawable/gray_btn_bg"
-            android:padding="5dp"
-            android:text="我要拍照"
-            style="@style/text_18_333333"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:padding="10dp"
+            android:id="@+id/tea_decide_layout"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/record_btn"
-            android:layout_width="0dp"
-            android:drawableLeft="@drawable/record_icon_bg"
-            android:background="@drawable/gray_btn_bg"
-            android:padding="5dp"
-            android:text="语音"
-            style="@style/text_18_333333"
-            android:layout_marginLeft="10dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <Button
+                android:id="@+id/get_ques_btn"
+                android:layout_width="0dp"
+                android:drawableLeft="@drawable/icon_confirm"
+                android:background="@drawable/gray_btn_bg"
+                android:padding="5dp"
+                android:text="我要解答"
+                style="@style/text_18_333333"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/giveup_ques_btn"
+                android:layout_width="0dp"
+                android:drawableLeft="@drawable/icon_del_voice"
+                android:background="@drawable/gray_btn_bg"
+                android:padding="5dp"
+                android:text="放弃答题"
+                style="@style/text_18_333333"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:padding="10dp"
+            android:id="@+id/bottom_layout"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/img_button"
+                android:layout_width="0dp"
+                android:drawableLeft="@drawable/icon_camera_nor"
+                android:background="@drawable/gray_btn_bg"
+                android:padding="5dp"
+                android:text="我要拍照"
+                style="@style/text_18_333333"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/record_btn"
+                android:layout_width="0dp"
+                android:drawableLeft="@drawable/record_icon_bg"
+                android:background="@drawable/gray_btn_bg"
+                android:padding="5dp"
+                android:text="语音"
+                style="@style/text_18_333333"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>

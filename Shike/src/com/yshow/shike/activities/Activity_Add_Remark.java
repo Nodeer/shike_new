@@ -3,6 +3,9 @@ package com.yshow.shike.activities;
 import android.content.Intent;
 import android.util.DisplayMetrics;
 
+import com.yshow.shike.entity.LoginManage;
+import com.yshow.shike.fragments.Fragment_Message;
+import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.*;
 
 import org.json.JSONException;
@@ -23,13 +26,11 @@ import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.yshow.shike.R;
-import com.yshow.shike.UIApplication;
 import com.yshow.shike.customview.PaletteView;
 
 /**
@@ -44,7 +45,7 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
     private Bitmap bitmap;
     private Bundle extras;
     private String questionId;
-    private boolean booleanExtra;
+    private boolean isContinue;
     private String bigBitmapUrl;
     private Bitmap_Manger_utils bitmap_intence;
     private ImageView mRedPaint, mBluePaint;
@@ -52,10 +53,15 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
                 case 0:
+                    if (isContinue && !questionId.equals("")) {
+                        skUploadeImage(questionId, bitmap);
+                        dialogUtil.show();
+                        return;
+                    }
                     dialogUtil.dismiss();
                     Intent it = new Intent();
-                    it.putExtra("path",bigBitmapUrl);
-                    setResult(Activity.RESULT_OK,it);
+                    it.putExtra("path", bigBitmapUrl);
+                    setResult(Activity.RESULT_OK, it);
                     finish();
                     break;
             }
@@ -79,10 +85,10 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
         extras = getIntent().getExtras();
         if (extras != null) {//这个地方..有的页面没有传东西过来...做个空保护
             questionId = extras.getString("questionId");
-            booleanExtra = extras.getBoolean("isContinue");
+            isContinue = extras.getBoolean("isContinue");
         }
         next_tool = (TextView) findViewById(R.id.next_btn);
-        if (booleanExtra && !questionId.equals("")) {
+        if (isContinue && !questionId.equals("")) {
             next_tool.setText("发送");
         }
         findViewById(R.id.tv_tool_back).setOnClickListener(this);
@@ -235,14 +241,20 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
                                                     skSend_messge(questionId, "1");
-                                                    finish();
                                                 }
                                             });
                                     dia.show();
                                 } else {
-//									Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
-                                    setResult(Activity.RESULT_OK);
-                                    finish();
+                                    Intent it = new Intent();
+                                    if (LoginManage.getInstance().isTeacher()) {
+                                        Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
+                                        it.setClass(Activity_Add_Remark.this, Tea_Message_Detail_Activity.class);
+                                        startActivity(it);
+                                    } else {
+                                        Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
+                                        it.setClass(Activity_Add_Remark.this, Stu_Message_Detail_Activity.class);
+                                        startActivity(it);
+                                    }
                                 }
                             } else {
                                 error = jsonObject.optString("error");

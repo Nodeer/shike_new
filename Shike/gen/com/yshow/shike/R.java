@@ -1071,7 +1071,7 @@ public final class R {
         public static final int account_fragment_userlayout=0x7f030002;
         public static final int account_person_title=0x7f030003;
         public static final int activity_board_file=0x7f030004;
-        public static final int activity_down_picture=0x7f030005;
+        public static final int big_picture_layout =0x7f030005;
         public static final int activity_file_four=0x7f030006;
         public static final int activity_file_item=0x7f030007;
         public static final int activity_file_three=0x7f030008;

@@ -2,6 +2,7 @@ package com.yshow.shike.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,6 +26,8 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
     ImageView mMessRedIcon;
     RelativeLayout mMakeTopicBtn, mTikuButton;
     private TextView mOnlineTextView;
+    private ImageView mTitleRight;
+    private AnimationDrawable ani;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,10 +36,14 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
         GalleryView gallery = (GalleryView) view.findViewById(R.id.gallery);
         gallery.setData(new int[]{R.drawable.blackboard_ad_img, R.drawable.blackboard_ad_img}, false);
 
+        mTitleRight = (ImageView) view.findViewById(R.id.title_right);
+        mTitleRight.setOnClickListener(this);
+
+        ani = (AnimationDrawable) mTitleRight.getDrawable();
+        ani.start();
+
         ImageView mTitleLeft = (ImageView) view.findViewById(R.id.title_left);
         mTitleLeft.setOnClickListener(this);
-        ImageView mTitleRight = (ImageView) view.findViewById(R.id.title_right);
-        mTitleRight.setOnClickListener(this);
         mMessRedIcon = (ImageView) view.findViewById(R.id.mess_red);
         mMakeTopicBtn = (RelativeLayout) view.findViewById(R.id.make_topic_btn);
         mMakeTopicBtn.setOnClickListener(this);

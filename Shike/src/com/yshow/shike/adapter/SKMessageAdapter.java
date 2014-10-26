@@ -239,21 +239,6 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
         } else {
             // 老师端消息
             if (isDone) {
-                // 答题结束没有感谢老师
-//				if(!face.equals("0")){
-//					if(!face.equals("0") && getsKAcknowledge_list != null){
-//						if(!getsKAcknowledge_list.getGift2points().equals("0")){
-//							viewholer.messageContent.setText("学生奖励你了，快去看看！");
-//						}
-//					}else {
-//						viewholer.messageContent.setText("学生赞美你啦,快去看看！");
-//					}
-//				}else if (acknowledge.equals("1") && getsKAcknowledge_list != null) {
-//					if(!getsKAcknowledge_list.getGift2points().equals("0")){
-//						viewholer.messageContent.setText("学生奖励你了，快去看看！");
-//					}
-//				}else {
-//					viewholer.messageContent.setText("答题结束, 谢谢 !");
                 if (!face.equals("0")) {
                     if (getsKAcknowledge_list != null) {
                         if (!getsKAcknowledge_list.getGift2points().equals("0")) {
@@ -412,13 +397,13 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
     private void readQuest(SKMessage message) {
         boolean isTeacher = LoginManage.getInstance().isTeacher();
         if(isTeacher){
-            Intent intent = new Intent(context, Activity_Message_Three.class);
+            Intent intent = new Intent(context, Tea_Message_Detail_Activity.class);
             intent.putExtra("sKMessage", message);
             intent.putExtra("tag", "2");
             context.startActivity(intent);
             Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
         }else{
-            Intent intent = new Intent(context, Activity_Stu_Message_Detail.class);
+            Intent intent = new Intent(context, Stu_Message_Detail_Activity.class);
             intent.putExtra("sKMessage", message);
             intent.putExtra("tag", "2");
             context.startActivity(intent);

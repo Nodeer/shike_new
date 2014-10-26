@@ -75,25 +75,30 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (mVoiceImageClickListener != null) {
-            if (v.getTag().equals("img")) {
-//                mediaPlayerUtil.setTapeImg(this);
-                if (surrentPlayingTapeView != null) {
-                    surrentPlayingTapeView.stopPlay();
-                }
+        if (v.getTag().equals("img")) {
+            if (surrentPlayingTapeView != null) {
+                surrentPlayingTapeView.stopPlay();
+            }
+            if(voicePath.contains("http")){
                 mediaPlayerUtil.Down_Void(voicePath, getContext());
-                if (isTeacher) {
-                    imageView.setImageResource(R.drawable.tea_tape_ani);
-                } else {
-                    imageView.setImageResource(R.drawable.stu_tape_ani);
-                }
-                AnimationDrawable drawable = (AnimationDrawable) imageView.getDrawable();
-                drawable.stop();
-                drawable.setOneShot(false);
-                drawable.start();
-                surrentPlayingTapeView = this;
-                mVoiceImageClickListener.onImageClick(this);
+            }else{
+                mediaPlayerUtil.VoidePlay(voicePath);
+            }
+            if (isTeacher) {
+                imageView.setImageResource(R.drawable.tea_tape_ani);
             } else {
+                imageView.setImageResource(R.drawable.stu_tape_ani);
+            }
+            AnimationDrawable drawable = (AnimationDrawable) imageView.getDrawable();
+            drawable.stop();
+            drawable.setOneShot(false);
+            drawable.start();
+            surrentPlayingTapeView = this;
+            if (mVoiceImageClickListener != null) {
+                mVoiceImageClickListener.onImageClick(this);
+            }
+        } else {
+            if (mVoiceImageClickListener != null) {
                 mVoiceImageClickListener.onDelClick(this);
             }
         }

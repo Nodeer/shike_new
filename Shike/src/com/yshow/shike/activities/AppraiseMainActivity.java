@@ -85,7 +85,7 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
                 startActivityForResult(new Intent(AppraiseMainActivity.this, GiveGiftActivity.class), GIVE_GIFT);
                 break;
             case R.id.give_praise_btn:
-                startActivityForResult(new Intent(AppraiseMainActivity.this, GivePraiseActivity.class), GIVE_GIFT);
+                startActivityForResult(new Intent(AppraiseMainActivity.this, GivePraiseActivity.class), GIVE_PRAISE);
                 break;
             case R.id.tv_tool_back:
                 IsGood_Bad();
@@ -318,7 +318,7 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
                     mFaceModel = null;
                 }
             } else if (requestCode == GIVE_GIFT) {
-                int count = data.getIntExtra("count", 0);
+                count = data.getIntExtra("count", 0);
                 if (count != 0) {
                     String files = data.getStringExtra("data");
                     Jifen_file_id = files.split(",");

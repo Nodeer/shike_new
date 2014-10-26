@@ -32,7 +32,6 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.umeng.analytics.MobclickAgent;
 import com.yshow.shike.R;
 import com.yshow.shike.db.DatabaseDao;
 import com.yshow.shike.entity.LoginManage;
@@ -65,15 +64,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * 学生进入的消息交互页面
+ * 老师的交互主页面
  */
-public class Activity_Stu_Message_Detail extends BaseActivity implements OnClickListener, ViewPager.OnPageChangeListener, StuTapeImage.VoiceImageClickListener {
-    private LinearLayout bottom_navigation;
+public class Tea_Message_Detail_Activity extends Activity implements OnClickListener, ViewPager.OnPageChangeListener {
+    private LinearLayout teaDecideLayout;
     private ArrayList<SkMessage_Res> reslist;
     private List<String> bitmap_list = new ArrayList<String>(); // ViewPager显示的一个集合
     private DisplayImageOptions options;
     private ImageLoader imageLoader;
-    private int pointion;
     private String curquestionId;
     private ViewPager viewPager;
     private MyAdapter myAdapter;
@@ -82,24 +80,29 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
     private int recLen = 0;
     private Timer timer = null;
     private MediaRecorderUtil mediaRecorderUtil;
-    private TextView tv_visits, tv_data;
+    private TextView tv_data;
+    private LinearLayout bottomLayout;
     private SKMessage sKMessage;
-    private TextView back_time, mEndButton;
+    private String claim_uid;
+    private TextView back_time;
+    private DatabaseDao databaseDao;
+    private List<String> query_voidce; // 查询所有数据库的录音
     private MediaPlayerUtil mediaPlayer;
 
-
     private String mTeacherName;
-    private String mName;
 
-    private LinearLayout mVoiceShowLayout;
+    private Button sendVoiceButton;
 
+    private boolean isNeedShowEndDialog = true;
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MySKService.HAVE_NEW_MESSAGE:
                     Log.e("Activity_Message_Three", "得到通知消刷新列表");
+                    @SuppressWarnings("unchecked")
                     ArrayList<SKMessage> newresolveMessage = (ArrayList<SKMessage>) msg.obj;
                     setSKMNewessage(newresolveMessage);
+                    Teather_Decide();
                     break;
                 case 1:
                     back_time.setText("录音剩余时间：" + recLen);
@@ -112,22 +115,14 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
             }
         }
     };
+    private LinearLayout mVoiceShowLayout;
 
     private boolean setSKMNewessage(ArrayList<SKMessage> list) {
         for (SKMessage skMessage : list) {
             String questionId = skMessage.getQuestionId();
             if (curquestionId.equals(questionId)) {
                 sKMessage = skMessage;
-                String count = sKMessage.getResCount();
-                if (!count.equals("")) {
-                    Integer valueOf = Integer.valueOf(count);
-                    int t = (valueOf + 9) / 10 * 10;
-                    if (t == 0) {// 这地方做一下兼容
-                        t = 10;
-                    }
-                    tv_visits.setText("提问次数：" + count + "/" + t);
-                }
-                Log.e("Activity_Message_Three", "得到通知消刷新");
+                claim_uid = sKMessage.getClaim_uid();
                 myAdapter = new MyAdapter(skMessage.getRes());
                 viewPager.setAdapter(myAdapter);
                 ArrayList<SkMessage_Res> res = skMessage.getRes();
@@ -137,6 +132,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
                     viewPager.setCurrentItem(0);
                     reslist = res;
                     curquestionId = questionId;
+                    addVoiceView(0);
                     return true;
                 } else if (size == size2) {
                     for (int j = 0; j < size2; j++) {
@@ -148,6 +144,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
                             viewPager.setCurrentItem(j);
                             reslist = res;
                             curquestionId = questionId;
+                            addVoiceView(j);
                             return true;
                         }
                     }
@@ -158,14 +155,25 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        getSKMessage();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.stu_message_detail_layout);
+        setContentView(R.layout.tea_message_detail_layout);
         context = this;
         mediaPlayer = new MediaPlayerUtil();
-        iniData();
+        databaseDao = new DatabaseDao(context);
+        query_voidce = databaseDao.Query();
+        initData();
         mediaRecorderUtil = new MediaRecorderUtil(this);
         MySKService.handler = handler;
+        if (!sKMessage.getMsgType().equals("1")) {//如果此题还没有进入交互状态
+            Teather_Decide();
+        }
     }
 
     @Override
@@ -174,61 +182,49 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
         super.onStop();
     }
 
-    private void iniData() {
+    private void initData() {
         Bundle bundle = getIntent().getExtras();
         sKMessage = (SKMessage) bundle.getSerializable("sKMessage");
+        if (sKMessage.isDone()) {
+            isNeedShowEndDialog = false;
+        }
         curquestionId = sKMessage.getQuestionId();
-        mVoiceShowLayout = (LinearLayout) findViewById(R.id.voice_layout);
+        claim_uid = sKMessage.getClaim_uid();
         ll_volume_control = findViewById(R.id.voice_recordding_layout);
         ll_volume_control.setVisibility(View.GONE);
-        bottom_navigation = (LinearLayout) findViewById(R.id.bottom_layout);
-        Button stu_voice = (Button) findViewById(R.id.record_btn);
+        teaDecideLayout = (LinearLayout) findViewById(R.id.tea_decide_layout);
+
+        mVoiceShowLayout = (LinearLayout) findViewById(R.id.voice_layout);
+        sendVoiceButton = (Button) findViewById(R.id.record_btn);
         Button tv_tianjian = (Button) findViewById(R.id.img_button);
-        mEndButton = (TextView) findViewById(R.id.right_button);
         if (sKMessage.isDone()) {
-            bottom_navigation.setVisibility(View.INVISIBLE);
-            mEndButton.setVisibility(View.INVISIBLE);
+            teaDecideLayout.setVisibility(View.GONE);
         }
-        TextView nickName = (TextView) findViewById(R.id.nick_name);
+        TextView tv_xiaohongyu = (TextView) findViewById(R.id.nick_name);
         back_time = (TextView) findViewById(R.id.record_remain_text);
-        tv_visits = (TextView) findViewById(R.id.tiwen_times);
+        bottomLayout = (LinearLayout) findViewById(R.id.bottom_layout);
+        findViewById(R.id.get_ques_btn).setOnClickListener(this);
+        findViewById(R.id.giveup_ques_btn).setOnClickListener(this);
+        findViewById(R.id.tv_tool_back).setOnClickListener(this);
         tv_data = (TextView) findViewById(R.id.tv_data);
         mTeacherName = sKMessage.getNickname();
-        mName = LoginManage.getInstance().getStudent().getName();
-        nickName.setText(mTeacherName);
-        String count = sKMessage.getResCount();
-        if (!count.equals("")) {
-            Integer valueOf = Integer.valueOf(count);
-            int t = (valueOf + 9) / 10 * 10;
-            if (t == 0) {// 这地方做一下兼容
-                t = 10;
-            }
-            tv_visits.setText("提问次数：" + count + "/" + t);
-        }
-        // 提问的次数
+        tv_xiaohongyu.setText(sKMessage.getNickname());
         long updateTime = Long.valueOf(sKMessage.getUpdateTime());
         tv_data.setText(sKMessage.getDate() + "  " + DateUtils.formatDateH(new Date(Long.valueOf(updateTime) * 1000)));
-        stu_voice.setOnClickListener(this);
         tv_tianjian.setOnClickListener(this);
-        mEndButton.setOnClickListener(this);
-        stu_voice.setOnTouchListener(touchlistener);
+        sendVoiceButton.setOnTouchListener(touchlistener);
         viewPager = (ViewPager) findViewById(R.id.message_viewpager);
-//        pointion = bundle.getInt("pointion");
-        pointion = 0;
         reslist = sKMessage.getRes();
-        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.back);
+        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.xiaoxi_moren);
         imageLoader = ImageLoader.getInstance();
         myAdapter = new MyAdapter(reslist);
-        viewPager.setOnPageChangeListener(this);
         viewPager.setAdapter(myAdapter);
         viewPager.setOffscreenPageLimit(3);
-        viewPager.setCurrentItem(pointion);
+        viewPager.setOnPageChangeListener(this);
         addVoiceView(0);
-        findViewById(R.id.tv_tool_back).setOnClickListener(this);
-
         if (sKMessage.getMsgType().equals("1")) {// 这里表示是系统消息
-            mEndButton.setVisibility(View.GONE);
-            bottom_navigation.setVisibility(View.GONE);
+            teaDecideLayout.setVisibility(View.GONE);
+            bottomLayout.setVisibility(View.GONE);
         }
     }
 
@@ -236,19 +232,22 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()) {
-            case R.id.tv_three_back:
+            case R.id.tv_tool_back:
                 finish();
                 break;
-            case R.id.img_button:// 学生端点击拍照提问
-                intent = new Intent(this, Activity_Tea_Tool_Sele.class);
+            // 接受学生端消息 按钮
+            case R.id.get_ques_btn:
+                Qiang_Da(this);
+                break;
+            case R.id.giveup_ques_btn:
+                Giew_Up(this);
+                break;
+            case R.id.img_button:// 老师端点击拍照解答
+                intent = new Intent(this, Activity_Stu_Ask_Step1.class);
                 intent.putExtra("isContinue", true);
                 intent.putExtra("questionId", curquestionId);
-                intent.putExtra("tea_add_tool", "1");
                 startActivityForResult(intent, 1);
                 // finish();
-                break;
-            case R.id.tv_tea_end:
-                Thank_Teacher(Activity_Stu_Message_Detail.this);
                 break;
         }
     }
@@ -267,7 +266,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     downtime = System.currentTimeMillis();
-                    mediaRecorderUtil = new MediaRecorderUtil(Activity_Stu_Message_Detail.this);
+                    mediaRecorderUtil = new MediaRecorderUtil(Tea_Message_Detail_Activity.this);
                     start_boolear = mediaRecorderUtil.startRecorder();
                     isRecordCancel = false;
                     if (start_boolear) {
@@ -285,7 +284,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
                             ll_volume_control.setVisibility(View.GONE);
                             mediaRecorderUtil.stopRecorder();
                             if (uptime - downtime < 1000) {
-                                Toast.makeText(Activity_Stu_Message_Detail.this, "说话时间太短", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Tea_Message_Detail_Activity.this, "说话时间太短", Toast.LENGTH_SHORT).show();
                             } else {
                                 int currentItem = viewPager.getCurrentItem();
                                 SkMessage_Res skMessage_Res = reslist.get(currentItem);
@@ -303,7 +302,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
                                 view.getLocalVisibleRect(r);
                                 boolean b = r.contains((int) (event.getX()), (int) (event.getY()));
                                 if (!b) {
-                                    Toast.makeText(Activity_Stu_Message_Detail.this, "录音取消", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Tea_Message_Detail_Activity.this, "录音取消", Toast.LENGTH_SHORT).show();
                                     isRecordCancel = true;
                                     timer.cancel();
                                     ll_volume_control.setVisibility(View.GONE);
@@ -352,7 +351,6 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
             LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             pa.leftMargin = 20;
             tapeimg.setLayoutParams(pa);
-            tapeimg.setmVoiceImageClickListener(this);
             tapeimg.setIsTeacher(!voiceitem.getIsStudent().equals("1"));
             tapeimg.setPlayer(mediaPlayer);
             tapeimg.setVoicePath(voiceitem.getFile());
@@ -366,18 +364,6 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
     public void onPageScrollStateChanged(int i) {
 
     }
-
-    @Override
-    public void onImageClick(StuTapeImage img) {
-//        String file = img.getVoicePath();
-//        mediaPlayer.Down_Void(file, context);
-    }
-
-    @Override
-    public void onDelClick(StuTapeImage img) {
-
-    }
-
 
     /**
      * 页面数据适配器
@@ -409,7 +395,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
         public Object instantiateItem(ViewGroup container, final int position) {
             final SkMessage_Res skMessage_Res = reslist.get(position);
             final String files = skMessage_Res.getFile_tub();
-            View view = View.inflate(Activity_Stu_Message_Detail.this, R.layout.img_page_item, null);
+            View view = View.inflate(Tea_Message_Detail_Activity.this, R.layout.img_page_item, null);
             ImageView iv_picture = (ImageView) view.findViewById(R.id.iv_picture);
             iv_picture.setTag(files);
             iv_picture.setOnClickListener(new OnClickListener() {
@@ -427,7 +413,6 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
             });
             imageLoader.displayImage(files, iv_picture, options);
             container.addView(view);
-            bitmap_list.add(files);
             return view;
         }
     }
@@ -439,7 +424,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
             public void onSuccess(String json) {
                 super.onSuccess(json);
                 Log.e("skUploadeImage", json);
-                boolean resolveIsSuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, Activity_Stu_Message_Detail.this);
+                boolean resolveIsSuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, Tea_Message_Detail_Activity.this);
                 if (resolveIsSuccess) {
                     skSend_messge(questionId, "0");
                 }
@@ -486,14 +471,14 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
             public void onSuccess(String content) {
                 super.onSuccess(content);
                 Log.e("skSend_messge", content);
-                boolean resolveIsSuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(content, Activity_Stu_Message_Detail.this);
+                boolean resolveIsSuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(content, Tea_Message_Detail_Activity.this);
                 if (resolveIsSuccess) {
                     try {
                         JSONObject jsonObject = new JSONObject(content);
                         String data = jsonObject.optString("data");
                         String type = jsonObject.optString("type");
                         if (type.equals("confirm")) {
-                            Builder dia = new Builder(Activity_Stu_Message_Detail.this);
+                            Builder dia = new Builder(Tea_Message_Detail_Activity.this);
                             dia.setMessage(data);
                             dia.setNegativeButton("取消", null);
                             dia.setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -504,7 +489,7 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
                             });
                             dia.show();
                         } else {
-                            Toast.makeText(Activity_Stu_Message_Detail.this, "发送成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Tea_Message_Detail_Activity.this, "发送成功", Toast.LENGTH_SHORT).show();
                             getSKMessage();
                             Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
                         }
@@ -549,5 +534,120 @@ public class Activity_Stu_Message_Detail extends BaseActivity implements OnClick
         }
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            if (!sKMessage.getMsgType().equals("1")) {
+                if (claim_uid.equals("0")) {
+                    HelpUtil.showHelp(this, HelpUtil.HELP_TEA_2, null);
+                }
+            }
+        }
+    }
+
+    // 没接收过该题，显示返回，接收，放弃
+    private void Teather_Decide() {
+        if (claim_uid.equals("0")) {
+            // 没接收过该题，显示返回，接收，放弃 claim_uid=0
+            bottomLayout.setVisibility(View.GONE);
+            teaDecideLayout.setVisibility(View.VISIBLE);
+
+        } else {
+            bottomLayout.setVisibility(View.VISIBLE);
+            teaDecideLayout.setVisibility(View.GONE);
+            // 如果题目完成 语音隐藏 添加 显示 确定
+            if (sKMessage.isDone()) {
+                sendVoiceButton.setText("存入题库");
+                if (isNeedShowEndDialog) {
+                    Builder builder = new Builder(context);
+                    builder.setMessage("当前提问已结束");
+                    builder.setNegativeButton("确定", null);
+                    builder.show();
+                    isNeedShowEndDialog = false;
+                }
+            }
+        }
+    }
+
+    public void Qiang_Da(Context context) {
+        Builder builder = new Builder(context);
+        builder.setMessage("你是否要开始回答学生问题");
+        builder.setPositiveButton("是", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                Teather_QuestionId();
+            }
+        });
+        builder.setNegativeButton("否", null);
+        builder.show();
+    }
+
+    private void Teather_QuestionId() {
+        String questionId = sKMessage.getQuestionId();
+        SKAsyncApiController.Teather_Reception(questionId, new MyAsyncHttpResponseHandler(this, true) {
+            @Override
+            public void onSuccess(int arg0, String arg1) {
+                super.onSuccess(arg0, arg1);
+                boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(arg1, context);
+                if (success) {
+                    bottomLayout.setVisibility(View.VISIBLE);
+                    teaDecideLayout.setVisibility(View.GONE);
+                    Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
+                    YD.getInstence().getYD(context, PartnerConfig.TEA_YD_TOOL, true);
+                    Toast.makeText(context, "接收成功", Toast.LENGTH_SHORT).show();
+                    HelpUtil.showHelp(Tea_Message_Detail_Activity.this, HelpUtil.HELP_TEA_3, null);
+                }
+            }
+        });
+    }
+
+    public void Save_Dialog() {
+        Builder builder = new Builder(context);
+        builder.setTitle("提示");
+        builder.setMessage("该题已交互结束，需要把该题存入题库吗？");
+        builder.setPositiveButton("保存", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("sKMessage", sKMessage);
+                Dialog.intent(context, Activity_Que_board2.class, bundle);
+            }
+        });
+        builder.setNegativeButton("取消", null);
+        builder.show();
+    }
+
+    // 保存題庫
+    private void Giew_Up(Context context) {
+        Builder builder = new Builder(context);
+        builder.setMessage("你是否要放弃回答学生问题");
+        builder.setPositiveButton("是", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                Record_Stu(sKMessage.getQuestionId());
+                Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
+                finish();
+            }
+        });
+        builder.setNegativeButton("否", null);
+        builder.show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!sKMessage.getMsgType().equals("1")) {
+            Teather_Decide();
+        }
+    }
+
+    private void Record_Stu(String quesid) {
+        SKAsyncApiController.record_Stu(quesid, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(String json) {
+                super.onSuccess(json);
+                SKResolveJsonUtil.getInstance().resolveIsSuccess(json, context);
+                Toast.makeText(context, "放弃成功", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 }

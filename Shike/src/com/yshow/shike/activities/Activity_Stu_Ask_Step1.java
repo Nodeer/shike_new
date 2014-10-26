@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yshow.shike.R;
+import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.Take_Phon_album;
 
@@ -25,11 +27,22 @@ public class Activity_Stu_Ask_Step1 extends BaseActivity {
     private final int PHOTO_PIC = 10002;
     private Take_Phon_album intence;
 
+    /**
+     * 是否从交互中过来的
+     */
+    private boolean isContine = false;
+    /**
+     * 从交互中过来的话,当前问题id
+     */
+    private String quesId;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
         setContentView(R.layout.stu_ask_step1_layout);
+        isContine = getIntent().getBooleanExtra("isContinue", false);
+        quesId = getIntent().getStringExtra("questionId");
         initData();
     }
 
@@ -38,16 +51,17 @@ public class Activity_Stu_Ask_Step1 extends BaseActivity {
         findViewById(R.id.camera_btn).setOnClickListener(listener);
         findViewById(R.id.dcim_btn).setOnClickListener(listener);
         findViewById(R.id.tv_tool_back).setOnClickListener(listener);
+        if (isContine) {
+            findViewById(R.id.action_step).setVisibility(View.GONE);
+            TextView textview = (TextView) findViewById(R.id.action_text);
+            if (LoginManage.getInstance().isTeacher()) {
+                textview.setText("拍照回答");
+            } else {
+                textview.setText("拍照提问");
+            }
+        }
 
     }
-
-//    @Override
-//    public void onWindowFocusChanged(boolean hasFocus) {
-//        super.onWindowFocusChanged(hasFocus);
-//        if (hasFocus) {
-//            HelpUtil.showHelp(this,HelpUtil.HELP_STU_2,findViewById(R.id.rootview));
-//        }
-//    }
 
     private OnClickListener listener = new OnClickListener() {
         @Override
@@ -76,8 +90,15 @@ public class Activity_Stu_Ask_Step1 extends BaseActivity {
                         String bitmap_url = intence.uriToPath(Activity_Stu_Ask_Step1.this, data.getData());
                         Bundle bundle = new Bundle();
                         bundle.putString("bitmap", bitmap_url);
-                        Dialog.intent(context, Activity_Stu_Ask_Step2.class, bundle);
-                        finish();
+                        bundle.putBoolean("isContinue", isContine);
+                        bundle.putString("questionId", quesId);
+                        if(isContine){
+                            Dialog.intent(context, Activity_Add_Remark.class, bundle);
+                            finish();
+                        }else{
+                            Dialog.intent(context, Activity_Stu_Ask_Step2.class, bundle);
+                            finish();
+                        }
                     }
                 } else if (requestCode == PHOTO_PIC && resultCode == -1) {
                     File cameraFile = new File(Environment.getExternalStorageDirectory().getPath(), "camera.jpg");
@@ -85,8 +106,15 @@ public class Activity_Stu_Ask_Step1 extends BaseActivity {
                         String bitmap_url = cameraFile.getAbsolutePath();
                         Bundle bundle = new Bundle();
                         bundle.putString("bitmap", bitmap_url);
-                        Dialog.intent(context, Activity_Stu_Ask_Step2.class, bundle);
-                        finish();
+                        bundle.putBoolean("isContinue", isContine);
+                        bundle.putString("questionId", quesId);
+                        if(isContine){
+                            Dialog.intent(context, Activity_Add_Remark.class, bundle);
+                            finish();
+                        }else{
+                            Dialog.intent(context, Activity_Stu_Ask_Step2.class, bundle);
+                            finish();
+                        }
                     }
                 }
             } else {

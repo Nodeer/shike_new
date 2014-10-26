@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.graphics.Rect;
 import android.os.Message;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.widget.*;
 
@@ -16,9 +17,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.umeng.analytics.MobclickAgent;
 import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
-import com.yshow.shike.db.DatabaseDao;
 import com.yshow.shike.entity.LoginManage;
-import com.yshow.shike.entity.SKMessage;
 import com.yshow.shike.entity.SkMessage_Res;
 import com.yshow.shike.fragments.Fragment_Message;
 import com.yshow.shike.service.MySKService;
@@ -32,14 +31,14 @@ import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.RelativeLayout.LayoutParams;
 
 import com.yshow.shike.widget.MatrixImageview;
+import com.yshow.shike.widget.StuTapeImage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ImageActivity extends Activity implements OnClickListener {
+public class ImageActivity extends BaseActivity implements OnClickListener {
     private Bitmap bitmap;
     private MatrixImageview large_img;
     private Net_Servse net_Servse;
@@ -71,7 +70,7 @@ public class ImageActivity extends Activity implements OnClickListener {
     private MediaRecorderUtil mediaRecorderUtil;
     private MediaPlayerUtil mediaPlayer;
     private boolean isRecordCancel = false;
-    private RelativeLayout ll_volume_control;
+    private View ll_volume_control;
     private RelativeLayout mBottomLayout;
 
     private SkMessage_Res mMessageRes;
@@ -81,10 +80,10 @@ public class ImageActivity extends Activity implements OnClickListener {
     private boolean isDone = false;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_down_picture);
+        setContentView(R.layout.big_picture_layout);
         net_Servse = Net_Servse.getInstence();
         dialogUtil = new ProgressDialogUtil(this);
         mediaPlayer = new MediaPlayerUtil();
@@ -96,19 +95,12 @@ public class ImageActivity extends Activity implements OnClickListener {
         isTeacher = LoginManage.getInstance().isTeacher();
         mVoiceBtn = (TextView) findViewById(R.id.voice);
         mVoiceBtn.setOnTouchListener(touchlistener);
-        ll_volume_control = (RelativeLayout) findViewById(R.id.ll_volume_control);
         mBottomLayout = (RelativeLayout) findViewById(R.id.bottom_layout);
+        ll_volume_control = findViewById(R.id.voice_recordding_layout);
+        ll_volume_control.setVisibility(View.GONE);
         voiceLayout = (LinearLayout) findViewById(R.id.voice_layout);
-        if (isTeacher) {
-            mBottomLayout.setBackgroundResource(R.color.bottom_widow_color);
-        } else {
-            mBottomLayout.setBackgroundResource(R.color.sk_student_main_color);
-
-        }
-        back_time = (TextView) findViewById(R.id.tv_back_time);
+        back_time = (TextView) findViewById(R.id.record_remain_text);
         large_img = (MatrixImageview) findViewById(R.id.large_img);
-        ImageView ima_download = (ImageView) findViewById(R.id.ima_download);
-        ima_download.setOnClickListener(this);
         large_img.setOnClickListener(this);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -181,27 +173,14 @@ public class ImageActivity extends Activity implements OnClickListener {
                                 Toast.makeText(ImageActivity.this, "说话时间太短", Toast.LENGTH_SHORT).show();
                             } else {
                                 final String file = mediaRecorderUtil.getFilePath();
-                                if (isTeacher) {
-                                    ImageView img = new ImageView(ImageActivity.this);
-                                    img.setBackgroundResource(R.drawable.teather_void);
-                                    img.setOnClickListener(new OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            mediaPlayer.VoidePlay(file);
-                                        }
-                                    });
-                                    voiceLayout.addView(img);
-                                } else {
-                                    ImageView img = new ImageView(ImageActivity.this);
-                                    img.setBackgroundResource(R.drawable.teather_student);
-                                    img.setOnClickListener(new OnClickListener() {
-                                        @Override
-                                        public void onClick(View view) {
-                                            mediaPlayer.VoidePlay(file);
-                                        }
-                                    });
-                                    voiceLayout.addView(img);
-                                }
+                                StuTapeImage img = new StuTapeImage(ImageActivity.this);
+                                LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                pa.leftMargin = 20;
+                                img.setLayoutParams(pa);
+                                img.setIsTeacher(isTeacher);
+                                img.setPlayer(mediaPlayer);
+                                img.setVoicePath(file);
+                                voiceLayout.addView(img);
                                 skUploadMp3(mMessageRes.getQuestionId(), mMessageRes.getId(), file, mMessageRes.getVoice().size() + 1 + "");
                             }
                         }
@@ -306,9 +285,6 @@ public class ImageActivity extends Activity implements OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.ima_download:
-                net_Servse.saveBitmap(bitmap, this);
-                break;
             case R.id.large_img:
                 finish();
                 break;
@@ -325,16 +301,19 @@ public class ImageActivity extends Activity implements OnClickListener {
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(this);
-    }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(this);
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (isNeedRefresh) {
+                setResult(RESULT_OK);
+                finish();
+            } else {
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

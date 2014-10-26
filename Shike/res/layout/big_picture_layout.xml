@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <com.yshow.shike.widget.MatrixImageview
+        android:id="@+id/large_img"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></com.yshow.shike.widget.MatrixImageview>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom_layout">
+
+        <Button
+            android:id="@+id/voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/stu_slide_btn1_bg"
+            android:drawableLeft="@drawable/icon_record_press"
+            android:paddingLeft="10dp"
+            android:paddingRight="60dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:drawablePadding="60dp"
+            android:gravity="center"
+            android:text="录音"
+            android:layout_centerInParent="true"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="@dimen/share_text" />
+
+    </RelativeLayout>
+
+
+    <HorizontalScrollView
+        android:layout_above="@id/bottom_layout"
+        android:layout_width="fill_parent"
+        android:id="@+id/voice_layout_container"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/voice_layout"
+            android:orientation="horizontal"></LinearLayout>
+
+    </HorizontalScrollView>
+
+    <include
+        android:id="@+id/voice_recordding_layout"
+        layout="@layout/voice_recording_layout"
+        android:layout_above="@id/voice_layout_container"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
