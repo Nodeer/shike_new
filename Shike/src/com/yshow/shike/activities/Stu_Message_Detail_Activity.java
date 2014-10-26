@@ -401,7 +401,14 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
                     Bundle bundle = new Bundle();
                     bundle.putString("Message_Three", file);
                     bundle.putSerializable("res", sKMessage.getRes().get(position));
-                    bundle.putBoolean("isdone", sKMessage.isDone());
+
+                    if (sKMessage.getMsgType().equals("1")) {// 这里表示是系统消息
+                        bundle.putBoolean("isdone", true);
+                    }else{
+                        bundle.putBoolean("isdone", sKMessage.isDone());
+                    }
+
+
                     Intent intent = new Intent(context, ImageActivity.class);
                     intent.putExtras(bundle);
                     startActivityForResult(intent, 1);
