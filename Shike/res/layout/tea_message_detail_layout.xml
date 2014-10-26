@@ -176,6 +176,28 @@
                 android:layout_weight="1" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:padding="10dp"
+            android:id="@+id/save_ques_layout"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/save_btn"
+                android:layout_width="0dp"
+                android:drawableLeft="@drawable/icon_camera_nor"
+                android:background="@drawable/gray_btn_bg"
+                android:padding="5dp"
+                android:text="存入题库"
+                style="@style/text_18_333333"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
     </FrameLayout>
 
 </LinearLayout>

@@ -93,6 +93,8 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
 
     private Button sendVoiceButton;
 
+    private LinearLayout mSaveTikuBtn;
+
     private boolean isNeedShowEndDialog = true;
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -190,6 +192,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         }
         curquestionId = sKMessage.getQuestionId();
         claim_uid = sKMessage.getClaim_uid();
+        mSaveTikuBtn = (LinearLayout) findViewById(R.id.save_ques_layout);
         ll_volume_control = findViewById(R.id.voice_recordding_layout);
         ll_volume_control.setVisibility(View.GONE);
         teaDecideLayout = (LinearLayout) findViewById(R.id.tea_decide_layout);
@@ -199,6 +202,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         Button tv_tianjian = (Button) findViewById(R.id.img_button);
         if (sKMessage.isDone()) {
             teaDecideLayout.setVisibility(View.GONE);
+            mSaveTikuBtn.setVisibility(View.VISIBLE);
         }
         TextView tv_xiaohongyu = (TextView) findViewById(R.id.nick_name);
         back_time = (TextView) findViewById(R.id.record_remain_text);
@@ -534,18 +538,6 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         }
     }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            if (!sKMessage.getMsgType().equals("1")) {
-                if (claim_uid.equals("0")) {
-                    HelpUtil.showHelp(this, HelpUtil.HELP_TEA_2, null);
-                }
-            }
-        }
-    }
-
     // 没接收过该题，显示返回，接收，放弃
     private void Teather_Decide() {
         if (claim_uid.equals("0")) {
@@ -558,7 +550,8 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
             teaDecideLayout.setVisibility(View.GONE);
             // 如果题目完成 语音隐藏 添加 显示 确定
             if (sKMessage.isDone()) {
-                sendVoiceButton.setText("存入题库");
+                bottomLayout.setVisibility(View.GONE);
+                mSaveTikuBtn.setVisibility(View.VISIBLE);
                 if (isNeedShowEndDialog) {
                     Builder builder = new Builder(context);
                     builder.setMessage("当前提问已结束");
@@ -595,7 +588,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
                     Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
                     YD.getInstence().getYD(context, PartnerConfig.TEA_YD_TOOL, true);
                     Toast.makeText(context, "接收成功", Toast.LENGTH_SHORT).show();
-                    HelpUtil.showHelp(Tea_Message_Detail_Activity.this, HelpUtil.HELP_TEA_3, null);
+//                    HelpUtil.showHelp(Tea_Message_Detail_Activity.this, HelpUtil.HELP_TEA_3, null);
                 }
             }
         });
