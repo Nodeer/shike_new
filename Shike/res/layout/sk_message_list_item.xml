@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@color/main_bg"
     android:padding="5dp">
 
     <FrameLayout
@@ -31,16 +30,17 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="10dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:id="@+id/message_item"
             android:layout_height="match_parent"
+            android:background="@drawable/listview_item_bg"
+            android:paddingLeft="10dp"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/message_item"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -53,6 +53,7 @@
                     android:layout_height="wrap_content"
                     android:text="爱飞的鱼"
                     style="@style/text_16_black" />
+
                 <TextView
                     android:id="@+id/tv_message_content"
                     android:layout_width="wrap_content"
@@ -69,8 +70,7 @@
                 android:text="10:30"
                 android:layout_marginTop="5dp"
                 style="@style/text_14_gray"
-                android:paddingRight="5dp"
-                 />
+                android:paddingRight="5dp" />
 
             <Button
                 android:id="@+id/bt_cancle_message"

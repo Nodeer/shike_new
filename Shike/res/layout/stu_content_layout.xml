@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            style="@style/text_14_black"
+            style="@style/text_16_333333"
             android:id="@+id/now_online"
             android:text="今日在线" />
     </RelativeLayout>

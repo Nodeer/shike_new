@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yshow.shike.activities.MessageActivity;
+import com.yshow.shike.service.MySKService;
 import com.yshow.shike.widget.GalleryView;
 
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
@@ -28,6 +30,18 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
     private TextView mOnlineTextView;
     private ImageView mTitleRight;
     private AnimationDrawable ani;
+
+    public Handler handler = new Handler() {
+        public void handleMessage(android.os.Message msg) {
+            switch (msg.what) {
+                case MySKService.HAVE_NEW_MESSAGE:
+                    ani.stop();
+                    ani.start();
+                    mMessRedIcon.setVisibility(View.VISIBLE);
+                    break;
+            }
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,10 +77,17 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
                 }
                 break;
             case R.id.title_right:
+                mMessRedIcon.setVisibility(View.GONE);
                 goMessageActivity();
                 break;
 
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MySKService.handler = handler;
     }
 
     private void goMessageActivity() {

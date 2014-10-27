@@ -33,7 +33,7 @@ public class SharePreferenceUtil {
     }
 
     public boolean getBoolean(String key) {
-        return mSp.getBoolean("key", false);
+        return mSp.getBoolean(key, false);
     }
 
     public void putInt(String key, int value) {
@@ -43,7 +43,7 @@ public class SharePreferenceUtil {
     }
 
     public int getInt(String key) {
-        return mSp.getInt("key", 0);
+        return mSp.getInt(key, 0);
     }
 
     public void putString(String key, String value) {
@@ -53,6 +53,6 @@ public class SharePreferenceUtil {
     }
 
     public String getString(String key) {
-        return mSp.getString("key", "");
+        return mSp.getString(key, "");
     }
 }

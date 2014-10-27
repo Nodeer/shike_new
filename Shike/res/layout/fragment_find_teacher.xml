@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     >
+    android:background="@color/main_bg">
 
     <TextView
         android:id="@+id/tv_tuijian_teacher"
@@ -34,34 +34,34 @@
         android:text="明星老师 "
         android:textColor="#FFFFFF" />
 
-   <TextView
-       android:id="@+id/tv_find_teacher"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignLeft="@+id/tv_star_teacher"
-       android:layout_below="@+id/tv_star_teacher"
-       android:layout_marginTop="18dp"
-       android:background="@drawable/select_find_teacher"
-       android:drawableTop="@drawable/find_teather"
-       android:gravity="bottom|center_horizontal"
-       android:paddingBottom="3dp"
-       android:paddingTop="15dp"
-       android:text="搜索"
-       android:textColor="#FFFFFF" />
+    <TextView
+        android:id="@+id/tv_find_teacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_star_teacher"
+        android:layout_below="@+id/tv_star_teacher"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/select_find_teacher"
+        android:drawableTop="@drawable/find_teather"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="3dp"
+        android:paddingTop="15dp"
+        android:text="搜索"
+        android:textColor="#FFFFFF" />
 
-   <TextView
-       android:id="@+id/tv_zaixian_find_tea"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignBaseline="@+id/tv_find_teacher"
-       android:layout_alignBottom="@+id/tv_find_teacher"
-       android:layout_toLeftOf="@+id/tv_star_teacher"
-       android:background="@drawable/zaixian_tea"
-       android:drawableTop="@drawable/i_is_tea"
-       android:gravity="bottom|center_horizontal"
-       android:paddingBottom="3dp"
-       android:paddingTop="15dp"
-       android:text="在线老师"
-       android:textColor="#FFFFFF" />
+    <TextView
+        android:id="@+id/tv_zaixian_find_tea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_find_teacher"
+        android:layout_alignBottom="@+id/tv_find_teacher"
+        android:layout_toLeftOf="@+id/tv_star_teacher"
+        android:background="@drawable/zaixian_tea"
+        android:drawableTop="@drawable/i_is_tea"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="3dp"
+        android:paddingTop="15dp"
+        android:text="在线老师"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

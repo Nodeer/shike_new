@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.yshow.shike.UIApplication;
 import com.yshow.shike.activities.Activity_Stu_Ask_Step1;
 import com.yshow.shike.activities.MessageActivity;
 import com.yshow.shike.activities.My_Question_Count;
+import com.yshow.shike.adapter.SKMessageAdapter;
+import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.PartnerConfig;
 import com.yshow.shike.widget.GalleryView;
 
@@ -32,6 +35,18 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
     private TextView mOnlineTextView;
     private ImageView mTitleRight;
     private AnimationDrawable ani;
+
+    public Handler handler = new Handler() {
+        public void handleMessage(android.os.Message msg) {
+            switch (msg.what) {
+                case MySKService.HAVE_NEW_MESSAGE:
+                    ani.stop();
+                    ani.start();
+                    mMessRedIcon.setVisibility(View.VISIBLE);
+                    break;
+            }
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +69,7 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
         mReStudyButton = (RelativeLayout) view.findViewById(R.id.restudy_btn);
         mReStudyButton.setOnClickListener(this);
         mOnlineTextView = (TextView) view.findViewById(R.id.now_online);
+
         return view;
     }
 
@@ -67,6 +83,7 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
                 }
                 break;
             case R.id.title_right:
+                mMessRedIcon.setVisibility(View.GONE);
                 goMessageActivity();
                 break;
             case R.id.ask_question_btn:
@@ -79,13 +96,17 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
                 startActivity(new Intent(getActivity(), Activity_Stu_Ask_Step1.class));
                 break;
             case R.id.restudy_btn:
-//                Intent intent = new Intent(getActivity(), My_Question_Count.class);
-//                startActivity(intent);
-                ani.stop();
-                ani.start();
+                Intent intent = new Intent(getActivity(), My_Question_Count.class);
+                startActivity(intent);
                 break;
 
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MySKService.handler = handler;
     }
 
     private void goMessageActivity() {

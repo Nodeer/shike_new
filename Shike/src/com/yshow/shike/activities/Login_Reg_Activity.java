@@ -11,6 +11,7 @@ import com.yshow.shike.utils.FragmentExchangeController;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
+import com.yshow.shike.utils.SharePreferenceUtil;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -148,6 +149,7 @@ public class Login_Reg_Activity extends BaseActivity implements OnClickListener 
                             }
                             fileService.saveString("autologin_name", username);
                             fileService.saveString("autologin_pass", password);
+                            SharePreferenceUtil.getInstance().putBoolean("autologin",true);
                             Login_Reg_Activity.this.finish();
                         }
                     }

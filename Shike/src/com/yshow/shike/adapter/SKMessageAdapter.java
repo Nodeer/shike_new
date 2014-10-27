@@ -209,8 +209,7 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
         String acknowledge = viewholer.sKMessage.getAcknowledge();
         String claim_uid = viewholer.sKMessage.getClaim_uid();
         String complain = viewholer.sKMessage.getComplain();
-        Long updateTime = Long.valueOf(viewholer.sKMessage.getUpdateTime());
-        viewholer.time.setText(DateUtils.formatDateH(new Date(Long.valueOf(updateTime) * 1000)));
+        viewholer.time.setText(viewholer.sKMessage.getDate());
         viewholer.teacherName.setText(viewholer.sKMessage.getNickname());
 
         if (isStudent) {
