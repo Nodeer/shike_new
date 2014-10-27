@@ -142,7 +142,7 @@ public class Activity_Select_Tea extends BaseActivity implements OnClickListener
         // 获取自动登录 昵称
         FileService auto_sp = new FileService(context);
         String auto_nickName = auto_sp.getSp_Date("auto_user_name");
-        if (UIApplication.getInstance().getAuid_flag()) {
+        if (!UIApplication.getInstance().isTestUser) {
             if (isReSendmessge) {
                 tryQusetion();
             } else {

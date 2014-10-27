@@ -2,7 +2,6 @@ package com.yshow.shike.activities;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.umeng.analytics.MobclickAgent;
 import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
 import com.yshow.shike.entity.LoginManage;
@@ -23,13 +21,11 @@ import com.yshow.shike.entity.SKStudent;
 import com.yshow.shike.entity.SkClasses;
 import com.yshow.shike.utils.AreaSeltorUtil;
 import com.yshow.shike.utils.Dialog;
-import com.yshow.shike.utils.GradeSeltorUtil;
 import com.yshow.shike.utils.JieDuanSeltorUtil;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
 import com.yshow.shike.utils.AreaSeltorUtil.AreaSeltorUtilButtonOnclickListening;
-import com.yshow.shike.utils.GradeSeltorUtil.SystemDialogButtonOnclickListening;
 import com.yshow.shike.utils.XuelingDuanSeltorUtil;
 
 /**
@@ -132,7 +128,7 @@ public class StudentRegisterUserinfoActivity extends BaseActivity implements OnC
         SKStudent student = SKResolveJsonUtil.getInstance().resolveLoginInfo(json);
         instance.setStudent(student);
         Dialog.Intent(StudentRegisterUserinfoActivity.this, Student_Main_Activity.class);
-        UIApplication.getInstance().setAuid_flag(true);
+        UIApplication.getInstance().isTestUser = false;
     }
 
 

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.umeng.analytics.MobclickAgent;
@@ -28,7 +29,7 @@ import com.yshow.shike.utils.Dilog_Share;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
 
-public class Activity_Teather_Material_Two extends Activity {
+public class TeacherRegisterUploadPapersActivity extends BaseActivity {
     private SKStudent sKStudent;
     private Context context;
     private Intent intent = null;
@@ -36,7 +37,7 @@ public class Activity_Teather_Material_Two extends Activity {
     private TextView tv_skip, ShagnChuan;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teather_material_two);
         initData();
@@ -45,13 +46,13 @@ public class Activity_Teather_Material_Two extends Activity {
     private void initData() {
         context = this;
         tea_Reg = Dilog_Share.Tea_Reg(context, listener);
-        sKStudent = (SKStudent) getIntent().getExtras().getSerializable("student");
+        sKStudent = (SKStudent) getIntent().getExtras().getSerializable("teather");
         ShagnChuan = (TextView) findViewById(R.id.tv_ShagnChuan);
         ShagnChuan.setOnClickListener(listener);
         tv_skip = (TextView) findViewById(R.id.tv_give_up);
         tv_skip.setOnClickListener(listener);
         findViewById(R.id.tv_back).setOnClickListener(listener);
-        findViewById(R.id.tv_comfig).setOnClickListener(listener);
+        findViewById(R.id.next_btn).setOnClickListener(listener);
     }
 
     private OnClickListener listener = new OnClickListener() {
@@ -62,8 +63,8 @@ public class Activity_Teather_Material_Two extends Activity {
                     finish();
                     break;
                 case R.id.tv_comfig:
-                    intent = new Intent(context, Activity_Teather_Material_Three.class);
-                    intent.putExtra("student", sKStudent);
+                    intent = new Intent(context, TeacherRegisterUserInfoActivity.class);
+                    intent.putExtra("teather", sKStudent);
                     startActivity(intent);
                     break;
                 // 上传按钮
@@ -177,15 +178,4 @@ public class Activity_Teather_Material_Two extends Activity {
         });
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(this);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(this);
-    }
 }

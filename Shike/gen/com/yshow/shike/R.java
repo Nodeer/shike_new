@@ -1099,7 +1099,7 @@ public final class R {
         public static final int activity_teacher_duihuan=0x7f03001e;
         public static final int activity_teacher_info=0x7f03001f;
         public static final int activity_teacher_zhanghu=0x7f030020;
-        public static final int activity_teather_material=0x7f030021;
+        public static final int teacher_register_userinfo_layout =0x7f030021;
         public static final int activity_teather_material_three=0x7f030022;
         public static final int activity_teather_material_two=0x7f030023;
         public static final int activity_teather_shike=0x7f030024;

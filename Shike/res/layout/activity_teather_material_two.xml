@@ -62,11 +62,17 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20dp" >
             </TextView>
-    <include
-         android:id="@+id/incl_two_buttom_anim"
+
+    <Button
+        android:id="@+id/next_btn"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        layout="@layout/i_bottom_navigation" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="40dp"
+        android:text="下一步"
+        style="@style/text_30_white"
+        android:padding="10dp"
+        android:background="@drawable/blue_btn_bg"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>

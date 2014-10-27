@@ -179,10 +179,10 @@
             android:name="com.yshow.shike.activities.PasswordSetting"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.yshow.shike.activities.Activity_Teather_Material"
+            android:name=".activities.TeacherRegisterUserInfoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.yshow.shike.activities.Activity_Teather_Material_Two"
+            android:name=".activities.TeacherRegisterUploadPapersActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.Activity_MyShiKe"

@@ -59,7 +59,7 @@ public class UserRegisterFragment extends Fragment {
                     getActivity().startActivity(intent);
                     break;
                 case R.id.ask_question_btn:
-                    auto_Login.auto_login_info();
+//                    auto_Login.auto_login_info();
                     break;
                 case R.id.stu_reg_btn:
                     Intent intent2 = new Intent(getActivity(), StudentRegisterActivity.class);

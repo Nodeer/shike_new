@@ -97,8 +97,8 @@ public class FileService {
 	}
 	/**
 	 * 存取自动登录的用户昵称
-	 * @param nickname 自动登录完成个人信息后记录用户名
-	 * @param auto_user作为是否是第一次自动登录的标记
+	 * @param name 自动登录完成个人信息后记录用户名
+	 * @param auto_user 作为是否是第一次自动登录的标记
 	 * @return
 	 */
 	public boolean set_auto_info(String name,String auto_user){

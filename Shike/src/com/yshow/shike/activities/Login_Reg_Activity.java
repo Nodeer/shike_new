@@ -1,12 +1,9 @@
 package com.yshow.shike.activities;
 
-import com.umeng.analytics.MobclickAgent;
 import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
-import com.yshow.shike.activities.Age_Person_Info.Callback;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKStudent;
-import com.yshow.shike.fragments.UserLoginFragment;
 import com.yshow.shike.fragments.UserRegisterFragment;
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.FileService;
@@ -14,21 +11,15 @@ import com.yshow.shike.utils.FragmentExchangeController;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
-import com.yshow.shike.utils.ScreenSizeUtil;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.content.Context;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -37,9 +28,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 /**
@@ -148,7 +136,7 @@ public class Login_Reg_Activity extends BaseActivity implements OnClickListener 
                             //如果不是老师
                             if (!LoginManage.getInstance().isTeacher(Login_Reg_Activity.this)) {
                                 //是学生
-                                UIApplication.getInstance().setAuid_flag(true);
+                                UIApplication.getInstance().isTestUser = false;
                                 Dialog.Intent(Login_Reg_Activity.this, Student_Main_Activity.class);
                             } else {
                                 //是老师
