@@ -1101,7 +1101,7 @@ public final class R {
         public static final int activity_teacher_zhanghu=0x7f030020;
         public static final int teacher_register_userinfo_layout =0x7f030021;
         public static final int activity_teather_material_three=0x7f030022;
-        public static final int activity_teather_material_two=0x7f030023;
+        public static final int teacher_register_uploadpaper_layout =0x7f030023;
         public static final int activity_teather_shike=0x7f030024;
         public static final int activity_teather_ti_ku=0x7f030025;
         public static final int activity_tiku_second=0x7f030026;

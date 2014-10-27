@@ -14,12 +14,13 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.umeng.analytics.MobclickAgent;
 import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
 import com.yshow.shike.entity.SKStudent;
@@ -28,18 +29,20 @@ import com.yshow.shike.entity.UpLoad_Image.Upload_Filed;
 import com.yshow.shike.utils.Dilog_Share;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
+import com.yshow.shike.utils.SKResolveJsonUtil;
 
 public class TeacherRegisterUploadPapersActivity extends BaseActivity {
     private SKStudent sKStudent;
     private Context context;
     private Intent intent = null;
     private Dialog tea_Reg; // 拍照和照相
-    private TextView tv_skip, ShagnChuan;
+    private Button skipButton;
+    private ImageView uploadButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teather_material_two);
+        setContentView(R.layout.teacher_register_uploadpaper_layout);
         initData();
     }
 
@@ -47,28 +50,31 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
         context = this;
         tea_Reg = Dilog_Share.Tea_Reg(context, listener);
         sKStudent = (SKStudent) getIntent().getExtras().getSerializable("teather");
-        ShagnChuan = (TextView) findViewById(R.id.tv_ShagnChuan);
-        ShagnChuan.setOnClickListener(listener);
-        tv_skip = (TextView) findViewById(R.id.tv_give_up);
-        tv_skip.setOnClickListener(listener);
-        findViewById(R.id.tv_back).setOnClickListener(listener);
-        findViewById(R.id.next_btn).setOnClickListener(listener);
+
+        TextView titleText = (TextView) findViewById(R.id.title_text);
+        titleText.setText("教师资格证");
+
+        uploadButton = (ImageView) findViewById(R.id.paper_btn);
+        uploadButton.setOnClickListener(listener);
+        skipButton = (Button) findViewById(R.id.next_btn);
+        skipButton.setOnClickListener(listener);
+        findViewById(R.id.left_btn).setOnClickListener(listener);
     }
 
     private OnClickListener listener = new OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.tv_back:
+                case R.id.left_btn:
                     finish();
                     break;
-                case R.id.tv_comfig:
+                case R.id.next_btn:
                     intent = new Intent(context, TeacherRegisterUserInfoActivity.class);
                     intent.putExtra("teather", sKStudent);
                     startActivity(intent);
                     break;
                 // 上传按钮
-                case R.id.tv_ShagnChuan:
+                case R.id.paper_btn:
                     tea_Reg.show();
                     break;
                 // 拍照
@@ -86,12 +92,6 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
                 // 取消
                 case R.id.tv_tea_cancel:
                     tea_Reg.dismiss();
-                    break;
-                // 跳过按钮
-                case R.id.tv_give_up:
-                    intent = new Intent(context, Activity_Teather_Material_Three.class);
-                    intent.putExtra("student", sKStudent);
-                    startActivity(intent);
                     break;
             }
 
@@ -164,16 +164,22 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
             @Override
             public void onSuccess(String json) {
                 super.onSuccess(json);
-                Type tp = new TypeToken<UpLoad_Image>() {
-                }.getType();
-                Gson gs = new Gson();
-                UpLoad_Image up_image = gs.fromJson(json, tp);
-                Upload_Filed data = up_image.getData();
-                String fileId = data.getFileId();
-                sKStudent.setPaper(fileId);
-                ShagnChuan.setText("已上传");
-                tv_skip.setBackgroundColor(R.color.gray);
-                tv_skip.setOnClickListener(null);
+
+                boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, TeacherRegisterUploadPapersActivity.this);
+                if (success) {
+                    Type tp = new TypeToken<UpLoad_Image>() {
+                    }.getType();
+                    Gson gs = new Gson();
+                    UpLoad_Image up_image = gs.fromJson(json, tp);
+                    Upload_Filed data = up_image.getData();
+                    String fileId = data.getFileId();
+                    sKStudent.setPaper(fileId);
+                    intent = new Intent(context, TeacherRegisterUserInfoActivity.class);
+                    intent.putExtra("teather", sKStudent);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(context, "图片上传失败", 0).show();
+                }
             }
         });
     }

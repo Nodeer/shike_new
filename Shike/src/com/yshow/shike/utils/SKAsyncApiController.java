@@ -654,12 +654,12 @@ public class SKAsyncApiController {
 		int quity = 100;
 		bitmap.compress(Bitmap.CompressFormat.JPEG, quity, baos);
 		LogUtil.d("图片原始大小:" + quity + ".尺寸" + baos.size());
-//		while (baos.size() > 1024 * 1000*2) {
-//			LogUtil.d("图片大于1M.当前压缩比例:" + quity + ".实际尺寸" + baos.size());
-//			quity -= 10;
-//			baos.reset();
-//			bitmap.compress(Bitmap.CompressFormat.JPEG, quity, baos);
-//		}
+		while (baos.size() > 1024 * 1000*2) {
+			LogUtil.d("图片大于1M.当前压缩比例:" + quity + ".实际尺寸" + baos.size());
+			quity -= 10;
+			baos.reset();
+			bitmap.compress(Bitmap.CompressFormat.JPEG, quity, baos);
+		}
 		InputStream isBm = new ByteArrayInputStream(baos.toByteArray());
 		params.put("filename", isBm, path + ".jpg");
 		myPost("/?m=file&a=upload", params, handler);

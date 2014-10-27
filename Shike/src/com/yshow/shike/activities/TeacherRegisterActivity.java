@@ -85,7 +85,7 @@ public class TeacherRegisterActivity extends BaseActivity implements
                     skStudent.setTypes("1");
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("teather", skStudent);
-                    Dialog.intent(this, TeacherRegisterUserInfoActivity.class, bundle);
+                    Dialog.intent(this, TeacherRegisterUploadPapersActivity.class, bundle);
                 } else {
                     Toast.makeText(this, "请输入正确的手机号!", 0).show();
                 }
