@@ -149,7 +149,7 @@
             android:name="com.yshow.shike.fragments.Fragment_Region"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.yshow.shike.activities.Activity_Thank_Teacher"
+            android:name="com.yshow.shike.activities.WebViewActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.TeacherRegisterActivity"

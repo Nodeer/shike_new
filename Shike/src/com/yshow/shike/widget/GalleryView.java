@@ -179,6 +179,10 @@ public class GalleryView extends LinearLayout {
         loader = ImageLoader.getInstance();
     }
 
+    public void setOnItemClickListaner(MyPagerAdapter.OnMyClickListener listener) {
+        mCYouViewPagerAdapter.setMyClickListener(listener);
+    }
+
     /**
      * 创建圆点
      */

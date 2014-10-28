@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ant.liao.GifView;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
@@ -20,10 +21,12 @@ import com.yshow.shike.UIApplication;
 import com.yshow.shike.activities.Activity_Stu_Ask_Step1;
 import com.yshow.shike.activities.MessageActivity;
 import com.yshow.shike.activities.My_Question_Count;
+import com.yshow.shike.activities.WebViewActivity;
 import com.yshow.shike.adapter.SKMessageAdapter;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.PartnerConfig;
 import com.yshow.shike.widget.GalleryView;
+import com.yshow.shike.widget.MyPagerAdapter;
 
 /**
  * Created by Administrator on 2014-10-16.
@@ -35,6 +38,11 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
     private TextView mOnlineTextView;
     private ImageView mTitleRight;
     private AnimationDrawable ani;
+    private String[] urls = {
+            "http://www.shikeke.com/news.php?id=4",
+            "http://www.shikeke.com/news.php?id=5",
+            "http://www.shikeke.com/news.php?id=6"
+    };
 
     public Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -54,6 +62,14 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
 
         GalleryView gallery = (GalleryView) view.findViewById(R.id.gallery);
         gallery.setData(new int[]{R.drawable.blackboard_ad_img, R.drawable.blackboard_ad_img}, false);
+        gallery.setOnItemClickListaner(new MyPagerAdapter.OnMyClickListener() {
+            @Override
+            public void clickItem(int position) {
+                Intent it = new Intent(getActivity(), WebViewActivity.class);
+                it.putExtra("url", urls[position]);
+                startActivity(it);
+            }
+        });
 
         ImageView mTitleLeft = (ImageView) view.findViewById(R.id.title_left);
         mTitleLeft.setOnClickListener(this);

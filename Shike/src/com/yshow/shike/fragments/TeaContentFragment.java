@@ -12,13 +12,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yshow.shike.activities.MessageActivity;
+import com.yshow.shike.activities.WebViewActivity;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.widget.GalleryView;
 
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.yshow.shike.R;
+import com.yshow.shike.widget.MyPagerAdapter;
 
 /**
  * Created by Administrator on 2014-10-16.
@@ -30,6 +33,11 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
     private TextView mOnlineTextView;
     private ImageView mTitleRight;
     private AnimationDrawable ani;
+    private String[] urls = {
+            "http://www.shikeke.com/news.php?id=4",
+            "http://www.shikeke.com/news.php?id=5",
+            "http://www.shikeke.com/news.php?id=6"
+    };
 
     public Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -49,6 +57,14 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
 
         GalleryView gallery = (GalleryView) view.findViewById(R.id.gallery);
         gallery.setData(new int[]{R.drawable.blackboard_ad_img, R.drawable.blackboard_ad_img}, false);
+        gallery.setOnItemClickListaner(new MyPagerAdapter.OnMyClickListener() {
+            @Override
+            public void clickItem(int position) {
+                Intent it = new Intent(getActivity(), WebViewActivity.class);
+                it.putExtra("url", urls[position]);
+                startActivity(it);
+            }
+        });
 
         mTitleRight = (ImageView) view.findViewById(R.id.title_right);
         mTitleRight.setOnClickListener(this);
