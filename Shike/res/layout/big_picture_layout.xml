@@ -3,10 +3,16 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+    <include
+        android:id="@+id/title_layout"
+        layout="@layout/title_layout"
+        />
+
 
     <com.yshow.shike.widget.MatrixImageview
         android:id="@+id/large_img"
         android:layout_width="fill_parent"
+        android:layout_below="@id/title_layout"
         android:layout_height="fill_parent"></com.yshow.shike.widget.MatrixImageview>
 
     <RelativeLayout

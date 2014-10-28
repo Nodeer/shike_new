@@ -44,6 +44,7 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.give_gift_layout);
         findViewById(R.id.tv_tool_back).setOnClickListener(this);
+        findViewById(R.id.next_btn).setOnClickListener(this);
         mGridView = (GridView) findViewById(R.id.gridview);
         mImageloader = ImageLoader.getInstance();
         mImageOption = ImageLoadOption.getImageOption(R.drawable.xiaoxi_moren);
@@ -63,6 +64,9 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_tool_back:
+                finish();
+                break;
+            case R.id.next_btn:
                 Intent it = new Intent();
                 if (arrayList.size() > 0) {
                     calIdAndCounts();
@@ -82,20 +86,7 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onBackPressed() {
-        Intent it = new Intent();
-        if (arrayList.size() > 0) {
-            calIdAndCounts();
-            it.putExtra("count", mTotalCount);
-            it.putExtra("data", mSelcetFileIds.toString());
-            it.putExtra("url", url);
-            setResult(Activity.RESULT_OK, it);
-            finish();
-        } else {
-            it.putExtra("count", mTotalCount);
-            setResult(Activity.RESULT_OK, it);
-            finish();
-        }
-
+        finish();
     }
 
     private void calIdAndCounts() {

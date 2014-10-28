@@ -215,20 +215,6 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
         Toast.makeText(Student_Main_Activity.this, "开始下载新版本", Toast.LENGTH_SHORT).show();
     }
 
-//	@Override
-//	public void onWindowFocusChanged(boolean hasFocus) {
-//		super.onWindowFocusChanged(hasFocus);
-//		if (hasFocus) {
-//			if (startX == 0) {
-//				if (student.getMob() != null) {
-//					HelpUtil.showHelp(this, HelpUtil.HELP_STU_6, null);
-//				} else {
-//					HelpUtil.showHelp(this, HelpUtil.HELP_STU_1, null);
-//				}
-//			}
-//		}
-//	}
-
     private OnClickListener listener = new OnClickListener() {
         @Override
         public void onClick(View arg0) {

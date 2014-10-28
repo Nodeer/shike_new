@@ -38,6 +38,8 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
     private Dialog tea_Reg; // 拍照和照相
     private Button skipButton;
     private ImageView uploadButton;
+    private Bitmap bitmap;
+    private String bitmapName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,9 +71,13 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
                     finish();
                     break;
                 case R.id.next_btn:
-                    intent = new Intent(context, TeacherRegisterUserInfoActivity.class);
-                    intent.putExtra("teather", sKStudent);
-                    startActivity(intent);
+                    if (bitmap == null) {
+                        intent = new Intent(context, TeacherRegisterUserInfoActivity.class);
+                        intent.putExtra("teather", sKStudent);
+                        startActivity(intent);
+                    } else {
+                        Reg_Imag(TeacherRegisterUploadPapersActivity.this, bitmap, bitmapName);
+                    }
                     break;
                 // 上传按钮
                 case R.id.paper_btn:
@@ -117,14 +123,13 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             long time = System.currentTimeMillis();
-            String phon_name = time + "";
+            bitmapName = time + "";
             String sd_state = Environment.getExternalStorageState();
             boolean SD_STATE = sd_state.equals(Environment.MEDIA_MOUNTED);
             if (!SD_STATE) {
-                Toast.makeText(context, "请检查内存卡是否存在", 0).show();
+                Toast.makeText(context, "请检查内存卡是否存在", Toast.LENGTH_SHORT).show();
                 return;
             }
-            Bitmap bitmap;
             ContentResolver resolver = getContentResolver();
             Uri originalUri; // 获得图片的uri
             switch (requestCode) {
@@ -133,7 +138,8 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
                     originalUri = data.getData();
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-                        Reg_Imag(context, bitmap, phon_name);
+                        uploadButton.setImageBitmap(bitmap);
+//                        Reg_Imag(context, bitmap, phon_name);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -143,7 +149,8 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
                     originalUri = data.getData();
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-                        Reg_Imag(context, bitmap, phon_name);
+                        uploadButton.setImageBitmap(bitmap);
+//                        Reg_Imag(context, bitmap, phon_name);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -178,7 +185,7 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
                     intent.putExtra("teather", sKStudent);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(context, "图片上传失败", 0).show();
+                    Toast.makeText(context, "图片上传失败", Toast.LENGTH_SHORT).show();
                 }
             }
         });

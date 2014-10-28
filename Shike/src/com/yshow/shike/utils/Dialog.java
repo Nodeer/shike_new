@@ -90,7 +90,6 @@ public class Dialog {
 	 * 感谢老师发送0分
 	 * 
 	 * @param context
-	 * @param clazz
 	 */
 	public static void Zone_Think(final Context context) {
 		new AlertDialog.Builder(context).setMessage("你确定退出师课么？").setTitle("师课")

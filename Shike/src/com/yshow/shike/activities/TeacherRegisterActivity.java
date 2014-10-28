@@ -66,6 +66,7 @@ public class TeacherRegisterActivity extends BaseActivity implements
         ImageView tv_back = (ImageView) findViewById(R.id.left_btn);
         tv_back.setOnClickListener(this);
         findViewById(R.id.next_btn).setOnClickListener(this);
+        findViewById(R.id.left_btn).setOnClickListener(this);
         tv_send_pas = (TextView) findViewById(R.id.tv_pasword);
         tv_send_pas.setOnClickListener(this);
     }
@@ -74,7 +75,7 @@ public class TeacherRegisterActivity extends BaseActivity implements
     public void onClick(View v) {
         String phonename = login_teacher_phone.getText().toString().trim();
         switch (v.getId()) {
-            case R.id.tv_back:
+            case R.id.left_btn:
                 finish();
                 break;
             case R.id.next_btn:

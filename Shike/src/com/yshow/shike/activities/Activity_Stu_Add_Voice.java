@@ -44,7 +44,7 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
     private Bitmap bitmap;
     private MediaRecorder mr;
     private int Count = 0;
-    private ArrayList<String> urllist;
+    public static ArrayList<String> urllist;
     private View voiceRecorddingLayout;
     private TextView recordTimeRemainText;
     private int recLen = 0;
@@ -87,6 +87,7 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
         mRecordButton = (Button) findViewById(R.id.record_btn);
         findViewById(R.id.tv_tool_back).setOnClickListener(this);
         findViewById(R.id.next_btn).setOnClickListener(this);
+        findViewById(R.id.big_img_btn).setOnClickListener(this);
         mVoiceLayout = (LinearLayout) findViewById(R.id.voice_layout);
         voiceRecorddingLayout = findViewById(R.id.voice_recordding_layout);
         voiceRecorddingLayout.setVisibility(View.GONE);
@@ -201,8 +202,10 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
             case R.id.tv_tool_back:
                 finish();
                 break;
-            case R.id.iv_board_picture:
-                Dialog.IntentParamet(this, ImageActivity.class, "bitmap", bitmap);
+            case R.id.big_img_btn:
+                Intent it = new Intent(this, ImageActivity.class);
+                it.putExtra("voidesize",Count);
+                startActivityForResult(it, 1);
                 break;
             // 控制三个删除按钮的出现
             case R.id.delete_voice:
@@ -222,6 +225,13 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
     private void View_Hide(View view1, View view2) {
         view1.setVisibility(View.GONE);
         view2.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Count = urllist.size();
+        refreshVoides();
     }
 
     /**
@@ -249,6 +259,20 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
         tapeimg.setVoicePath(url);
         tapeimg.setPlayer(mediaPlayerUtil);
         mVoiceLayout.addView(tapeimg);
+    }
+
+    public void refreshVoides() {
+        mVoiceLayout.removeAllViews();
+        for (String s : urllist) {
+            StuTapeImage tapeimg = new StuTapeImage(this);
+            LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            pa.leftMargin = 20;
+            tapeimg.setLayoutParams(pa);
+            tapeimg.setmVoiceImageClickListener(this);
+            tapeimg.setVoicePath(s);
+            tapeimg.setPlayer(mediaPlayerUtil);
+            mVoiceLayout.addView(tapeimg);
+        }
     }
 
     @Override

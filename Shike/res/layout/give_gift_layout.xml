@@ -30,6 +30,16 @@
             style="@style/text_20_333333"
             android:gravity="center" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next_btn"
+            android:padding="5dp"
+            android:text="确  定"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@style/text_16_white"
+            android:background="@drawable/stu_slide_btn2_bg" />
 
     </RelativeLayout>
 

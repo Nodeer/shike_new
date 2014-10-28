@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/slide_btn7_bg_nor" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@color/slide_btn7_bg_press" />
+        </shape>
+    </item>
+
+
+</selector>

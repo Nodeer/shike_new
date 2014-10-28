@@ -79,21 +79,6 @@ public class GalleryView extends LinearLayout {
     private CYouOnScrolledListener mCYouScrolledListener;
 
     /**
-     * The layout params ff.
-     */
-    public LayoutParams layoutParamsFF = null;
-
-    /**
-     * The layout params fw.
-     */
-    public LayoutParams layoutParamsFW = null;
-
-    /**
-     * The layout params wf.
-     */
-    public LayoutParams layoutParamsWF = null;
-
-    /**
      * The layout params ww.
      */
     public LayoutParams layoutParamsWW = null;
@@ -143,28 +128,18 @@ public class GalleryView extends LinearLayout {
     public GalleryView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        layoutParamsFF = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        layoutParamsFW = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        layoutParamsWF = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         layoutParamsWW = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         this.setOrientation(LinearLayout.VERTICAL);
-//        this.setBackgroundColor(Color.rgb(255, 255, 255));
-//        RelativeLayout mRelativeLayout = new RelativeLayout(context);
-//        addView(mRelativeLayout, layoutParamsFW);
 
         mViewPager = new ViewPager(context);
 
         LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
         lp1.weight = 1;
-//        lp1.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
-//        lp1.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
-//        lp1.addRule(RelativeLayout.ABOVE, pageLineLayout.getId());
         addView(mViewPager, lp1);
 // 位置的点
         pageLineLayout = new LinearLayout(context);
         pageLineLayout.setBackgroundColor(context.getResources().getColor(R.color.pageline_bg));
         LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//        lp2.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
         addView(pageLineLayout, lp2);
 
 

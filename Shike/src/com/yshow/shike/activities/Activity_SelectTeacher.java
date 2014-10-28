@@ -20,9 +20,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
 import com.yshow.shike.entity.SKTeacherOrSubject;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
@@ -33,6 +35,8 @@ public class Activity_SelectTeacher extends BaseActivity implements
     private TeacherAdapter teaAdapter;
     private SKTeacherOrSubject item;
     private ImageLoader imgLoader;
+    private DisplayImageOptions option;
+    ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,9 @@ public class Activity_SelectTeacher extends BaseActivity implements
         });
         imgLoader = ImageLoader.getInstance();
         skGetTeacher(getIntent().getStringExtra("subjectid"));
+
+
+        option = ImageLoadOption.getImageOption(R.drawable.xiaoxi_moren);
     }
 
     private void skGetTeacher(final String subjectId) {
@@ -117,7 +124,7 @@ public class Activity_SelectTeacher extends BaseActivity implements
             TextView teacherName = (TextView) convertView.findViewById(R.id.teacher_name);
             teacherName.setText(skSubject.getName());
             ImageView teacherImage = (ImageView) convertView.findViewById(R.id.teacher_img);
-            imgLoader.displayImage(skSubject.icon, teacherImage);
+            imgLoader.displayImage(skSubject.icon, teacherImage, option);
             return convertView;
         }
     }
@@ -125,15 +132,7 @@ public class Activity_SelectTeacher extends BaseActivity implements
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ll_back:
-                finish();
-                break;
-            case R.id.ll_configm:
-                if (item == null) {
-                    Toast.makeText(this, "你还没选择老师呢！", Toast.LENGTH_LONG).show();
-                }
-                break;
-            case R.id.ll_my_board_back:
+            case R.id.tv_tool_back:
                 finish();
                 break;
         }

@@ -79,6 +79,10 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
 
     private boolean isDone = false;
 
+    private boolean isPublishing = false;
+
+    private int voideSize = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,11 +105,16 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
         voiceLayout = (LinearLayout) findViewById(R.id.voice_layout);
         back_time = (TextView) findViewById(R.id.record_remain_text);
         large_img = (MatrixImageview) findViewById(R.id.large_img);
+
+        TextView titleText = (TextView) findViewById(R.id.title_text);
+        findViewById(R.id.left_btn).setOnClickListener(this);
+
         large_img.setOnClickListener(this);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        final String Message_Three_url = (String) bundle.get("Message_Three");
+        final String Message_Three_url = bundle.getString("Message_Three");
         if (Message_Three_url != null) {
+            titleText.setText("录音");
             mBottomLayout.setVisibility(View.VISIBLE);
             mMessageRes = (SkMessage_Res) bundle.getSerializable("res");
             isDone = bundle.getBoolean("isdone");
@@ -133,12 +142,11 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
                 ;
             }.start();
         } else {
-            mBottomLayout.setVisibility(View.GONE);
-            List<String> picUrls = UIApplication.getInstance().getPicUrls();
-            String path = picUrls.get(picUrls.size() - 1);// 是要显示的图片的绝对地址
-            bitmap = Bitmap_Manger_utils.getIntence().press_bitmap(ImageActivity.this, path);
-            // Bitmap decodeFile = path.decodeFile(path,ScreenSizeUtil.getScreenWidth(this,1),ScreenSizeUtil.getScreenHeight(this));
+            bitmap = Activity_Stu_Ask_Step2.sUploadBitmap;
             large_img.setImageBitmap(bitmap);
+            voideSize = getIntent().getIntExtra("voidesize", 0);
+            titleText.setText("添加录音");
+            isPublishing = true;
         }
     }
 
@@ -173,15 +181,32 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
                                 Toast.makeText(ImageActivity.this, "说话时间太短", Toast.LENGTH_SHORT).show();
                             } else {
                                 final String file = mediaRecorderUtil.getFilePath();
-                                StuTapeImage img = new StuTapeImage(ImageActivity.this);
-                                LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                                pa.leftMargin = 20;
-                                img.setLayoutParams(pa);
-                                img.setIsTeacher(isTeacher);
-                                img.setPlayer(mediaPlayer);
-                                img.setVoicePath(file);
-                                voiceLayout.addView(img);
-                                skUploadMp3(mMessageRes.getQuestionId(), mMessageRes.getId(), file, mMessageRes.getVoice().size() + 1 + "");
+                                if (isPublishing) {
+                                    if (voideSize >= 3) {
+                                        Toast.makeText(ImageActivity.this, "最多只能发3条语音", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Activity_Stu_Add_Voice.urllist.add(file);
+                                        voideSize++;
+                                        StuTapeImage img = new StuTapeImage(ImageActivity.this);
+                                        LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                        pa.leftMargin = 20;
+                                        img.setLayoutParams(pa);
+                                        img.setIsTeacher(isTeacher);
+                                        img.setPlayer(mediaPlayer);
+                                        img.setVoicePath(file);
+                                        voiceLayout.addView(img);
+                                    }
+                                } else {
+                                    StuTapeImage img = new StuTapeImage(ImageActivity.this);
+                                    LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                    pa.leftMargin = 20;
+                                    img.setLayoutParams(pa);
+                                    img.setIsTeacher(isTeacher);
+                                    img.setPlayer(mediaPlayer);
+                                    img.setVoicePath(file);
+                                    voiceLayout.addView(img);
+                                    skUploadMp3(mMessageRes.getQuestionId(), mMessageRes.getId(), file, mMessageRes.getVoice().size() + 1 + "");
+                                }
                             }
                         }
                     }
@@ -287,6 +312,14 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
         switch (view.getId()) {
             case R.id.large_img:
                 finish();
+                break;
+            case R.id.left_btn:
+                if (isNeedRefresh) {
+                    setResult(RESULT_OK);
+                    finish();
+                } else {
+                    finish();
+                }
                 break;
         }
     }

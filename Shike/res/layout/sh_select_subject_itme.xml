@@ -11,6 +11,7 @@
         android:layout_height="80dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:src="@drawable/teather_stu_picture"
         android:id="@+id/teacher_img" />
 
 

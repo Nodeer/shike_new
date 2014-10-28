@@ -1,102 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@drawable/listview_item_bg"
-    android:id="@+id/message_item"
-    android:padding="5dp">
 
-    <FrameLayout
-        android:layout_width="wrap_content"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:scrollbars="none"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/iv_message_teacher"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:src="@drawable/s_student_icon" />
-
-        <TextView
-            android:id="@+id/tv_message_updatanum"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_gravity="right|top"
-            android:background="#FF0000"
-            android:gravity="center"
-            android:text="10"
-            android:textColor="#FFFFFF"
-            android:textSize="13sp"
-            android:visibility="invisible" />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="10dp"
-            android:orientation="horizontal">
+            android:layout_width="fill_parent"
+            android:id="@+id/message_item"
+            android:clickable="true"
+            android:background="@drawable/listview_item_bg"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:id="@+id/message_content_layout"
+                android:layout_width="fill_parent"
+                android:padding="5dp"
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tv_message_teacher_name"
+                <FrameLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="爱飞的鱼"
-                    style="@style/text_16_black" />
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tv_message_content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lines="1"
-                    style="@style/text_14_gray" />
+                    <ImageView
+                        android:id="@+id/iv_message_teacher"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/s_student_icon" />
 
+                    <TextView
+                        android:id="@+id/tv_message_updatanum"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="right|top"
+                        android:background="#FF0000"
+                        android:gravity="center"
+                        android:text="10"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:visibility="invisible" />
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:padding="5dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_message_teacher_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="爱飞的鱼"
+                        style="@style/text_16_black" />
+
+                    <TextView
+                        android:id="@+id/tv_message_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:layout_below="@id/tv_message_teacher_name"
+                        style="@style/text_14_gray" />
+
+                    <TextView
+                        android:id="@+id/tv_message_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10:30"
+                        android:layout_alignParentRight="true"
+                        style="@style/text_14_gray"
+                        android:paddingRight="5dp" />
+                </RelativeLayout>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_message_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10:30"
-                android:layout_marginTop="5dp"
-                style="@style/text_14_gray"
-                android:paddingRight="5dp" />
 
             <Button
                 android:id="@+id/bt_cancle_message"
                 android:layout_width="wrap_content"
-                android:layout_height="46dp"
+                android:layout_height="match_parent"
                 android:gravity="center"
-                android:background="@color/sk_student_main_color"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
+                android:singleLine="true"
+                android:padding="10dp"
                 android:text="撤销"
-                android:textColor="@color/button_typeface_color"
-                android:textSize="17dp"
+                style="@style/text_16_white"
+                android:background="@drawable/rect_gray_btn_bg"
                 android:visibility="gone" />
 
+            <Button
+                android:id="@+id/bt_delete_message"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:singleLine="true"
+                android:padding="10dp"
+                style="@style/text_16_white"
+                android:background="@drawable/rect_red_btn_bg"
+                android:text="删除"
+                android:visibility="visible" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/bt_delete_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:text="删除"
-            android:textColor="@color/red_color"
-            android:textSize="15dp"
-            android:visibility="gone" />
-    </FrameLayout>
-</LinearLayout>
+    </HorizontalScrollView>
+</FrameLayout>

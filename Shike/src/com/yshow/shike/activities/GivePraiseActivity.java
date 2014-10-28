@@ -52,7 +52,14 @@ public class GivePraiseActivity extends BaseActivity implements View.OnClickList
                 } else {
                     mSelectedIndex = position;
                 }
-                mAdapter.notifyDataSetChanged();
+                Intent it = new Intent();
+                it.putExtra("index", mSelectedIndex);
+                if (mSelectedIndex != -1) {
+                    it.putExtra("data", arrayList.get(mSelectedIndex));
+                }
+                setResult(Activity.RESULT_OK, it);
+                finish();
+//                mAdapter.notifyDataSetChanged();
             }
         });
     }

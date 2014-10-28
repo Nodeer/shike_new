@@ -9,6 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:padding="10dp"
+        android:background="@color/white"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -46,6 +47,8 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:paddingTop="5dp"
         android:id="@+id/gallery" />
 
     <RelativeLayout

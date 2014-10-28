@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
@@ -16,6 +17,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -39,6 +42,7 @@ import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
+import com.yshow.shike.utils.ScreenSizeUtil;
 import com.yshow.shike.utils.Send_Message;
 
 /**
@@ -179,26 +183,33 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
         LinearLayout messageitme = (LinearLayout) inflate.findViewById(R.id.message_item);
         messageitme.setOnClickListener(onclickMessage);
         messageitme.setTag(viewholer);
+
+        LinearLayout messageContentLayout = (LinearLayout) inflate.findViewById(R.id.message_content_layout);
+        ViewGroup.LayoutParams pa = messageContentLayout.getLayoutParams();
+        pa.width = ScreenSizeUtil.getScreenWidth(context,1);
+        messageContentLayout.setLayoutParams(pa);
+
+
         messageItmeContent(viewholer, !isTeacher, position);
         if (!viewholer.sKMessage.getUpdateNum().equals("0") && viewholer.sKMessage.getNewM().equals("1")) {
             viewholer.updatanum.setText(viewholer.sKMessage.getUpdateNum());
             viewholer.updatanum.setVisibility(View.VISIBLE);
-            showMessNum();
+//            showMessNum();
         } else {
             viewholer.updatanum.setVisibility(View.GONE);
         }
         return inflate;
     }
 
-    private void showMessNum() {
-        if (context != null) {
-            if (context instanceof Student_Main_Activity) {
-                ((Student_Main_Activity) context).changeMessNum(true);
-            } else if (context instanceof Teather_Main_Activity) {
-                ((Teather_Main_Activity) context).changeMessNum(true);
-            }
-        }
-    }
+//    private void showMessNum() {
+//        if (context != null) {
+//            if (context instanceof Student_Main_Activity) {
+//                ((Student_Main_Activity) context).changeMessNum(true);
+//            } else if (context instanceof Teather_Main_Activity) {
+//                ((Teather_Main_Activity) context).changeMessNum(true);
+//            }
+//        }
+//    }
 
     private void messageItmeContent(MessageHolder viewholer, boolean isStudent, int position) {
         String icon = viewholer.sKMessage.getIcon();
@@ -383,6 +394,20 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
                                 }
                             }
                         }
+                    }else if (viewholer.sKMessage.getMsgType().equals("0") && viewholer.sKMessage.getClaim_uid().equals("0") && !LoginManage.getInstance().isTeacher()) {
+                        AlertDialog.Builder dia = new Builder(context);
+                        dia.setTitle("提示");
+                        dia.setMessage("当前还没有老师解答该题是否重发？");
+                        dia.setPositiveButton("是",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        reSendMessage(viewholer.sKMessage);
+                                    }
+                                });
+                        dia.setNegativeButton("否", null);
+                        dia.show();
+                        return;
                     }
                 }
             }
@@ -395,13 +420,13 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
     // 查看消息
     private void readQuest(SKMessage message) {
         boolean isTeacher = LoginManage.getInstance().isTeacher();
-        if(isTeacher){
+        if (isTeacher) {
             Intent intent = new Intent(context, Tea_Message_Detail_Activity.class);
             intent.putExtra("sKMessage", message);
             intent.putExtra("tag", "2");
             context.startActivity(intent);
             Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
-        }else{
+        } else {
             Intent intent = new Intent(context, Stu_Message_Detail_Activity.class);
             intent.putExtra("sKMessage", message);
             intent.putExtra("tag", "2");

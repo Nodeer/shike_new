@@ -128,22 +128,41 @@
         android:layout_above="@id/select_kumu_layout"
         android:layout_height="match_parent">
 
-        <ImageView
+
+
+        <FrameLayout
             android:layout_width="fill_parent"
-            android:id="@+id/image"
-            android:layout_below="@id/title_layout"
-            android:layout_above="@id/select_kumu_layout"
-            android:scaleType="fitXY"
-            android:layout_height="match_parent" />
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            >
+
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:id="@+id/image"
+                android:layout_below="@id/title_layout"
+                android:layout_above="@id/select_kumu_layout"
+                android:scaleType="centerCrop"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:src="@drawable/icon_big_image"
+                android:layout_margin="8dp"
+                android:id="@+id/big_img_btn" />
+
+        </FrameLayout>
+
+
+
+
     </FrameLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/img_frame"
-        android:layout_alignRight="@id/img_frame"
-        android:src="@drawable/icon_big_image"
-        android:layout_margin="15dp"
-        android:id="@+id/remark_btn" />
+
 
 </RelativeLayout>

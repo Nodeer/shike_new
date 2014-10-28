@@ -36,7 +36,6 @@
             android:layout_height="50dp"
             android:background="@drawable/white_btn_nor"
             android:layout_marginTop="20dp"
-            android:padding="1dp"
             android:orientation="horizontal">
 
             <EditText
@@ -49,6 +48,7 @@
                 android:singleLine="true"
                 android:paddingBottom="5dp"
                 android:background="@color/white"
+                android:layout_margin="2dp"
                 style="@style/text_16_gray"
                 android:drawableLeft="@drawable/icon_auth_code"
                 android:paddingLeft="5dp"
@@ -59,7 +59,6 @@
                 android:id="@+id/tv_pasword"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
                 android:background="@drawable/gray_btn_bg"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
@@ -97,7 +96,7 @@
                 android:paddingBottom="5dp"
                 android:hint="请输入您的手机号码或识别码"
                 android:gravity="center"
-                style="@style/text_16_white"></EditText>
+                style="@style/text_16_gray"></EditText>
         </LinearLayout>
     </LinearLayout>
 

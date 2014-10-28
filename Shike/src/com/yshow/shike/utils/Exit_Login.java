@@ -1,6 +1,7 @@
 package com.yshow.shike.utils;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
@@ -33,12 +34,14 @@ public class Exit_Login {
             @Override
             public void onSuccess(String json) {
                 super.onSuccess(json);
-                SharePreferenceUtil.getInstance().putBoolean("autologin", false);
-                Intent service = new Intent(context, MySKService.class);
-                context.stopService(service);
-                LoginManage.getInstance().setStudent(null);
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json);
                 if (success) {
+                    SharePreferenceUtil.getInstance().putBoolean("autologin", false);
+                    NotificationManager mManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                    mManager.cancelAll();
+                    Intent service = new Intent(context, MySKService.class);
+                    context.stopService(service);
+                    LoginManage.getInstance().setStudent(null);
                     Intent it = new Intent(context, Login_Reg_Activity.class);
                     context.startActivity(it);
                     ((Activity) context).finish();
