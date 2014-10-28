@@ -46,6 +46,7 @@ public class SKAsyncApiController {
 		RequestParams params = new RequestParams();
 		params.put("account", account);
 		params.put("password", password);
+		params.put("userId", SharePreferenceUtil.getInstance().getString("push_userid"));
 		myPost("?m=login&a=login&os=android", params, handler);
 	}
 
@@ -62,6 +63,7 @@ public class SKAsyncApiController {
 		params.put("pwd", stud.getPwd());
 		params.put("types", stud.getTypes());
 		params.put("gradeId", stud.getGradeId());
+        params.put("userId", SharePreferenceUtil.getInstance().getString("push_userid"));
 		myPost("/?m=register", params, handler);
 	}
 
@@ -98,6 +100,7 @@ public class SKAsyncApiController {
 		params.put("subjectId", stud.getSubject());
 		params.put("fromGradeId", stud.getFromGradeId());
 		params.put("toGradeId", stud.getToGradeId());
+        params.put("userId", SharePreferenceUtil.getInstance().getString("push_userid"));
 		myPost("/?m=register", params, handler);
 	}
 

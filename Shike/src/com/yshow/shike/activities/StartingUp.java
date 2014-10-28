@@ -2,11 +2,14 @@ package com.yshow.shike.activities;
 
 import android.widget.Toast;
 
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKStudent;
+import com.yshow.shike.push.PushUtil;
 import com.yshow.shike.utils.*;
 
 import android.os.Bundle;
@@ -30,9 +33,9 @@ public class StartingUp extends BaseActivity {
         isAutoLogin = SharePreferenceUtil.getInstance().getBoolean("autologin");
         view = (ImageView) findViewById(R.id.image_view);
         Start_Anim();
-//        PushManager.startWork(getApplicationContext(),
-//                PushConstants.LOGIN_TYPE_API_KEY,
-//                PushUtil.getMetaValue(StartingUp.this, "api_key"));
+        PushManager.startWork(getApplicationContext(),
+                PushConstants.LOGIN_TYPE_API_KEY,
+                PushUtil.getMetaValue(StartingUp.this, "api_key"));
     }
 
     /**
