@@ -46,6 +46,7 @@ public class SKAsyncApiController {
 		RequestParams params = new RequestParams();
 		params.put("account", account);
 		params.put("password", password);
+        params.put("platform", "android");
 		params.put("userId", SharePreferenceUtil.getInstance().getString("push_userid"));
 		myPost("?m=login&a=login&os=android", params, handler);
 	}
@@ -53,6 +54,7 @@ public class SKAsyncApiController {
 	// 注册学生
 	public static void skRegister(SKStudent stud, AsyncHttpResponseHandler handler) {
 		RequestParams params = new RequestParams();
+		params.put("platform", "android");
 		params.put("name", stud.getName());
 		params.put("nickname", stud.getNickname());
 		params.put("aId", stud.getaId());
@@ -63,6 +65,7 @@ public class SKAsyncApiController {
 		params.put("pwd", stud.getPwd());
 		params.put("types", stud.getTypes());
 		params.put("gradeId", stud.getGradeId());
+        params.put("reference", stud.reference);
         params.put("userId", SharePreferenceUtil.getInstance().getString("push_userid"));
 		myPost("/?m=register", params, handler);
 	}
@@ -100,6 +103,7 @@ public class SKAsyncApiController {
 		params.put("subjectId", stud.getSubject());
 		params.put("fromGradeId", stud.getFromGradeId());
 		params.put("toGradeId", stud.getToGradeId());
+		params.put("reference", stud.reference);
         params.put("userId", SharePreferenceUtil.getInstance().getString("push_userid"));
 		myPost("/?m=register", params, handler);
 	}

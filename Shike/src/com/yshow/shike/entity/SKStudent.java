@@ -29,6 +29,8 @@ public class SKStudent implements Serializable {
     private String icon;
     private String Paper;
     private InputStream stream;
+
+    public String reference = "";
     public String getPaper() {
 		return Paper;
 	}

@@ -86,6 +86,7 @@
                 android:layout_toLeftOf="@id/right_arrow">
 
                 <ImageView
+                    android:id="@+id/appraise_img"
                     android:layout_width="100dp"
                     android:layout_gravity="center"
                     android:background="@drawable/white_btn_nor"

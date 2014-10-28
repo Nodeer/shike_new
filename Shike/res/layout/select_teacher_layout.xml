@@ -93,16 +93,19 @@
 
                 <ImageView
                     android:layout_width="80dp"
+                    android:id="@+id/online_tea_img"
                     android:src="@drawable/online_tea_big_icon"
                     android:layout_height="80dp" />
 
                 <TextView
+                    android:id="@+id/online_tea_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="5dp"
                     android:text="在线老师"
-                    style="@style/text_30_white" />
+                    android:textColor="@color/white"
+                    android:textSize="30dp" />
             </LinearLayout>
         </RelativeLayout>
 

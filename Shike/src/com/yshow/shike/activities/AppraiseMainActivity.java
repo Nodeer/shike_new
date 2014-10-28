@@ -43,7 +43,7 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
 
     private Fase_Packs mFaceModel;
 
-    private ImageView mGiftImg;
+    private ImageView mGiftImg,appraise_img;
 
     private ImageLoader mImageLoader;
 
@@ -57,6 +57,7 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
         findViewById(R.id.give_gift_btn).setOnClickListener(this);
         findViewById(R.id.give_praise_btn).setOnClickListener(this);
         mGiftImg = (ImageView) findViewById(R.id.gift_img);
+        appraise_img = (ImageView) findViewById(R.id.appraise_img);
         mImageLoader = ImageLoader.getInstance();
         message = (SKMessage) getIntent().getExtras().getSerializable("message");
         if (message != null) {
@@ -314,6 +315,7 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
                 int index = data.getIntExtra("index", -1);
                 if (index != -1) {
                     mFaceModel = (Fase_Packs) data.getSerializableExtra("data");
+                    mImageLoader.displayImage(mFaceModel.getFase_url(),appraise_img);
                 } else {
                     mFaceModel = null;
                 }
