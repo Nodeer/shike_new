@@ -56,7 +56,7 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="40dp"
         android:background="@drawable/stu_slide_btn1_bg"
         android:layout_marginRight="40dp"
@@ -85,13 +85,13 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/stu_slide_btn2_bg"
         android:id="@+id/restudy_btn"
         android:padding="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_height="wrap_content">
 
         <LinearLayout

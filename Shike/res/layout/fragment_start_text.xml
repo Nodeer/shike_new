@@ -2,82 +2,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#FFF"
-    android:paddingBottom="5dp"
-    android:orientation="horizontal" >
+    android:padding="5dp"
+    android:orientation="horizontal">
+
     <RelativeLayout
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/iv_teather_picture"
             android:layout_width="53dp"
             android:layout_height="50dp"
             android:src="@drawable/my_tea_phon" />
-       <ImageView
+
+        <ImageView
             android:id="@+id/iv_teather_sele"
             android:layout_width="53dp"
             android:layout_height="53dp"
             android:src="@drawable/xuanzhong"
             android:visibility="gone" />
-        </RelativeLayout>
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginLeft="2dp"
-        android:background="@color/sk_student_main_color"
-        android:orientation="vertical" >
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="2dp"
-        android:background="@color/sk_student_main_color"
-        android:orientation="horizontal" >
-        <TextView
-            android:id="@+id/tv_nicheng"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="我是老师暱稱"
-            android:textColor="#FFFFFF"
-            android:textSize="15dp" />
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_nicheng"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                style="@style/text_16_black"
+                android:text="王老师" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/ui_bg_divider" />
+
+            <TextView
+                android:id="@+id/tv_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="科目"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                style="@style/text_16_333333" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/ui_bg_divider" />
+
+            <TextView
+                android:id="@+id/tv_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="年级"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                style="@style/text_16_333333" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/ui_bg_divider" />
+
+            <TextView
+                android:id="@+id/tv_diqu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地区"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                style="@style/text_16_333333" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/ui_bg_divider" />
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/tv_subject"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="我是科目"
-            android:textColor="#FFFFFF"
-            android:textSize="15dp" />
-        <TextView
-            android:id="@+id/tv_grade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="我是年级"
-            android:textColor="#FFFFFF"
-            android:textSize="15dp" />
-        <TextView
-            android:id="@+id/tv_diqu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="我是地区" 
-            android:textColor="#FFFFFF"
-            android:textSize="15dp"/>
-    </LinearLayout>
-     <TextView
-         android:id="@+id/tv_gerenxinxi"
+            android:id="@+id/tv_gerenxinxi"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_gravity="center"
             android:maxLines="2"
+            android:layout_marginLeft="5dp"
             android:ellipsize="end"
-            android:text="我是老dddddddddddddd师地区"
-            android:textColor="#FFFFFF"
-            android:textSize="10dp" />
-     </LinearLayout>
+            style="@style/text_14_gray"
+            android:text="我是老dddddddddddddd师地区" />
+    </LinearLayout>
 </LinearLayout>

@@ -25,6 +25,7 @@ import com.yshow.shike.activities.Activity_Stu_Ask_Step1;
 import com.yshow.shike.activities.Student_Main_Activity;
 import com.yshow.shike.activities.Teather_Main_Activity;
 import com.yshow.shike.adapter.SKMessageAdapter;
+import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKMessageList;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
@@ -84,7 +85,12 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
         ImageView backBtn = (ImageView) view.findViewById(R.id.tv_tool_back);
         backBtn.setOnClickListener(this);
 
-        view.findViewById(R.id.right_button).setOnClickListener(this);
+        if (LoginManage.getInstance().isTeacher()) {
+            view.findViewById(R.id.right_button).setVisibility(View.GONE);
+        } else {
+            view.findViewById(R.id.right_button).setOnClickListener(this);
+        }
+
         // getSKMessage();
     }
 

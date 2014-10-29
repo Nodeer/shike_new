@@ -1189,7 +1189,7 @@ public final class R {
         public static final int sk_question_item=0x7f030078;
         public static final int sk_stu=0x7f030079;
         public static final int sk_teacher_register=0x7f03007a;
-        public static final int stu_fenlei_findtea=0x7f03007b;
+        public static final int stu_find_tea_layout =0x7f03007b;
         public static final int stu_paint_activity=0x7f03007c;
         public static final int stu_reg_dialog=0x7f03007d;
         public static final int student_main_activity=0x7f03007e;

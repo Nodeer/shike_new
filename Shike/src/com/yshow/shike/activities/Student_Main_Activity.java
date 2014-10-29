@@ -34,7 +34,6 @@ import com.yshow.shike.entity.SKStudent;
 import com.yshow.shike.entity.VersionModel;
 import com.yshow.shike.fragments.StuContentFragment;
 import com.yshow.shike.fragments.Fragment_Message;
-import com.yshow.shike.fragments.Fragment_My_Teacher;
 import com.yshow.shike.fragments.Fragment_Student_GuanYu;
 import com.yshow.shike.fragments.StuSlideMenuFragment;
 import com.yshow.shike.service.MySKService;
@@ -249,19 +248,6 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
                     StartTransAnim(startX, 1, bac_huise);
                     view_button.setVisibility(View.VISIBLE);
                     startX = 1;
-                    break;
-                case R.id.tv_my_tea:// 我的老师
-                    hideBottomLayout();
-                    tv_delete.setVisibility(View.GONE);
-                    view_button.setVisibility(View.GONE);
-                    tv_my_tea.setTextColor(getResources().getColor(R.color.reg));
-                    tv_find_tea.setTextColor(getResources().getColor(R.color.sk_student_main_color));
-                    tv_ques.setTextColor(getResources().getColor(R.color.sk_student_main_color));
-                    tv_mess.setTextColor(getResources().getColor(R.color.sk_student_main_color));
-                    ft.replace(R.id.content, new Fragment_My_Teacher());
-                    StartTransAnim(startX, 2, undline);
-                    StartTransAnim(startX, 2, bac_huise);
-                    startX = 2;
                     break;
                 // 充值
                 case R.id.tv_stu_chongz:
