@@ -22,7 +22,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -103,7 +102,7 @@ public class Activity_MyShiKe extends Activity implements OnClickListener{
 			if(mob == null){
 				Dialog.finsh_Reg_Dialog(context);
 			}else {
-                Intent intent = new Intent(context, Age_Person_Info.class);
+                Intent intent = new Intent(context, TeaPersonInfoActivity.class);
                 startActivityForResult(intent, Edit_Info_Code);
 			}
 			break;	

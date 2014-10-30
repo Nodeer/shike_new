@@ -2,7 +2,6 @@ package com.yshow.shike.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,18 +12,13 @@ import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
-import com.yshow.shike.activities.Activity_Recharge;
 import com.yshow.shike.activities.Activity_Teacher_zhanghu;
-import com.yshow.shike.activities.Age_Person_Info;
-import com.yshow.shike.activities.FindTeacherActivity;
+import com.yshow.shike.activities.TeaPersonInfoActivity;
 import com.yshow.shike.activities.MessageActivity;
-import com.yshow.shike.activities.My_Question_Count;
-import com.yshow.shike.activities.StudentRegisterActivity;
 import com.yshow.shike.activities.Tea_chg_Mon_Acy;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKStudent;
 import com.yshow.shike.entity.User_Info;
-import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.Dilog_Share;
 import com.yshow.shike.utils.Exit_Login;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
@@ -110,7 +104,7 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
                 startActivity(it);
                 break;
             case R.id.user_info_btn:
-                it = new Intent(getActivity(), Age_Person_Info.class);
+                it = new Intent(getActivity(), TeaPersonInfoActivity.class);
                 startActivity(it);
                 break;
             case R.id.share_btn:

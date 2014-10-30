@@ -55,9 +55,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * 个人信息页面.可以修改属性.然后保存
+ * 老师个人信息页面
  */
-public class Age_Person_Info extends Activity {
+public class TeaPersonInfoActivity extends BaseActivity {
     private EditText base_name, base_nick, base_schoo, ed_old_pwd, ed_new_pwd, base_email, ed_pwd_comfig, jieshao;
     // 姓名 昵称 地区 学校 旧密码 新密码 邮箱 年 月日 密码确认
     private TextView tv_user_mob, bace_area, ed_day_bir, study_year, tea_sunject, tv_tea_subject; // 个人信息电话
@@ -76,8 +76,10 @@ public class Age_Person_Info extends Activity {
     private boolean isHeadImg = true;
     private User_Info info;
 
+    private TextView points, questions, fanNum, zanmeiNum;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         stu_Take_Phon = Dilog_Share.Stu_Take_Phon(this, listener);
         imageLoader = ImageLoader.getInstance();
@@ -85,54 +87,27 @@ public class Age_Person_Info extends Activity {
         instence = Exit_Login.getInLogin();
         stu_info = LoginManage.getInstance().getStudent();
         String uid = stu_info.getUid();
-        if (LoginManage.getInstance().isTeacher()) {
-            options = Net_Servse.getInstence().Picture_Shipei(R.drawable.s_teacher_icon);
-            setContentView(R.layout.tea_age_info);
-            Tea_initData();
-            Set_tea_Base_Info();
-        } else {
-            options = Net_Servse.getInstence().Picture_Shipei(R.drawable.student_picture);
-            setContentView(R.layout.stu_person_info_layout);
-            Stu_initData();
-            Set_stu_Base_Info();
-        }
+        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.s_teacher_icon);
+        setContentView(R.layout.tea_person_info_layout);
+        Tea_initData();
+        Set_tea_Base_Info();
         update_info(uid);
     }
 
     // 老师端投标体控制
     private void Tea_initData() {
-//        findViewById(R.id.tv_tea_info_back).setOnClickListener(listener);
-//        findViewById(R.id.tv_tea_info_save).setOnClickListener(listener);
+        findViewById(R.id.left_btn).setOnClickListener(listener);
+        findViewById(R.id.confirm_btn).setOnClickListener(listener);
+        findViewById(R.id.xuelingduan_btn).setOnClickListener(listener);
+        findViewById(R.id.xueke_btn).setOnClickListener(listener);
+
+
+        points = (TextView) findViewById(R.id.huode_xuefen);
+        questions = (TextView) findViewById(R.id.jieti_cishu);
+        fanNum = (TextView) findViewById(R.id.xuesheng_guanzhu);
+        zanmeiNum = (TextView) findViewById(R.id.huode_zanmei);
     }
 
-    // 学生端投标体控制
-    private void Stu_initData() {
-//        findViewById(R.id.tv_info_back).setOnClickListener(listener);
-//        findViewById(R.id.tv_info_save).setOnClickListener(listener);
-    }
-
-    // 学生端 控件初始化
-    private void Set_stu_Base_Info() {
-        base_name = (EditText) findViewById(R.id.tv_base_name); // 姓名
-        base_nick = (EditText) findViewById(R.id.tv_base_nike); // 用户名
-        bace_area = (TextView) findViewById(R.id.tv_bace_area); // 地区
-        ed_day_bir = (TextView) findViewById(R.id.ed_day_bir); // 生日
-        jieshao = (EditText) findViewById(R.id.tv_base_jieshao); // 自我介绍
-        base_schoo = (EditText) findViewById(R.id.tv_base_schoo);// 学校
-        study_year = (TextView) findViewById(R.id.tv_study_year); // 学龄段
-        tv_user_mob = (TextView) findViewById(R.id.tv_stu_mob); // 电话
-        base_email = (EditText) findViewById(R.id.ed_base_email); // 邮箱
-        sex_men = (RadioButton) findViewById(R.id.sex_men); // 男性选择框
-        sex_miss = (RadioButton) findViewById(R.id.sex_miss); // 女性选择框
-        head_pic = (ImageView) findViewById(R.id.tu_head_pic); // 头像
-        ed_old_pwd = (EditText) findViewById(R.id.old_pwd); // 旧密码
-        ed_new_pwd = (EditText) findViewById(R.id.new_pwd); // 新密码
-        ed_pwd_comfig = (EditText) findViewById(R.id.ed_pwd_comfig); // 确定密码
-        study_year.setOnClickListener(listener);
-        bace_area.setOnClickListener(listener);
-        ed_day_bir.setOnClickListener(listener);
-        head_pic.setOnClickListener(listener);
-    }
 
     // 老师端 控件初始化
     private void Set_tea_Base_Info() {
@@ -144,10 +119,10 @@ public class Age_Person_Info extends Activity {
         sex_men = (RadioButton) findViewById(R.id.tea_sex_men); // 男性选择框
         sex_miss = (RadioButton) findViewById(R.id.tea_sex_miss); // 女性选择框
         head_pic = (ImageView) findViewById(R.id.tea_head_pic);
-        ed_old_pwd = (EditText) findViewById(R.id.tea_old_pwd);
-        ed_new_pwd = (EditText) findViewById(R.id.tea_new_pwd);
-        ed_pwd_comfig = (EditText) findViewById(R.id.tea_ed_pwd_comfig);
-        jieshao = (EditText) findViewById(R.id.tea_tv_base_jieshao);
+        ed_old_pwd = (EditText) findViewById(R.id.old_pwd);
+        ed_new_pwd = (EditText) findViewById(R.id.new_pwd);
+        ed_pwd_comfig = (EditText) findViewById(R.id.ed_pwd_comfig);
+        jieshao = (EditText) findViewById(R.id.tv_base_jieshao);
         ed_day_bir = (TextView) findViewById(R.id.ed_tea_day_bir);
         tv_user_mob = (TextView) findViewById(R.id.tv_tea_mob);
         tea_sunject = (TextView) findViewById(R.id.age_tea_sunject);
@@ -166,90 +141,53 @@ public class Age_Person_Info extends Activity {
         @Override
         public void onClick(View v) {
             // 老师端个人修改点击事件
-            if (LoginManage.getInstance().isTeacher()) {
-                switch (v.getId()) {
-                    case R.id.tv_tea_info_back:
-                        finish();
-                        break;
-                    // 老师端 保存个人信息
-                    case R.id.tv_tea_info_save:
-                        try {
-                            Sex_Dec();
-                        } catch (Exception e) {
-                        }
-                        break;
-                    case R.id.tv_tea_bace_area:
-                        getArea();
-                        break;
-                    case R.id.ed_tea_day_bir:
-                        Data_Sele();
-                        break;
-                    case R.id.age_tea_sunject:// 初中,高中选择
-                        getJieDuan();
-                        break;
-                    // 上传教师资格证
-                    case R.id.tv_tea_upload:
-                        isHeadImg = false;
-                        stu_Take_Phon.show();
-                        break;
-                    // 头像设置
-                    case R.id.tea_head_pic:
-                        stu_Take_Phon.show();
-                        break;
-                    // 老师端科目的id
-                    case R.id.tv_tea_subject:
-                        getSubject();
-                        break;
-                    // 拍照
-                    case R.id.tv_pai_zhao:
-                        Take_Phon_album.getIntence().Take_Phone(TAKE_PHONE, Age_Person_Info.this);
-                        stu_Take_Phon.dismiss();
-                        break;
-                    // 相册
-                    case R.id.tv_xiagnc:
-                        Take_Phon_album.getIntence().Take_Pickture(TAKE_PICTURE, Age_Person_Info.this);
-                        stu_Take_Phon.dismiss();
-                        break;
-                    // 取消
-                    case R.id.tv_tea_cancel:
-                        stu_Take_Phon.dismiss();
-                        break;
-                }
-            } else { // 学生端个人修改点击事件
-                switch (v.getId()) {
-//                    case R.id.tv_info_back:
-//                        finish();
-//                        break;
-//                    case R.id.tv_info_save:
-//                        Sex_Dec();
-//                        break;
-                    case R.id.tv_bace_area:
-                        getArea();
-                        break;
-                    case R.id.ed_day_bir:
-                        Data_Sele();
-                        break;
-                    case R.id.tv_study_year:
-                        getGrade();
-                        break;
-                    case R.id.tu_head_pic:
-                        stu_Take_Phon.show();
-                        break;
-                    // 拍照
-                    case R.id.tv_pai_zhao:
-                        Take_Phon_album.getIntence().Take_Phone(TAKE_PHONE, Age_Person_Info.this);
-                        stu_Take_Phon.dismiss();
-                        break;
-                    // 相册
-                    case R.id.tv_xiagnc:
-                        Take_Phon_album.getIntence().Take_Pickture(TAKE_PICTURE, Age_Person_Info.this);
-                        stu_Take_Phon.dismiss();
-                        break;
-                    // 取消
-                    case R.id.tv_tea_cancel:
-                        stu_Take_Phon.dismiss();
-                        break;
-                }
+            switch (v.getId()) {
+                case R.id.tv_tea_info_back:
+                    finish();
+                    break;
+                // 老师端 保存个人信息
+                case R.id.tv_tea_info_save:
+                    try {
+                        Sex_Dec();
+                    } catch (Exception e) {
+                    }
+                    break;
+                case R.id.tv_tea_bace_area:
+                    getArea();
+                    break;
+                case R.id.ed_tea_day_bir:
+                    Data_Sele();
+                    break;
+                case R.id.xuelingduan_btn:// 初中,高中选择
+                    getJieDuan();
+                    break;
+                // 上传教师资格证
+                case R.id.tv_tea_upload:
+                    isHeadImg = false;
+                    stu_Take_Phon.show();
+                    break;
+                // 头像设置
+                case R.id.tea_head_pic:
+                    stu_Take_Phon.show();
+                    break;
+                // 老师端科目的id
+                case R.id.xueke_btn:
+                    getSubject();
+                    break;
+                // 拍照
+                case R.id.tv_pai_zhao:
+                    Take_Phon_album.getIntence().Take_Phone(TAKE_PHONE, TeaPersonInfoActivity.this);
+                    stu_Take_Phon.dismiss();
+                    break;
+                // 相册
+                case R.id.tv_xiagnc:
+                    Take_Phon_album.getIntence().Take_Pickture(TAKE_PICTURE, TeaPersonInfoActivity.this);
+                    stu_Take_Phon.dismiss();
+                    break;
+                // 取消
+                case R.id.tv_tea_cancel:
+                    stu_Take_Phon.dismiss();
+                    break;
             }
         }
     };
@@ -286,29 +224,18 @@ public class Age_Person_Info extends Activity {
         user_info.setOld_pwd(old_pwd);
         String pwd = ed_new_pwd.getText().toString().trim(); // 获取新密码
         String comfig_pas = ed_pwd_comfig.getText().toString().trim(); // 密码确认
-        // if(!user_info.getFromGradeId().equals("-1") || !user_info.getToGradeId().equals("-1")){
-        // user_info.setFromGradeId(info.getFromGradeId());
-        // user_info.setToGradeId(info.getToGradeId());
-        // }
         head_pic.setDrawingCacheEnabled(true);
         if (TextUtils.isEmpty(old_pwd) || TextUtils.isEmpty(pwd)) {
-            instence.save_user_info(Age_Person_Info.this, user_info);
+            instence.save_user_info(TeaPersonInfoActivity.this, user_info);
         } else {
             // 判断两次密码是否一致
             if (pwd.equals(comfig_pas)) {
                 user_info.setPwd(pwd);
-                instence.save_user_info(Age_Person_Info.this, user_info);
+                instence.save_user_info(TeaPersonInfoActivity.this, user_info);
             } else {
-                Toast.makeText(Age_Person_Info.this, "密码不一致", 0).show();
+                Toast.makeText(TeaPersonInfoActivity.this, "密码不一致", 0).show();
             }
         }
-    }
-
-    /**
-     * 发送完消息回返回小子页面的回调接口
-     */
-    public interface Callback {
-        public void back();
     }
 
     // 获取地区
@@ -318,7 +245,7 @@ public class Age_Person_Info extends Activity {
             public void onSuccess(String arg0) {
                 super.onSuccess(arg0);
                 ArrayList<SKArea> resolveArea = SKResolveJsonUtil.getInstance().resolveArea(arg0);
-                final AreaSeltorUtil systemDialog = new AreaSeltorUtil(Age_Person_Info.this, resolveArea);
+                final AreaSeltorUtil systemDialog = new AreaSeltorUtil(TeaPersonInfoActivity.this, resolveArea);
                 systemDialog.setLeftButtonText("完成");
                 systemDialog.show();
                 systemDialog.setAreaSeltorUtilButtonOnclickListening(new AreaSeltorUtilButtonOnclickListening() {
@@ -348,37 +275,8 @@ public class Age_Person_Info extends Activity {
         dataSeleUtil.setDtaListening(new Data_Seltor_Listening() {
             @Override
             public void onClickLeft(String years, String month, String day_shu) {
-                user_info.setBirthday(years + "-" + month + "-" + day_shu);
-                ed_day_bir.setText(years + "-" + month + "-" + day_shu);
-            }
-        });
-    }
-
-    // 获取年龄段
-    private void getGrade() {
-        SKAsyncApiController.skGetGrade(new MyAsyncHttpResponseHandler(this, true) {
-            @Override
-            public void onSuccess(String json) {
-                super.onSuccess(json);
-                boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, Age_Person_Info.this);
-                if (success) {
-                    // 访问网路 成功
-                    ArrayList<SKGrade> resolveGrade = SKResolveJsonUtil.getInstance().resolveGrade(json);
-                    final GradeSeltorUtil systemDialog = new GradeSeltorUtil(Age_Person_Info.this, resolveGrade);
-                    systemDialog.setLeftButtonText("完成");
-                    systemDialog.show();
-                    systemDialog.setSystemDialogButtonOnclickListening(new SystemDialogButtonOnclickListening() {
-                        @Override
-                        public void onClickRight() {
-                        }
-
-                        @Override
-                        public void onClickLeft() {
-                            user_info.setGradeId(systemDialog.getGradeId());
-                            study_year.setText(systemDialog.getSeltotText());
-                        }
-                    });
-                }
+                user_info.setBirthday(years + "年" + month + "月" + day_shu + "日");
+                ed_day_bir.setText(years + "年" + month + "月" + day_shu + "日");
             }
         });
     }
@@ -402,7 +300,7 @@ public class Age_Person_Info extends Activity {
                 break;
             case TAKE_PICTURE:
                 if (isHeadImg) {
-                    Take_Phon_album.getIntence().startPhotoZoom(Age_Person_Info.this, data.getData(), SETTO_IMAGEVIEW);
+                    Take_Phon_album.getIntence().startPhotoZoom(TeaPersonInfoActivity.this, data.getData(), SETTO_IMAGEVIEW);
                 } else {
                     ContentResolver resolver = getContentResolver();
                     Uri originalUri = data.getData();        //获得图片的uri
@@ -440,14 +338,14 @@ public class Age_Person_Info extends Activity {
             if (isHeadImg) {
                 Bitmap newbm = Dialog.scaleImg(bitmap, 400, 400);
                 head_pic.setImageBitmap(newbm);
-                Reg_Imag(Age_Person_Info.this, bitmap, time_make);
+                Reg_Imag(TeaPersonInfoActivity.this, bitmap, time_make);
             } else {
-                Tea_Imag(Age_Person_Info.this, bitmap, time_make, tea_upload);
+                Tea_Imag(TeaPersonInfoActivity.this, bitmap, time_make, tea_upload);
             }
         } else {
             Bitmap newbm = Dialog.scaleImg(bitmap, 400, 400);
             head_pic.setImageBitmap(newbm);
-            Reg_Imag(Age_Person_Info.this, bitmap, time_make);
+            Reg_Imag(TeaPersonInfoActivity.this, bitmap, time_make);
         }
     }
 
@@ -458,7 +356,7 @@ public class Age_Person_Info extends Activity {
             public void onSuccess(final int arg0, final String json) {
                 super.onSuccess(arg0, json);
                 ArrayList<SKGrade> SKGrades = SKResolveJsonUtil.getInstance().resolveGrade(json);
-                final Grade_Level_Utils grade_utils = new Grade_Level_Utils(Age_Person_Info.this, SKGrades);
+                final Grade_Level_Utils grade_utils = new Grade_Level_Utils(TeaPersonInfoActivity.this, SKGrades);
                 grade_utils.setLeftButtonText("完成");
                 grade_utils.setGradeSeltorUtilButtonOnclickListening(new GradeSeltorUtilButtonOnclickListening() {
                     @Override
@@ -485,7 +383,7 @@ public class Age_Person_Info extends Activity {
             public void onSuccess(final int arg0, final String arg1) {
                 super.onSuccess(arg0, arg1);
                 ArrayList<SKArea> paseSubject = SKResolveJsonUtil.getInstance().PaseSubject(arg1);
-                final AreaSeltorUtil subjectId = new AreaSeltorUtil(Age_Person_Info.this, paseSubject);
+                final AreaSeltorUtil subjectId = new AreaSeltorUtil(TeaPersonInfoActivity.this, paseSubject);
                 subjectId.setLeftButtonText("完成");
                 subjectId.show();
                 subjectId.setAreaSeltorUtilButtonOnclickListening(new AreaSeltorUtilButtonOnclickListening() {
@@ -532,7 +430,7 @@ public class Age_Person_Info extends Activity {
         SKAsyncApiController.User_Info(uid, new MyAsyncHttpResponseHandler(this, true) {
             public void onSuccess(int arg0, String json) {
                 super.onSuccess(arg0, json);
-                boolean atent_Success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, Age_Person_Info.this);
+                boolean atent_Success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, TeaPersonInfoActivity.this);
                 if (atent_Success) {
                     info = SKResolveJsonUtil.getInstance().My_teather1(json);
                     skGetArea();
@@ -543,6 +441,13 @@ public class Age_Person_Info extends Activity {
                     jieshao.setText(info.getInfo());
                     tv_user_mob.setText(info.getMob());
                     ed_day_bir.setText(info.getBirthday());
+
+                    points.setText(info.getPoints());
+                    questions.setText(info.getQuestions());
+                    fanNum.setText(info.getFansNum());
+//                            zanmeiNum.setText(info.get);
+
+
                     try {
                         study_year.setText(info.getGrade() + "" + info.getGradeName());
                     } catch (Exception e) {
@@ -553,7 +458,10 @@ public class Age_Person_Info extends Activity {
                     } else {
                         sex_miss.setChecked(true);
                     }
-                    imageLoader.displayImage(info.getPicurl(), head_pic, options);
+
+                    if (!TextUtils.isEmpty(info.getPicurl())) {
+                        imageLoader.displayImage(info.getPicurl(), head_pic);
+                    }
                     if (!info.getGreatid().equals("")) {
                         if (tv_tea_subject != null) {
                             tv_tea_subject.setText(info.getGreatid());
@@ -619,17 +527,5 @@ public class Age_Person_Info extends Activity {
                 }
             }
         });
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        MobclickAgent.onResume(this);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        MobclickAgent.onPause(this);
     }
 }

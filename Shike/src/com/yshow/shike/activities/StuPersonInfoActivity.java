@@ -95,6 +95,8 @@ public class StuPersonInfoActivity extends BaseActivity {
     private void Stu_initData() {
         findViewById(R.id.left_btn).setOnClickListener(listener);
         findViewById(R.id.confirm_btn).setOnClickListener(listener);
+        findViewById(R.id.xuelingduan_btn).setOnClickListener(listener);
+        findViewById(R.id.diqu_btn).setOnClickListener(listener);
     }
 
     // 学生端 控件初始化
@@ -134,13 +136,13 @@ public class StuPersonInfoActivity extends BaseActivity {
                 case R.id.confirm_btn:
                     Sex_Dec();
                     break;
-                case R.id.tv_bace_area:
+                case R.id.diqu_btn:
                     getArea();
                     break;
                 case R.id.ed_day_bir:
                     Data_Sele();
                     break;
-                case R.id.tv_study_year:
+                case R.id.xuelingduan_btn:
                     getGrade();
                     break;
                 case R.id.tu_head_pic:

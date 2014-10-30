@@ -5,7 +5,6 @@ import com.yshow.shike.R;
 import com.yshow.shike.fragments.Fragment_Teacher_About_Shike;
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.Dilog_Share;
-import com.yshow.shike.utils.Exit_Login;
 import com.yshow.shike.utils.PartnerConfig;
 import com.yshow.shike.utils.ShareDialog;
 import com.yshow.shike.utils.WeixinManager;
@@ -47,7 +46,7 @@ public class Activity_My_SkSeting extends Activity {
 				finish();
 				break;
 			case R.id.tv_tea_setinfo:
-				Dialog.Intent(context, Age_Person_Info.class);
+				Dialog.Intent(context, TeaPersonInfoActivity.class);
 				break;
 			case R.id.tv_tea_accinfo:
 				Dialog.Intent(context, Activity_Teacher_zhanghu.class);

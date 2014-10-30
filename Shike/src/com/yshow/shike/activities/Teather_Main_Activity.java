@@ -14,14 +14,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.text.format.DateFormat;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.TranslateAnimation;
 import android.widget.*;
-import android.widget.LinearLayout.LayoutParams;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
@@ -33,16 +30,12 @@ import com.yshow.shike.fragments.Fragment_Message;
 import com.yshow.shike.fragments.Fragment_Teacher_About_Shike;
 import com.yshow.shike.fragments.Fragment_Teacher_My_Student;
 import com.yshow.shike.fragments.Fragment_Teacher_Writing_Topic;
-import com.yshow.shike.fragments.StuContentFragment;
-import com.yshow.shike.fragments.StuSlideMenuFragment;
 import com.yshow.shike.fragments.TeaContentFragment;
 import com.yshow.shike.fragments.TeaSlideMenuFragment;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.*;
 
 import java.io.File;
-import java.util.Calendar;
-import java.util.Locale;
 
 /**
  * 老师主页面
@@ -296,7 +289,7 @@ public class Teather_Main_Activity extends SlidingFragmentActivity implements On
                 break;
             // 个人信息
             case R.id.tv_tea_info:
-                Dialog.Intent(context, Age_Person_Info.class);
+                Dialog.Intent(context, TeaPersonInfoActivity.class);
                 break;
             // 账户信息
             case R.id.tv_tea_count:
