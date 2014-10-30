@@ -24,6 +24,7 @@
             android:layout_alignParentRight="true"
             android:text="马上注册"
             android:id="@+id/button_reg"
+            android:layout_marginRight="9dp"
             android:padding="7dp"
             android:background="@drawable/white_btn_nor"
             style="@style/text_14_gray" />

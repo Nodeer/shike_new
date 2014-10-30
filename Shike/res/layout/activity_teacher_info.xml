@@ -29,13 +29,6 @@
                 android:layout_height="80dp"
                 android:src="@drawable/my_tea_phon" />
 
-            <ImageView
-                android:id="@+id/iv_xuan_zhong"
-                android:visibility="gone"
-                android:layout_width="71dp"
-                android:layout_height="71dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/xuanzhong" />
         </FrameLayout>
 
         <LinearLayout

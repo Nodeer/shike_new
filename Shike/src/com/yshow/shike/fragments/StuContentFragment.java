@@ -115,8 +115,9 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
                 startActivity(new Intent(getActivity(), Activity_Stu_Ask_Step1.class));
                 break;
             case R.id.restudy_btn:
-                Intent intent = new Intent(getActivity(), My_Question_Count.class);
-                startActivity(intent);
+                Toast.makeText(getActivity(), "即将推出", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(), My_Question_Count.class);
+//                startActivity(intent);
                 break;
 
         }

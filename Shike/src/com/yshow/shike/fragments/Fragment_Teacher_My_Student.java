@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import com.yshow.shike.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.yshow.shike.activities.Acticity_Ttudent_Info;
+import com.yshow.shike.activities.ActicityStudentInfo;
 import com.yshow.shike.entity.Star_Teacher_Parse;
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
@@ -77,7 +77,7 @@ public class Fragment_Teacher_My_Student extends Fragment {
 				public void onClick(View arg0) {
 					Bundle bundle = new Bundle();
 					bundle.putSerializable("Star_Teacher_Parse", parse);
-					Dialog.intent(getActivity(), Acticity_Ttudent_Info.class,bundle);
+					Dialog.intent(getActivity(), ActicityStudentInfo.class,bundle);
 				}
 			});
 			return convertView;

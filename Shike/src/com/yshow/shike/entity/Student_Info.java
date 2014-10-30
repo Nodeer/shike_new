@@ -10,6 +10,8 @@ public class Student_Info {
    String gradeName;
    String grade;
    String questions;
+   public String area;
+
 @Override
 public String toString() {
 	return "Student_Info [icon=" + icon + ", uid=" + uid + ", name=" + name

@@ -49,7 +49,7 @@
                     android:id="@+id/fenbi_num"
                     style="@style/text_14_black"
                     android:layout_marginTop="5dp"
-                    android:text="粉笔数:100" />
+                    android:text="赞美数:100" />
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>

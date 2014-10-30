@@ -939,7 +939,11 @@ public class SKResolveJsonUtil {
             student_Info.setGradeName(jsonObject.optString("gradeName"));
             student_Info.setInfo(jsonObject.optString("info"));
             student_Info.setQuestions(jsonObject.optString("questions"));
-            student_Info.setIcon(jsonObject.getJSONObject("url").optString("url"));
+            student_Info.area = jsonObject.optString("area_name");
+            JSONObject urlobject = jsonObject.getJSONObject("url");
+            if (urlobject != null) {
+                student_Info.setIcon(urlobject.optString("tub"));
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

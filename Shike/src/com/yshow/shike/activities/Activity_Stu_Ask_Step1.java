@@ -50,6 +50,7 @@ public class Activity_Stu_Ask_Step1 extends BaseActivity {
         intence = Take_Phon_album.getIntence();
         findViewById(R.id.camera_btn).setOnClickListener(listener);
         findViewById(R.id.dcim_btn).setOnClickListener(listener);
+        findViewById(R.id.paizhao_zhuyi).setOnClickListener(listener);
         findViewById(R.id.tv_tool_back).setOnClickListener(listener);
         if (isContine) {
             findViewById(R.id.action_step).setVisibility(View.GONE);
@@ -76,6 +77,9 @@ public class Activity_Stu_Ask_Step1 extends BaseActivity {
                 case R.id.tv_tool_back:
                     finish();
                     break;
+                case R.id.paizhao_zhuyi:
+                    Dialog.Intent(Activity_Stu_Ask_Step1.this, PaiZhaoHelpActivity.class);
+                    break;
             }
         }
     };
@@ -92,10 +96,10 @@ public class Activity_Stu_Ask_Step1 extends BaseActivity {
                         bundle.putString("bitmap", bitmap_url);
                         bundle.putBoolean("isContinue", isContine);
                         bundle.putString("questionId", quesId);
-                        if(isContine){
+                        if (isContine) {
                             Dialog.intent(context, Activity_Add_Remark.class, bundle);
                             finish();
-                        }else{
+                        } else {
                             Dialog.intent(context, Activity_Stu_Ask_Step2.class, bundle);
                             finish();
                         }
@@ -108,10 +112,10 @@ public class Activity_Stu_Ask_Step1 extends BaseActivity {
                         bundle.putString("bitmap", bitmap_url);
                         bundle.putBoolean("isContinue", isContine);
                         bundle.putString("questionId", quesId);
-                        if(isContine){
+                        if (isContine) {
                             Dialog.intent(context, Activity_Add_Remark.class, bundle);
                             finish();
-                        }else{
+                        } else {
                             Dialog.intent(context, Activity_Stu_Ask_Step2.class, bundle);
                             finish();
                         }

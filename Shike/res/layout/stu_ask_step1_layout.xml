@@ -117,4 +117,14 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/paizhao_zhuyi"
+        android:drawableLeft="@drawable/wenhao_small_icon"
+        android:text="拍照注意事项"
+        android:gravity="center"
+        style="@style/text_18_gray"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/main_bg">
+
+    <include layout="@layout/title_layout" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:id="@+id/fankui_edit"
+        android:background="@drawable/white_btn_nor"
+        android:layout_margin="10dp"
+        android:lines="5"
+        android:gravity="top"
+        android:hint="请输入您的告状内容(200字以内)"
+        android:padding="5dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:id="@+id/confirm_btn"
+        android:text="提交反馈"
+        android:layout_margin="30dp"
+        android:background="@drawable/red_btn_bg"
+        android:padding="10dp"
+        style="@style/text_20_white"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

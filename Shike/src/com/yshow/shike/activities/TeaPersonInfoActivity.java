@@ -437,6 +437,14 @@ public class TeaPersonInfoActivity extends BaseActivity {
                     base_name.setText("" + info.getName());
                     base_nick.setText("" + info.getNickname());
                     base_schoo.setText(info.getShool());
+                    questions.setText(info.getClaim_question_num());
+
+
+                    points.setText(info.getPoints());
+                    fanNum.setText(info.getFansNum());
+                    zanmeiNum.setText(info.getLike_num());
+
+
                     base_email.setText(info.getEmail());
                     jieshao.setText(info.getInfo());
                     tv_user_mob.setText(info.getMob());
@@ -445,7 +453,6 @@ public class TeaPersonInfoActivity extends BaseActivity {
                     points.setText(info.getPoints());
                     questions.setText(info.getQuestions());
                     fanNum.setText(info.getFansNum());
-//                            zanmeiNum.setText(info.get);
 
 
                     try {

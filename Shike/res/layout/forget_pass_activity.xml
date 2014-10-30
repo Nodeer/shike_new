@@ -1,118 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/register1"
-    android:orientation="vertical" >
+    android:background="@color/main_bg"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/li_tillte"
-        android:background="@color/bottom_widow_color"
-        android:padding="10dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-        <TextView
-            android:id="@+id/tv_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="返回"
-            android:gravity="center"
-            android:textColor="@color/white"
-             android:textSize="@dimen/share_text" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="忘记密码"
-            android:gravity="center"
-            android:textColor="@color/white"
-             android:textSize="25dp" />
-        <TextView
-             android:id="@+id/send_pass"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_weight="1"
-             android:textColor="@color/white"
-             android:textSize="@dimen/share_text"
-             android:gravity="center"
-            android:text="发送" />
-    </LinearLayout>
+    <include layout="@layout/title_layout" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
+
+    <EditText
+        android:id="@+id/phn_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/li_tillte"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical" >
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/white_btn_nor"
+        android:gravity="center_vertical"
+        android:hint="请输入您的手机号"
+        style="@style/text_16_333333"
+        android:numeric="integer" />
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/white_btn_nor"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/phn_name"
-             android:layout_width="fill_parent"
-            android:layout_height="48dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:background="@drawable/eee"
-            android:cursorVisible="false"
-            android:gravity="center_vertical"
-            android:paddingLeft="5dp"
-            android:hint="请输入您的手机号"
+            android:id="@+id/ver_name"
+            android:hint="输入验证码"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:paddingTop="10dp"
+            android:singleLine="true"
+            android:paddingBottom="10dp"
+            android:background="@color/white"
+            android:layout_margin="2dp"
+            style="@style/text_16_333333"
+            android:paddingLeft="10dp"
             android:numeric="integer"
-            android:textSize="30px"
-            android:textColorHint="@color/gray" />
+            android:gravity="center_vertical" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-            android:orientation="horizontal" >
-
-            <EditText
-                android:id="@+id/ver_name"
-               android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:background="@drawable/eee"
-                android:layout_weight="2"
-               android:paddingTop="5dp"
-               android:paddingBottom="5dp"
-              android:paddingLeft="5dp"
-              android:gravity="center_vertical"
-                android:hint="请输入您的验证码"
-                android:textSize="30px" 
-                android:numeric="integer"
-                android:textColorHint="@color/gray" >
-            </EditText>
-
-            <TextView
-                android:id="@+id/tv_pasword"
-                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/bottom_widow_color"
+        <TextView
+            android:id="@+id/send_code_btn"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/gray_btn_bg"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-                android:clickable="true"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:text="发送验证码"
-                android:textColor="#FFFFFF"
-                android:textSize="30px"  />
-        </LinearLayout>
+            android:clickable="true"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="发送验证码"
+            style="@style/text_16_white"></TextView>
     </LinearLayout>
+
 
     <TextView
         android:id="@+id/rl_tillte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linearLayout1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="28dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:text="说明：每天可向手机发送3次新密码"
-        android:textSize="15dp"
-        android:textColor="@color/bottom_widow_color" />
+        style="@style/text_14_gray" />
 
-</RelativeLayout>
+    <Button
+        android:layout_width="fill_parent"
+        android:id="@+id/confirm_btn"
+        android:text="获取密码"
+        android:layout_margin="50dp"
+        android:background="@drawable/red_btn_bg"
+        android:padding="10dp"
+        style="@style/text_20_white"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

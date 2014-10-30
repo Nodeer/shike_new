@@ -67,106 +67,117 @@
         android:paddingTop="60dp"
         android:background="@color/main_bg">
 
-        <RelativeLayout
+        <FrameLayout
             android:layout_width="fill_parent"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="40dp"
-            android:background="@drawable/stu_slide_btn1_bg"
             android:layout_marginRight="40dp"
-            android:id="@+id/online_tea_button"
             android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:background="@drawable/stu_slide_btn1_bg"
+                android:id="@+id/online_tea_button"
+                android:layout_margin="3dp"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:id="@+id/online_tea_img"
+                        android:src="@drawable/online_tea_big_icon"
+                        android:layout_height="80dp" />
+
+                    <TextView
+                        android:id="@+id/online_tea_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="在线老师"
+                        android:textColor="@color/white"
+                        android:textSize="30dp" />
+                </LinearLayout>
+            </RelativeLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/online_tea_select_icon"
-                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
                 android:visibility="gone"
-                android:layout_alignParentTop="true"
                 android:src="@drawable/checked_icon" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_centerInParent="true">
+        </FrameLayout>
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:id="@+id/online_tea_img"
-                    android:src="@drawable/online_tea_big_icon"
-                    android:layout_height="80dp" />
-
-                <TextView
-                    android:id="@+id/online_tea_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
-                    android:text="在线老师"
-                    android:textColor="@color/white"
-                    android:textSize="30dp" />
-            </LinearLayout>
-        </RelativeLayout>
-
-
-        <RelativeLayout
+        <FrameLayout
             android:layout_width="fill_parent"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:background="@drawable/stu_slide_btn2_bg"
-            android:id="@+id/my_tea_button"
             android:layout_marginBottom="20dp"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:visibility="gone"
-                android:id="@+id/my_tea_select_icon"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/checked_icon" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_centerInParent="true">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:background="@drawable/stu_slide_btn2_bg"
+                android:id="@+id/my_tea_button"
+                android:layout_margin="3dp"
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_margin="20dp"
+                    android:layout_centerInParent="true">
 
-                    <ImageView
-                        android:id="@+id/teacher_img"
-                        android:layout_width="80dp"
-                        android:src="@drawable/my_tea_big_icon"
-                        android:layout_height="80dp" />
-
-                    <TextView
-                        android:id="@+id/teacher_name"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        style="@style/text_16_black"
-                        android:layout_gravity="center_horizontal" />
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/teacher_img"
+                            android:layout_width="80dp"
+                            android:src="@drawable/my_tea_big_icon"
+                            android:layout_height="80dp" />
+
+                        <TextView
+                            android:id="@+id/teacher_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            style="@style/text_16_black"
+                            android:layout_gravity="center_horizontal" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/my_teacher_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="我的老师"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="30dp" />
                 </LinearLayout>
+            </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/my_teacher_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="我的老师"
-                    android:textColor="@color/white"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="30dp" />
-            </LinearLayout>
-        </RelativeLayout>
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/my_tea_select_icon"
+                android:layout_gravity="right"
+                android:visibility="gone"
+                android:src="@drawable/checked_icon" />
+        </FrameLayout>
     </LinearLayout>
 
 </LinearLayout>

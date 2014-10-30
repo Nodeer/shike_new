@@ -40,7 +40,7 @@
             android:layout_centerInParent="true"
             android:id="@+id/now_online"
             style="@style/text_16_333333"
-            android:text="今日在线" />
+            android:text="" />
     </RelativeLayout>
 
     <com.yshow.shike.widget.GalleryView

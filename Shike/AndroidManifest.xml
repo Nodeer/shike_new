@@ -110,7 +110,7 @@
             android:name="com.yshow.shike.activities.Activity_File_Three"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.yshow.shike.activities.Acticity_Ttudent_Info"
+            android:name=".activities.ActicityStudentInfo"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.Activity_Recharge"
@@ -267,6 +267,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.PublishImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yshow.shike.activities.FankuiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yshow.shike.activities.PaiZhaoHelpActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.Tea_Message_Detail_Activity"

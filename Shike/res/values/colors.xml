@@ -49,6 +49,16 @@
     <color name="slide_btn7_bg_nor">#9eaebb</color>
     <color name="slide_btn7_bg_press">#8e9eab</color>
 
+
+
+
+    <color name="stu_about_fankui_nor">#5EB68E</color>
+    <color name="stu_about_fankui_press">#4ea67e</color>
+
+
+    <color name="tea_about_fankui_nor">#316Ab5</color>
+    <color name="tea_about_fankui_press">#215aa5</color>
+
     <color name="tea_slide_btn1_bg_nor">#529cd1</color>
     <color name="tea_slide_btn1_bg_press">#428cc1</color>
     <color name="tea_slide_btn2_bg_nor">#417ab5</color>
@@ -76,6 +86,9 @@
     <color name="btn_blue_press">#ff428Cc1</color>
 
     <drawable name="list_selector_color">#ffffffff</drawable>
+
+
+
 
 
 

@@ -1,10 +1,8 @@
 package com.yshow.shike.adapter;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
@@ -17,8 +15,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -36,7 +32,6 @@ import com.yshow.shike.entity.SkMessage_Res;
 import com.yshow.shike.entity.SkMessage_Voice;
 import com.yshow.shike.fragments.Fragment_Message;
 import com.yshow.shike.service.MySKService;
-import com.yshow.shike.utils.DateUtils;
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.Net_Servse;
@@ -156,11 +151,12 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("teather_sKMessage", sKMessage);
                             Dialog.intent(context, TeacherInfoActivity.class, bundle);
-                        } else {
-                            Bundle bundle = new Bundle();
-                            bundle.putSerializable("student_sKMessage", sKMessage);
-                            Dialog.intent(context, Activity_MyShiKe.class, bundle);
                         }
+//                        else {
+//                            Bundle bundle = new Bundle();
+//                            bundle.putSerializable("student_sKMessage", sKMessage);
+//                            Dialog.intent(context, Activity_MyShiKe.class, bundle);
+//                        }
                     } else {
                         // 在綫老師 直接顯示老師信息
                         Bundle bundle = new Bundle();
@@ -171,7 +167,7 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
                     // 学生信息
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("teather_sKMessage", sKMessage);
-                    Dialog.intent(context, Acticity_Ttudent_Info.class, bundle);
+                    Dialog.intent(context, ActicityStudentInfo.class, bundle);
                 }
             }
         });
