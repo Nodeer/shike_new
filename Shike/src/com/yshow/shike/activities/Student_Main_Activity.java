@@ -69,9 +69,6 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
     @Override
     protected void onNewIntent(Intent intent) {// 从"完成注册"成功注册以后的回调
         super.onNewIntent(intent);
-        student = LoginManage.getInstance().getStudent();
-        if (student.getMob() != null) {
-        }
     }
 
     @Override

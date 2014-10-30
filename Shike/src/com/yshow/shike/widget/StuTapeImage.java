@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -23,6 +24,7 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
     private MediaPlayerUtil mediaPlayerUtil;
     private ImageView imageView;
     private boolean isTeacher = false;
+    private boolean isPlaying = false;
 
     public static StuTapeImage surrentPlayingTapeView;
 
@@ -79,9 +81,9 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
             if (surrentPlayingTapeView != null) {
                 surrentPlayingTapeView.stopPlay();
             }
-            if(voicePath.contains("http")){
+            if (voicePath.contains("http")) {
                 mediaPlayerUtil.Down_Void(voicePath, getContext());
-            }else{
+            } else {
                 mediaPlayerUtil.VoidePlay(voicePath);
             }
             if (isTeacher) {
@@ -93,11 +95,16 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
             drawable.stop();
             drawable.setOneShot(false);
             drawable.start();
+            isPlaying = true;
             surrentPlayingTapeView = this;
             if (mVoiceImageClickListener != null) {
                 mVoiceImageClickListener.onImageClick(this);
             }
         } else {
+            if (isPlaying) {
+                return;
+            }
+            ((ViewGroup) (getParent())).removeView(this);
             if (mVoiceImageClickListener != null) {
                 mVoiceImageClickListener.onDelClick(this);
             }
@@ -114,6 +121,7 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
         } else {
             imageView.setImageResource(R.drawable.stu_tape_bg);
         }
+        isPlaying = false;
     }
 
     public interface VoiceImageClickListener {
@@ -141,5 +149,13 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
 
     public void changeDelView() {
         del.setVisibility(del.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+    }
+
+    public void setDelVisiable(boolean isShow) {
+        if (isShow) {
+            del.setVisibility(View.VISIBLE);
+        } else {
+            del.setVisibility(View.GONE);
+        }
     }
 }

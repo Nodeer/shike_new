@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:padding="10dp"
+        android:id="@+id/title_layout"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/left_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/icon_back" />
+
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="添加录音"
+            android:layout_centerInParent="true"
+            style="@style/text_20_333333"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirm_btn"
+            android:padding="5dp"
+            android:text="确  认"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@style/text_16_white"
+            android:background="@drawable/stu_slide_btn2_bg" />
+
+
+    </RelativeLayout>
+
+
+    <com.yshow.shike.widget.MatrixImageview
+        android:id="@+id/large_img"
+        android:layout_width="fill_parent"
+        android:layout_below="@id/title_layout"
+        android:layout_height="fill_parent"></com.yshow.shike.widget.MatrixImageview>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom_layout"
+        android:padding="5dp"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="70dp"
+            android:id="@+id/voice_layout"
+            android:orientation="horizontal"></LinearLayout>
+
+
+        <Button
+            android:id="@+id/voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/stu_slide_btn1_bg"
+            android:drawableLeft="@drawable/icon_record_press"
+            android:paddingLeft="10dp"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:drawablePadding="40dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="录音"
+            android:layout_centerInParent="true"
+            android:textColor="@color/button_typeface_color"
+            android:textSize="@dimen/share_text" />
+    </LinearLayout>
+
+
+    <include
+        android:id="@+id/voice_recordding_layout"
+        layout="@layout/voice_recording_layout"
+        android:layout_above="@id/bottom_layout"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

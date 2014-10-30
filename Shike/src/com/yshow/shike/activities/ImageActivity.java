@@ -1,5 +1,6 @@
 package com.yshow.shike.activities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,6 +20,7 @@ import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SkMessage_Res;
+import com.yshow.shike.entity.SkMessage_Voice;
 import com.yshow.shike.fragments.Fragment_Message;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.*;
@@ -79,8 +81,6 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
 
     private boolean isDone = false;
 
-    private boolean isPublishing = false;
-
     private int voideSize = 0;
 
     @Override
@@ -117,6 +117,7 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
             titleText.setText("录音");
             mBottomLayout.setVisibility(View.VISIBLE);
             mMessageRes = (SkMessage_Res) bundle.getSerializable("res");
+            addVoiceLayout();
             isDone = bundle.getBoolean("isdone");
             if (isDone) {
                 mBottomLayout.setVisibility(View.GONE);
@@ -141,12 +142,22 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
 
                 ;
             }.start();
-        } else {
-            bitmap = Activity_Stu_Ask_Step2.sUploadBitmap;
-            large_img.setImageBitmap(bitmap);
-            voideSize = getIntent().getIntExtra("voidesize", 0);
-            titleText.setText("添加录音");
-            isPublishing = true;
+        }
+    }
+
+    private void addVoiceLayout() {
+        ArrayList<SkMessage_Voice> list = mMessageRes.getVoice();
+        for (SkMessage_Voice voice : list) {
+            String s = voice.getFile();
+            StuTapeImage img = new StuTapeImage(ImageActivity.this);
+            LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            pa.leftMargin = 20;
+            img.setLayoutParams(pa);
+            img.setPlayer(mediaPlayer);
+            img.setIsTeacher(voice.getIsStudent().equals(0));
+            img.setVoicePath(s);
+            img.setDelVisiable(true);
+            voiceLayout.addView(img);
         }
     }
 
@@ -181,32 +192,15 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
                                 Toast.makeText(ImageActivity.this, "说话时间太短", Toast.LENGTH_SHORT).show();
                             } else {
                                 final String file = mediaRecorderUtil.getFilePath();
-                                if (isPublishing) {
-                                    if (voideSize >= 3) {
-                                        Toast.makeText(ImageActivity.this, "最多只能发3条语音", Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        Activity_Stu_Add_Voice.urllist.add(file);
-                                        voideSize++;
-                                        StuTapeImage img = new StuTapeImage(ImageActivity.this);
-                                        LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                                        pa.leftMargin = 20;
-                                        img.setLayoutParams(pa);
-                                        img.setIsTeacher(isTeacher);
-                                        img.setPlayer(mediaPlayer);
-                                        img.setVoicePath(file);
-                                        voiceLayout.addView(img);
-                                    }
-                                } else {
-                                    StuTapeImage img = new StuTapeImage(ImageActivity.this);
-                                    LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                                    pa.leftMargin = 20;
-                                    img.setLayoutParams(pa);
-                                    img.setIsTeacher(isTeacher);
-                                    img.setPlayer(mediaPlayer);
-                                    img.setVoicePath(file);
-                                    voiceLayout.addView(img);
-                                    skUploadMp3(mMessageRes.getQuestionId(), mMessageRes.getId(), file, mMessageRes.getVoice().size() + 1 + "");
-                                }
+                                StuTapeImage img = new StuTapeImage(ImageActivity.this);
+                                LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                pa.leftMargin = 20;
+                                img.setLayoutParams(pa);
+                                img.setIsTeacher(isTeacher);
+                                img.setPlayer(mediaPlayer);
+                                img.setVoicePath(file);
+                                voiceLayout.addView(img);
+                                skUploadMp3(mMessageRes.getQuestionId(), mMessageRes.getId(), file, mMessageRes.getVoice().size() + 1 + "");
                             }
                         }
                     }
@@ -298,6 +292,8 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
                             Toast.makeText(ImageActivity.this, "语音上传成功", Toast.LENGTH_SHORT).show();
                             isNeedRefresh = true;
                             Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
+                            setResult(RESULT_OK);
+                            finish();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -314,40 +310,11 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
                 finish();
                 break;
             case R.id.left_btn:
-                if (isNeedRefresh) {
-                    setResult(RESULT_OK);
-                    finish();
-                } else {
-                    finish();
-                }
+                finish();
                 break;
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        if (isNeedRefresh) {
-            setResult(RESULT_OK);
-            finish();
-        } else {
-            finish();
-        }
-    }
-
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (isNeedRefresh) {
-                setResult(RESULT_OK);
-                finish();
-            } else {
-                finish();
-            }
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 
     @Override
     protected void onStop() {

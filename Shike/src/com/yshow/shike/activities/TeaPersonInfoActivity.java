@@ -100,6 +100,7 @@ public class TeaPersonInfoActivity extends BaseActivity {
         findViewById(R.id.confirm_btn).setOnClickListener(listener);
         findViewById(R.id.xuelingduan_btn).setOnClickListener(listener);
         findViewById(R.id.xueke_btn).setOnClickListener(listener);
+        findViewById(R.id.diqu_btn).setOnClickListener(listener);
 
 
         points = (TextView) findViewById(R.id.huode_xuefen);
@@ -129,11 +130,8 @@ public class TeaPersonInfoActivity extends BaseActivity {
         tea_upload = (TextView) findViewById(R.id.tv_tea_upload);
         tv_tea_subject = (TextView) findViewById(R.id.tv_tea_subject);
         tea_upload.setOnClickListener(listener);
-        tea_sunject.setOnClickListener(listener);
         head_pic.setOnClickListener(listener);
-        bace_area.setOnClickListener(listener);
         ed_day_bir.setOnClickListener(listener);
-        tv_tea_subject.setOnClickListener(listener);
     }
 
     // 老师端 和 学生端的点击判断
@@ -142,17 +140,14 @@ public class TeaPersonInfoActivity extends BaseActivity {
         public void onClick(View v) {
             // 老师端个人修改点击事件
             switch (v.getId()) {
-                case R.id.tv_tea_info_back:
+                case R.id.left_btn:
                     finish();
                     break;
                 // 老师端 保存个人信息
-                case R.id.tv_tea_info_save:
-                    try {
-                        Sex_Dec();
-                    } catch (Exception e) {
-                    }
+                case R.id.confirm_btn:
+                    Sex_Dec();
                     break;
-                case R.id.tv_tea_bace_area:
+                case R.id.diqu_btn:
                     getArea();
                     break;
                 case R.id.ed_tea_day_bir:
@@ -219,6 +214,7 @@ public class TeaPersonInfoActivity extends BaseActivity {
         user_info.setInfo(jieshao.getText().toString().trim());
         user_info.setSchool(base_schoo.getText().toString().trim());
         user_info.setTypes(stu_info.getTypes());
+        user_info.setBirthday(ed_day_bir.getText().toString());
         user_info.setEmail(base_email.getText().toString().trim());
         String old_pwd = ed_old_pwd.getText().toString().trim(); // 获取旧密码
         user_info.setOld_pwd(old_pwd);
@@ -314,13 +310,17 @@ public class TeaPersonInfoActivity extends BaseActivity {
                 break;
             case TAKE_PHONE:
                 if (resultCode == RESULT_OK) {
-                    ContentResolver resolver = getContentResolver();
-                    Uri originalUri = data.getData();        //获得图片的uri
-                    try {
-                        Bitmap bm = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-                        seting_image(time_make, bm);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    if (isHeadImg) {
+                        Take_Phon_album.getIntence().startPhotoZoom(TeaPersonInfoActivity.this, data.getData(), SETTO_IMAGEVIEW);
+                    } else {
+                        ContentResolver resolver = getContentResolver();
+                        Uri originalUri = data.getData();        //获得图片的uri
+                        try {
+                            Bitmap bm = MediaStore.Images.Media.getBitmap(resolver, originalUri);
+                            seting_image(time_make, bm);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
                 break;

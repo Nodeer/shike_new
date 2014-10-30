@@ -203,8 +203,7 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
                 finish();
                 break;
             case R.id.big_img_btn:
-                Intent it = new Intent(this, ImageActivity.class);
-                it.putExtra("voidesize",Count);
+                Intent it = new Intent(this, PublishImageActivity.class);
                 startActivityForResult(it, 1);
                 break;
             // 控制三个删除按钮的出现
@@ -289,7 +288,6 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
     @Override
     public void onDelClick(StuTapeImage img) {
         urllist.remove(img.getVoicePath());
-        ((ViewGroup) (img.getParent())).removeView(img);
         Count--;
     }
 }
