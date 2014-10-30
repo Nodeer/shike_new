@@ -25,6 +25,7 @@ import com.yshow.shike.activities.WebViewActivity;
 import com.yshow.shike.adapter.SKMessageAdapter;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.PartnerConfig;
+import com.yshow.shike.utils.ScreenSizeUtil;
 import com.yshow.shike.widget.GalleryView;
 import com.yshow.shike.widget.MyPagerAdapter;
 
@@ -85,6 +86,8 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
         mReStudyButton = (RelativeLayout) view.findViewById(R.id.restudy_btn);
         mReStudyButton.setOnClickListener(this);
         mOnlineTextView = (TextView) view.findViewById(R.id.now_online);
+
+
 
         return view;
     }

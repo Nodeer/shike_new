@@ -32,6 +32,7 @@ import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.ProgressDialogUtil;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
+import com.yshow.shike.utils.ScreenSizeUtil;
 import com.yshow.shike.widget.MatrixImageview;
 import com.yshow.shike.widget.StuTapeImage;
 
@@ -110,6 +111,7 @@ public class PublishImageActivity extends BaseActivity implements OnClickListene
 
         large_img.setOnClickListener(this);
         bitmap = Activity_Stu_Ask_Step2.sUploadBitmap;
+        bitmap.setDensity(ScreenSizeUtil.getScreenDensityDpi(this));
         large_img.setBitmap(bitmap);
         voiceList = (ArrayList<String>) Activity_Stu_Add_Voice.urllist.clone();
         voideSize = voiceList.size();
