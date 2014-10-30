@@ -80,7 +80,7 @@
             android:name="com.yshow.shike.fragments.Fragment_Student_GuanYu"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.yshow.shike.activities.Activity_My_Teacher_Info"
+            android:name=".activities.TeacherInfoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.Forget_Pass_Activity"
@@ -114,9 +114,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.Activity_Recharge"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.yshow.shike.activities.Activity_Meggage_Teacher_Info"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.Activity_Data_SubJect"

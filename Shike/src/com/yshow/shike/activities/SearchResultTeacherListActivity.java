@@ -45,7 +45,7 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
                 Star_Teacher_Parse item = (Star_Teacher_Parse) adapter.getItem(arg2);
-                Intent intent = new Intent(SearchResultTeacherListActivity.this, Activity_Teacher_Info.class);
+                Intent intent = new Intent(SearchResultTeacherListActivity.this, TeacherInfoActivity.class);
                 intent.putExtra("headpicture", item);
                 SearchResultTeacherListActivity.this.startActivity(intent);
             }

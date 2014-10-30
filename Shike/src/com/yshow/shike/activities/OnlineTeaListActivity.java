@@ -56,7 +56,7 @@ public class OnlineTeaListActivity extends BaseActivity implements TopAndBottomL
                 Star_Teacher_Parse item = (Star_Teacher_Parse) adapter.getItem(realPosition);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("headpicture", item);
-                Dialog.intent(OnlineTeaListActivity.this, Activity_Teacher_Info.class, bundle);
+                Dialog.intent(OnlineTeaListActivity.this, TeacherInfoActivity.class, bundle);
 
             }
         });

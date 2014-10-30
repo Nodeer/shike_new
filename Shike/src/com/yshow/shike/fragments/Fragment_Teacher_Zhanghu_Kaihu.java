@@ -185,11 +185,6 @@ public class Fragment_Teacher_Zhanghu_Kaihu extends Fragment {
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, getActivity());
                 if (success) {
                     Toast.makeText(getActivity(), "更新银行信息成功", Toast.LENGTH_SHORT).show();
-                    if (getActivity() instanceof Activity_Teacher_zhanghu) {
-                        if (((Activity_Teacher_zhanghu) getActivity()).isNeedBack) {
-                            getActivity().finish();
-                        }
-                    }
                 }
             }
         });

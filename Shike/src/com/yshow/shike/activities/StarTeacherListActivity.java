@@ -70,8 +70,7 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
                 }
                 int realPosition = (int) arg3;
                 Star_Teacher_Parse item = adapter.getItem(realPosition);
-                Intent intent = new Intent(StarTeacherListActivity.this, Activity_Teacher_Info.class);
-                intent.putExtra("mark", "Fragment_My_Teacher");
+                Intent intent = new Intent(StarTeacherListActivity.this, TeacherInfoActivity.class);
                 intent.putExtra("headpicture", item);
                 StarTeacherListActivity.this.startActivity(intent);
             }

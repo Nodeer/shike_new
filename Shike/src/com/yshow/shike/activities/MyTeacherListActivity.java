@@ -2,7 +2,6 @@ package com.yshow.shike.activities;
 
 import java.util.ArrayList;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -57,7 +56,7 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 Star_Teacher_Parse item = (Star_Teacher_Parse) adapter.getItem(arg2);
-                Intent intent = new Intent(MyTeacherListActivity.this, Activity_My_Teacher_Info.class);
+                Intent intent = new Intent(MyTeacherListActivity.this, TeacherInfoActivity.class);
                 intent.putExtra("mark", "Fragment_My_Teacher");
                 intent.putExtra("headpicture", item);
                 MyTeacherListActivity.this.startActivity(intent);

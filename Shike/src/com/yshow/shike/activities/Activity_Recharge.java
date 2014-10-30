@@ -1,4 +1,5 @@
 package com.yshow.shike.activities;
+
 import java.lang.reflect.Type;
 
 import android.app.*;
@@ -10,7 +11,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import com.alipay.android.app.sdk.AliPay;
 import com.umeng.analytics.MobclickAgent;
 import com.unionpay.UPPayAssistEx;
@@ -24,42 +28,58 @@ import com.yshow.shike.entity.Pay_Comm;
 import com.yshow.shike.entity.Pay_Comm.Pay_Comm_info;
 
 import android.view.View;
-public class Activity_Recharge extends Activity{
-	private Payment_Utils pay_util;
-	private final int RQF_PAY = 1;
-	private final int PAY_SUCC = 2;
+
+public class Activity_Recharge extends Activity {
+    private Payment_Utils pay_util;
+    private final int RQF_PAY = 1;
+    private final int PAY_SUCC = 2;
     private String payType = "";
-	Handler mHandler = new Handler() {
-		public void handleMessage(android.os.Message msg) {
-			Result result = new Result((String) msg.obj);
-			switch (msg.what) {
-			case RQF_PAY:
-				Toast.makeText(Activity_Recharge.this, result.getResult(),0).show();
-				break;
-			case PAY_SUCC:
-				Toast.makeText(Activity_Recharge.this,"支付成功",0).show();
-				break;
-			}
-		};
-	};
+    Handler mHandler = new Handler() {
+        public void handleMessage(android.os.Message msg) {
+            Result result = new Result((String) msg.obj);
+            switch (msg.what) {
+                case RQF_PAY:
+                    Toast.makeText(Activity_Recharge.this, result.getResult(), 0).show();
+                    break;
+                case PAY_SUCC:
+                    Toast.makeText(Activity_Recharge.this, "支付成功", 0).show();
+                    break;
+            }
+        }
+
+        ;
+    };
     private Dialog rechargeTypeDialog;
+    private EditText cardPassEdit;
+
 
     @Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_recharge);
-		initData();
-	}
-	private void initData() {
-		pay_util = Payment_Utils.getIntence();
-		findViewById(R.id.re_five_bai).setOnClickListener(listener);
-		findViewById(R.id.re_one_qian).setOnClickListener(listener);
-		findViewById(R.id.iv_two_qian).setOnClickListener(listener);
-		findViewById(R.id.re_five_qain).setOnClickListener(listener);
-		findViewById(R.id.tv_buttom_back).setOnClickListener(listener);
-	}
-	private OnClickListener listener = new OnClickListener() {
-		@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_recharge);
+        initData();
+    }
+
+    private void initData() {
+        pay_util = Payment_Utils.getIntence();
+
+        TextView titletext = (TextView) findViewById(R.id.title_text);
+        titletext.setText("账户充值");
+
+        findViewById(R.id.card_charge_btn).setOnClickListener(listener);
+
+        cardPassEdit = (EditText) findViewById(R.id.card_pass_edit);
+
+        findViewById(R.id.re_five_bai).setOnClickListener(listener);
+        findViewById(R.id.re_one_qian).setOnClickListener(listener);
+        findViewById(R.id.iv_two_qian).setOnClickListener(listener);
+        findViewById(R.id.re_five_qain).setOnClickListener(listener);
+        findViewById(R.id.left_btn).setOnClickListener(listener);
+        findViewById(R.id.account_btn).setOnClickListener(listener);
+    }
+
+    private OnClickListener listener = new OnClickListener() {
+        @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.re_five_bai:
@@ -78,7 +98,7 @@ public class Activity_Recharge extends Activity{
                     payType = "4";
                     showReChargeType();
                     break;
-                case R.id.tv_buttom_back:
+                case R.id.left_btn:
                     finish();
                     break;
                 case R.id.tv_pai_zhao://套用了现成的layout文件...这里代表支付宝方式
@@ -92,11 +112,29 @@ public class Activity_Recharge extends Activity{
                 case R.id.tv_tea_cancel://套用了现成的layout文件...这里代表取消
                     rechargeTypeDialog.dismiss();
                     break;
+                case R.id.card_charge_btn:
+                    chargeByCard();
+                    break;
+                case R.id.account_btn:
+                    com.yshow.shike.utils.Dialog.Intent(Activity_Recharge.this, Activity_Student_Account_Message.class);
+                    break;
             }
         }
     };
 
+    private void chargeByCard() {
+        SKAsyncApiController.chargeByCard(cardPassEdit.getText().toString(), new MyAsyncHttpResponseHandler(this, true) {
+            public void onSuccess(String json) {
+                boolean Success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, Activity_Recharge.this);
+                if (Success) {
+                    Toast.makeText(Activity_Recharge.this, "充值成功", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
     //{"success":1,"data":{"respCode":"00","tn":"201407221631260053012","signMethod":"MD5","transType":"01","charset":"UTF-8","signature":"2531fcdf736828c68b4e91adccf97df3","version":"1.0.0"},"type":"ok"}
+
     /**
      * 生成银联订单
      */
@@ -108,14 +146,16 @@ public class Activity_Recharge extends Activity{
                     YinLianOrderModel model = SKResolveJsonUtil.getInstance().GetYinlianOrder(json);
                     commYinlianPay(model.tn);
                 }
-            };
+            }
+
+            ;
         });
     }
 
     private void commYinlianPay(final String tn) {
-                int result = UPPayAssistEx.startPay(Activity_Recharge.this,null,null,tn,"00");
-                Message msg = new Message();
-                msg.obj = result;
+        int result = UPPayAssistEx.startPay(Activity_Recharge.this, null, null, tn, "00");
+        Message msg = new Message();
+        msg.obj = result;
 
         if (result == UPPayAssistEx.PLUGIN_NOT_FOUND) {
             // 需要重新安装控件
@@ -161,32 +201,34 @@ public class Activity_Recharge extends Activity{
                     String info = pay_util.getNewOrderInfo(comm_data);
                     CommAliPay(info);
                 }
-            };
+            }
+
+            ;
         });
     }
 
     private void CommAliPay(String info) {
-		final String orderInfo = pay_util.Order_Process(info).trim();
-		new Thread() {
-			public void run() {
-				AliPay alipay = new AliPay(Activity_Recharge.this, mHandler);
-				String result = alipay.pay(orderInfo);
-				Message msg = new Message();
-				msg.obj = result;
-				if(result != null){
-					String returnCode = result.substring(14, 18);
-					if(returnCode.equals("9000")){
+        final String orderInfo = pay_util.Order_Process(info).trim();
+        new Thread() {
+            public void run() {
+                AliPay alipay = new AliPay(Activity_Recharge.this, mHandler);
+                String result = alipay.pay(orderInfo);
+                Message msg = new Message();
+                msg.obj = result;
+                if (result != null) {
+                    String returnCode = result.substring(14, 18);
+                    if (returnCode.equals("9000")) {
                         msg.what = PAY_SUCC;
-                    }else {
+                    } else {
                         msg.what = RQF_PAY;
-					}
-					mHandler.sendMessage(msg);
-				}
-			}
-		}.start();
-	}
+                    }
+                    mHandler.sendMessage(msg);
+                }
+            }
+        }.start();
+    }
 
-    private void showReChargeType(){
+    private void showReChargeType() {
         rechargeTypeDialog = Dilog_Share.SelectReChargeTypeDialog(this, listener);
         rechargeTypeDialog.show();
     }

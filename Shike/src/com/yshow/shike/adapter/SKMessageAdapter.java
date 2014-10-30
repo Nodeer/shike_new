@@ -155,7 +155,7 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
                             // 顯示 我的老師信息
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("teather_sKMessage", sKMessage);
-                            Dialog.intent(context, Activity_Meggage_Teacher_Info.class, bundle);
+                            Dialog.intent(context, TeacherInfoActivity.class, bundle);
                         } else {
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("student_sKMessage", sKMessage);
@@ -165,7 +165,7 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
                         // 在綫老師 直接顯示老師信息
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("teather_sKMessage", sKMessage);
-                        Dialog.intent(context, Activity_Meggage_Teacher_Info.class, bundle);
+                        Dialog.intent(context, TeacherInfoActivity.class, bundle);
                     }
                 } else {
                     // 学生信息
@@ -186,7 +186,7 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
 
         LinearLayout messageContentLayout = (LinearLayout) inflate.findViewById(R.id.message_content_layout);
         ViewGroup.LayoutParams pa = messageContentLayout.getLayoutParams();
-        pa.width = ScreenSizeUtil.getScreenWidth(context,1);
+        pa.width = ScreenSizeUtil.getScreenWidth(context, 1);
         messageContentLayout.setLayoutParams(pa);
 
 
@@ -394,7 +394,7 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
                                 }
                             }
                         }
-                    }else if (viewholer.sKMessage.getMsgType().equals("0") && viewholer.sKMessage.getClaim_uid().equals("0") && !LoginManage.getInstance().isTeacher()) {
+                    } else if (viewholer.sKMessage.getMsgType().equals("0") && viewholer.sKMessage.getClaim_uid().equals("0") && !LoginManage.getInstance().isTeacher()) {
                         AlertDialog.Builder dia = new Builder(context);
                         dia.setTitle("提示");
                         dia.setMessage("当前还没有老师解答该题是否重发？");

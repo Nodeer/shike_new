@@ -28,6 +28,7 @@
             android:background="@drawable/stu_slide_btn1_bg"
             android:layout_marginRight="40dp"
             android:padding="20dp"
+            android:visibility="gone"
             android:id="@+id/ask_question_btn"
             android:layout_height="wrap_content">
 
@@ -114,6 +115,7 @@
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
+
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

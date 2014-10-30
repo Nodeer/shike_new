@@ -55,7 +55,7 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
                 }
                 int realPosition = (int) arg3;
                 Star_Teacher_Parse item = adapter.getItem(realPosition);
-                Intent intent = new Intent(RecommendTeacherListActivity.this, Activity_Teacher_Info.class);
+                Intent intent = new Intent(RecommendTeacherListActivity.this, TeacherInfoActivity.class);
                 intent.putExtra("headpicture", item);
                 RecommendTeacherListActivity.this.startActivity(intent);
             }
