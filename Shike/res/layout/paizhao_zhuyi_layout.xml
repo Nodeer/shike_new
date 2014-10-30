@@ -6,6 +6,8 @@
     android:gravity="center_horizontal"
     android:background="@color/main_bg">
 
+    <include layout="@layout/title_layout" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
