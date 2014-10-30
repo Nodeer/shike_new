@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:id="@+id/stu_pa_Info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/left_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/icon_back" />
+
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            style="@style/text_20_333333"
+            android:text="个人信息"
+            android:gravity="center" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_bg"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp">
+
+
+            <LinearLayout
+                android:id="@+id/ll_info"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="2dp"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp">
+
+                    <ImageView
+                        android:id="@+id/tu_head_pic"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/stu_userinfo_seticon" />
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/text_16_333333"
+                            android:text="剩余学分:" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/text_16_red"
+                            android:id="@+id/shengyu_xuefen"
+                            android:layout_marginLeft="10dp"
+                             />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/text_16_333333"
+                            android:text="提问次数:" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/text_16_333333"
+                            android:id="@+id/tiwen_cishu"
+                            android:layout_marginLeft="10dp"
+                             />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/text_16_333333"
+                            android:text="关注老师:" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/text_16_333333"
+                            android:id="@+id/guanzhu_laoshi"
+                            android:layout_marginLeft="10dp"
+                             />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="20dp"
+                android:paddingRight="10dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:text="姓   名:"
+                        style="@style/text_16_gray" />
+
+                    <EditText
+                        android:id="@+id/tv_base_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:padding="5dp"
+                        android:background="@drawable/white_btn_nor"
+                        android:hint="请输入真实姓名"
+                        style="@style/text_14_gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:text="用户名:"
+                        style="@style/text_16_gray" />
+
+                    <EditText
+                        android:id="@+id/tv_base_nike"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:padding="5dp"
+                        android:background="@drawable/white_btn_nor"
+                        android:text="用户名"
+                        style="@style/text_14_gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:text="生   日:"
+                        android:layout_gravity="center"
+                        style="@style/text_16_gray" />
+
+                    <TextView
+                        android:id="@+id/ed_day_bir"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/white_btn_nor"
+                        android:padding="5dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:text="xxxx-xx-xx"
+                        android:layout_gravity="center_vertical"
+                        style="@style/text_14_gray" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/sex_men"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:drawablePadding="5dp"
+                            android:gravity="center"
+                            android:text="男"
+                            style="@style/text_16_gray"
+                            android:padding="5dp" />
+
+                        <RadioButton
+                            android:id="@+id/sex_miss"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:drawablePadding="5dp"
+                            android:gravity="center"
+                            android:text="女"
+                            android:padding="5dp"
+                            style="@style/text_16_gray" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ems="4"
+                        android:text="学龄段:"
+                        style="@style/text_16_gray" />
+
+                    <TextView
+                        android:id="@+id/tv_study_year"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/white_btn_nor"
+                        android:padding="5dp"
+                        android:layout_marginLeft="5dp"
+                        style="@style/text_14_gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:text="地   区:"
+                        style="@style/text_16_gray" />
+
+                    <TextView
+                        android:id="@+id/tv_bace_area"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/white_btn_nor"
+                        android:text="地区"
+                        android:padding="5dp"
+                        style="@style/text_14_gray" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:ems="4"
+                        android:text="学   校:"
+                        style="@style/text_16_gray" />
+
+                    <EditText
+                        android:id="@+id/tv_base_schoo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:padding="5dp"
+                        android:textColorHint="@color/white"
+                        android:gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/white_btn_nor"
+                        android:hint="请输入你所在学校"
+                        style="@style/text_14_gray" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:text="电   话:"
+                        android:ems="4"
+                        style="@style/text_16_gray" />
+
+                    <TextView
+                        android:id="@+id/tv_stu_mob"
+                        android:layout_width="fill_parent"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:layout_marginLeft="5dp"
+                        style="@style/text_14_gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:text="邮   箱:"
+                        android:ems="4"
+                        style="@style/text_16_gray" />
+
+                    <EditText
+                        android:id="@+id/ed_base_email"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:textColorHint="@color/white"
+                        android:background="@drawable/white_btn_nor"
+                        android:hint="请输入邮箱"
+                        style="@style/text_14_gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:text="自我介绍:"
+                        android:ems="4"
+                        android:singleLine="true"
+                        style="@style/text_16_gray" />
+
+                    <EditText
+                        android:id="@+id/tv_base_jieshao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/margin_topandbuttom"
+                        android:paddingBottom="@dimen/margin_topandbuttom"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:hint="请输入自我介绍"
+                        android:textColorHint="@color/white"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/white_btn_nor"
+                        android:text="自我介绍"
+                        style="@style/text_14_gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:gravity="right"
+                            android:layout_height="wrap_content"
+                            android:text="修改密码:"
+                            android:ems="4"
+                            style="@style/text_16_gray" />
+
+                        <EditText
+                            android:id="@+id/old_pwd"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:padding="5dp"
+                            android:background="@drawable/white_btn_nor"
+                            android:password="true"
+                            android:hint="输入旧密码"
+                            style="@style/text_14_gray" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="1dp" />
+
+                    <EditText
+                        android:id="@+id/new_pwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="5"
+                        android:padding="5dp"
+                        android:background="@drawable/white_btn_nor"
+                        android:password="true"
+                        android:hint="输入新密码"
+                        style="@style/text_14_gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="1dp" />
+
+                    <EditText
+                        android:id="@+id/ed_pwd_comfig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="5"
+                        android:padding="5dp"
+                        android:background="@drawable/white_btn_nor"
+                        android:password="true"
+                        android:hint="确认新密码"
+                        style="@style/text_14_gray" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/confirm_btn"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:text="确定"
+                style="@style/text_30_white"
+                android:padding="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/stu_slide_btn1_bg"
+                android:layout_marginRight="30dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

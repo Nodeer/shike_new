@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -37,6 +38,11 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
 
 
         ArrayList<Star_Teacher_Parse> list = (ArrayList<Star_Teacher_Parse>) getIntent().getSerializableExtra("data");
+
+        if (list.size() == 0) {
+            Toast.makeText(this, "没有找到符合条件的老师", Toast.LENGTH_SHORT).show();
+        }
+
         adapter = new MyAdapter(list);
         list_view = (ListView) findViewById(R.id.lv_list_view);
         list_view.setAdapter(adapter);

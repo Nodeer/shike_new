@@ -155,7 +155,7 @@
             android:name="com.yshow.shike.activities.Activity_Recommend_Teacher"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.yshow.shike.activities.Activity_Teacher_Info"
+            android:name="com.yshow.shike.activities.StuPersonInfoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.Activity_Stu_Ask_Step1"
@@ -321,7 +321,7 @@
         <!-- 在百度开发者中心查询应用的API Key -->
         <meta-data
             android:name="api_key"
-            android:value="ePcKsunwv1KfNrcS4FNlAGIZ" />
+            android:value="LlsoI2KDNlevDXhgioPTD9nQ" />
 
     </application>
 

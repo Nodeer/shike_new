@@ -107,16 +107,16 @@ public class OnlineTeaListActivity extends BaseActivity implements TopAndBottomL
                 convertView = View.inflate(OnlineTeaListActivity.this, R.layout.fragment_start_text, null);
             }
             TextView tv_grade = (TextView) convertView.findViewById(R.id.tv_grade);
-            tv_grade.setText(on_Tea.getGrade());
             ImageView tea_piture = (ImageView) convertView.findViewById(R.id.iv_teather_picture);
             TextView tea_name = (TextView) convertView.findViewById(R.id.tv_nicheng);
             TextView tea_subject = (TextView) convertView.findViewById(R.id.tv_subject);
-            TextView jieduan = (TextView) convertView.findViewById(R.id.tv_diqu);
+            TextView diqu = (TextView) convertView.findViewById(R.id.tv_diqu);
             TextView tea_info = (TextView) convertView.findViewById(R.id.tv_gerenxinxi);
             if (on_Tea != null) {
                 tea_name.setText(on_Tea.getNickname());
+                tv_grade.setText(on_Tea.getGrade());
                 tea_subject.setText(on_Tea.getSubiect());
-                jieduan.setText(on_Tea.getGrade());
+                diqu.setText(on_Tea.getArea());
                 tea_info.setText(on_Tea.getInfo());
                 imageLoader.displayImage(on_Tea.getIcon(), tea_piture, options);
             }

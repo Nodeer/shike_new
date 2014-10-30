@@ -446,6 +446,12 @@ public class SKResolveJsonUtil {
             userinfo.setName(objectitme.optString("name"));
             userinfo.setArea(objectitme.optString("aId"));
             userinfo.setGradeName(objectitme.optString("gradeName"));
+
+            userinfo.setLike_num(objectitme.optString("likes"));
+            userinfo.setPoints(points);
+            userinfo.setQuestions(questions);
+
+
             JSONObject jsonObject = objectitme.optJSONObject("url");
             if (jsonObject != null) {// 这地方,获取图片地址应该放在下面的代码之前.不然下面出异常了,这里的代码都走不到.//徐斌.2014.8.7
                 userinfo.setPicurl(jsonObject.optString("tub"));

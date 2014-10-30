@@ -231,7 +231,7 @@
         android:text="确认"
         style="@style/text_30_white"
         android:padding="10dp"
-        android:background="@drawable/blue_btn_bg"
+        android:background="@drawable/stu_slide_btn1_bg"
         android:layout_marginRight="30dp"
         android:layout_height="wrap_content" />
 

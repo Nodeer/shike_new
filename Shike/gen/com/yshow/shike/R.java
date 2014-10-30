@@ -1166,7 +1166,7 @@ public final class R {
         public static final int my_student_item=0x7f030061;
         public static final int my_teather_item=0x7f030062;
         public static final int online_tea_listview=0x7f030063;
-        public static final int person_age_info=0x7f030064;
+        public static final int stu_person_info_layout =0x7f030064;
         public static final int quecount_subject=0x7f030065;
         public static final int question_count=0x7f030066;
         public static final int second_pager_item=0x7f030067;

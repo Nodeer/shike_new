@@ -21,7 +21,7 @@ import com.yshow.shike.R;
 
 public class WeixinManager {
 	private final String title = "师课分享";
-	private final String content = "回家作业不会做怎么办？“师课”来帮你，在职老师一呼即应，做作业容易多了！http://www.shikeke.com/ipa";
+	private final String content = "回家作业不会做怎么办？“师课家教宝”来帮你，在职老师一呼即应，做作业容易多了！http://www.shikeke.com/ipa";
 	private Activity context;
 	private Bitmap picture;
 	private static final String APP_ID = "wx24f646c87357277a";

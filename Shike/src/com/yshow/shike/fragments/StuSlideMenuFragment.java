@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
@@ -17,6 +18,7 @@ import com.yshow.shike.activities.Activity_Recharge;
 import com.yshow.shike.activities.Age_Person_Info;
 import com.yshow.shike.activities.FindTeacherActivity;
 import com.yshow.shike.activities.My_Question_Count;
+import com.yshow.shike.activities.StuPersonInfoActivity;
 import com.yshow.shike.activities.StudentRegisterActivity;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKStudent;
@@ -100,8 +102,9 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
                 startActivity(it);
                 break;
             case R.id.restudy_btn:
-                it = new Intent(getActivity(), My_Question_Count.class);
-                startActivity(it);
+                Toast.makeText(getActivity(), "即将推出", Toast.LENGTH_SHORT).show();
+//                it = new Intent(getActivity(), My_Question_Count.class);
+//                startActivity(it);
                 break;
             case R.id.account_btn:
                 if (student.getMob() != null) {
@@ -111,11 +114,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
                 }
                 break;
             case R.id.user_info_btn:
-                if (student.getMob() != null) {
-                    Dialog.Intent(getActivity(), Age_Person_Info.class);
-                } else {
-                    Dialog.finsh_Reg_Dialog(getActivity());
-                }
+                Dialog.Intent(getActivity(), StuPersonInfoActivity.class);
                 break;
             case R.id.share_btn:
                 dialog.show();
