@@ -171,7 +171,6 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     downtime = System.currentTimeMillis();
-                    mediaRecorderUtil = new MediaRecorderUtil(ImageActivity.this);
                     start_boolear = mediaRecorderUtil.startRecorder();
                     isRecordCancel = false;
                     if (start_boolear) {

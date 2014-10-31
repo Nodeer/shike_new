@@ -225,6 +225,7 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
         if (sKMessage.getMsgType().equals("1")) {// 这里表示是系统消息
             mEndButton.setVisibility(View.GONE);
             bottom_navigation.setVisibility(View.GONE);
+            tv_visits.setVisibility(View.GONE);
         }
     }
 
@@ -394,7 +395,8 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
             View view = View.inflate(Stu_Message_Detail_Activity.this, R.layout.img_page_item, null);
             ImageView iv_picture = (ImageView) view.findViewById(R.id.iv_picture);
             iv_picture.setTag(files);
-            iv_picture.setOnClickListener(new OnClickListener() {
+
+            OnClickListener lister = new OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
                     String file = skMessage_Res.getFile();
@@ -413,7 +415,9 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
                     intent.putExtras(bundle);
                     startActivityForResult(intent, 1);
                 }
-            });
+            };
+
+            iv_picture.setOnClickListener(lister);
             imageLoader.displayImage(files, iv_picture, options);
             container.addView(view);
             return view;

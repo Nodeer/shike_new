@@ -88,6 +88,9 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
             isContinue = extras.getBoolean("isContinue");
         }
         next_tool = (TextView) findViewById(R.id.next_btn);
+        if(LoginManage.getInstance().isTeacher()){
+            next_tool.setBackgroundResource(R.drawable.tea_blue_btn);
+        }
         if (isContinue && !questionId.equals("")) {
             next_tool.setText("发送");
         }

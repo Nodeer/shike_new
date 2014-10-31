@@ -521,7 +521,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
 
     // 没接收过该题，显示返回，接收，放弃
     private void Teather_Decide() {
-        if (claim_uid.equals("0")) {
+        if (claim_uid.equals("0")&&!hasGetQuestion) {
             // 没接收过该题，显示返回，接收，放弃 claim_uid=0
             bottomLayout.setVisibility(View.GONE);
             teaDecideLayout.setVisibility(View.VISIBLE);

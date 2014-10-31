@@ -108,6 +108,7 @@
                     android:layout_height="wrap_content"
                     android:text="记住密码"
                     android:paddingLeft="5dp"
+                    android:button="@drawable/checkbox_bg"
                     style="@style/text_16_gray"
                     />
             </LinearLayout>

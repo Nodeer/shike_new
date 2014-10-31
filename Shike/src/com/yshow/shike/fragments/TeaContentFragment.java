@@ -96,6 +96,10 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
                 mMessRedIcon.setVisibility(View.GONE);
                 goMessageActivity();
                 break;
+            case R.id.make_topic_btn:
+            case R.id.tiku_btn:
+                Toast.makeText(getActivity(), "即将推出", Toast.LENGTH_SHORT).show();
+                break;
 
         }
     }
