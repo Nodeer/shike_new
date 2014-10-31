@@ -37,6 +37,12 @@ public class FankuiActivity extends BaseActivity {
                 }
             }
         });
+        findViewById(R.id.left_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     // 意见反馈
