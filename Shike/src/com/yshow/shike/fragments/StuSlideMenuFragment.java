@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
 import com.yshow.shike.activities.Activity_Recharge;
@@ -23,6 +24,7 @@ import com.yshow.shike.entity.User_Info;
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.Dilog_Share;
 import com.yshow.shike.utils.Exit_Login;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.PartnerConfig;
 import com.yshow.shike.utils.SKAsyncApiController;
@@ -40,6 +42,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
     private android.app.Dialog dialog;
     private WeixinManager weixinManager;
     private ImageLoader mImageLoader;
+    private DisplayImageOptions mOption;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -67,6 +70,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
         dialog = new Dilog_Share().Dilog_Anim(getActivity(), this);
         weixinManager = new WeixinManager(getActivity());
 
+        mOption = ImageLoadOption.getImageOption(R.drawable.stu_head_defult);
 
         mUserName.setText("用户名:" + student.getNickname());
 
@@ -83,7 +87,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
                 if (atent_Success) {
                     User_Info info = SKResolveJsonUtil.getInstance().My_teather1(json);
                     mGrade.setText("学    龄:" + info.getGrade() + info.getGradeName());
-                    mImageLoader.displayImage(info.getPicurl(), mHeadIcon);
+                    mImageLoader.displayImage(info.getPicurl(), mHeadIcon,mOption);
                 }
             }
         });

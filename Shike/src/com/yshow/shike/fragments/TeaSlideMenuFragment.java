@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
 import com.yshow.shike.activities.Activity_Teacher_zhanghu;
@@ -21,6 +22,7 @@ import com.yshow.shike.entity.SKStudent;
 import com.yshow.shike.entity.User_Info;
 import com.yshow.shike.utils.Dilog_Share;
 import com.yshow.shike.utils.Exit_Login;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.PartnerConfig;
 import com.yshow.shike.utils.SKAsyncApiController;
@@ -39,6 +41,7 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
     private android.app.Dialog dialog;
     private WeixinManager weixinManager;
     private ImageLoader mImageLoader;
+    private DisplayImageOptions mOption;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,6 +71,9 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
 
         mUserName.setText("用户名:" + student.getNickname());
 
+
+        mOption = ImageLoadOption.getImageOption(R.drawable.tea_head_defult);
+
         update_info(student.getUid());
         return view;
     }
@@ -82,7 +88,7 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
                     User_Info info = SKResolveJsonUtil.getInstance().My_teather1(json);
                     mGrade.setText("授    课:" + info.getGrade() + info.getGradeName());
                     mFenbiNum.setText("赞美数:" + info.getLike_num());
-                    mImageLoader.displayImage(info.getPicurl(), mHeadIcon);
+                    mImageLoader.displayImage(info.getPicurl(), mHeadIcon, mOption);
 
                 }
             }

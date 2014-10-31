@@ -23,11 +23,17 @@ import com.yshow.shike.activities.MessageActivity;
 import com.yshow.shike.activities.My_Question_Count;
 import com.yshow.shike.activities.WebViewActivity;
 import com.yshow.shike.adapter.SKMessageAdapter;
+import com.yshow.shike.entity.HomeImgModel;
 import com.yshow.shike.service.MySKService;
+import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.PartnerConfig;
+import com.yshow.shike.utils.SKAsyncApiController;
+import com.yshow.shike.utils.SKResolveJsonUtil;
 import com.yshow.shike.utils.ScreenSizeUtil;
 import com.yshow.shike.widget.GalleryView;
 import com.yshow.shike.widget.MyPagerAdapter;
+
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2014-10-16.
@@ -45,6 +51,10 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
             "http://www.shikeke.com/news.php?id=6"
     };
 
+    private ArrayList<HomeImgModel> list;
+
+    private GalleryView gallery;
+
     public Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
@@ -61,16 +71,8 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.stu_content_layout, null);
 
-        GalleryView gallery = (GalleryView) view.findViewById(R.id.gallery);
-        gallery.setData(new int[]{R.drawable.blackboard_ad_img, R.drawable.blackboard_ad_img}, false);
-        gallery.setOnItemClickListaner(new MyPagerAdapter.OnMyClickListener() {
-            @Override
-            public void clickItem(int position) {
-                Intent it = new Intent(getActivity(), WebViewActivity.class);
-                it.putExtra("url", urls[position]);
-                startActivity(it);
-            }
-        });
+
+        gallery = (GalleryView) view.findViewById(R.id.gallery);
 
         ImageView mTitleLeft = (ImageView) view.findViewById(R.id.title_left);
         mTitleLeft.setOnClickListener(this);
@@ -88,6 +90,39 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
         mOnlineTextView = (TextView) view.findViewById(R.id.now_online);
 
 
+        SKAsyncApiController.getHomePageImgs(new MyAsyncHttpResponseHandler(getActivity(), true) {
+            @Override
+            public void onSuccess(String s) {
+                super.onSuccess(s);
+                boolean issuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(s);
+                if (issuccess) {
+                    list = SKResolveJsonUtil.getInstance().getHomePageImgs(s);
+                    ArrayList<String> imgs = new ArrayList<String>();
+                    for (HomeImgModel model : list) {
+                        imgs.add(model.pic);
+                    }
+                    gallery.setData(imgs);
+                    gallery.setOnItemClickListaner(new MyPagerAdapter.OnMyClickListener() {
+                        @Override
+                        public void clickItem(int position) {
+                            Intent it = new Intent(getActivity(), WebViewActivity.class);
+                            it.putExtra("url", list.get(position).url);
+                            startActivity(it);
+                        }
+                    });
+                } else {
+                    gallery.setData(new int[]{R.drawable.blackboard_ad_img, R.drawable.blackboard_ad_img}, false);
+                    gallery.setOnItemClickListaner(new MyPagerAdapter.OnMyClickListener() {
+                        @Override
+                        public void clickItem(int position) {
+                            Intent it = new Intent(getActivity(), WebViewActivity.class);
+                            it.putExtra("url", urls[position]);
+                            startActivity(it);
+                        }
+                    });
+                }
+            }
+        });
 
         return view;
     }

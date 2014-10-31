@@ -1165,4 +1165,30 @@ public class SKResolveJsonUtil {
         }
         return model;
     }
+    /**
+     * 解析首页广告信息
+     *
+     * @param json
+     * @return
+     */
+    public ArrayList<HomeImgModel> getHomePageImgs(String json) {
+        ArrayList<HomeImgModel> list = new ArrayList<HomeImgModel>();
+        try {
+            JSONObject object = new JSONObject(json);
+            JSONArray data = object.getJSONArray("data");
+            int size  = data.length();
+            for(int i=0;i<size;i++){
+                HomeImgModel model = new HomeImgModel();
+                JSONObject obj = data.getJSONObject(i);
+                model.id = obj.optString("id");
+                model.pic = obj.optString("pic");
+                model.title = obj.optString("title");
+                model.url = obj.optString("url");
+                list.add(model);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

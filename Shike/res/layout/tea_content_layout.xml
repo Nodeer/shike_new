@@ -56,7 +56,6 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="40dp"
         android:background="@drawable/tea_slide_btn1_bg"
         android:layout_marginRight="40dp"

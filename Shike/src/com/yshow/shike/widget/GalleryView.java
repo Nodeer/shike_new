@@ -174,7 +174,7 @@ public class GalleryView extends LinearLayout {
         width = display.getWidth();
         height = display.getHeight();
 
-        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.xiaoxi_moren);
+        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.blackboard_ad_img);
 
         loader = ImageLoader.getInstance();
     }
@@ -192,7 +192,7 @@ public class GalleryView extends LinearLayout {
         count = mListViews.size();
         for (int j = 0; j < count; j++) {
             ImageView imageView = new ImageView(context);
-            layoutParamsWW.setMargins(2, 15, 2, 15);
+            layoutParamsWW.setMargins(2, 5, 2, 5);
             imageView.setLayoutParams(layoutParamsWW);
             if (j == 0) {
                 imageView.setImageBitmap(currentImage);
@@ -285,6 +285,37 @@ public class GalleryView extends LinearLayout {
                     startPlay();
                 break;
         }
+
+    }
+
+    public void setData(List<String> data) {
+        int count = data.size();
+
+        if (count < 2) {
+            pageLineLayout.setVisibility(View.GONE);
+        } else {
+            pageLineLayout.setVisibility(View.VISIBLE);
+        }
+
+        removeAllViews();
+        for (int i = 0; i < count; i++) {
+            View view = LayoutInflater.from(context).inflate(R.layout.mygallery_view_item, null);
+            ImageView mImage = (ImageView) view.findViewById(R.id.mImage);
+            TextView mText = (TextView) view.findViewById(R.id.mText);
+            mText.setVisibility(View.GONE);
+            final String s = data.get(i);
+            loader.displayImage(s, mImage, options);
+            view.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View arg0) {
+                }
+            });
+
+            addView(view);
+        }
+        if (count != 1)
+            startPlay();
 
     }
 

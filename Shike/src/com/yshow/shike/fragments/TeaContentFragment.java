@@ -14,14 +14,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.yshow.shike.activities.MessageActivity;
 import com.yshow.shike.activities.WebViewActivity;
+import com.yshow.shike.entity.HomeImgModel;
 import com.yshow.shike.service.MySKService;
+import com.yshow.shike.utils.ImageLoadOption;
+import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
+import com.yshow.shike.utils.SKAsyncApiController;
+import com.yshow.shike.utils.SKResolveJsonUtil;
 import com.yshow.shike.widget.GalleryView;
 
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.yshow.shike.R;
 import com.yshow.shike.widget.MyPagerAdapter;
+
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2014-10-16.
@@ -39,6 +47,8 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
             "http://www.shikeke.com/news.php?id=6"
     };
 
+    GalleryView gallery;
+
     public Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
@@ -50,21 +60,14 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
             }
         }
     };
+    private ArrayList<HomeImgModel> list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tea_content_layout, null);
 
-        GalleryView gallery = (GalleryView) view.findViewById(R.id.gallery);
-        gallery.setData(new int[]{R.drawable.blackboard_ad_img, R.drawable.blackboard_ad_img}, false);
-        gallery.setOnItemClickListaner(new MyPagerAdapter.OnMyClickListener() {
-            @Override
-            public void clickItem(int position) {
-                Intent it = new Intent(getActivity(), WebViewActivity.class);
-                it.putExtra("url", urls[position]);
-                startActivity(it);
-            }
-        });
+
+        gallery = (GalleryView) view.findViewById(R.id.gallery);
 
         mTitleRight = (ImageView) view.findViewById(R.id.title_right);
         mTitleRight.setOnClickListener(this);
@@ -80,6 +83,43 @@ public class TeaContentFragment extends Fragment implements View.OnClickListener
         mTikuButton = (RelativeLayout) view.findViewById(R.id.tiku_btn);
         mTikuButton.setOnClickListener(this);
         mOnlineTextView = (TextView) view.findViewById(R.id.now_online);
+
+
+
+        SKAsyncApiController.getHomePageImgs(new MyAsyncHttpResponseHandler(getActivity(), true) {
+            @Override
+            public void onSuccess(String s) {
+                super.onSuccess(s);
+                boolean issuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(s);
+                if (issuccess) {
+                    list = SKResolveJsonUtil.getInstance().getHomePageImgs(s);
+                    ArrayList<String> imgs = new ArrayList<String>();
+                    for (HomeImgModel model : list) {
+                        imgs.add(model.pic);
+                    }
+                    gallery.setData(imgs);
+                    gallery.setOnItemClickListaner(new MyPagerAdapter.OnMyClickListener() {
+                        @Override
+                        public void clickItem(int position) {
+                            Intent it = new Intent(getActivity(), WebViewActivity.class);
+                            it.putExtra("url", list.get(position).url);
+                            startActivity(it);
+                        }
+                    });
+                } else {
+                    gallery.setData(new int[]{R.drawable.blackboard_ad_img, R.drawable.blackboard_ad_img}, false);
+                    gallery.setOnItemClickListaner(new MyPagerAdapter.OnMyClickListener() {
+                        @Override
+                        public void clickItem(int position) {
+                            Intent it = new Intent(getActivity(), WebViewActivity.class);
+                            it.putExtra("url", urls[position]);
+                            startActivity(it);
+                        }
+                    });
+                }
+            }
+        });
+
         return view;
     }
 

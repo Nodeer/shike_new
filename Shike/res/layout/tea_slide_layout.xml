@@ -20,6 +20,7 @@
             <ImageView
                 android:layout_width="60dp"
                 android:id="@+id/stu_headicon"
+                android:src="@drawable/tea_head_defult"
                 android:layout_height="60dp" />
 
             <LinearLayout
@@ -40,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/grade"
                     style="@style/text_14_black"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
                     android:text="授    课:小学一年级" />
 
                 <TextView
@@ -48,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/fenbi_num"
                     style="@style/text_14_black"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
                     android:text="赞美数:100" />
             </LinearLayout>
         </LinearLayout>

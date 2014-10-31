@@ -737,4 +737,8 @@ public class SKAsyncApiController {
         myPost("?m=recharge", params, handler);
     }
 
+    public static void getHomePageImgs(AsyncHttpResponseHandler handler) {
+        myGet("?m=notice_list", null, handler);
+    }
+
 }
