@@ -156,7 +156,6 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
             img.setPlayer(mediaPlayer);
             img.setIsTeacher(voice.getIsStudent().equals(0));
             img.setVoicePath(s);
-            img.setDelVisiable(true);
             voiceLayout.addView(img);
         }
     }

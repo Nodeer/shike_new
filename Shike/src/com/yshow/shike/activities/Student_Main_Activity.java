@@ -150,6 +150,7 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
                 .replace(R.id.menu_frame, new StuSlideMenuFragment()).commit();
         // customize the SlidingMenu
         sm = getSlidingMenu();
+        sm.setBackgroundResource(R.color.main_bg);
         sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         sm.setFadeEnabled(true);
         sm.setBehindScrollScale(0.5f);//位移.数字越大,水平位移越小

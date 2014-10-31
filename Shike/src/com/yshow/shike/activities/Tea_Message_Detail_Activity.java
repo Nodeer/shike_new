@@ -95,6 +95,8 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
 
     private LinearLayout mSaveTikuBtn;
 
+    private boolean hasGetQuestion = false;
+
     private boolean isNeedShowEndDialog = true;
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -412,7 +414,11 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
 
                     if (sKMessage.getMsgType().equals("1")) {// 这里表示是系统消息
                         bundle.putBoolean("isdone", true);
-                    }else{
+                    } else if (hasGetQuestion) {
+                        bundle.putBoolean("isdone", false);
+                    } else if (sKMessage.getClaim_uid().equals("0")) {
+                        bundle.putBoolean("isdone", true);
+                    } else {
                         bundle.putBoolean("isdone", sKMessage.isDone());
                     }
 
@@ -442,37 +448,6 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         });
     }
 
-    public void Thank_Teacher(final Context context) {
-        Builder builder = new Builder(context);
-        builder.setTitle("     提示");
-        builder.setMessage("确定该题已经解决了吗？");
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface arg0, int arg1) {
-                SKAsyncApiController.Topic_End(curquestionId, new MyAsyncHttpResponseHandler(context, true) {
-                    @Override
-                    public void onSuccess(String json) {
-                        super.onSuccess(json);
-                        boolean isSuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, context);
-                        if (isSuccess) {
-                            Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
-                            Toast.makeText(context, "確定結束消息", Toast.LENGTH_SHORT).show();
-                            Bundle bundle = new Bundle();
-                            bundle.putSerializable("message", sKMessage);
-                            Dialog.intent(context, AppraiseMainActivity.class, bundle);
-                            finish();
-                        } else {
-                            Toast.makeText(context, "確定結束消息失败", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
-        });
-        builder.setNegativeButton("取消", null);
-        try {
-            builder.show();
-        } catch (Exception e) {
-        }
-    }
 
     private void skSend_messge(final String questionId, String isSend) {
         Log.e("questionId", questionId);
@@ -594,6 +569,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
                     Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
                     YD.getInstence().getYD(context, PartnerConfig.TEA_YD_TOOL, true);
                     Toast.makeText(context, "接收成功", Toast.LENGTH_SHORT).show();
+                    hasGetQuestion = true;
 //                    HelpUtil.showHelp(Tea_Message_Detail_Activity.this, HelpUtil.HELP_TEA_3, null);
                 }
             }

@@ -148,7 +148,7 @@
             android:layout_height="wrap_content"
             style="@style/text_16_black"
             android:layout_gravity="center_vertical"
-            android:text="充值卡充值:" />
+            android:text="充值卡:" />
 
 
         <LinearLayout

@@ -5,8 +5,7 @@
 
     <include
         android:id="@+id/title_layout"
-        layout="@layout/title_layout"
-        />
+        layout="@layout/title_layout" />
 
 
     <com.yshow.shike.widget.MatrixImageview
@@ -15,50 +14,60 @@
         android:layout_below="@id/title_layout"
         android:layout_height="fill_parent"></com.yshow.shike.widget.MatrixImageview>
 
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/bottom_container"
         android:layout_alignParentBottom="true"
-        android:id="@+id/bottom_layout">
-
-        <Button
-            android:id="@+id/voice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/stu_slide_btn1_bg"
-            android:drawableLeft="@drawable/icon_record_press"
-            android:paddingLeft="10dp"
-            android:paddingRight="60dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:drawablePadding="60dp"
-            android:gravity="center"
-            android:text="录音"
-            android:layout_centerInParent="true"
-            android:textColor="@color/button_typeface_color"
-            android:textSize="@dimen/share_text" />
-
-    </RelativeLayout>
-
-
-    <HorizontalScrollView
-        android:layout_above="@id/bottom_layout"
-        android:layout_width="fill_parent"
-        android:id="@+id/voice_layout_container"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:id="@+id/voice_layout_container"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/voice_layout"
+                android:orientation="horizontal"></LinearLayout>
+
+        </HorizontalScrollView>
+
+        <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/voice_layout"
-            android:orientation="horizontal"></LinearLayout>
+            android:layout_alignParentBottom="true"
+            android:id="@+id/bottom_layout">
 
-    </HorizontalScrollView>
+            <Button
+                android:id="@+id/voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stu_slide_btn1_bg"
+                android:drawableLeft="@drawable/icon_record_press"
+                android:paddingLeft="10dp"
+                android:paddingRight="60dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawablePadding="60dp"
+                android:gravity="center"
+                android:text="录音"
+                android:layout_centerInParent="true"
+                android:textColor="@color/button_typeface_color"
+                android:textSize="@dimen/share_text" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
 
     <include
         android:id="@+id/voice_recordding_layout"
         layout="@layout/voice_recording_layout"
-        android:layout_above="@id/voice_layout_container"
+        android:layout_above="@id/bottom_container"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"

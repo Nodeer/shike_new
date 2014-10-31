@@ -177,6 +177,7 @@ public class PublishImageActivity extends BaseActivity implements OnClickListene
                                     img.setPlayer(mediaPlayer);
                                     img.setVoicePath(file);
                                     img.setDelVisiable(true);
+                                    img.setmVoiceImageClickListener(PublishImageActivity.this);
                                     voiceLayout.addView(img);
                                 }
                             }
@@ -184,12 +185,15 @@ public class PublishImageActivity extends BaseActivity implements OnClickListene
                     }
                     break;
                 case MotionEvent.ACTION_MOVE:
-                    if (!isRecordCancel) {
                         if (start_boolear) {
                             if (!isRecordCancel) {
                                 Rect r = new Rect();
                                 view.getLocalVisibleRect(r);
-                                boolean b = r.contains((int) (event.getX()), (int) (event.getY()));
+                                boolean b = false;
+                                if(event.getX()>0&&event.getX()<view.getWidth()&&event.getY()>0&&event.getY()<view.getHeight()){
+                                    b = true;
+                                }
+//                                boolean b = r.contains((int) (event.getX()), (int) (event.getY()));
                                 if (!b) {
                                     Toast.makeText(PublishImageActivity.this, "录音取消", Toast.LENGTH_SHORT).show();
                                     isRecordCancel = true;
@@ -199,7 +203,6 @@ public class PublishImageActivity extends BaseActivity implements OnClickListene
                                 }
                             }
                         }
-                    }
                     break;
             }
             return true;

@@ -48,6 +48,8 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
     private TextView strdent_count;
     private SKMessage extra;
 
+    private String teaUid;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +86,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
         tv_shike_fen = (TextView) findViewById(R.id.tv_jieti_count);
         item = (Star_Teacher_Parse) getIntent().getSerializableExtra("headpicture");
         if (item != null) {
+            teaUid = item.getUid();
             myteather = item.getiSmyteath();
             teacher_nick.setText(item.getNickname());
             strdent_count.setText("学生数量:" + item.getFansNum());
@@ -121,6 +124,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                 boolean atent_Success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, context);
                 if (atent_Success) {
                     User_Info my_teather = SKResolveJsonUtil.getInstance().My_teather1(json);
+                    teaUid = my_teather.getUid();
                     teacher_nick.setText(my_teather.getNickname());
                     strdent_count.setText("学生数量:" + my_teather.getFansNum());
                     tv_subject.setText("学科：" + my_teather.getSubjectid());
@@ -175,7 +179,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
 
     // 取消老师 联网操作
     private void Teather_Info_Attention() {
-        SKAsyncApiController.Attention_Taeather_Parse(item.getUid(), new MyAsyncHttpResponseHandler(this, true) {
+        SKAsyncApiController.Attention_Taeather_Parse(teaUid, new MyAsyncHttpResponseHandler(this, true) {
             public void onSuccess(int arg0, String jion) {
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(jion, context);
                 if (success) {
@@ -192,7 +196,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
 
     // 关注老师 联网操作
     private void Teather_Info_QuXiao() {
-        SKAsyncApiController.Qu_Xiao_GuanZhu(item.getUid(), new MyAsyncHttpResponseHandler(this, true) {
+        SKAsyncApiController.Qu_Xiao_GuanZhu(teaUid, new MyAsyncHttpResponseHandler(this, true) {
             public void onSuccess(String jion) {
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(jion, context);
                 if (success) {

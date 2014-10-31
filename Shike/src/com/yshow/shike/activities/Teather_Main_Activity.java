@@ -65,7 +65,7 @@ public class Teather_Main_Activity extends SlidingFragmentActivity implements On
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.teather_main_activity);
+//        setContentView(R.layout.teather_main_activity);
         context = this;
         Tea_Main_mInstance = this;
         initData();
@@ -96,6 +96,7 @@ public class Teather_Main_Activity extends SlidingFragmentActivity implements On
                 .replace(R.id.menu_frame, new TeaSlideMenuFragment()).commit();
         // customize the SlidingMenu
         sm = getSlidingMenu();
+        sm.setBackgroundResource(R.color.main_bg);
         sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         sm.setFadeEnabled(true);
         sm.setBehindScrollScale(0.5f);//位移.数字越大,水平位移越小
