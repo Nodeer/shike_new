@@ -93,6 +93,7 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
         mediaPlayer = new MediaPlayerUtil();
         mediaRecorderUtil = new MediaRecorderUtil(this);
         InitData();
+        mediaRecorderUtil.setVoiceLevelImg((ImageView) findViewById(R.id.voice_level_img));
     }
 
     private void InitData() {
@@ -117,7 +118,7 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
             titleText.setText("录音");
             mBottomLayout.setVisibility(View.VISIBLE);
             mMessageRes = (SkMessage_Res) bundle.getSerializable("res");
-            addVoiceLayout();
+//            addVoiceLayout();
             isDone = bundle.getBoolean("isdone");
             if (isDone) {
                 mBottomLayout.setVisibility(View.GONE);
@@ -191,14 +192,14 @@ public class ImageActivity extends BaseActivity implements OnClickListener {
                                 Toast.makeText(ImageActivity.this, "说话时间太短", Toast.LENGTH_SHORT).show();
                             } else {
                                 final String file = mediaRecorderUtil.getFilePath();
-                                StuTapeImage img = new StuTapeImage(ImageActivity.this);
-                                LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                                pa.leftMargin = 20;
-                                img.setLayoutParams(pa);
-                                img.setIsTeacher(isTeacher);
-                                img.setPlayer(mediaPlayer);
-                                img.setVoicePath(file);
-                                voiceLayout.addView(img);
+//                                StuTapeImage img = new StuTapeImage(ImageActivity.this);
+//                                LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//                                pa.leftMargin = 20;
+//                                img.setLayoutParams(pa);
+//                                img.setIsTeacher(isTeacher);
+//                                img.setPlayer(mediaPlayer);
+//                                img.setVoicePath(file);
+//                                voiceLayout.addView(img);
                                 skUploadMp3(mMessageRes.getQuestionId(), mMessageRes.getId(), file, mMessageRes.getVoice().size() + 1 + "");
                             }
                         }

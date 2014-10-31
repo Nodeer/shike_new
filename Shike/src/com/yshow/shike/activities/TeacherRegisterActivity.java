@@ -48,9 +48,7 @@ public class TeacherRegisterActivity extends BaseActivity implements
         }
     };
 
-    private CheckBox extra_code_checkbox;
     private EditText extra_code;
-    private boolean isUseExtraCode = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,13 +72,6 @@ public class TeacherRegisterActivity extends BaseActivity implements
         findViewById(R.id.next_btn).setOnClickListener(this);
         findViewById(R.id.left_btn).setOnClickListener(this);
 
-        extra_code_checkbox = (CheckBox) findViewById(R.id.extra_code_checkbox);
-        extra_code_checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                isUseExtraCode = isChecked;
-            }
-        });
         extra_code = (EditText) findViewById(R.id.extra_code);
 
         tv_send_pas = (TextView) findViewById(R.id.tv_pasword);
@@ -100,9 +91,7 @@ public class TeacherRegisterActivity extends BaseActivity implements
                     skStudent.setMob(login_teacher_phone.getText().toString().trim());
                     skStudent.setVcodeRes(et_verification_code.getText().toString().trim());
                     skStudent.setTypes("1");
-                    if(isUseExtraCode){
-                        skStudent.reference = extra_code.getText().toString();
-                    }
+                    skStudent.reference = extra_code.getText().toString();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("teather", skStudent);
                     Dialog.intent(this, TeacherRegisterUploadPapersActivity.class, bundle);

@@ -14,6 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -84,6 +85,8 @@ public class PublishImageActivity extends BaseActivity implements OnClickListene
 
     private ArrayList<String> voiceList = new ArrayList<String>();
 
+    private ImageView voiceLevelImg;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +97,7 @@ public class PublishImageActivity extends BaseActivity implements OnClickListene
         mediaPlayer = new MediaPlayerUtil();
         mediaRecorderUtil = new MediaRecorderUtil(this);
         InitData();
+        mediaRecorderUtil.setVoiceLevelImg(voiceLevelImg);
     }
 
     private void InitData() {
@@ -104,6 +108,7 @@ public class PublishImageActivity extends BaseActivity implements OnClickListene
         voiceLayout = (LinearLayout) findViewById(R.id.voice_layout);
         back_time = (TextView) findViewById(R.id.record_remain_text);
         large_img = (MatrixImageview) findViewById(R.id.large_img);
+        voiceLevelImg = (ImageView) findViewById(R.id.voice_level_img);
 
         TextView titleText = (TextView) findViewById(R.id.title_text);
         findViewById(R.id.left_btn).setOnClickListener(this);
@@ -144,7 +149,6 @@ public class PublishImageActivity extends BaseActivity implements OnClickListene
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     downtime = System.currentTimeMillis();
-                    mediaRecorderUtil = new MediaRecorderUtil(PublishImageActivity.this);
                     start_boolear = mediaRecorderUtil.startRecorder();
                     isRecordCancel = false;
                     if (start_boolear) {

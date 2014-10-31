@@ -13,7 +13,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -42,7 +41,7 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
     private Button mRecordButton;// 录音键
     private ImageView iv_board_picture; // 被画图片
     private Bitmap bitmap;
-    private MediaRecorder mr;
+    private MediaRecorder mediaRecorder;
     private int Count = 0;
     public static ArrayList<String> urllist;
     private View voiceRecorddingLayout;
@@ -60,7 +59,7 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
                 case 1:
                     recordTimeRemainText.setText("录音剩余时间：" + recLen);
                     if (recLen < 0) {
-                        mr.release();
+                        mediaRecorder.release();
                         timer.cancel();
                         task.cancel();
                         recordTimeRemainText.setText("录音剩余时间：" + 0);
@@ -73,6 +72,8 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
     private boolean isRecordCancel = false;
 
     private LinearLayout mVoiceLayout;
+
+    ImageView mVoiceLevelImg;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,6 +90,8 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
         findViewById(R.id.next_btn).setOnClickListener(this);
         findViewById(R.id.big_img_btn).setOnClickListener(this);
         mVoiceLayout = (LinearLayout) findViewById(R.id.voice_layout);
+
+        mVoiceLevelImg = (ImageView) findViewById(R.id.voice_level_img);
         voiceRecorddingLayout = findViewById(R.id.voice_recordding_layout);
         voiceRecorddingLayout.setVisibility(View.GONE);
         recordTimeRemainText = (TextView) findViewById(R.id.record_remain_text);
@@ -114,6 +117,7 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
                             xianzaitime = System.currentTimeMillis();
                             isRecordCancel = false;
                             REC();
+                            mHandler.post(mUpdateMicStatusTimer);
                         } else {
                             Toast.makeText(Activity_Stu_Add_Voice.this, "最多只能发3条语音", Toast.LENGTH_SHORT).show();
                         }
@@ -133,7 +137,8 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
                                     Count++;
                                 }
                                 voiceRecorddingLayout.setVisibility(View.GONE);
-                                mr.release();
+                                mHandler.removeCallbacks(mUpdateMicStatusTimer);
+                                mediaRecorder.release();
                             }
                         }
                         break;
@@ -148,7 +153,9 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
                                 timer.cancel();
                                 task.cancel();
                                 voiceRecorddingLayout.setVisibility(View.GONE);
-                                mr.release();
+                                mHandler.removeCallbacks(mUpdateMicStatusTimer);
+                                mediaRecorder.release();
+
                             }
                         }
                         break;
@@ -177,15 +184,15 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
 
         url = Environment.getExternalStorageDirectory() + File.separator + "shike" + File.separator + "record" + File.separator + new DateFormat().format("yyyyMMdd_HHmmss", Calendar.getInstance(Locale.CHINA)) + ".amr";
         file = new File(url);
-        mr = new MediaRecorder();
-        mr.setAudioSource(MediaRecorder.AudioSource.DEFAULT);// 从麦克风源进行录音
-        mr.setOutputFormat(MediaRecorder.OutputFormat.RAW_AMR);// 设置输出格式
-        mr.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);// 设置编码格式
-        mr.setOutputFile(file.getAbsolutePath());// 设置输出文件
+        mediaRecorder = new MediaRecorder();
+        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);// 从麦克风源进行录音
+        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.RAW_AMR);// 设置输出格式
+        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);// 设置编码格式
+        mediaRecorder.setOutputFile(file.getAbsolutePath());// 设置输出文件
         try {
             file.createNewFile();// 创建文件
-            mr.prepare();// 准备录制
-            mr.start();
+            mediaRecorder.prepare();// 准备录制
+            mediaRecorder.start();
         } catch (IllegalStateException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -290,4 +297,27 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
         urllist.remove(img.getVoicePath());
         Count--;
     }
+
+
+    private final Handler mHandler = new Handler();
+    private Runnable mUpdateMicStatusTimer = new Runnable() {
+        public void run() {
+            updateMicStatus();
+        }
+    };
+    private int BASE = 600;
+    private int SPACE = 200;// 间隔取样时间
+
+    private void updateMicStatus() {
+        int ratio = mediaRecorder.getMaxAmplitude() / BASE;
+        int db = 0;// 分贝
+        if (ratio > 1) {
+            db = (int) (20 * Math.log10(ratio));
+        }
+        System.out.println("分贝值：" + db + "     " + Math.log10(ratio));
+        mVoiceLevelImg.setImageLevel(db);
+        mHandler.postDelayed(mUpdateMicStatusTimer, SPACE);
+    }
+
+
 }

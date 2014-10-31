@@ -52,9 +52,7 @@ public class StudentRegisterActivity extends BaseActivity implements
         }
     };
 
-    private CheckBox extra_code_checkbox;
     private EditText extra_code;
-    private boolean isUseExtraCode = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,13 +72,6 @@ public class StudentRegisterActivity extends BaseActivity implements
         findViewById(R.id.next_btn).setOnClickListener(this);
         login_name_edit = (EditText) findViewById(R.id.login_name_edit);
         login_pwd_edit = (EditText) findViewById(R.id.login_pwd_edit);
-        extra_code_checkbox = (CheckBox) findViewById(R.id.extra_code_checkbox);
-        extra_code_checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                isUseExtraCode = isChecked;
-            }
-        });
         extra_code = (EditText) findViewById(R.id.extra_code);
         sendVcode = (TextView) findViewById(R.id.tv_pasword);
         sendVcode.setOnClickListener(this);
@@ -114,9 +105,7 @@ public class StudentRegisterActivity extends BaseActivity implements
                     skStudent.setMob(login_name_edit.getText().toString().trim());
                     skStudent.setVcodeRes(login_pwd_edit.getText().toString().trim());
                     skStudent.setTypes("0");
-                    if(isUseExtraCode){
-                        skStudent.reference = extra_code.getText().toString();
-                    }
+                    skStudent.reference = extra_code.getText().toString();
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("student", skStudent);
                     Dialog.intent(this, StudentRegisterUserinfoActivity.class, bundle);

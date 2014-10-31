@@ -174,6 +174,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         query_voidce = databaseDao.Query();
         initData();
         mediaRecorderUtil = new MediaRecorderUtil(this);
+        mediaRecorderUtil.setVoiceLevelImg((ImageView) findViewById(R.id.voice_level_img));
         MySKService.handler = handler;
         if (!sKMessage.getMsgType().equals("1")) {//如果此题还没有进入交互状态
             Teather_Decide();
@@ -272,7 +273,6 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     downtime = System.currentTimeMillis();
-                    mediaRecorderUtil = new MediaRecorderUtil(Tea_Message_Detail_Activity.this);
                     start_boolear = mediaRecorderUtil.startRecorder();
                     isRecordCancel = false;
                     if (start_boolear) {

@@ -10,7 +10,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/voice_recording_img" />
+        android:id="@+id/voice_level_img"
+        android:src="@drawable/voice_level_img" />
 
     <TextView
         android:layout_width="wrap_content"

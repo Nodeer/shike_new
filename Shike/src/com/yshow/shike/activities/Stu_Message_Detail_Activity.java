@@ -154,6 +154,7 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
         mediaPlayer = new MediaPlayerUtil();
         iniData();
         mediaRecorderUtil = new MediaRecorderUtil(this);
+        mediaRecorderUtil.setVoiceLevelImg((ImageView) findViewById(R.id.voice_level_img));
         MySKService.handler = handler;
     }
 
@@ -262,7 +263,6 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     downtime = System.currentTimeMillis();
-                    mediaRecorderUtil = new MediaRecorderUtil(Stu_Message_Detail_Activity.this);
                     start_boolear = mediaRecorderUtil.startRecorder();
                     isRecordCancel = false;
                     if (start_boolear) {

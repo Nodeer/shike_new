@@ -77,20 +77,10 @@
             android:padding="1dp"
             android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/extra_code_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:paddingTop="5dp"
-                android:singleLine="true"
-                android:paddingBottom="5dp"
-                android:paddingLeft="5dp" />
-
             <EditText
                 android:id="@+id/extra_code"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginLeft="10dp"
                 android:background="@drawable/white_btn_nor"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"

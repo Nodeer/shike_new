@@ -233,6 +233,7 @@
                             android:drawablePadding="5dp"
                             android:gravity="center"
                             android:text="男"
+                            android:button="@drawable/checkbox_bg"
                             style="@style/text_16_gray"
                             android:padding="5dp" />
 
@@ -244,6 +245,7 @@
                             android:drawablePadding="5dp"
                             android:gravity="center"
                             android:text="女"
+                            android:button="@drawable/checkbox_bg"
                             android:padding="5dp"
                             style="@style/text_16_gray" />
                     </RadioGroup>

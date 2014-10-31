@@ -26,7 +26,7 @@ public class WebViewActivity extends BaseActivity {
         });
 
 
-        WebView webView = (WebView) findViewById(R.id.webView);
+        WebView webView = (WebView) findViewById(R.id.webview);
         String url = getIntent().getStringExtra("url");
         webView.setWebViewClient(new WebViewClient() {
             @Override
