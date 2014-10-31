@@ -934,6 +934,7 @@ public class SKResolveJsonUtil {
             JSONObject jsonObject = object.getJSONObject("data");
             student_Info = new Student_Info();
             student_Info.setNickname(jsonObject.optString("nickname"));
+            student_Info.areaid = jsonObject.optString("aId");
             student_Info.setName(jsonObject.optString("name"));
             student_Info.setGrade(jsonObject.optString("grade"));
             student_Info.setGradeName(jsonObject.optString("gradeName"));

@@ -11,6 +11,7 @@ public class Student_Info {
    String grade;
    String questions;
    public String area;
+    public String areaid;
 
 @Override
 public String toString() {

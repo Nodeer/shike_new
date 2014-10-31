@@ -6,15 +6,19 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.yshow.shike.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.yshow.shike.entity.SKArea;
 import com.yshow.shike.entity.SKMessage;
 import com.yshow.shike.entity.Star_Teacher_Parse;
 import com.yshow.shike.entity.Student_Info;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
+
+import java.util.ArrayList;
 
 /**
  * 老师点击列表头像进入学生主页
@@ -91,7 +95,6 @@ public class ActicityStudentInfo extends BaseActivity {
                     tv_stu_day.setText("学龄段：" + student_Info.getGrade() + "" + student_Info.getGradeName());
                     tv_stu_ti_wen.setText("提问次数：" + student_Info.getQuestions());
                     ziwojieshao.setText(student_Info.getInfo());
-                    diqu.setText("所在地区："+student_Info.area);
                     Init_Picture(student_Info.getIcon(), tudent_picture);
                 }
             }
@@ -114,5 +117,29 @@ public class ActicityStudentInfo extends BaseActivity {
                 .build();
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.displayImage(url, imageView, options);
+    }
+
+    /**
+     * 获取所有的地区
+     */
+    private void skGetArea() {
+        SKAsyncApiController.skGetArea(new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(String arg0) {
+                super.onSuccess(arg0);
+                ArrayList<SKArea> resolveArea = SKResolveJsonUtil.getInstance().resolveArea(arg0);
+                for (int i = 0; i < resolveArea.size(); i++) {
+                    SKArea skArea = resolveArea.get(i);
+                    try {
+                        String area = student_Info.areaid;
+                        if (skArea.getId().equals(area)) {
+                            diqu.setText("所在地区：" + skArea.getName());
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 }
