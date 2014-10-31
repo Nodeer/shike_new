@@ -44,23 +44,12 @@ import java.io.File;
 /**
  * 学生登录后的主页,有我要提问,消息,我的老师,找老师4个tab
  */
-public class Student_Main_Activity extends SlidingFragmentActivity implements Callback {
-    private FragmentManager manager;
+public class Student_Main_Activity extends SlidingFragmentActivity {
     private FragmentTransaction ft;
-    private View undline, bac_huise;
-    private int mea_view;
     private int startX = 0;
     private Context context;
-    private SKStudent student; // 获取登录的对象
-    private RelativeLayout in_wo_de_shi_ke;
     private boolean isUnfold = false;
-    private android.app.Dialog dialog;
-    private TextView tv_mess, tv_my_tea, tv_find_tea, tv_ques, tv_delete;// 学生端 提问 消息 我的老师 找老师 切换按钮 消息刪除按鈕 退出按钮
-    private ImageView mess_num;
     public static Student_Main_Activity mInstance;
-    private android.widget.RelativeLayout.LayoutParams layoutParams;
-    private View view_button;
-    private WeixinManager weixinManager;
 
     private String localVersion = "";
     private Fragment mContent;
@@ -74,43 +63,14 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
     @Override
     public void onCreate(Bundle saveInsanceState) {
         super.onCreate(saveInsanceState);
-//		setContentView(R.layout.student_main_activity);
+        if (LoginManage.getInstance().getStudent() == null) {
+            startActivity(new Intent(this, StartingUp.class));
+            finish();
+            return;
+        }
+
         mInstance = this;
         context = this;
-//		RelativeLayout stu_main_page = (RelativeLayout) findViewById(R.id.stu_main_page);
-//		weixinManager = new WeixinManager(Student_Main_Activity.this);
-//		dialog = new Dilog_Share().Dilog_Anim(context, listener);
-//		tv_ques = (TextView) findViewById(R.id.tv_stu_ques);
-//		tv_find_tea = (TextView) findViewById(R.id.tv_find_tea);
-//		tv_mess = (TextView) findViewById(R.id.tv_mess);
-//		mess_num = (ImageView) findViewById(R.id.mess_num);
-//		tv_my_tea = (TextView) findViewById(R.id.tv_my_tea);
-//		view_button = findViewById(R.id.view_button);
-//		tv_ques.setOnClickListener(listener);
-//		tv_find_tea.setOnClickListener(listener);
-//		tv_my_tea.setOnClickListener(listener);
-//		tv_mess.setOnClickListener(listener);
-//		undline = findViewById(R.id.stu_move_undline);
-//		bac_huise = findViewById(R.id.stu_bac_huise);
-//		tv_back = (TextView) findViewById(R.id.tv_stumain_back);
-//		tv_back.setOnClickListener(listener);
-//		findViewById(R.id.three_point).setOnClickListener(listener);
-//		findViewById(R.id.tv_information).setOnClickListener(listener);
-//		findViewById(R.id.tv_recharge).setOnClickListener(listener);
-//		findViewById(R.id.tv_account_information).setOnClickListener(listener);
-//		findViewById(R.id.tv_share_student).setOnClickListener(listener);
-//		findViewById(R.id.tv_my_shike).setOnClickListener(listener);
-//		findViewById(R.id.tv_stu_chongz).setOnClickListener(listener);
-//		in_wo_de_shi_ke = (RelativeLayout) findViewById(R.id.in_wo_de_shi_ke);
-//		tv_delete = (TextView) findViewById(R.id.tv_delete);
-//		tv_delete.setOnClickListener(listener);
-//		student = LoginManage.getInstance().getStudent();
-//		if (student.getMob() != null) {
-//			tv_back.setText("退出");
-//			tv_back.setTextColor(context.getResources().getColor(R.color.button_typeface_color));
-//		} else {
-//		}
-//		Init_Anim();
         SKAsyncApiController.Sof_Info(new MyAsyncHttpResponseHandler(context, true) {
             @Override
             public void onSuccess(String json) {
@@ -129,10 +89,9 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
             e.printStackTrace();
         }
         localVersion = packInfo.versionName;
-//        TextView versiontext = (TextView) findViewById(R.id.version);
-//        versiontext.setText("版本号: V" + localVersion);
 
         initSlide();
+
 
     }
 
@@ -150,7 +109,7 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
                 .replace(R.id.menu_frame, new StuSlideMenuFragment()).commit();
         // customize the SlidingMenu
         sm = getSlidingMenu();
-        sm.setBackgroundResource(R.color.main_bg);
+        sm.setBackgroundResource(R.drawable.slide_up_bg);
         sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         sm.setFadeEnabled(true);
         sm.setBehindScrollScale(0.5f);//位移.数字越大,水平位移越小
@@ -212,112 +171,6 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
         Toast.makeText(Student_Main_Activity.this, "开始下载新版本", Toast.LENGTH_SHORT).show();
     }
 
-    private OnClickListener listener = new OnClickListener() {
-        @Override
-        public void onClick(View arg0) {
-            ft = manager.beginTransaction();
-            switch (arg0.getId()) {
-                case R.id.tv_stu_ques:// 我要提问tab
-                    hideBottomLayout();
-                    tv_delete.setVisibility(View.GONE);
-                    view_button.setVisibility(View.GONE);
-                    tv_my_tea.setTextColor(getResources().getColor(R.color.sk_student_main_color));
-                    tv_find_tea.setTextColor(getResources().getColor(R.color.sk_student_main_color));
-                    tv_ques.setTextColor(getResources().getColor(R.color.reg));
-                    tv_mess.setTextColor(getResources().getColor(R.color.sk_student_main_color));
-                    ft.replace(R.id.content, new Stu_madequestionFragment());
-                    StartTransAnim(startX, 0, undline);
-                    StartTransAnim(startX, 0, bac_huise);
-                    startX = 0;
-                    break;
-                // 我的时刻
-                case R.id.tv_my_shike:
-                    Dialog.Intent(context, Activity_MyShiKe.class);
-                    break;
-                case R.id.tv_mess:// 消息tab
-                    hideBottomLayout();
-                    tv_delete.setVisibility(View.VISIBLE);
-                    tv_my_tea.setTextColor(getResources().getColor(R.color.sk_student_main_color));
-                    tv_find_tea.setTextColor(getResources().getColor(R.color.sk_student_main_color));
-                    tv_ques.setTextColor(getResources().getColor(R.color.sk_student_main_color));
-                    tv_mess.setTextColor(getResources().getColor(R.color.reg));
-                    ft.replace(R.id.content, Fragment_Message.getInstance());
-                    StartTransAnim(startX, 1, undline);
-                    StartTransAnim(startX, 1, bac_huise);
-                    view_button.setVisibility(View.VISIBLE);
-                    startX = 1;
-                    break;
-                // 充值
-                case R.id.tv_stu_chongz:
-                    if (student.getMob() != null) {
-                        Dialog.Intent(context, Activity_Recharge.class);
-                    } else {
-                        Dialog.finsh_Reg_Dialog(context);
-                    }
-                    break;
-                case R.id.three_point:
-                    Animation animation = new Animation(Student_Main_Activity.this, in_wo_de_shi_ke, -235, 235);
-                    animation.initData(isUnfold);
-                    isUnfold = !isUnfold;
-                    break;
-                // 关于师课
-                case R.id.tv_recharge:
-                    Dialog.Intent(context, Fragment_Student_GuanYu.class);
-                    break;
-                // 账户信息
-                case R.id.tv_account_information:
-                    if (student.getMob() != null) {
-                        Dialog.Intent(context, Activity_Student_Account_Message.class);
-                    } else {
-                        Dialog.finsh_Reg_Dialog(context);
-                    }
-                    break;
-                // 完成注册按钮/退出
-                case R.id.tv_stumain_back:
-                    if (student.getMob() != null) {// 如果是注册用户,就是退出按钮
-                        Exit_Login.getInLogin().Back_Login(context);
-                    } else {
-                        Dialog.Intent(context, StudentRegisterActivity.class);
-                    }
-                    break;
-                // 发送删除信息的消息
-                case R.id.tv_delete:
-                    Fragment_Message.handler.sendEmptyMessage(5168);
-                    break;
-                // Dialog 里面微信分享的按钮
-                case R.id.share_dialog_weixin:
-                    dialog.dismiss();
-                    weixinManager.shareWeixin();
-                    break;
-                // Dialog 里面短信分享的按钮
-                case R.id.share_dialog_message:
-                    ShareDialog.sendSMS(context, PartnerConfig.CONTEBT);
-                    break;
-                // Dialog 里面e_mail分享的按钮
-                case R.id.share_dialog_email:
-                    dialog.dismiss();
-                    ShareDialog.openCLD(PartnerConfig.CONTEBT, context);
-                    break;
-                case R.id.share_weixin_friend:
-                    dialog.dismiss();
-                    weixinManager.shareWeixinCircle();
-                    break;
-                // Dialog 里面取消分享的按钮
-                case R.id.share_dialog_cancle:
-                    dialog.dismiss();
-                    break;
-            }
-            ft.commit();
-        }
-    };
-
-    // 开始执行动画的位移
-    private void StartTransAnim(float fromXDelta, float toXDelta, View view) {
-        TranslateAnimation anim = new TranslateAnimation(fromXDelta * mea_view, toXDelta * mea_view, 0, 0);
-        anim.setDuration(500);
-        anim.setFillAfter(true);
-        view.startAnimation(anim);
-    }
 
     /**
      * 分发按键事件, 按下键盘上返回按钮
@@ -331,31 +184,6 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
         return super.onKeyDown(keyCode, event);
     }
 
-    /**
-     * 从题版发完消息后跳转到消息页面
-     */
-    @Override
-    public void back(String str) {
-        FragmentTransaction beginTransaction = manager.beginTransaction();
-        beginTransaction.replace(R.id.content, Fragment_Message.getInstance());
-        beginTransaction.commitAllowingStateLoss();
-        StartTransAnim(startX, 1, undline);
-        StartTransAnim(startX, 1, bac_huise);
-    }
-
-    // @Override
-    // protected void onResume() {
-    // super.onResume();
-    // student = LoginManage.getInstance().getStudent();
-    // if(student.getMob() != null){
-    // tv_back.setText("退出");
-    // tv_back.setTextColor(context.getResources().getColor(R.color.button_typeface_color));
-    // }
-    // }
-
-    public void changeMessNum(boolean isShow) {
-        mess_num.setVisibility(isShow ? View.VISIBLE : View.GONE);
-    }
 
     @Override
     public void onResume() {
@@ -370,16 +198,5 @@ public class Student_Main_Activity extends SlidingFragmentActivity implements Ca
     public void onPause() {
         super.onPause();
         MobclickAgent.onPause(this);
-    }
-
-    /**
-     * 收起底部的layout
-     */
-    public void hideBottomLayout() {
-        if (isUnfold) {
-            Animation animation = new Animation(Student_Main_Activity.this, in_wo_de_shi_ke, -235, 235);
-            animation.initData(isUnfold);
-            isUnfold = !isUnfold;
-        }
     }
 }

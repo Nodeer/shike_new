@@ -87,7 +87,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
                 if (atent_Success) {
                     User_Info info = SKResolveJsonUtil.getInstance().My_teather1(json);
                     mGrade.setText("学    龄:" + info.getGrade() + info.getGradeName());
-                    mImageLoader.displayImage(info.getPicurl(), mHeadIcon,mOption);
+                    mImageLoader.displayImage(info.getPicurl(), mHeadIcon, mOption);
                 }
             }
         });
@@ -124,11 +124,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
                 Dialog.Intent(getActivity(), Fragment_Student_GuanYu.class);
                 break;
             case R.id.exit_btn:
-                if (student.getMob() != null) {// 如果是注册用户,就是退出按钮
-                    Exit_Login.getInLogin().Back_Login(getActivity());
-                } else {
-                    Dialog.Intent(getActivity(), StudentRegisterActivity.class);
-                }
+                Exit_Login.getInLogin().Back_Login(getActivity());
                 break;
             // Dialog 里面微信分享的按钮
             case R.id.share_dialog_weixin:

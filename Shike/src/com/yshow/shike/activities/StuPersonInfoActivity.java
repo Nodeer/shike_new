@@ -43,6 +43,7 @@ import com.yshow.shike.utils.GradeSeltorUtil;
 import com.yshow.shike.utils.GradeSeltorUtil.SystemDialogButtonOnclickListening;
 import com.yshow.shike.utils.Grade_Level_Utils;
 import com.yshow.shike.utils.Grade_Level_Utils.GradeSeltorUtilButtonOnclickListening;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.SKAsyncApiController;
@@ -86,6 +87,7 @@ public class StuPersonInfoActivity extends BaseActivity {
         String uid = stu_info.getUid();
         setContentView(R.layout.stu_person_info_layout);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
         Stu_initData();
         Set_stu_Base_Info();
         update_info(uid);

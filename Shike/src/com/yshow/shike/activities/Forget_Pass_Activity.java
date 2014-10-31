@@ -144,7 +144,7 @@ public class Forget_Pass_Activity extends BaseActivity implements OnClickListene
                 super.onSuccess(json);
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json);
                 if (success) {
-                    Toast.makeText(context, "请稍候", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "验证码已发送", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -160,7 +160,7 @@ public class Forget_Pass_Activity extends BaseActivity implements OnClickListene
             public void onSuccess(String json) {
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, context);
                 if (success) {
-                    Toast.makeText(context, "我们将用短信的方式通知你", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "您的新密码于短信形式发给您.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

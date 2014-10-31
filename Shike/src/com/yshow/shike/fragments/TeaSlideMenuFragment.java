@@ -16,7 +16,8 @@ import com.yshow.shike.R;
 import com.yshow.shike.activities.Activity_Teacher_zhanghu;
 import com.yshow.shike.activities.TeaPersonInfoActivity;
 import com.yshow.shike.activities.MessageActivity;
-import com.yshow.shike.activities.Tea_chg_Mon_Acy;
+import com.yshow.shike.activities.TeacherExchangeMainActivity;
+import com.yshow.shike.activities.TeacherExchangeMoneyActivity;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKStudent;
 import com.yshow.shike.entity.User_Info;
@@ -104,7 +105,7 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
                 startActivity(it);
                 break;
             case R.id.exchange_btn:
-                it = new Intent(getActivity(), Tea_chg_Mon_Acy.class);
+                it = new Intent(getActivity(), TeacherExchangeMainActivity.class);
                 startActivity(it);
                 break;
             case R.id.account_btn:

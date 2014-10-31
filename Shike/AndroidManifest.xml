@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yshow.shike"
-    android:versionCode="4"
-    android:versionName="1.3">
+    android:versionCode="5"
+    android:versionName="2.0">
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -119,10 +119,10 @@
             android:name="com.yshow.shike.activities.Activity_Data_SubJect"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.yshow.shike.activities.Tea_chg_Mon_Acy"
+            android:name=".activities.TeacherExchangeMoneyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.yshow.shike.activities.Tea_chg_Comm_Act"
+            android:name=".activities.TeacherExchangeGodsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.Activity_Teather_Ti_Ku_seleck"
@@ -269,6 +269,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.PaiZhaoHelpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yshow.shike.activities.TeacherExchangeMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.yshow.shike.activities.TeacherBankEditActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.Tea_Message_Detail_Activity"

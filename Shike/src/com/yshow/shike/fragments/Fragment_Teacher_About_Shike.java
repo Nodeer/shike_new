@@ -2,6 +2,8 @@ package com.yshow.shike.fragments;
 
 import java.util.ArrayList;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
 
 import com.yshow.shike.R;
@@ -29,9 +31,6 @@ import android.widget.Toast;
 public class Fragment_Teacher_About_Shike extends Activity {
     private Soft_Info softInfo;
     private Context context;
-    private EditText tv_wenti_fankui_shuru;
-    private TextView ev_premiere;
-    private TextView ev_faq_huida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +51,18 @@ public class Fragment_Teacher_About_Shike extends Activity {
         findViewById(R.id.wenti_fankui_btn).setOnClickListener(listener);
         findViewById(R.id.left_btn).setOnClickListener(listener);
 
-//        findViewById(R.id.tv_wenti_send).setOnClickListener(listener);
-//        findViewById(R.id.tv_seek_all).setOnClickListener(listener);
-//        findViewById(R.id.tv_faq_seek_all).setOnClickListener(listener);
-//        findViewById(R.id.tv_onclick_seek_all).setOnClickListener(listener);
-//        findViewById(R.id.tv_tea_back).setOnClickListener(listener);
-//        tv_wenti_fankui_shuru = (EditText) findViewById(R.id.tv_wenti_fankui_shuru);
-//        ev_premiere = (TextView) findViewById(R.id.ev_premiere);
-//        ev_faq_huida = (TextView) findViewById(R.id.ev_faq_huida);
+
+        PackageManager packageManager = getPackageManager();
+        // getPackageName()是你当前类的包名，0代表是获取版本信息
+        PackageInfo packInfo = null;
+        try {
+            packInfo = packageManager.getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String localVersion = packInfo.versionName;
+        TextView versiontext = (TextView) findViewById(R.id.ver_name);
+        versiontext.setText("当前版本: V" + localVersion);
     }
 
     private OnClickListener listener = new OnClickListener() {
@@ -87,12 +90,6 @@ public class Fragment_Teacher_About_Shike extends Activity {
                     intent.putExtra("title", "FAQ问答");
                     startActivity(intent);
                     break;
-//                case R.id.tv_onclick_seek_all:
-//                    Intent teatentent = new Intent(context, WebActivity.class);
-//                    String teaurl = "http://www.shikeke.com/";
-//                    teatentent.putExtra("url", teaurl);
-//                    startActivity(teatentent);
-//                    break;
                 case R.id.left_btn:
                     finish();
                     break;

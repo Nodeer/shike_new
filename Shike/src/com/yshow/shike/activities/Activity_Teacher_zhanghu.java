@@ -1,24 +1,15 @@
 package com.yshow.shike.activities;
 
-import com.umeng.analytics.MobclickAgent;
 import com.yshow.shike.R;
-import com.yshow.shike.fragments.Fragment_Account_Prepraid;
-import com.yshow.shike.fragments.Fragment_Teacher_Zhanghu_Kaihu;
 import com.yshow.shike.fragments.Fragment_Teacher_Zhanghu_Shouru;
 import com.yshow.shike.fragments.Fragment_Teacher_Zhanghu_duihuan;
-import com.yshow.shike.utils.ScreenSizeUtil;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.TranslateAnimation;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.LinearLayout.LayoutParams;
 
 /**
  * 老师设置账户信息

@@ -40,33 +40,29 @@ import java.io.File;
 /**
  * 老师主页面
  */
-public class Teather_Main_Activity extends SlidingFragmentActivity implements OnClickListener {
-    private int mea_view; // 长度测量
-    private View undline, bac_topic; // 需要测量的红线 和字体的背景颜色
-    private FragmentManager manager; // Fragment管理器
+public class Teather_Main_Activity extends SlidingFragmentActivity {
     private FragmentTransaction ft; // Fragment 转化活动
     private int startX = 0; // 当前一道第几个位置
     private Context context; // 上下文
-    private RelativeLayout ic_tea_buttom;// 底部隱藏部分
     private Boolean isUnfold = false;// 底部动画转换标记
     private android.app.Dialog dialog; // 分享功能的dialo动画
-    private TextView tv_mess_del; // 消息删除
-    private TextView my_stu, tea_topic, tea_mess;// 我的学生 题库 消息 标题按钮
     public static Teather_Main_Activity Tea_Main_mInstance;
-    private WeixinManager weixinManager;
-    private ImageView mess_num;
 
     private String localVersion = "";
     private TeaContentFragment mContent;
     private SlidingMenu sm;
 
-    // private ImageView TEA_YD,TEA_TOOL_YD;
-    // private View tea_main_view_bac,tea_tool_view_white;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.teather_main_activity);
         context = this;
+
+        if (LoginManage.getInstance().getStudent() == null) {
+            startActivity(new Intent(this, StartingUp.class));
+            finish();
+            return;
+        }
+
         Tea_Main_mInstance = this;
         initData();
         SKAsyncApiController.Sof_Info(new MyAsyncHttpResponseHandler(context, true) {
@@ -87,7 +83,7 @@ public class Teather_Main_Activity extends SlidingFragmentActivity implements On
         setBehindContentView(R.layout.menu_frame);
         getSlidingMenu().setSlidingEnabled(true);
         getSlidingMenu()
-                .setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+                .setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
         mContent = new TeaContentFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.content_frame, mContent).commit();
@@ -96,11 +92,11 @@ public class Teather_Main_Activity extends SlidingFragmentActivity implements On
                 .replace(R.id.menu_frame, new TeaSlideMenuFragment()).commit();
         // customize the SlidingMenu
         sm = getSlidingMenu();
-        sm.setBackgroundResource(R.color.main_bg);
+        sm.setBackgroundResource(R.drawable.slide_up_bg);
         sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         sm.setFadeEnabled(true);
         sm.setBehindScrollScale(0.5f);//位移.数字越大,水平位移越小
-        sm.setFadeDegree(0.5f);//透明度变化.数字越大,透明度变化越明显
+        sm.setFadeDegree(0.0f);//透明度变化.数字越大,透明度变化越明显
         sm.setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
             @Override
             public void transformCanvas(Canvas canvas, float percentOpen) {
@@ -158,40 +154,6 @@ public class Teather_Main_Activity extends SlidingFragmentActivity implements On
 
     // 各个控件初始化
     private void initData() {
-//        dialog = new Dilog_Share().Dilog_Anim(context, this);
-//        weixinManager = new WeixinManager(Teather_Main_Activity.this);
-//        tea_mess = (TextView) findViewById(R.id.tv_tea_mess);
-//        mess_num = (ImageView) findViewById(R.id.mess_num);
-//        my_stu = (TextView) findViewById(R.id.tv_my_stu);
-//        tea_topic = (TextView) findViewById(R.id.tv_tea_topic);
-//        tea_mess.setOnClickListener(this);
-//        my_stu.setOnClickListener(this);
-//        tea_topic.setOnClickListener(this);
-//        findViewById(R.id.tea_wire).setOnClickListener(this);
-//        findViewById(R.id.tv_exchg_sp).setOnClickListener(this);
-//        findViewById(R.id.tv_my_shike).setOnClickListener(this);
-//        findViewById(R.id.tv_tea_shar).setOnClickListener(this);
-//        findViewById(R.id.tv_tea_main_back).setOnClickListener(this);
-//        findViewById(R.id.tv_exchg_mon).setOnClickListener(this);
-//        findViewById(R.id.tv_tea_info).setOnClickListener(this);
-//        findViewById(R.id.tv_tea_count).setOnClickListener(this);
-//        findViewById(R.id.tv_tea_about).setOnClickListener(this);
-//        tv_mess_del = (TextView) findViewById(R.id.tv_mess_del);
-//        tv_mess_del.setOnClickListener(this);
-//        undline = findViewById(R.id.tea_move_undline);
-//        bac_topic = findViewById(R.id.tea_bac_huise);
-//        ic_tea_buttom = (RelativeLayout) findViewById(R.id.ic_tea_buttom);
-//        // 初始化红线的长度
-//        mea_view = ScreenSizeUtil.getScreenWidth(context, 3);
-//        LayoutParams params = new LinearLayout.LayoutParams(mea_view, 3);
-//        int view_hig = ScreenSizeUtil.Dp2Px(context, 45);
-//        android.widget.RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(mea_view, view_hig);
-//        bac_topic.setLayoutParams(layoutParams);
-//        undline.setLayoutParams(params);
-//        manager = getSupportFragmentManager();
-//        ft = manager.beginTransaction();
-//        ft.replace(R.id.tea_mid_cot, Fragment_Message.getInstance());
-//        ft.commit();
         startService(new Intent(this, MySKService.class));
 
         PackageManager packageManager = getPackageManager();
@@ -205,139 +167,11 @@ public class Teather_Main_Activity extends SlidingFragmentActivity implements On
         localVersion = packInfo.versionName;
     }
 
-//    @Override
-//    public void onWindowFocusChanged(boolean hasFocus) {
-//        super.onWindowFocusChanged(hasFocus);
-//        if (hasFocus) {
-//            if (startX == 0) {
-//                HelpUtil.showHelp(this, HelpUtil.HELP_TEA_1, null);
-//            }
-//        }
-//    }
+//            case R.id.tv_my_stu:
+//                ft.replace(R.id.tea_mid_cot, new Fragment_Teacher_Writing_Topic());
+//                startX = 2;
+//                break;
 
-    // 控件的点击事件
-    @Override
-    public void onClick(View v) {
-        ft = manager.beginTransaction();
-        switch (v.getId()) {
-            // case R.id.tea_main_view_bac:
-            // TEA_YD.setVisibility(View.GONE);
-            // tea_main_view_bac.setVisibility(View.GONE);
-            // tea_tool_view_white.setVisibility(View.GONE);
-            // break;
-            // case R.id.tea_yd_tool1:
-            // TEA_TOOL_YD.setVisibility(View.GONE);
-            // tea_main_view_bac.setVisibility(View.GONE);
-            // tea_tool_view_white.setVisibility(View.GONE);
-            // break;
-            // 老师端 消息页面 控件
-            case R.id.tv_tea_topic:
-                hideBottomLayout();
-                tea_mess.setTextColor(getResources().getColor(R.color.log));
-                my_stu.setTextColor(getResources().getColor(R.color.log));
-                tea_topic.setTextColor(getResources().getColor(R.color.reg));
-                tv_mess_del.setVisibility(View.VISIBLE);
-                StartTransAnim(startX, 0, undline);
-                StartTransAnim(startX, 0, bac_topic);
-                ft.replace(R.id.tea_mid_cot, Fragment_Message.getInstance());
-                startX = 0;
-                break;
-            // 老师端 我的学生页面 控件
-            case R.id.tv_tea_mess:
-                hideBottomLayout();
-                tea_mess.setTextColor(getResources().getColor(R.color.reg));
-                my_stu.setTextColor(getResources().getColor(R.color.log));
-                tea_topic.setTextColor(getResources().getColor(R.color.log));
-                tv_mess_del.setVisibility(View.GONE);
-                StartTransAnim(startX, 1, undline);
-                StartTransAnim(startX, 1, bac_topic);
-                ft.replace(R.id.tea_mid_cot, new Fragment_Teacher_My_Student());
-                startX = 1;
-                break;
-            // 制作题目tab
-            case R.id.tv_my_stu:
-                hideBottomLayout();
-                // YD.getInstence().setTea_YD_Tool(this,context, PartnerConfig.TEA_TOOL,TEA_TOOL_YD,TEA_YD);
-                tea_mess.setTextColor(getResources().getColor(R.color.log));
-                my_stu.setTextColor(getResources().getColor(R.color.reg));
-                tea_topic.setTextColor(getResources().getColor(R.color.log));
-                tv_mess_del.setVisibility(View.GONE);
-                StartTransAnim(startX, 2, undline);
-                StartTransAnim(startX, 2, bac_topic);
-                ft.replace(R.id.tea_mid_cot, new Fragment_Teacher_Writing_Topic());
-                startX = 2;
-                break;
-            case R.id.tea_wire:
-                Animation animation = new Animation(context, ic_tea_buttom, -258, 258);
-                animation.initData(isUnfold);
-                isUnfold = !isUnfold;
-                break;
-            // 我的师课
-            case R.id.tv_my_shike:
-                Dialog.Intent(context, Activity_Teather_ShiKe.class);
-                break;
-            // 删除消息
-            case R.id.tv_mess_del:
-                Fragment_Message.handler.sendEmptyMessage(5168);
-                break;
-            // 兑换现金
-            case R.id.tv_exchg_mon:
-                Dialog.Intent(this, Tea_chg_Mon_Acy.class);
-                break;
-            // 兑换商品
-            case R.id.tv_exchg_sp:
-                Dialog.Intent(this, Tea_chg_Comm_Act.class);
-                break;
-            // 个人信息
-            case R.id.tv_tea_info:
-                Dialog.Intent(context, TeaPersonInfoActivity.class);
-                break;
-            // 账户信息
-            case R.id.tv_tea_count:
-                Dialog.Intent(context, Activity_Teacher_zhanghu.class);
-                break;
-            // 分享同学
-            case R.id.tv_tea_shar:
-                dialog.show();
-                break;
-            // 关于师课
-            case R.id.tv_tea_about:
-                Dialog.Intent(context, Fragment_Teacher_About_Shike.class);
-                break;
-            // 退出键
-            case R.id.tv_tea_main_back:
-                Exit_Login.getInLogin().Back_Login(context);
-                break;
-            case R.id.share_dialog_weixin:
-                dialog.dismiss();
-                weixinManager.shareWeixin();
-                break;
-            case R.id.share_weixin_friend:
-                dialog.dismiss();
-                weixinManager.shareWeixinCircle();
-                break;
-            case R.id.share_dialog_message:
-                ShareDialog.sendSMS(context, PartnerConfig.CONTEBT);
-                dialog.dismiss();
-                break;
-            case R.id.share_dialog_email:
-                dialog.dismiss();
-                ShareDialog.openCLD(PartnerConfig.CONTEBT, this);
-                break;
-            case R.id.share_dialog_cancle:
-                dialog.dismiss();
-                break;
-        }
-        ft.commit();
-    }
-
-    // 开始执行动画的位移
-    private void StartTransAnim(float fromXDelta, float toXDelta, View view) {
-        TranslateAnimation anim = new TranslateAnimation(fromXDelta * mea_view, toXDelta * mea_view, 0, 0);
-        anim.setDuration(500);
-        anim.setFillAfter(true);
-        view.startAnimation(anim);
-    }
 
     /**
      * 分发按键事件, 按下键盘上返回按钮
@@ -351,9 +185,6 @@ public class Teather_Main_Activity extends SlidingFragmentActivity implements On
         return super.onKeyDown(keyCode, event);
     }
 
-    public void changeMessNum(boolean isShow) {
-        mess_num.setVisibility(isShow ? View.VISIBLE : View.GONE);
-    }
 
     @Override
     public void onResume() {
@@ -370,14 +201,4 @@ public class Teather_Main_Activity extends SlidingFragmentActivity implements On
         MobclickAgent.onPause(this);
     }
 
-    /**
-     * 收起底部的layout
-     */
-    public void hideBottomLayout() {
-        if (isUnfold) {
-            Animation animation = new Animation(context, ic_tea_buttom, -258, 258);
-            animation.initData(isUnfold);
-            isUnfold = !isUnfold;
-        }
-    }
 }

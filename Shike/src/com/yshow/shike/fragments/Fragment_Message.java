@@ -116,24 +116,12 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
                 if (isSuccess) {
                     resolveMessage = SKResolveJsonUtil.getInstance().resolveMessage(json);
                     skMessageAdapter = new SKMessageAdapter(context, resolveMessage);
-                    hideMessNum();
                     mListview.setAdapter(skMessageAdapter);
                     page++;
                 }
             }
 
         });
-    }
-
-    private static void hideMessNum() {
-        Activity activity = instance.getActivity();
-        if (activity != null) {
-            if (activity instanceof Student_Main_Activity) {
-                ((Student_Main_Activity) activity).changeMessNum(false);
-            } else if (activity instanceof Teather_Main_Activity) {
-                ((Teather_Main_Activity) activity).changeMessNum(false);
-            }
-        }
     }
 
     private void getModeSKMessage() {

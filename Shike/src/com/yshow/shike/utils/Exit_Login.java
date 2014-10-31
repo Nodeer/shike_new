@@ -30,6 +30,9 @@ public class Exit_Login {
      * 用户退出
      */
     public void Back_Login(final Context context) {
+        final ProgressDialogUtil util = new ProgressDialogUtil(context, "正在退出");
+        util.show();
+
         SKAsyncApiController.Back_Login(new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(String json) {
@@ -45,7 +48,10 @@ public class Exit_Login {
                     Intent it = new Intent(context, Login_Reg_Activity.class);
                     context.startActivity(it);
                     ((Activity) context).finish();
+                } else {
+                    Toast.makeText(context, "退出失败，请检查您的网络！", Toast.LENGTH_SHORT).show();
                 }
+                util.dismiss();
             }
         });
     }

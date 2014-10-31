@@ -196,6 +196,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         curquestionId = sKMessage.getQuestionId();
         claim_uid = sKMessage.getClaim_uid();
         mSaveTikuBtn = (LinearLayout) findViewById(R.id.save_ques_layout);
+        mSaveTikuBtn.setOnClickListener(this);
         ll_volume_control = findViewById(R.id.voice_recordding_layout);
         ll_volume_control.setVisibility(View.GONE);
         teaDecideLayout = (LinearLayout) findViewById(R.id.tea_decide_layout);
@@ -255,6 +256,9 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
                 intent.putExtra("questionId", curquestionId);
                 startActivityForResult(intent, 1);
                 // finish();
+                break;
+            case R.id.save_ques_layout:// 存入题库
+                Toast.makeText(this, "即将推出", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -521,7 +525,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
 
     // 没接收过该题，显示返回，接收，放弃
     private void Teather_Decide() {
-        if (claim_uid.equals("0")&&!hasGetQuestion) {
+        if (claim_uid.equals("0") && !hasGetQuestion) {
             // 没接收过该题，显示返回，接收，放弃 claim_uid=0
             bottomLayout.setVisibility(View.GONE);
             teaDecideLayout.setVisibility(View.VISIBLE);

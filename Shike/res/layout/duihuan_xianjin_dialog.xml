@@ -3,34 +3,38 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:background="@color/bottom_widow_color" >
+    android:background="@color/main_bg">
+
     <TextView
         android:id="@+id/duihuan_xianjin_dialog_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16dp"
         android:text="您还未设置银行账户信息,是否去设置?"
-        android:textColor="@color/button_typeface_color"
-        android:layout_centerHorizontal="true"/>
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true" />
+
     <LinearLayout
         android:id="@+id/duihuan_xianjin_dialog_linear"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/duihuan_xianjin_dialog_text"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/bt_jifen_set"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10dp"
-            android:text="设置"/>
-         <Button
+            android:text="设置" />
+
+        <Button
             android:id="@+id/bt_jifen_cen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10dp"
-            android:text="取消"/>
-        </LinearLayout>
+            android:text="取消" />
+    </LinearLayout>
 </RelativeLayout>

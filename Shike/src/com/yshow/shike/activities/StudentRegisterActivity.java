@@ -134,17 +134,13 @@ public class StudentRegisterActivity extends BaseActivity implements
     private void sendVcode(final String mob) {
         SKAsyncApiController.skGetVcode(mob, new MyAsyncHttpResponseHandler(
                 this, false) {
-            @Override
-            public void onFailure(Throwable arg0, String arg1) {
-                super.onFailure(arg0, arg1);
-                Toast.makeText(mInsetance, "请检查你的网络", 0).show();
-            }
 
             @Override
             public void onSuccess(String json) {
                 super.onSuccess(json);
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, StudentRegisterActivity.this);
                 if (success) {
+                    Toast.makeText(StudentRegisterActivity.this, "验证码已发送", Toast.LENGTH_SHORT).show();
                     skStudent = new SKStudent();
                     skStudent.setMob(mob);
                     skStudent.setVcodeRes(login_pwd_edit.getText().toString().trim());

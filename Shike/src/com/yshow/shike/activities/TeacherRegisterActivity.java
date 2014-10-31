@@ -117,7 +117,10 @@ public class TeacherRegisterActivity extends BaseActivity implements
             @Override
             public void onSuccess(String json) {
                 super.onSuccess(json);
-                SKResolveJsonUtil.getInstance().resolveIsSuccess(json, context);
+                boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, TeacherRegisterActivity.this);
+                if (success) {
+                    Toast.makeText(TeacherRegisterActivity.this, "验证码已发送", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

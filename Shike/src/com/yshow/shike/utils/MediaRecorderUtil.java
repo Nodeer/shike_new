@@ -74,7 +74,9 @@ public class MediaRecorderUtil {
                     // 创建文件
                     file.createNewFile();
                     // 准备录制
+                    System.out.println("jfdlsjfljdaslfjlasjdf");
                     mediaRecorder.prepare();
+                    System.out.println("666666666666666666");
                     mediaRecorder.start();
                     mHandler.post(mUpdateMicStatusTimer);
                     return boolear;

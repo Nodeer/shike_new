@@ -128,7 +128,7 @@ public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
 
         LoginManage instance = LoginManage.getInstance();
         Intent intent = new Intent();
-        if (instance == null) {
+        if (instance.getStudent() == null) {
             intent.setClass(context.getApplicationContext(), StartingUp.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.getApplicationContext().startActivity(intent);

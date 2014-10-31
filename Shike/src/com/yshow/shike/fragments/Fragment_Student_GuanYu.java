@@ -2,6 +2,8 @@ package com.yshow.shike.fragments;
 
 import java.util.ArrayList;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.widget.EditText;
 
 import com.yshow.shike.R;
@@ -49,16 +51,20 @@ public class Fragment_Student_GuanYu extends Activity {
         findViewById(R.id.wenti_fankui_btn).setOnClickListener(listener);
         findViewById(R.id.left_btn).setOnClickListener(listener);
 
+
+        PackageManager packageManager = getPackageManager();
+        // getPackageName()是你当前类的包名，0代表是获取版本信息
+        PackageInfo packInfo = null;
+        try {
+            packInfo = packageManager.getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String localVersion = packInfo.versionName;
+        TextView versiontext = (TextView) findViewById(R.id.ver_name);
+        versiontext.setText("当前版本: V" + localVersion);
+
         Sofy_Info();
-//		fankui = (EditText) findViewById(R.id.tv_wenti_fankui_shuru);
-//		tv_wenti_send = (TextView) findViewById(R.id.tv_wenti_send);
-//		ev_premiere = (TextView) findViewById(R.id.ev_premiere);
-//		ev_faq_huida = (TextView) findViewById(R.id.ev_faq_huida);
-//		tv_wenti_send.setOnClickListener(listener);
-//		findViewById(R.id.tv_seek_all).setOnClickListener(listener);
-//		findViewById(R.id.tv_faq_seek_all).setOnClickListener(listener);
-//		findViewById(R.id.tv_onclick_seek_all).setOnClickListener(listener);
-//		findViewById(R.id.tv_sk_back).setOnClickListener(listener);
     }
 
     private OnClickListener listener = new OnClickListener() {

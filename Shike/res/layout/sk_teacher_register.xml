@@ -82,10 +82,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@drawable/white_btn_nor"
-                android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:hint="请输入您的手机号码或识别码"
-                android:gravity="center"
+                android:padding="5dp"
+                android:numeric="integer"
+                android:hint="请输入推荐人手机号（可不填）"
+                android:gravity="left|center_vertical"
                 style="@style/text_16_gray"></EditText>
         </LinearLayout>
     </LinearLayout>

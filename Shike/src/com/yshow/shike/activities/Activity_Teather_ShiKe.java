@@ -77,11 +77,11 @@ public class Activity_Teather_ShiKe extends Activity implements OnClickListener{
 		switch (v.getId()) {
 		//兑换奖品
 		case R.id.tv_tea_prize:
-			Dialog.Intent(this,Tea_chg_Comm_Act.class);
+			Dialog.Intent(this,TeacherExchangeGodsActivity.class);
 		break;
 		//兑换现金
 		case R.id.tv_tea_cash:
-			Dialog.Intent(this,Tea_chg_Mon_Acy.class);
+			Dialog.Intent(this,TeacherExchangeMoneyActivity.class);
 		    break;
 		// 设置按钮
 		case R.id.tv_tea_seting:

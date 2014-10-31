@@ -172,7 +172,7 @@
                 android:paddingLeft="5dp"
                 android:numeric="integer"
                 android:gravity="center_vertical"
-                android:hint="请输入充值卡号" />
+                android:hint="请输入充值卡密码" />
 
             <TextView
                 android:id="@+id/card_charge_btn"

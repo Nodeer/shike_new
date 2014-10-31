@@ -182,7 +182,7 @@ public class Send_Message {
 	 * 回到消息主页面
 	 */
 	public void Back_Main_Page() {
-        final AlertDialog dia = Dialog.showSimpleDialog(context,"题目已发送,老师正在接题,\n请稍后......");
+        final AlertDialog dia = Dialog.showSimpleDialog(context,"题目已发送,老师正在接题,\n请稍候......");
         Timer timeer = new Timer();
         TimerTask task = new TimerTask() {
             @Override

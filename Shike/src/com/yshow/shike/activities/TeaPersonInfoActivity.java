@@ -479,7 +479,7 @@ public class TeaPersonInfoActivity extends BaseActivity {
                             tea_sunject.setText(info.getGrade());
                         }
                     }
-                    if (!TextUtils.isEmpty(info.paper)) {
+                    if (!TextUtils.isEmpty(info.paper)&&!info.paper.equals("0")) {
                         tea_upload.setText("已上传");
                     }
                 }
