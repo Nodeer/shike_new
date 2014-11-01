@@ -52,8 +52,16 @@ public class StartingUp extends BaseActivity {
                 finish();
             }
         } else {//用户上次使用的立即提问
-            Dialog.Intent(StartingUp.this, Login_Reg_Activity.class);
-            finish();
+            boolean hasShowSlide = SharePreferenceUtil.getInstance().getBoolean("need_slide");
+            if(hasShowSlide){
+                Dialog.Intent(StartingUp.this, Login_Reg_Activity.class);
+                finish();
+            }else{
+                Dialog.Intent(StartingUp.this, StartHelpActivity.class);
+                finish();
+            }
+
+
         }
 
     }

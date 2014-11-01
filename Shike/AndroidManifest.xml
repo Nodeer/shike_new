@@ -277,6 +277,9 @@
             android:name="com.yshow.shike.activities.TeacherBankEditActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.yshow.shike.activities.StartHelpActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.yshow.shike.activities.Tea_Message_Detail_Activity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
