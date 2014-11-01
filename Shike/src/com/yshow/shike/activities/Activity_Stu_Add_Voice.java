@@ -228,11 +228,6 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
         }
     }
 
-    private void View_Hide(View view1, View view2) {
-        view1.setVisibility(View.GONE);
-        view2.setVisibility(View.GONE);
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

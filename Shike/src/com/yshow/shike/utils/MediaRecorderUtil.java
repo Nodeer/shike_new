@@ -24,13 +24,13 @@ public class MediaRecorderUtil {
 
     public MediaRecorderUtil(Context context) {
         this.context = context;
-        mediaRecorder = new MediaRecorder();
-        // 从麦克风源进行录音
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        // 设置输出格式
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
-        // 设置编码格式
-        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
+//        mediaRecorder = new MediaRecorder();
+//        // 从麦克风源进行录音
+//        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+//        // 设置输出格式
+//        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
+//        // 设置编码格式
+//        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
         // 设置输出文件
         mHandler = new Handler(context.getMainLooper());
     }
@@ -70,6 +70,13 @@ public class MediaRecorderUtil {
                     new DateFormat();
                     filePath = Environment.getExternalStorageDirectory() + File.separator + "shike" + File.separator + "record" + File.separator + DateFormat.format("yyyyMMdd_HHmmss", Calendar.getInstance(Locale.CHINA)) + ".amr";
                     File file = new File(filePath);
+                    mediaRecorder = new MediaRecorder();
+                    // 从麦克风源进行录音
+                    mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                    // 设置输出格式
+                    mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
+                    // 设置编码格式
+                    mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
                     mediaRecorder.setOutputFile(file.getAbsolutePath());
                     // 创建文件
                     file.createNewFile();
