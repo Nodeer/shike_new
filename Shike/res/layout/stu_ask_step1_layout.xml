@@ -125,6 +125,7 @@
         android:drawableLeft="@drawable/wenhao_small_icon"
         android:text="拍照注意事项"
         android:gravity="center"
+        android:layout_marginTop="10dp"
         style="@style/text_18_gray"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

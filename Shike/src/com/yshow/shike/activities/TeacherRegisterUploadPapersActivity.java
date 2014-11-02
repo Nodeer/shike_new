@@ -9,10 +9,12 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -31,6 +33,8 @@ import com.yshow.shike.utils.Dilog_Share;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
+import com.yshow.shike.utils.ScreenSizeUtil;
+import com.yshow.shike.utils.Take_Phon_album;
 
 public class TeacherRegisterUploadPapersActivity extends BaseActivity {
     private SKStudent sKStudent;
@@ -107,11 +111,14 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
 
     // 从相机拿数据
     private void Take_Pickture() {
-        File cameraFile = new File(Environment.getExternalStorageDirectory().getPath(), "camera.jpg");
-        Uri outputUri = Uri.fromFile(cameraFile);
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
-        startActivityForResult(intent, 1);
+        Take_Phon_album intence = Take_Phon_album.getIntence();
+        intence.startImageCapture(this, 10001);
+//
+//        File cameraFile = new File(Environment.getExternalStorageDirectory().getPath(), "camera.jpg");
+//        Uri outputUri = Uri.fromFile(cameraFile);
+//        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+//        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
+//        startActivityForResult(intent, 1);
     }
 
     // 相册拍照
@@ -138,15 +145,23 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
             Uri originalUri; // 获得图片的uri
             switch (requestCode) {
                 // 相机
-                case 1:
-                    originalUri = data.getData();
-                    try {
-                        bitmap = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-                        uploadButton.setImageBitmap(bitmap);
-//                        Reg_Imag(context, bitmap, phon_name);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                case 10001:
+                    File cameraFile = new File(Environment.getExternalStorageDirectory().getPath(), "camera.jpg");
+                    if (cameraFile.exists()) {
+                        BitmapFactory.Options op = new BitmapFactory.Options();
+                        op.inJustDecodeBounds = true;
+                        BitmapFactory.decodeFile(cameraFile.getAbsolutePath(), op);
+                        int op_h = op.outHeight - 1;//防止图片分辨率和屏幕分辨率一样的情况下被缩小
+                        int op_w = op.outWidth - 1;
+                        int screenWidth = ScreenSizeUtil.getScreenWidth(this, 1);
+                        op.inSampleSize = op_w / screenWidth;
+                        op.inSampleSize++;
+                        op.inJustDecodeBounds = false;
+                        op.inDensity = DisplayMetrics.DENSITY_DEFAULT;
+                        op.inTargetDensity = DisplayMetrics.DENSITY_DEFAULT;
+                        bitmap = BitmapFactory.decodeFile(cameraFile.getAbsolutePath(), op);
                     }
+                    uploadButton.setImageBitmap(bitmap);
                     break;
                 // 相册
                 case 2:

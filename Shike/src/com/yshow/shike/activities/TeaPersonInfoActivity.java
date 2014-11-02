@@ -6,6 +6,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import android.content.ContentResolver;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -40,6 +41,7 @@ import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
 import com.yshow.shike.utils.AreaSeltorUtil.AreaSeltorUtilButtonOnclickListening;
+import com.yshow.shike.utils.ScreenSizeUtil;
 import com.yshow.shike.utils.Take_Phon_album;
 
 import android.app.Activity;
@@ -48,6 +50,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -287,13 +290,10 @@ public class TeaPersonInfoActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (data == null) {
-            return;
-        }
-        Bundle bundle = data.getExtras();
         String time_make = System.currentTimeMillis() + "";
         switch (requestCode) {
             case SETTO_IMAGEVIEW:
+                Bundle bundle = data.getExtras();
                 if (resultCode == RESULT_OK) {
                     if (bundle != null) {
                         Bitmap bitmap = (Bitmap) bundle.getParcelable("data");
@@ -318,15 +318,26 @@ public class TeaPersonInfoActivity extends BaseActivity {
             case TAKE_PHONE:
                 if (resultCode == RESULT_OK) {
                     if (isHeadImg) {
-                        Take_Phon_album.getIntence().startPhotoZoom(TeaPersonInfoActivity.this, data.getData(), SETTO_IMAGEVIEW);
+                        File cameraFile = new File(Environment.getExternalStorageDirectory().getPath(), "camera.jpg");
+                        if (cameraFile.exists()) {
+                            Take_Phon_album.getIntence().startPhotoZoom(TeaPersonInfoActivity.this, Uri.fromFile(cameraFile), SETTO_IMAGEVIEW);
+                        }
                     } else {
-                        ContentResolver resolver = getContentResolver();
-                        Uri originalUri = data.getData();        //获得图片的uri
-                        try {
-                            Bitmap bm = MediaStore.Images.Media.getBitmap(resolver, originalUri);
-                            seting_image(time_make, bm);
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        File cameraFile = new File(Environment.getExternalStorageDirectory().getPath(), "camera.jpg");
+                        if (cameraFile.exists()) {
+                            BitmapFactory.Options op = new BitmapFactory.Options();
+                            op.inJustDecodeBounds = true;
+                            BitmapFactory.decodeFile(cameraFile.getAbsolutePath(), op);
+                            int op_h = op.outHeight - 1;//防止图片分辨率和屏幕分辨率一样的情况下被缩小
+                            int op_w = op.outWidth - 1;
+                            int screenWidth = ScreenSizeUtil.getScreenWidth(this, 1);
+                            op.inSampleSize = op_w / screenWidth;
+                            op.inSampleSize++;
+                            op.inJustDecodeBounds = false;
+                            op.inDensity = DisplayMetrics.DENSITY_DEFAULT;
+                            op.inTargetDensity = DisplayMetrics.DENSITY_DEFAULT;
+                            Bitmap bitmap = BitmapFactory.decodeFile(cameraFile.getAbsolutePath(), op);
+                            seting_image(time_make, bitmap);
                         }
                     }
                 }
