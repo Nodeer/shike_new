@@ -5,7 +5,45 @@
     android:orientation="vertical"
     android:background="@color/main_bg">
 
-    <include layout="@layout/title_layout" />
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/left_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/icon_back" />
+
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_weight="2"
+            android:text="添加备注"
+            style="@style/text_20_333333"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next_btn"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:text="提问"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@style/text_16_white"
+            android:background="@drawable/stu_slide_btn2_bg" />
+
+
+    </RelativeLayout>
 
     <View style="@style/list_cell_divider" />
 

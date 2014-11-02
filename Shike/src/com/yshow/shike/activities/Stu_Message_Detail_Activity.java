@@ -4,6 +4,7 @@ import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,6 +26,8 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.yshow.shike.R;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKMessage;
@@ -35,6 +38,7 @@ import com.yshow.shike.fragments.Fragment_Message;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.DateUtils;
 import com.yshow.shike.utils.Dialog;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MediaPlayerUtil;
 import com.yshow.shike.utils.MediaRecorderUtil;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
@@ -212,7 +216,7 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
 //        pointion = bundle.getInt("pointion");
         pointion = 0;
         reslist = sKMessage.getRes();
-        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.back);
+        options = ImageLoadOption.getBigImageOption(R.drawable.xiaoxi_moren);
         imageLoader = ImageLoader.getInstance();
         myAdapter = new MyAdapter(reslist);
         viewPager.setOnPageChangeListener(this);
@@ -393,7 +397,7 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
             final SkMessage_Res skMessage_Res = reslist.get(position);
             final String files = skMessage_Res.getFile_tub();
             View view = View.inflate(Stu_Message_Detail_Activity.this, R.layout.img_page_item, null);
-            ImageView iv_picture = (ImageView) view.findViewById(R.id.iv_picture);
+            final ImageView iv_picture = (ImageView) view.findViewById(R.id.iv_picture);
             iv_picture.setTag(files);
 
             OnClickListener lister = new OnClickListener() {

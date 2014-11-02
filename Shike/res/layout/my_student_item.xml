@@ -2,40 +2,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
+
     <LinearLayout
         android:layout_margin="10dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/iv_teather_picture"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginRight="5dp"/>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:background="@color/gray"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/pd_tp_bm" >
-        <TextView
-            android:id="@+id/tv_stu_nic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="我是老师暱稱"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/user_text" />
-        <TextView
-            android:id="@+id/tv_stu_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:layout_marginLeft="2dp"
-            android:textColor="#FFFFFF"
-            android:textSize="14dp"/>
-     </LinearLayout>
-   </LinearLayout>
+            android:layout_marginRight="5dp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/pd_tp_bm">
+
+            <TextView
+                android:id="@+id/tv_stu_nic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/text_14_333333" />
+
+            <TextView
+                android:id="@+id/tv_stu_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:ellipsize="end"
+                style="@style/text_14_333333" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

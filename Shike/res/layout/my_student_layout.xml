@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical"
+    android:background="@color/main_bg"
+    tools:context=".StudentActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/tv_tool_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/icon_back" />
+
+
+        <TextView
+            android:id="@+id/action_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的学生"
+            android:layout_centerInParent="true"
+            style="@style/text_20_black"
+            android:gravity="center" />
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:listSelector="@color/white"
+        android:dividerHeight="1px"
+        android:divider="@color/ui_bg_divider"
+        android:scrollbars="none" />
+</LinearLayout>

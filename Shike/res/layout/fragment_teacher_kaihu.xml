@@ -24,6 +24,12 @@
             android:layout_marginTop="10dp">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                style="@style/text_16_red" />
+
+            <TextView
                 android:id="@+id/kaihuName"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
@@ -53,6 +59,12 @@
             android:layout_marginTop="10dp">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                style="@style/text_16_red" />
+
+            <TextView
                 android:id="@+id/kaihubangbank"
                 android:text="银行:"
                 android:layout_width="80dp"
@@ -77,7 +89,7 @@
                     style="@style/text_16_333333" />
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="40dp"
                     android:layout_height="fill_parent"
                     android:src="@drawable/pulldown1"
                     android:scaleType="centerInside"
@@ -98,8 +110,14 @@
             android:layout_marginTop="10dp">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                style="@style/text_16_red" />
+
+            <TextView
                 android:id="@+id/kaihubank"
-                android:text="开户行:"
+                android:text="开户支行:"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -125,6 +143,12 @@
             android:layout_marginRight="10dp"
             android:gravity="center_vertical"
             android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                style="@style/text_16_red" />
 
             <TextView
                 android:id="@+id/kaihukahao"

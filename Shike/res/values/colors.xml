@@ -2,11 +2,9 @@
 <resources>
     <color name="transparent">#00000000</color>
     <color name="top_title_color">#185B9B</color>
-    <color name="bg_dark">#66000000</color>
     <color name="reg_bg_dark">#cc000000</color>
 
     <color name="sk_student_main_color">#34CD2E</color>
-    <color name="stu_main_color_lucency">#CC34CD2E</color>
     <color name="main_bg">#fff5f5f5</color>
     <color name="boart_three_color">#EE2C2C</color>
     <color name="button_teather_typeface_color">#1874CD</color>
@@ -18,18 +16,13 @@
     <color name="tea_add_remark_lucency">#CC3A5FCD</color>
     <color name="et_file_name">#1C86EE</color>
     <color name="reg">#DC143C</color>
-    <color name="log">#1874CD</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="text_gray">#999999</color>
     <color name="gray">#999999</color>
     <color name="btn_stroke_gray">#cccccc</color>
-    <color name="blue">#5da9ff</color>
     <color name="green1">#6ea822</color>
     <color name="tr_80">#cc000000</color>
-    <color name="qian_lan">#1874CD</color>
-    <color name="YD_BAC">#8f000000</color>
-    <color name="reg_color">#fff600</color>
     <color name="reg_finsh">#21acfd</color>
     <color name="ui_bg_divider">#c1c9ca</color>
 

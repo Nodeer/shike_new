@@ -338,8 +338,8 @@ public class Activity_My_Board extends Activity implements OnClickListener {
 //		bundle.putParcelable("bitmap", bitmap);
         if (!LoginManage.getInstance().isTeacher(this)) {//是学生
             bundle.putStringArrayList("urllist", urllist);
-            Activity_Select_Tea.saveBitmap = bitmap;
-            Dialog.intent(this, Activity_Select_Tea.class, bundle);
+            ActivitySelectTeacher.saveBitmap = bitmap;
+            Dialog.intent(this, ActivitySelectTeacher.class, bundle);
         } else {//如果是老师...显然就是拍照制作题目,下一个页面应该是给题目设置标题和选择文件夹
             Dialog.intent(this, Activity_Que_board2.class, bundle);
             finish();

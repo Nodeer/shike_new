@@ -62,6 +62,7 @@ public class TeacherExchangeMainActivity extends BaseActivity implements View.On
                 Dialog.Intent(this, TeacherExchangeMoneyActivity.class);
                 break;
             case R.id.bank_account:
+                Dialog.Intent(this, TeacherBankEditActivity.class);
                 break;
             case R.id.left_btn:
                 finish();

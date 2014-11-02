@@ -106,7 +106,7 @@ public class ActicityStudentInfo extends BaseActivity {
         tv_stu_nick.setText("用户名 :" + stu_Info.getNickname());
         tv_stu_name.setText("姓    名:" + stu_Info.getName());
         tv_stu_day.setText("学龄段 :" + stu_Info.getGrade() + "" + stu_Info.getGradeName());
-        tv_stu_ti_wen.setText("提问数据:" + stu_Info.getQuestions());
+        tv_stu_ti_wen.setText("提问次数：" + stu_Info.getQuestions());
         Init_Picture(stu_Info.getIcon(), tudent_picture);
     }
 

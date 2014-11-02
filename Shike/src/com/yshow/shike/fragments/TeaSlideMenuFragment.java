@@ -18,6 +18,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
 import com.yshow.shike.activities.Activity_Teacher_zhanghu;
+import com.yshow.shike.activities.MyStudentActivity;
 import com.yshow.shike.activities.TeaPersonInfoActivity;
 import com.yshow.shike.activities.MessageActivity;
 import com.yshow.shike.activities.TeacherExchangeMainActivity;
@@ -61,7 +62,7 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tea_slide_layout, null);
-        RelativeLayout btn1 = (RelativeLayout) view.findViewById(R.id.get_timu_btn);
+        RelativeLayout btn1 = (RelativeLayout) view.findViewById(R.id.my_stu_btn);
         btn1.setOnClickListener(this);
         RelativeLayout btn2 = (RelativeLayout) view.findViewById(R.id.exchange_btn);
         btn2.setOnClickListener(this);
@@ -129,8 +130,8 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         Intent it;
         switch (v.getId()) {
-            case R.id.get_timu_btn:
-                it = new Intent(getActivity(), MessageActivity.class);
+            case R.id.my_stu_btn:
+                it = new Intent(getActivity(), MyStudentActivity.class);
                 startActivity(it);
                 break;
             case R.id.exchange_btn:

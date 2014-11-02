@@ -110,7 +110,7 @@ public class Net_Servse {
 	 */
 	public DisplayImageOptions Picture_Shipei(int bitmap) {
 		DisplayImageOptions options = new DisplayImageOptions.Builder()
-				.cacheOnDisc(true).showImageForEmptyUri(bitmap).showImageOnLoading(R.drawable.xiaoxi_moren)
+				.cacheOnDisc(true).showImageForEmptyUri(bitmap).showImageOnLoading(R.drawable.loading_img)
 				.showImageOnFail(bitmap).cacheInMemory(true).build();
 		return options;
 	}

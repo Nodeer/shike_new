@@ -44,6 +44,7 @@ import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.DateUtils;
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.HelpUtil;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MediaPlayerUtil;
 import com.yshow.shike.utils.MediaRecorderUtil;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
@@ -220,7 +221,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         sendVoiceButton.setOnTouchListener(touchlistener);
         viewPager = (ViewPager) findViewById(R.id.message_viewpager);
         reslist = sKMessage.getRes();
-        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.xiaoxi_moren);
+        options = ImageLoadOption.getBigImageOption(R.drawable.xiaoxi_moren);
         imageLoader = ImageLoader.getInstance();
         myAdapter = new MyAdapter(reslist);
         viewPager.setAdapter(myAdapter);

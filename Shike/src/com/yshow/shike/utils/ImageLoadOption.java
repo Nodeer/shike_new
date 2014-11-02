@@ -9,7 +9,13 @@ import com.yshow.shike.R;
 public class ImageLoadOption {
     public static DisplayImageOptions getImageOption(int failbitmap) {
         DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .cacheOnDisc(true).showImageForEmptyUri(failbitmap).showImageOnLoading(R.drawable.xiaoxi_moren)
+                .cacheOnDisc(true).showImageForEmptyUri(failbitmap).showImageOnLoading(R.drawable.loading_img)
+                .showImageOnFail(failbitmap).cacheInMemory(true).build();
+        return options;
+    }
+    public static DisplayImageOptions getBigImageOption(int failbitmap) {
+        DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .cacheOnDisc(true).showImageForEmptyUri(failbitmap).showImageOnLoading(R.drawable.big_loading_img)
                 .showImageOnFail(failbitmap).cacheInMemory(true).build();
         return options;
     }

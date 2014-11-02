@@ -56,6 +56,7 @@ public class Stu_madequestionFragment extends Fragment implements
                 PartnerConfig.SUBJECT_ID = null;
                 PartnerConfig.TEATHER_NAME = null;
                 PartnerConfig.SUBJECT_NAME = null;
+                PartnerConfig.TEACHER_IMG = null;
                 startActivity(new Intent(getActivity(), Activity_Stu_Ask_Step1.class));
                 break;
         }

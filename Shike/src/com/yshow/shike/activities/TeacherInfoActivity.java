@@ -49,6 +49,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
     private SKMessage extra;
 
     private String teaUid;
+    private boolean isMyTeacher;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,12 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
         tv_shike_fen = (TextView) findViewById(R.id.tv_jieti_count);
         item = (Star_Teacher_Parse) getIntent().getSerializableExtra("headpicture");
         if (item != null) {
+            isMyTeacher = getIntent().getBooleanExtra("ismyTeacher", false);
+            if (isMyTeacher) {
+                TextView tiwenBtn = (TextView) findViewById(R.id.next_btn);
+                tiwenBtn.setVisibility(View.VISIBLE);
+                tiwenBtn.setOnClickListener(this);
+            }
             teaUid = item.getUid();
             myteather = item.getiSmyteath();
             teacher_nick.setText(item.getNickname());
@@ -163,17 +170,18 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                     Teather_Info_Attention();
                 }
                 break;
-//            case R.id.tx_info_tiwen:
+            case R.id.next_btn:
 //                if (iv_xuan_zhong.getVisibility() != View.VISIBLE) {
 //                    Dialog.Common_Use(context);
 //                } else {
-//                    PartnerConfig.TEATHER_ID = item.getUid();
-//                    PartnerConfig.SUBJECT_ID = item.getSubjectid();
-//                    PartnerConfig.TEATHER_NAME = item.getNickname();
-//                    PartnerConfig.SUBJECT_NAME = item.getSubiect();
-//                    Dialog.Intent(context, Activity_Tea_Tool_Sele.class);
+                PartnerConfig.TEATHER_ID = item.getUid();
+                PartnerConfig.SUBJECT_ID = item.getSubjectid();
+                PartnerConfig.TEATHER_NAME = item.getNickname();
+                PartnerConfig.SUBJECT_NAME = item.getSubiect();
+                PartnerConfig.TEACHER_IMG = item.getIcon();
+                Dialog.Intent(context, Activity_Stu_Ask_Step1.class);
 //                }
-//                break;
+                break;
         }
     }
 

@@ -1077,6 +1077,37 @@ public class SKResolveJsonUtil {
         return list;
     }
 
+    // 我的学生
+    public ArrayList<Star_Teacher_Parse> parseMyStudent(String json) {
+        ArrayList<Star_Teacher_Parse> list = new ArrayList<Star_Teacher_Parse>();
+        try {
+            JSONObject object = new JSONObject(json);
+            JSONArray jsonArray = object.getJSONArray("data");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                Star_Teacher_Parse stu_info = new Star_Teacher_Parse();
+                JSONObject obj_stu_info = jsonObject.getJSONObject("info");
+
+                JSONObject imgObj = jsonObject.optJSONObject("url");
+                if (imgObj != null) {
+                    stu_info.setIcon(imgObj.optString("tub"));
+                }
+
+                stu_info.setName(obj_stu_info.optString("name"));
+                stu_info.setNickname(obj_stu_info.optString("nickname"));
+                stu_info.setGrade(obj_stu_info.optString("grade"));
+                stu_info.setGradeName(obj_stu_info.optString("gradeName"));
+                stu_info.setInfo(obj_stu_info.optString("info"));
+                stu_info.setPoints(obj_stu_info.optString("points"));
+                stu_info.setQuestions(obj_stu_info.optString("questions"));
+                list.add(stu_info);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     // 账户信息数据查询
     public List<Count_Info> Count_Info_pase(String json) {
         List<Count_Info> list_info = new ArrayList<Count_Info>();
@@ -1169,6 +1200,7 @@ public class SKResolveJsonUtil {
         }
         return model;
     }
+
     /**
      * 解析首页广告信息
      *
@@ -1180,8 +1212,8 @@ public class SKResolveJsonUtil {
         try {
             JSONObject object = new JSONObject(json);
             JSONArray data = object.getJSONArray("data");
-            int size  = data.length();
-            for(int i=0;i<size;i++){
+            int size = data.length();
+            for (int i = 0; i < size; i++) {
                 HomeImgModel model = new HomeImgModel();
                 JSONObject obj = data.getJSONObject(i);
                 model.id = obj.optString("id");

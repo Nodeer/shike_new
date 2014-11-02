@@ -28,7 +28,7 @@ public class Activity_Teacher_zhanghu extends BaseActivity {
     }
 
     private void init() {
-
+        boolean isShowDuihuan = getIntent().getBooleanExtra("isShowDuihuan", false);
         TextView titleText = (TextView) findViewById(R.id.title_text);
         titleText.setText("账户明细");
         findViewById(R.id.left_btn).setOnClickListener(listener);
@@ -38,7 +38,14 @@ public class Activity_Teacher_zhanghu extends BaseActivity {
         acc_balance.setOnClickListener(listener);
         manager = getSupportFragmentManager();
         ft = manager.beginTransaction();
-        ft.replace(R.id.li_th_content, new Fragment_Teacher_Zhanghu_Shouru());
+        if (isShowDuihuan) {
+            ft.replace(R.id.li_th_content, new Fragment_Teacher_Zhanghu_Shouru());
+        } else {
+            exchange_info.setSelected(true);
+            acc_balance.setSelected(false);
+            isLeft = true;
+            ft.replace(R.id.li_th_content, new Fragment_Teacher_Zhanghu_duihuan());
+        }
         ft.commitAllowingStateLoss();
     }
 
@@ -51,16 +58,6 @@ public class Activity_Teacher_zhanghu extends BaseActivity {
                 case R.id.left_btn:
                     finish();
                     break;
-//                //银行账户
-//                case R.id.tv_bank_coun:
-//                    bank_coun.setTextColor(getResources().getColor(R.color.reg));
-//                    acc_balance.setTextColor(getResources().getColor(R.color.log));
-//                    exchange_info.setTextColor(getResources().getColor(R.color.log));
-//                    ft.replace(R.id.li_bank_content, new Fragment_Teacher_Zhanghu_Kaihu());
-//                    StartTransAnim(startX, 0, undline);
-//                    StartTransAnim(startX, 0, bac_topic);
-//                    startX = 0;
-//                    break;
                 // 兑换信息
                 case R.id.tv_acc_balance:
                     if (isLeft) {

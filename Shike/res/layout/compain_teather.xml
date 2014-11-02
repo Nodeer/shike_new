@@ -1,60 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/gray"
-    android:orientation="vertical" >
-    <LinearLayout
-        android:id="@+id/sturegister_text"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/main_bg">
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/pd_tp_bm"
-        android:background="@color/sk_student_main_color"
-        >
-        <TextView
-            android:id="@+id/tv_compain_back"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/tv_tool_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="返回"
-            android:textColor="@color/button_typeface_color"
-            android:textSize="@dimen/share_text" />
+            android:src="@drawable/icon_back" />
+
+
         <TextView
             android:id="@+id/action_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:text="投诉老师"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/button_typeface_color"
-            android:textSize="@dimen/title_text" />
-    <TextView
-        android:id="@+id/tv_compain_cmf"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="确定"
-        android:gravity="center"
-        android:textColor="@color/button_typeface_color"
-        android:textSize="@dimen/share_text"
-        />
-     </LinearLayout>
-     <LinearLayout
-            android:layout_marginRight="@dimen/share_text"
-            android:layout_marginLeft="@dimen/share_text"
-            android:layout_marginTop="68dp"
-            android:layout_below="@+id/sturegister_text"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         >
-        <EditText
-            android:id="@+id/et_compain"
-            android:paddingTop="@dimen/share_text"
-            android:paddingLeft="@dimen/share_text"
-            android:layout_width="fill_parent"
-            android:layout_height="200dp"
-            android:background="@color/button_typeface_color"
-            android:hint="请输入您的投诉内容（200字以内）"
-            android:textColorHint="@color/gray"
-            android:textSize="@dimen/margin_rightandleft"/>
-  </LinearLayout>
-</RelativeLayout>
+            android:layout_centerInParent="true"
+            style="@style/text_20_333333"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next_btn"
+            android:padding="5dp"
+            android:text="确定"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@style/text_16_white"
+            android:background="@drawable/stu_slide_btn2_bg" />
+
+
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:id="@+id/tousu_edit"
+        android:background="@drawable/white_btn_nor"
+        android:layout_margin="10dp"
+        android:lines="5"
+        android:gravity="top"
+        android:hint="请输入您的告状内容(200字以内)"
+        android:padding="5dp"
+        android:layout_height="wrap_content" />
+
+    <!--<Button-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:id="@+id/confirm_btn"-->
+        <!--android:text="投诉"-->
+        <!--android:layout_margin="30dp"-->
+        <!--android:background="@drawable/red_btn_bg"-->
+        <!--android:padding="10dp"-->
+        <!--style="@style/text_20_white"-->
+        <!--android:layout_height="wrap_content" />-->
+
+</LinearLayout>

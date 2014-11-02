@@ -58,10 +58,19 @@
                 android:textColor="@color/button_typeface_color"
                 android:textSize="@dimen/share_text" />
 
+
         </RelativeLayout>
 
-
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/download_btn"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/button_download" />
 
 
     <include

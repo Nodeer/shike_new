@@ -151,10 +151,12 @@ public class TeacherExchangeMoneyActivity extends Activity {
             public void onSuccess(String json) {
                 super.onSuccess(json);
                 Toast.makeText(context, "兑换成功", Toast.LENGTH_SHORT).show();
-                refreshUserInfo();
+//                refreshUserInfo();
+                Bundle bun = new Bundle();
+                bun.putBoolean("isShowDuihuan", true);
+                Dialog.intent(TeacherExchangeMoneyActivity.this, Activity_Teacher_zhanghu.class, bun);
+                finish();
             }
-
-            ;
         });
     }
 
@@ -165,8 +167,6 @@ public class TeacherExchangeMoneyActivity extends Activity {
                 my_teather = SKResolveJsonUtil.getInstance().My_teather1(json);
                 money_text.setText("学分：" + my_teather.getPoints() + "分");
             }
-
-            ;
         });
     }
 

@@ -94,6 +94,10 @@
         <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
+    <style name="text_14_333333">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">#ff333333</item>
+    </style>
     <style name="text_14_gray">
         <item name="android:textSize">14dp</item>
         <item name="android:textColor">@color/text_gray</item>

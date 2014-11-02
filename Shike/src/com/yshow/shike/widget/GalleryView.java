@@ -27,6 +27,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.Net_Servse;
 
 /**
@@ -174,7 +175,8 @@ public class GalleryView extends LinearLayout {
         width = display.getWidth();
         height = display.getHeight();
 
-        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.blackboard_ad_img);
+//        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.blackboard_ad_img);
+        options = ImageLoadOption.getBigImageOption(R.drawable.blackboard_ad_img);
 
         loader = ImageLoader.getInstance();
     }
@@ -268,6 +270,7 @@ public class GalleryView extends LinearLayout {
                 for (int i = 0; i < count; i++) {
                     View view = LayoutInflater.from(context).inflate(R.layout.mygallery_view_item, null);
                     ImageView mImage = (ImageView) view.findViewById(R.id.mImage);
+                    mImage.setScaleType(ImageView.ScaleType.FIT_XY);
                     TextView mText = (TextView) view.findViewById(R.id.mText);
                     mText.setVisibility(View.GONE);
                     final Map<String, String> map = data.get(i);

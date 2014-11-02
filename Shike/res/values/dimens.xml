@@ -9,10 +9,8 @@
     <dimen name="pd_tp_bm">10dip</dimen>
     <dimen name="margin">10dip</dimen>
     <dimen name="share_text">20dip</dimen>
-    <dimen name="tolarge_text">35dip</dimen>
     <dimen name="title_text">25dip</dimen>
     <dimen name="reg_point">7dip</dimen>
     <dimen name="iamge_scan">100dp</dimen>
     <dimen name="slidingmenu_offset">70dp</dimen>
-    <dimen name="slidingmenu_button">100dp</dimen>
 </resources>

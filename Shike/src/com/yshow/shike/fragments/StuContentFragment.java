@@ -147,6 +147,7 @@ public class StuContentFragment extends Fragment implements View.OnClickListener
                 PartnerConfig.SUBJECT_ID = null;
                 PartnerConfig.TEATHER_NAME = null;
                 PartnerConfig.SUBJECT_NAME = null;
+                PartnerConfig.TEACHER_IMG = null;
                 startActivity(new Intent(getActivity(), Activity_Stu_Ask_Step1.class));
                 break;
             case R.id.restudy_btn:

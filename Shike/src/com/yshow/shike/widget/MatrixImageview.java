@@ -72,6 +72,10 @@ public class MatrixImageview extends ImageView implements View.OnTouchListener {
 		mImageView.setImageMatrix(matrix);
 	}
 
+    public Bitmap getBitmap(){
+        return mBitmap;
+    }
+
 	public boolean onTouch(View v, MotionEvent event) {
 		switch (event.getAction() & MotionEvent.ACTION_MASK) {
 		// 主点按下

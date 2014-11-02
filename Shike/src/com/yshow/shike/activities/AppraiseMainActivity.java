@@ -43,7 +43,7 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
 
     private Fase_Packs mFaceModel;
 
-    private ImageView mGiftImg,appraise_img;
+    private ImageView mGiftImg, appraise_img;
 
     private ImageLoader mImageLoader;
 
@@ -315,7 +315,7 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
                 int index = data.getIntExtra("index", -1);
                 if (index != -1) {
                     mFaceModel = (Fase_Packs) data.getSerializableExtra("data");
-                    mImageLoader.displayImage(mFaceModel.getFase_url(),appraise_img);
+                    mImageLoader.displayImage(mFaceModel.getFase_url(), appraise_img);
                 } else {
                     mFaceModel = null;
                 }
@@ -325,7 +325,7 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
                     String files = data.getStringExtra("data");
                     Jifen_file_id = files.split(",");
                     String url = data.getStringExtra("url");
-                    mImageLoader.displayImage(url,mGiftImg);
+                    mImageLoader.displayImage(url, mGiftImg);
                 } else {
                     Jifen_file_id = new String[0];
                     mGiftImg.setImageResource(R.drawable.icon_give_gift);

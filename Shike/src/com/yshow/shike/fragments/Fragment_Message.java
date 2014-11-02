@@ -29,6 +29,7 @@ import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKMessageList;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
+import com.yshow.shike.utils.PartnerConfig;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
 
@@ -161,6 +162,11 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
                 getActivity().finish();
                 break;
             case R.id.right_button:
+                PartnerConfig.TEATHER_ID = null;
+                PartnerConfig.SUBJECT_ID = null;
+                PartnerConfig.TEATHER_NAME = null;
+                PartnerConfig.SUBJECT_NAME = null;
+                PartnerConfig.TEACHER_IMG = null;
                 startActivity(new Intent(getActivity(), Activity_Stu_Ask_Step1.class));
                 break;
         }
