@@ -1,6 +1,7 @@
 package com.yshow.shike.utils;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.yshow.shike.R;
 
 /**
@@ -9,7 +10,7 @@ import com.yshow.shike.R;
 public class ImageLoadOption {
     public static DisplayImageOptions getImageOption(int failbitmap) {
         DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .cacheOnDisc(true).showImageForEmptyUri(failbitmap).showImageOnLoading(R.drawable.loading_img)
+                .cacheOnDisc(true).showImageForEmptyUri(failbitmap).showImageOnLoading(R.drawable.loading_img).displayer(new RoundedBitmapDisplayer(10))
                 .showImageOnFail(failbitmap).cacheInMemory(true).build();
         return options;
     }
