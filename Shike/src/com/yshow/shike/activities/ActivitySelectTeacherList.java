@@ -48,7 +48,7 @@ public class ActivitySelectTeacherList extends BaseActivity implements
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 item = teaAdapter.getItem(position);
                 Intent intent = getIntent();
-                intent.putExtra("selectT eacher", item);
+                intent.putExtra("selectTeacher", item);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             }

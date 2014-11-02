@@ -19,7 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.yshow.shike.R;
+import com.yshow.shike.UIApplication;
 
 /**
  * 图片下载 显示
@@ -110,7 +112,7 @@ public class Net_Servse {
 	 */
 	public DisplayImageOptions Picture_Shipei(int bitmap) {
 		DisplayImageOptions options = new DisplayImageOptions.Builder()
-				.cacheOnDisc(true).showImageForEmptyUri(bitmap).showImageOnLoading(R.drawable.loading_img)
+				.cacheOnDisc(true).showImageForEmptyUri(bitmap).showImageOnLoading(R.drawable.loading_img)//.displayer(new RoundedBitmapDisplayer(ScreenSizeUtil.Dp2Px(UIApplication.getInstance().getApplicationContext(),10)))
 				.showImageOnFail(bitmap).cacheInMemory(true).build();
 		return options;
 	}
