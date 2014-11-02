@@ -77,10 +77,13 @@
 -keep class com.tencent.mm.sdk.openapi.** implements com.tencent.mm.sdk.openapi.WXMediaMessage$IMediaObject {*;}
 -keepattributes Signature
 -keep class com.umeng.analytics.** { *; }
+-keep class com.ant.liao.** { *; }
 -keep class com.yshow.shike.entity.** { *; }
 -keep class com.yshow.shike.utils.** { *; }
 -keep public class  com.crittercism.**{*;}
 -keep class com.unionpay.** { *; }
+-keep class com.baidu.** { *; }
+-keep class assets.frontia_plugin.** { *; }
 
 -keepattributes SourceFile, LineNumberTable
 

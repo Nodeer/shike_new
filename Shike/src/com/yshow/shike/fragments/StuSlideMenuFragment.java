@@ -63,7 +63,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
         receiver = new RefreshUserinfoBroadCastReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction("update_user_info");
-        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,filter);
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver, filter);
     }
 
     @Override
@@ -115,6 +115,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
                 if (atent_Success) {
                     User_Info info = SKResolveJsonUtil.getInstance().My_teather1(json);
                     mGrade.setText("学    龄:" + info.getGrade() + info.getGradeName());
+                    mUserName.setText("用户名:" + info.getNickname());
                     mImageLoader.displayImage(info.getPicurl(), mHeadIcon, mOption);
                 }
             }

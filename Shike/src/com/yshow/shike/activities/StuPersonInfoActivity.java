@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
@@ -51,6 +52,7 @@ import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
 import com.yshow.shike.utils.Take_Phon_album;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -149,14 +151,21 @@ public class StuPersonInfoActivity extends BaseActivity {
                 case R.id.tu_head_pic:
                     stu_Take_Phon.show();
                     break;
+
+
                 // 拍照
                 case R.id.tv_pai_zhao:
-                    Take_Phon_album.getIntence().Take_Phone(TAKE_PHONE, StuPersonInfoActivity.this);
+                    File cameraFile = new File(Environment.getExternalStorageDirectory().getPath(), "camera.jpg");
+                    Uri outputUri = Uri.fromFile(cameraFile);
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
+                    startActivityForResult(intent, TAKE_PHONE);
                     stu_Take_Phon.dismiss();
                     break;
                 // 相册
                 case R.id.tv_xiagnc:
-                    Take_Phon_album.getIntence().Take_Pickture(TAKE_PICTURE, StuPersonInfoActivity.this);
+                    Intent getImage = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(getImage, TAKE_PICTURE);
                     stu_Take_Phon.dismiss();
                     break;
                 // 取消

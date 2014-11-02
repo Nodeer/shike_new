@@ -1,11 +1,13 @@
 package com.yshow.shike.activities;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import android.content.ContentResolver;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 
 import com.google.gson.Gson;
@@ -171,12 +173,17 @@ public class TeaPersonInfoActivity extends BaseActivity {
                     break;
                 // 拍照
                 case R.id.tv_pai_zhao:
-                    Take_Phon_album.getIntence().Take_Phone(TAKE_PHONE, TeaPersonInfoActivity.this);
+                    File cameraFile = new File(Environment.getExternalStorageDirectory().getPath(), "camera.jpg");
+                    Uri outputUri = Uri.fromFile(cameraFile);
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
+                    startActivityForResult(intent, TAKE_PHONE);
                     stu_Take_Phon.dismiss();
                     break;
                 // 相册
                 case R.id.tv_xiagnc:
-                    Take_Phon_album.getIntence().Take_Pickture(TAKE_PICTURE, TeaPersonInfoActivity.this);
+                    Intent getImage = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(getImage, TAKE_PICTURE);
                     stu_Take_Phon.dismiss();
                     break;
                 // 取消

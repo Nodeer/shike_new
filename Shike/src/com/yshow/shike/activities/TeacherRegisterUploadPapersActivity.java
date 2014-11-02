@@ -1,5 +1,6 @@
 package com.yshow.shike.activities;
 
+import java.io.File;
 import java.lang.reflect.Type;
 
 import android.app.Activity;
@@ -106,15 +107,18 @@ public class TeacherRegisterUploadPapersActivity extends BaseActivity {
 
     // 从相机拿数据
     private void Take_Pickture() {
-        Intent take_phon = new Intent("android.media.action.IMAGE_CAPTURE");
-        startActivityForResult(take_phon, 1);
+        File cameraFile = new File(Environment.getExternalStorageDirectory().getPath(), "camera.jpg");
+        Uri outputUri = Uri.fromFile(cameraFile);
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
+        startActivityForResult(intent, 1);
     }
 
     // 相册拍照
     private void Take_Phone() {
-        Intent photo = new Intent(Intent.ACTION_GET_CONTENT);
-        photo.setType("image/*");
-        startActivityForResult(photo, 2);
+        Intent getImage = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(getImage, 2);
+
     }
 
     // 获取照相后的图片
