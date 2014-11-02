@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -118,8 +119,6 @@ public class StuPersonInfoActivity extends BaseActivity {
         ed_old_pwd = (EditText) findViewById(R.id.old_pwd); // 旧密码
         ed_new_pwd = (EditText) findViewById(R.id.new_pwd); // 新密码
         ed_pwd_comfig = (EditText) findViewById(R.id.ed_pwd_comfig); // 确定密码
-        study_year.setOnClickListener(listener);
-        bace_area.setOnClickListener(listener);
         ed_day_bir.setOnClickListener(listener);
         head_pic.setOnClickListener(listener);
         points = (TextView) findViewById(R.id.shengyu_xuefen);
@@ -421,8 +420,6 @@ public class StuPersonInfoActivity extends BaseActivity {
                     }
                 }
             }
-
-            ;
         });
     }
 

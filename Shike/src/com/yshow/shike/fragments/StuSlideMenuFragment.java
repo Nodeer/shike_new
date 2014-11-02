@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
     private WeixinManager weixinManager;
     private ImageLoader mImageLoader;
     private DisplayImageOptions mOption;
+    RefreshUserinfoBroadCastReceiver receiver;
 
     private class RefreshUserinfoBroadCastReceiver extends BroadcastReceiver {
 
@@ -58,8 +60,16 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        RefreshUserinfoBroadCastReceiver receiver = new RefreshUserinfoBroadCastReceiver();
+        receiver = new RefreshUserinfoBroadCastReceiver();
         IntentFilter filter = new IntentFilter();
+        filter.addAction("update_user_info");
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,filter);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(receiver);
     }
 
     @Override

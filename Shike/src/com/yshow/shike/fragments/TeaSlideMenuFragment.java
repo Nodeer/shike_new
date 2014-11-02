@@ -1,8 +1,12 @@
 package com.yshow.shike.fragments;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +48,16 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
     private ImageLoader mImageLoader;
     private DisplayImageOptions mOption;
 
+    RefreshUserinfoBroadCastReceiver receiver;
+
+    private class RefreshUserinfoBroadCastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            update_info(student.getUid());
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tea_slide_layout, null);
@@ -77,6 +91,21 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
 
         update_info(student.getUid());
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        receiver = new RefreshUserinfoBroadCastReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("update_user_info");
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,filter);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(receiver);
     }
 
 

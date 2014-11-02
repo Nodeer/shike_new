@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -90,6 +91,8 @@ public class Exit_Login {
                 if (success) {
                     Toast.makeText(context, "保存成功", Toast.LENGTH_SHORT).show();
                     User_Info info = SKResolveJsonUtil.getInstance().My_teather1(json);
+                    LocalBroadcastManager manager = LocalBroadcastManager.getInstance(context);
+                    manager.sendBroadcast(new Intent("update_user_info"));
                     Intent it = new Intent();
                     it.putExtra("info", info);
                     ((Activity) context).setResult(Activity.RESULT_OK, it);
