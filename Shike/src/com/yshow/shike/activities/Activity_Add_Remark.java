@@ -127,13 +127,12 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
         BitmapFactory.decodeFile(path, op);
         int op_h = op.outHeight;
         int op_w = op.outWidth;
-        int h = 0;
         int rotateDegree = bitmap_intence.readPictureDegree(path);
-        if (rotateDegree == 90) {
-            h = screenWidth * op_w / op_h;
-        } else {
-            h = screenWidth * op_h / op_w;
-        }
+//        if (rotateDegree == 90) {
+//            h = screenWidth * op_w / op_h;
+//        } else {
+//            h = screenWidth * op_h / op_w;
+//        }
         if (rotateDegree == 90) {
             op.inSampleSize = op_h / screenWidth;
         } else {
@@ -151,8 +150,8 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
             getbitmap = BitmapFactory.decodeFile(path, op);
         }
         //对图片进行旋转
-        Bitmap new_rotae_bitmap = bitmap_intence.rotaingImageView(rotateDegree, getbitmap);
-        return new_rotae_bitmap;
+//        Bitmap new_rotae_bitmap = bitmap_intence.rotaingImageView(rotateDegree, getbitmap);
+        return getbitmap;
     }
 
     @Override

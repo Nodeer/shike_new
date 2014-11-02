@@ -28,6 +28,11 @@ public class WebViewActivity extends BaseActivity {
 
         WebView webView = (WebView) findViewById(R.id.webview);
         String url = getIntent().getStringExtra("url");
+        String title = getIntent().getStringExtra("title");
+        TextView titletext = (TextView) findViewById(R.id.title_text);
+        if (title != null) {
+            titletext.setText(title);
+        }
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

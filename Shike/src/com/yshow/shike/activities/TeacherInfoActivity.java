@@ -90,7 +90,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
             myteather = item.getiSmyteath();
             teacher_nick.setText(item.getNickname());
             strdent_count.setText("学生数量:" + item.getFansNum());
-            tv_subject.setText("学科：" + item.getSubjectid());
+            tv_subject.setText("学科：" + item.getSubiect());
             tv_guan_zhu.setText(item.getInfo());
             imageLoader.displayImage(item.getIcon(), tudent_picture, options);
             tv_shike_fen.setText("接题次数：" + item.getClaim_question_num());
@@ -127,7 +127,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                     teaUid = my_teather.getUid();
                     teacher_nick.setText(my_teather.getNickname());
                     strdent_count.setText("学生数量:" + my_teather.getFansNum());
-                    tv_subject.setText("学科：" + my_teather.getSubjectid());
+                    tv_subject.setText("学科：" + my_teather.getSubject());
                     tv_guan_zhu.setText(my_teather.getInfo());
                     imageLoader.displayImage(my_teather.getIcon(), tudent_picture, options);
                     tv_shike_fen.setText("接题次数：" + my_teather.getClaim_question_num());

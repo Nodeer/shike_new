@@ -91,7 +91,7 @@ public class StartingUp extends BaseActivity {
 
     public void autoLogin(String name, String pass) {
         // 登录过的用户
-        SKAsyncApiController.skLogin(name, pass, new AsyncHttpResponseHandler() {
+        SKAsyncApiController.skLogin(name, pass, new MyAsyncHttpResponseHandler(this,false) {
             @Override
             public void onSuccess(String json) {
                 super.onSuccess(json);

@@ -118,6 +118,13 @@ public class OnlineTeaListActivity extends BaseActivity implements TopAndBottomL
                 tea_subject.setText(on_Tea.getSubiect());
                 diqu.setText(on_Tea.getArea());
                 tea_info.setText(on_Tea.getInfo());
+                View iv_teather_online = convertView
+                        .findViewById(R.id.iv_teather_isonline);
+                if (!on_Tea.isOnline) {
+                    iv_teather_online.setVisibility(View.VISIBLE);
+                } else {
+                    iv_teather_online.setVisibility(View.GONE);
+                }
                 imageLoader.displayImage(on_Tea.getIcon(), tea_piture, options);
             }
             return convertView;

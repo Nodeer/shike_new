@@ -89,11 +89,9 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
     private List<String> query_voidce; // 查询所有数据库的录音
     private MediaPlayerUtil mediaPlayer;
 
-    private String mTeacherName;
-
     private Button sendVoiceButton;
 
-    private LinearLayout mSaveTikuBtn;
+//    private LinearLayout mSaveTikuBtn;
 
     private boolean hasGetQuestion = false;
 
@@ -195,8 +193,8 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         }
         curquestionId = sKMessage.getQuestionId();
         claim_uid = sKMessage.getClaim_uid();
-        mSaveTikuBtn = (LinearLayout) findViewById(R.id.save_ques_layout);
-        mSaveTikuBtn.setOnClickListener(this);
+//        mSaveTikuBtn = (LinearLayout) findViewById(R.id.save_ques_layout);
+//        mSaveTikuBtn.setOnClickListener(this);
         ll_volume_control = findViewById(R.id.voice_recordding_layout);
         ll_volume_control.setVisibility(View.GONE);
         teaDecideLayout = (LinearLayout) findViewById(R.id.tea_decide_layout);
@@ -206,7 +204,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         Button tv_tianjian = (Button) findViewById(R.id.img_button);
         if (sKMessage.isDone()) {
             teaDecideLayout.setVisibility(View.GONE);
-            mSaveTikuBtn.setVisibility(View.VISIBLE);
+//            mSaveTikuBtn.setVisibility(View.VISIBLE);
         }
         TextView tv_xiaohongyu = (TextView) findViewById(R.id.nick_name);
         back_time = (TextView) findViewById(R.id.record_remain_text);
@@ -215,7 +213,6 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         findViewById(R.id.giveup_ques_btn).setOnClickListener(this);
         findViewById(R.id.tv_tool_back).setOnClickListener(this);
         tv_data = (TextView) findViewById(R.id.tv_data);
-        mTeacherName = sKMessage.getNickname();
         tv_xiaohongyu.setText(sKMessage.getNickname());
         long updateTime = Long.valueOf(sKMessage.getUpdateTime());
         tv_data.setText(sKMessage.getDate() + "  " + DateUtils.formatDateH(new Date(Long.valueOf(updateTime) * 1000)));
@@ -536,7 +533,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
             // 如果题目完成 语音隐藏 添加 显示 确定
             if (sKMessage.isDone()) {
                 bottomLayout.setVisibility(View.GONE);
-                mSaveTikuBtn.setVisibility(View.VISIBLE);
+//                mSaveTikuBtn.setVisibility(View.VISIBLE);
                 if (isNeedShowEndDialog) {
                     Builder builder = new Builder(context);
                     builder.setMessage("当前提问已结束");

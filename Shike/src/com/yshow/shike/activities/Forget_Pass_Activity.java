@@ -2,6 +2,7 @@ package com.yshow.shike.activities;
 
 import com.umeng.analytics.MobclickAgent;
 import com.yshow.shike.R;
+import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
@@ -161,6 +162,7 @@ public class Forget_Pass_Activity extends BaseActivity implements OnClickListene
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, context);
                 if (success) {
                     Toast.makeText(context, "您的新密码于短信形式发给您.", Toast.LENGTH_SHORT).show();
+                    Dialog.Intent(Forget_Pass_Activity.this, Login_Reg_Activity.class);
                 }
             }
         });

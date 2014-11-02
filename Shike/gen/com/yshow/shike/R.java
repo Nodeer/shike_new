@@ -1144,7 +1144,7 @@ public final class R {
         public static final int fragment_star_teacher=0x7f03004b;
         public static final int fragment_start_text=0x7f03004c;
         public static final int fragment_student_guanyu=0x7f03004d;
-        public static final int fragment_teacher=0x7f03004e;
+        public static final int my_teacher_layout =0x7f03004e;
         public static final int fragment_teacher_changegoods=0x7f03004f;
         public static final int fragment_teacher_changemoney=0x7f030050;
         public static final int fragment_teacher_info=0x7f030051;

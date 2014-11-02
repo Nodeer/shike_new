@@ -92,7 +92,7 @@ public class Teather_Main_Activity extends SlidingFragmentActivity {
                 .replace(R.id.menu_frame, new TeaSlideMenuFragment()).commit();
         // customize the SlidingMenu
         sm = getSlidingMenu();
-        sm.setBackgroundResource(R.drawable.slide_up_bg);
+        sm.setBackgroundResource(R.drawable.main_activity_bg);
         sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         sm.setFadeEnabled(true);
         sm.setBehindScrollScale(0.5f);//位移.数字越大,水平位移越小

@@ -8,6 +8,21 @@
 
     <include layout="@layout/title_layout" />
 
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:id="@+id/nodata_layout"
+        android:visibility="gone"
+        android:layout_height="fill_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            style="@style/text_18_333333"
+            android:text="您当前没有添加任何老师"
+            android:layout_height="wrap_content" />
+
+        </FrameLayout>
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">

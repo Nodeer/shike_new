@@ -138,6 +138,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.Login_Reg_Activity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.StudentRegisterActivity"

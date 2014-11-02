@@ -8,7 +8,7 @@ import android.text.TextUtils;
 
 import com.yshow.shike.R;
 import com.yshow.shike.activities.FankuiActivity;
-import com.yshow.shike.activities.WebActivity;
+import com.yshow.shike.activities.WebViewActivity;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.Soft_Info;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
@@ -75,7 +75,7 @@ public class Fragment_Teacher_About_Shike extends Activity {
                     startActivity(intent);
                     break;
                 case R.id.gongneng_jieshao_btn:// 功能介绍
-                    intent = new Intent(context, WebActivity.class);
+                    intent = new Intent(context, WebViewActivity.class);
                     String url3 = softInfo.introduceurl;
                     String url = "http://apitest.shikeke.com/" + url3;
                     intent.putExtra("url", url);
@@ -84,7 +84,7 @@ public class Fragment_Teacher_About_Shike extends Activity {
                     break;
                 case R.id.faq_btn:
                     String url4 = softInfo.FAQ_Turl;
-                    intent = new Intent(context, WebActivity.class);
+                    intent = new Intent(context, WebViewActivity.class);
                     String faqurl = "http://apitest.shikeke.com/" + url4;
                     intent.putExtra("url", faqurl);
                     intent.putExtra("title", "FAQ问答");

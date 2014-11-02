@@ -33,12 +33,12 @@ public class Exit_Login {
         final ProgressDialogUtil util = new ProgressDialogUtil(context, "正在退出");
         util.show();
 
-        SKAsyncApiController.Back_Login(new AsyncHttpResponseHandler() {
+        SKAsyncApiController.Back_Login(new MyAsyncHttpResponseHandler(context,false) {
             @Override
             public void onSuccess(String json) {
                 super.onSuccess(json);
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json);
-                if (success) {
+//                if (success) {
                     SharePreferenceUtil.getInstance().putBoolean("autologin", false);
                     NotificationManager mManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                     mManager.cancelAll();
@@ -48,10 +48,16 @@ public class Exit_Login {
                     Intent it = new Intent(context, Login_Reg_Activity.class);
                     context.startActivity(it);
                     ((Activity) context).finish();
-                } else {
-                    Toast.makeText(context, "退出失败，请检查您的网络！", Toast.LENGTH_SHORT).show();
-                }
+//                } else {
+//                    Toast.makeText(context, "退出失败，请检查您的网络！", Toast.LENGTH_SHORT).show();
+//                }
                 util.dismiss();
+            }
+
+            @Override
+            public void onFailure(Throwable error, String content) {
+                util.dismiss();
+                Toast.makeText(context, "退出失败，请检查您的网络！", Toast.LENGTH_SHORT).show();
             }
         });
     }

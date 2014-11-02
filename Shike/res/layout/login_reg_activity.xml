@@ -143,7 +143,7 @@
         android:layout_width="fill_parent"
         android:id="@+id/slide_bg_frame"
         android:visibility="gone"
-        android:background="@color/bg_dark"
+        android:background="@color/reg_bg_dark"
         android:layout_height="fill_parent"></FrameLayout>
 
 </RelativeLayout>

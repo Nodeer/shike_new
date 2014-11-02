@@ -112,17 +112,14 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
                     .findViewById(R.id.tv_diqu);
             TextView tv_gerenxinxi = (TextView) convertView
                     .findViewById(R.id.tv_gerenxinxi);
-            ImageView iv_teather_sele = (ImageView) convertView
-                    .findViewById(R.id.iv_teather_sele);
-            if (teacher_Parse.getiSmyteath().equals("1")) {
-                iv_teather_sele.setVisibility(View.VISIBLE);
-                imageLoader.displayImage(teacher_Parse.getIcon(),
-                        teather_picture, options);
+            View iv_teather_online = convertView
+                    .findViewById(R.id.iv_teather_isonline);
+            if (!teacher_Parse.isOnline) {
+                iv_teather_online.setVisibility(View.VISIBLE);
             } else {
-                iv_teather_sele.setVisibility(View.GONE);
-                imageLoader.displayImage(teacher_Parse.getIcon(),
-                        teather_picture, options);
+                iv_teather_online.setVisibility(View.GONE);
             }
+            imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
             tv_nicheng.setText(teacher_Parse.getNickname());
             tv_subject.setText(teacher_Parse.getSubiect());
             tv_grade.setText(teacher_Parse.getGrade());

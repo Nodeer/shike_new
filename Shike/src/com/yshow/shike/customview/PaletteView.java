@@ -180,9 +180,16 @@ public class PaletteView extends SurfaceView implements Runnable, SurfaceHolder.
         // 画板绘图区背景图片
         Matrix matrix = new Matrix();
         matrix.reset();
-        scaleX = (float) getWidth() / bgBitmap.getWidth();
-        scaleY = (float) getHeight() / bgBitmap.getHeight();
-        matrix.setScale((float) getWidth() / bgBitmap.getWidth(), (float) getHeight() / bgBitmap.getHeight());
+        if(bgBitmap.getWidth()<bgBitmap.getHeight()){
+            scaleX = (float) getWidth() / bgBitmap.getWidth();
+            scaleY = (float) getHeight() / bgBitmap.getHeight();
+            matrix.setScale(scaleX, scaleY);
+        }else{
+            scaleX = (float) getWidth() / bgBitmap.getWidth();
+            scaleY = scaleX;
+            matrix.setScale(scaleX, scaleY);
+            matrix.postTranslate(0,(getHeight()-bgBitmap.getHeight())/2);
+        }
         canvas.drawBitmap(bgBitmap, matrix, mPaint);
         for (int i = 0; i <= currentPaintIndex; i++) {
             actionList.get(i).draw(canvas);

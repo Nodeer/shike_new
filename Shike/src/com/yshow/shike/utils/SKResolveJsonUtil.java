@@ -48,7 +48,7 @@ public class SKResolveJsonUtil {
                     it = new Intent(context, Login_Reg_Activity.class);
                     it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(it);
-                    Toast.makeText(context, "您的帐号又有在别的设备上重复登录情况，请重新登录", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "您的帐号在其他地方登录，您被迫下线，请重新登录。", Toast.LENGTH_SHORT).show();
                     context.stopService(new Intent(context, MySKService.class));
                     break;
                 case 1:
@@ -412,6 +412,7 @@ public class SKResolveJsonUtil {
                 teacherParse.setUid(object2.optString("uid"));
                 teacherParse.setLike_num(object2.optString("like_num"));
                 teacherParse.setClaim_question_num(object2.optString("claim_question_num"));
+                teacherParse.isOnline = object2.optBoolean("isOnline");
                 list.add(teacherParse);
             }
         } catch (JSONException e) {
@@ -838,6 +839,7 @@ public class SKResolveJsonUtil {
                     teacherParse.setClaim_question_num(object3.optString("claim_question_num"));
                     teacherParse.setLike_num(object3.optString("like_num"));
                     teacherParse.setiSmyteath(object3.optString("iSmyteach"));
+                    teacherParse.isOnline = object3.optBoolean("isOnline");
                     list.add(teacherParse);
                 }
             }
@@ -911,6 +913,8 @@ public class SKResolveJsonUtil {
                     parse.setLike_num(jsonObject.optString("like_num"));
                     parse.setSubjectid(jsonObject.optString("subjectId"));
                     parse.setClaim_question_num(jsonObject.optString("claim_question_num"));
+
+                    parse.isOnline = jsonObject.optBoolean("isOnline");
                     JSONObject optJSONObject = jsonObject.optJSONObject("url");
                     if (optJSONObject != null) {
                         String optString = optJSONObject.optString("url");

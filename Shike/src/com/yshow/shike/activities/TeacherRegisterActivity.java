@@ -1,5 +1,7 @@
 package com.yshow.shike.activities;
 
+import android.content.Intent;
+import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
 
@@ -50,6 +52,10 @@ public class TeacherRegisterActivity extends BaseActivity implements
 
     private EditText extra_code;
 
+    private CheckBox agrementBox;
+    private TextView agrementBtn;
+    private boolean isAgrement = false;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +73,18 @@ public class TeacherRegisterActivity extends BaseActivity implements
         TextView titleText = (TextView) findViewById(R.id.title_text);
         titleText.setText("老师注册");
 
+
+        agrementBox = (CheckBox) findViewById(R.id.agrement_checkbox);
+        agrementBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isAgrement = isChecked;
+            }
+        });
+        agrementBtn = (TextView) findViewById(R.id.agrement_text);
+        agrementBtn.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+        agrementBtn.setOnClickListener(this);
+
         ImageView tv_back = (ImageView) findViewById(R.id.left_btn);
         tv_back.setOnClickListener(this);
         findViewById(R.id.next_btn).setOnClickListener(this);
@@ -80,13 +98,13 @@ public class TeacherRegisterActivity extends BaseActivity implements
 
     @Override
     public void onClick(View v) {
-        String phonename = login_teacher_phone.getText().toString().trim();
+
         switch (v.getId()) {
             case R.id.left_btn:
                 finish();
                 break;
             case R.id.next_btn:
-                if (checkRegister() && (phonename != null && phonename.length() == 11)) {
+                if (checkRegister()) {
                     skStudent = new SKStudent();
                     skStudent.setMob(login_teacher_phone.getText().toString().trim());
                     skStudent.setVcodeRes(et_verification_code.getText().toString().trim());
@@ -95,11 +113,10 @@ public class TeacherRegisterActivity extends BaseActivity implements
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("teather", skStudent);
                     Dialog.intent(this, TeacherRegisterUploadPapersActivity.class, bundle);
-                } else {
-                    Toast.makeText(this, "请输入正确的手机号!", 0).show();
                 }
                 break;
             case R.id.tv_pasword:
+                String phonename = login_teacher_phone.getText().toString().trim();
                 if (TextUtils.isEmpty(phonename) || phonename.length() != 11) {
                     Toast.makeText(this, "请输入正确的手机号!", 0).show();
                 } else {
@@ -107,6 +124,11 @@ public class TeacherRegisterActivity extends BaseActivity implements
                     new Timer_Uils().getTimer(handler);
                     tv_send_pas.setOnClickListener(null);
                 }
+                break;
+            case R.id.agrement_text:
+                Intent it = new Intent(TeacherRegisterActivity.this, WebViewActivity.class);
+                it.putExtra("url", SKAsyncApiController.SHIKE_VALUE_API_SERVER_URL + "/?m=content&a=agreement");
+                startActivity(it);
                 break;
         }
     }
@@ -130,13 +152,22 @@ public class TeacherRegisterActivity extends BaseActivity implements
         String username = login_teacher_phone.getText().toString().trim();
         String pasword = et_verification_code.getText().toString().trim();
         if (TextUtils.isEmpty(username)) {
-            Toast.makeText(this, "用户名不能为空!", 0).show();
+            Toast.makeText(this, "手机号不能为空!", 0).show();
+            return false;
+        }
+        if (!(username != null && username.length() == 11)) {
+            Toast.makeText(this, "请输入正确的手机号!", 0).show();
             return false;
         }
         if (TextUtils.isEmpty(pasword)) {
             Toast.makeText(this, "验证码不能为空!", 0).show();
             return false;
         }
+        if (!isAgrement) {
+            Toast.makeText(this, "请确认用户协议!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         return true;
     }
 

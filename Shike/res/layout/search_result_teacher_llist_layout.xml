@@ -14,6 +14,6 @@
         android:layout_width="fill_parent"
         android:listSelector="@drawable/list_selector_color"
         android:divider="@color/ui_bg_divider"
-        android:dividerHeight="1dp"
+        android:dividerHeight="1px"
         android:layout_height="fill_parent"></ListView>
 </LinearLayout>

@@ -18,9 +18,14 @@ import com.yshow.shike.entity.Update_User_Info;
  * 联网工具
  */
 public class SKAsyncApiController {
-    private static String SHIKE_VALUE_API_SERVER_URL = "http://apitest.shikeke.com/";// 测试环境
+    public static final String SHIKE_VALUE_API_SERVER_URL = "http://apitest.shikeke.com/";// 测试环境
     //	private static String SHIKE_VALUE_API_SERVER_URL = "http://api.shikeke.com/";
     public static AsyncHttpClient client = new AsyncHttpClient();
+
+    static {
+        client.setTimeout(5000);
+    }
+
     public static SyncHttpClient clientSync = new SyncHttpClient() {
         @Override
         public String onRequestFailed(Throwable arg0, String arg1) {

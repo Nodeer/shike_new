@@ -162,8 +162,8 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
             getbitmap = BitmapFactory.decodeFile(path, op);
         }
         //对图片进行旋转
-        Bitmap new_rotae_bitmap = bitmapUtil.rotaingImageView(rotateDegree, getbitmap);
-        return new_rotae_bitmap;
+//        Bitmap new_rotae_bitmap = bitmapUtil.rotaingImageView(rotateDegree, getbitmap);
+        return getbitmap;
     }
 
     @Override

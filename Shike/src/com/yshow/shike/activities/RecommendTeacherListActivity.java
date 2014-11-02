@@ -195,10 +195,11 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
             TextView tv_grade = (TextView) convertView.findViewById(R.id.tv_grade);
             TextView tv_diqu = (TextView) convertView.findViewById(R.id.tv_diqu);
             TextView tv_gerenxinxi = (TextView) convertView.findViewById(R.id.tv_gerenxinxi);
-            if (PartnerConfig.list.contains(teacher_Parse.getUid())) {
-                convertView.findViewById(R.id.iv_teather_sele).setVisibility(View.VISIBLE);
+            View iv_teather_online = convertView.findViewById(R.id.iv_teather_isonline);
+            if (!teacher_Parse.isOnline) {
+                iv_teather_online.setVisibility(View.VISIBLE);
             } else {
-                convertView.findViewById(R.id.iv_teather_sele).setVisibility(View.GONE);
+                iv_teather_online.setVisibility(View.GONE);
             }
             imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
             tv_nicheng.setText(teacher_Parse.getNickname());

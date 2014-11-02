@@ -27,7 +27,7 @@
         android:id="@+id/lv_recommend"
         android:layout_marginTop="10dp"
         android:divider="@color/ui_bg_divider"
-        android:dividerHeight="1dp"
+        android:dividerHeight="1px"
         android:layout_width="fill_parent"
         android:listSelector="@color/white"
         android:layout_height="fill_parent" />

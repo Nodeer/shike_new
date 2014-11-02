@@ -3,6 +3,7 @@
     <color name="transparent">#00000000</color>
     <color name="top_title_color">#185B9B</color>
     <color name="bg_dark">#66000000</color>
+    <color name="reg_bg_dark">#cc000000</color>
 
     <color name="sk_student_main_color">#34CD2E</color>
     <color name="stu_main_color_lucency">#CC34CD2E</color>

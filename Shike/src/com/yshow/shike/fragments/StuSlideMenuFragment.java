@@ -1,6 +1,9 @@
 package com.yshow.shike.fragments;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -43,6 +46,21 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
     private WeixinManager weixinManager;
     private ImageLoader mImageLoader;
     private DisplayImageOptions mOption;
+
+    private class RefreshUserinfoBroadCastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            update_info(student.getUid());
+        }
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        RefreshUserinfoBroadCastReceiver receiver = new RefreshUserinfoBroadCastReceiver();
+        IntentFilter filter = new IntentFilter();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

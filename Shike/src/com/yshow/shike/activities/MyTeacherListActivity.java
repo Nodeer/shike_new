@@ -34,7 +34,7 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_teacher);
+        setContentView(R.layout.my_teacher_layout);
         TextView titletext = (TextView) findViewById(R.id.title_text);
         titletext.setText("我的老师");
         findViewById(R.id.left_btn).setOnClickListener(this);
@@ -73,9 +73,14 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, MyTeacherListActivity.this);
                 if (success) {
                     ArrayList<ArrayList<Star_Teacher_Parse>> my_Teather = SKResolveJsonUtil.getInstance().My_Teather(json);
-                    for (int i = 0; i < my_Teather.size(); i++) {
-                        ll_my_teather.addView(getView(my_Teather.get(i)));
+                    if (my_Teather.size() == 0) {
+                        findViewById(R.id.nodata_layout).setVisibility(View.VISIBLE);
+                    } else {
+                        for (int i = 0; i < my_Teather.size(); i++) {
+                            ll_my_teather.addView(getView(my_Teather.get(i)));
+                        }
                     }
+
                 }
             }
         });
@@ -116,6 +121,13 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
             TextView tv_wenben = (TextView) item_view.findViewById(R.id.tv_wenben);
             ImageView my_teather_img = (ImageView) item_view.findViewById(R.id.my_teather_img);
             tv_wenben.setText(teacher_Parse.getNickname());
+            View iv_teather_online = item_view
+                    .findViewById(R.id.iv_teather_isonline);
+            if (!teacher_Parse.isOnline) {
+                iv_teather_online.setVisibility(View.VISIBLE);
+            } else {
+                iv_teather_online.setVisibility(View.GONE);
+            }
             imageLoader.displayImage(teacher_Parse.getIcon(), my_teather_img, options);
             return item_view;
         }

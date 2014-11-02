@@ -89,6 +89,27 @@
                 android:gravity="left|center_vertical"
                 style="@style/text_16_gray"></EditText>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:id="@+id/agrement_checkbox"
+                android:button="@drawable/checkbox_bg"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="用户协议"
+                style="@style/text_16_333333"
+                android:id="@+id/agrement_text"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </LinearLayout>
 
 

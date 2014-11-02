@@ -1,6 +1,8 @@
 package com.yshow.shike.activities;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -52,6 +54,10 @@ public class StudentRegisterActivity extends BaseActivity implements
         }
     };
 
+    private CheckBox agrementBox;
+    private TextView agrementBtn;
+    private boolean isAgrement = false;
+
     private EditText extra_code;
 
     @Override
@@ -69,6 +75,17 @@ public class StudentRegisterActivity extends BaseActivity implements
         TextView titleText = (TextView) findViewById(R.id.title_text);
         titleText.setText("学生注册");
 
+        agrementBox = (CheckBox) findViewById(R.id.agrement_checkbox);
+        agrementBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isAgrement = isChecked;
+            }
+        });
+        agrementBtn = (TextView) findViewById(R.id.agrement_text);
+        agrementBtn.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+        agrementBtn.setOnClickListener(this);
+
         findViewById(R.id.next_btn).setOnClickListener(this);
         login_name_edit = (EditText) findViewById(R.id.login_name_edit);
         login_pwd_edit = (EditText) findViewById(R.id.login_pwd_edit);
@@ -82,11 +99,19 @@ public class StudentRegisterActivity extends BaseActivity implements
         String username = login_name_edit.getText().toString().trim();
         String pasword = login_pwd_edit.getText().toString().trim();
         if (TextUtils.isEmpty(username)) {
-            Toast.makeText(this, "用户名不能为空!", 0).show();
+            Toast.makeText(this, "手机号不能为空!", 0).show();
+            return false;
+        }
+        if (!(username != null && username.length() == 11)) {
+            Toast.makeText(this, "请输入正确的手机号!", 0).show();
             return false;
         }
         if (TextUtils.isEmpty(pasword)) {
             Toast.makeText(this, "验证码不能为空!", 0).show();
+            return false;
+        }
+        if (!isAgrement) {
+            Toast.makeText(this, "请确认用户协议!", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -94,13 +119,13 @@ public class StudentRegisterActivity extends BaseActivity implements
 
     @Override
     public void onClick(View v) {
-        String username = login_name_edit.getText().toString().trim();
+
         switch (v.getId()) {
             case R.id.left_btn:
                 finish();
                 break;
             case R.id.next_btn:
-                if (checkRegister() && (username != null && username.length() == 11)) {
+                if (checkRegister()) {
                     skStudent = new SKStudent();
                     skStudent.setMob(login_name_edit.getText().toString().trim());
                     skStudent.setVcodeRes(login_pwd_edit.getText().toString().trim());
@@ -109,12 +134,11 @@ public class StudentRegisterActivity extends BaseActivity implements
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("student", skStudent);
                     Dialog.intent(this, StudentRegisterUserinfoActivity.class, bundle);
-                } else {
-                    Toast.makeText(this, "请输入正确手机号!", 0).show();
                 }
                 break;
             //发送验证码
             case R.id.tv_pasword:
+                String username = login_name_edit.getText().toString().trim();
                 if (username != null && username.length() == 11) {
                     sendVcode(username);
                     new Timer_Uils().getTimer(handler);
@@ -122,6 +146,11 @@ public class StudentRegisterActivity extends BaseActivity implements
                 } else {
                     Toast.makeText(this, "请正确输入手机号!", 0).show();
                 }
+                break;
+            case R.id.agrement_text:
+                Intent it = new Intent(StudentRegisterActivity.this, WebViewActivity.class);
+                it.putExtra("url", SKAsyncApiController.SHIKE_VALUE_API_SERVER_URL + "/?m=content&a=agreement");
+                startActivity(it);
                 break;
         }
     }
