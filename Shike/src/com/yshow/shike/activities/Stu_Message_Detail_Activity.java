@@ -456,13 +456,13 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
                         boolean isSuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, context);
                         if (isSuccess) {
                             Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
-                            Toast.makeText(context, "確定結束消息", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "確定结束消息", Toast.LENGTH_SHORT).show();
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("message", sKMessage);
                             Dialog.intent(context, AppraiseMainActivity.class, bundle);
                             finish();
                         } else {
-                            Toast.makeText(context, "確定結束消息失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "確定结束消息失败", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

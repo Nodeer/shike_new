@@ -204,11 +204,11 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
             if (!teacher_Parse.isOnline) {
 //                iv_teather_online.setVisibility(View.VISIBLE);
                 isonline.setText("离线");
-                imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
+                imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, grayOption);
             } else {
 //                iv_teather_online.setVisibility(View.GONE);
                 isonline.setText("在线");
-                imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, grayOption);
+                imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
             }
             tv_nicheng.setText(teacher_Parse.getNickname());
             tv_subject.setText(teacher_Parse.getSubiect());

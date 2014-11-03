@@ -10641,30 +10641,36 @@ com.yshow.shike.activities.GiveGiftActivity -> com.yshow.shike.activities.GiveGi
     int mTotalCount -> g
     boolean[] mSelectedTags -> h
     java.lang.String url -> i
-    45:62:void onCreate(android.os.Bundle) -> onCreate
-    66:90:void onClick(android.view.View) -> onClick
-    94:95:void onBackPressed() -> onBackPressed
-    98:116:void calIdAndCounts() -> a
-    162:169:void getGiftImgs() -> b
-    29:29:boolean[] access$000(com.yshow.shike.activities.GiveGiftActivity) -> a
-    29:29:com.yshow.shike.activities.GiveGiftActivity$MyAdapter access$100(com.yshow.shike.activities.GiveGiftActivity) -> b
-    29:29:java.util.ArrayList access$200(com.yshow.shike.activities.GiveGiftActivity) -> c
-    29:29:com.nostra13.universalimageloader.core.DisplayImageOptions access$300(com.yshow.shike.activities.GiveGiftActivity) -> d
-    29:29:com.nostra13.universalimageloader.core.ImageLoader access$400(com.yshow.shike.activities.GiveGiftActivity) -> e
-    29:29:java.util.ArrayList access$202(com.yshow.shike.activities.GiveGiftActivity,java.util.ArrayList) -> a
-    29:29:boolean[] access$002(com.yshow.shike.activities.GiveGiftActivity,boolean[]) -> a
+    int userTotalPoint -> j
+    49:67:void onCreate(android.os.Bundle) -> onCreate
+    71:81:void update_info(java.lang.String) -> a
+    85:109:void onClick(android.view.View) -> onClick
+    113:114:void onBackPressed() -> onBackPressed
+    117:135:void calIdAndCounts() -> a
+    181:188:void getGiftImgs() -> b
+    31:31:boolean[] access$000(com.yshow.shike.activities.GiveGiftActivity) -> a
+    31:31:com.yshow.shike.activities.GiveGiftActivity$MyAdapter access$100(com.yshow.shike.activities.GiveGiftActivity) -> b
+    31:31:int access$202(com.yshow.shike.activities.GiveGiftActivity,int) -> a
+    31:31:java.util.ArrayList access$300(com.yshow.shike.activities.GiveGiftActivity) -> c
+    31:31:com.nostra13.universalimageloader.core.DisplayImageOptions access$400(com.yshow.shike.activities.GiveGiftActivity) -> d
+    31:31:com.nostra13.universalimageloader.core.ImageLoader access$500(com.yshow.shike.activities.GiveGiftActivity) -> e
+    31:31:java.util.ArrayList access$302(com.yshow.shike.activities.GiveGiftActivity,java.util.ArrayList) -> a
+    31:31:boolean[] access$002(com.yshow.shike.activities.GiveGiftActivity,boolean[]) -> a
 com.yshow.shike.activities.GiveGiftActivity$1 -> com.yshow.shike.activities.cv:
     com.yshow.shike.activities.GiveGiftActivity this$0 -> a
-    58:60:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    63:65:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
 com.yshow.shike.activities.GiveGiftActivity$2 -> com.yshow.shike.activities.cw:
     com.yshow.shike.activities.GiveGiftActivity this$0 -> a
-    164:167:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.GiveGiftActivity$MyAdapter -> com.yshow.shike.activities.cx:
+    73:79:void onSuccess(int,java.lang.String) -> onSuccess
+com.yshow.shike.activities.GiveGiftActivity$3 -> com.yshow.shike.activities.cx:
     com.yshow.shike.activities.GiveGiftActivity this$0 -> a
-    128:128:int getCount() -> getCount
-    133:133:java.lang.Object getItem(int) -> getItem
-    138:138:long getItemId(int) -> getItemId
-    143:154:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    183:186:void onSuccess(int,java.lang.String) -> onSuccess
+com.yshow.shike.activities.GiveGiftActivity$MyAdapter -> com.yshow.shike.activities.cy:
+    com.yshow.shike.activities.GiveGiftActivity this$0 -> a
+    147:147:int getCount() -> getCount
+    152:152:java.lang.Object getItem(int) -> getItem
+    157:157:long getItemId(int) -> getItemId
+    162:173:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.yshow.shike.activities.GivePraiseActivity -> com.yshow.shike.activities.GivePraiseActivity:
     android.widget.GridView mGridView -> a
     com.nostra13.universalimageloader.core.ImageLoader mImageloader -> b
@@ -10683,13 +10689,13 @@ com.yshow.shike.activities.GivePraiseActivity -> com.yshow.shike.activities.Give
     28:28:com.yshow.shike.activities.GivePraiseActivity$MyAdapter access$200(com.yshow.shike.activities.GivePraiseActivity) -> c
     28:28:com.nostra13.universalimageloader.core.DisplayImageOptions access$300(com.yshow.shike.activities.GivePraiseActivity) -> d
     28:28:com.nostra13.universalimageloader.core.ImageLoader access$400(com.yshow.shike.activities.GivePraiseActivity) -> e
-com.yshow.shike.activities.GivePraiseActivity$1 -> com.yshow.shike.activities.cy:
+com.yshow.shike.activities.GivePraiseActivity$1 -> com.yshow.shike.activities.cz:
     com.yshow.shike.activities.GivePraiseActivity this$0 -> a
     50:63:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.yshow.shike.activities.GivePraiseActivity$2 -> com.yshow.shike.activities.cz:
+com.yshow.shike.activities.GivePraiseActivity$2 -> com.yshow.shike.activities.da:
     com.yshow.shike.activities.GivePraiseActivity this$0 -> a
     74:78:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.GivePraiseActivity$MyAdapter -> com.yshow.shike.activities.da:
+com.yshow.shike.activities.GivePraiseActivity$MyAdapter -> com.yshow.shike.activities.db:
     com.yshow.shike.activities.GivePraiseActivity this$0 -> a
     117:117:int getCount() -> getCount
     122:122:java.lang.Object getItem(int) -> getItem
@@ -10736,35 +10742,35 @@ com.yshow.shike.activities.ImageActivity -> com.yshow.shike.activities.ImageActi
     46:46:int access$010(com.yshow.shike.activities.ImageActivity) -> k
     46:46:android.os.Handler access$1100(com.yshow.shike.activities.ImageActivity) -> l
     46:46:void access$1200(com.yshow.shike.activities.ImageActivity,java.lang.String,java.lang.String) -> a
-com.yshow.shike.activities.ImageActivity$1 -> com.yshow.shike.activities.db:
+com.yshow.shike.activities.ImageActivity$1 -> com.yshow.shike.activities.dc:
     com.yshow.shike.activities.ImageActivity this$0 -> a
     52:59:void handleMessage(android.os.Message) -> handleMessage
-com.yshow.shike.activities.ImageActivity$2 -> com.yshow.shike.activities.dc:
+com.yshow.shike.activities.ImageActivity$2 -> com.yshow.shike.activities.dd:
     com.yshow.shike.activities.ImageActivity this$0 -> a
     123:124:void onLoadingStarted(java.lang.String,android.view.View) -> onLoadingStarted
     128:129:void onLoadingFailed(java.lang.String,android.view.View,com.nostra13.universalimageloader.core.assist.FailReason) -> onLoadingFailed
     133:136:void onLoadingComplete(java.lang.String,android.view.View,android.graphics.Bitmap) -> onLoadingComplete
     140:141:void onLoadingCancelled(java.lang.String,android.view.View) -> onLoadingCancelled
-com.yshow.shike.activities.ImageActivity$3 -> com.yshow.shike.activities.dd:
+com.yshow.shike.activities.ImageActivity$3 -> com.yshow.shike.activities.de:
     java.lang.Long uptime -> b
     java.lang.Long downtime -> c
     boolean start_boolear -> d
     com.yshow.shike.activities.ImageActivity this$0 -> a
     168:223:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
     227:239:void Timer_Time() -> a
-com.yshow.shike.activities.ImageActivity$3$1 -> com.yshow.shike.activities.de:
+com.yshow.shike.activities.ImageActivity$3$1 -> com.yshow.shike.activities.df:
     com.yshow.shike.activities.ImageActivity$3 this$1 -> a
     232:236:void run() -> run
-com.yshow.shike.activities.ImageActivity$4 -> com.yshow.shike.activities.df:
+com.yshow.shike.activities.ImageActivity$4 -> com.yshow.shike.activities.dg:
     java.lang.String val$questionId -> a
     com.yshow.shike.activities.ImageActivity this$0 -> b
     246:252:void onSuccess(java.lang.String) -> onSuccess
     256:258:void onFailure(java.lang.Throwable) -> onFailure
-com.yshow.shike.activities.ImageActivity$5 -> com.yshow.shike.activities.dg:
+com.yshow.shike.activities.ImageActivity$5 -> com.yshow.shike.activities.dh:
     java.lang.String val$questionId -> a
     com.yshow.shike.activities.ImageActivity this$0 -> b
     267:297:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.ImageActivity$5$1 -> com.yshow.shike.activities.dh:
+com.yshow.shike.activities.ImageActivity$5$1 -> com.yshow.shike.activities.di:
     com.yshow.shike.activities.ImageActivity$5 this$1 -> a
     283:284:void onClick(android.content.DialogInterface,int) -> onClick
 com.yshow.shike.activities.Login_Reg_Activity -> com.yshow.shike.activities.Login_Reg_Activity:
@@ -10791,7 +10797,7 @@ com.yshow.shike.activities.Login_Reg_Activity -> com.yshow.shike.activities.Logi
     37:37:boolean access$100(com.yshow.shike.activities.Login_Reg_Activity) -> b
     37:37:java.lang.String access$200(com.yshow.shike.activities.Login_Reg_Activity) -> c
     37:37:java.lang.String access$300(com.yshow.shike.activities.Login_Reg_Activity) -> d
-com.yshow.shike.activities.Login_Reg_Activity$1 -> com.yshow.shike.activities.di:
+com.yshow.shike.activities.Login_Reg_Activity$1 -> com.yshow.shike.activities.dj:
     com.yshow.shike.activities.Login_Reg_Activity this$0 -> a
     128:154:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.LookupPassword -> com.yshow.shike.activities.LookupPassword:
@@ -10819,16 +10825,16 @@ com.yshow.shike.activities.MyStudentActivity -> com.yshow.shike.activities.MyStu
     30:30:com.nostra13.universalimageloader.core.DisplayImageOptions access$100(com.yshow.shike.activities.MyStudentActivity) -> b
     30:30:com.nostra13.universalimageloader.core.ImageLoader access$200(com.yshow.shike.activities.MyStudentActivity) -> c
     30:30:android.widget.ListView access$300(com.yshow.shike.activities.MyStudentActivity) -> d
-com.yshow.shike.activities.MyStudentActivity$1 -> com.yshow.shike.activities.dj:
+com.yshow.shike.activities.MyStudentActivity$1 -> com.yshow.shike.activities.dk:
     com.yshow.shike.activities.MyStudentActivity this$0 -> a
     45:46:void onClick(android.view.View) -> onClick
-com.yshow.shike.activities.MyStudentActivity$2 -> com.yshow.shike.activities.dk:
+com.yshow.shike.activities.MyStudentActivity$2 -> com.yshow.shike.activities.dl:
     com.yshow.shike.activities.MyStudentActivity this$0 -> a
     52:56:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.yshow.shike.activities.MyStudentActivity$3 -> com.yshow.shike.activities.dl:
+com.yshow.shike.activities.MyStudentActivity$3 -> com.yshow.shike.activities.dm:
     com.yshow.shike.activities.MyStudentActivity this$0 -> a
     109:115:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.MyStudentActivity$MyAdapter -> com.yshow.shike.activities.dm:
+com.yshow.shike.activities.MyStudentActivity$MyAdapter -> com.yshow.shike.activities.dn:
     java.util.ArrayList arrayList -> a
     com.yshow.shike.activities.MyStudentActivity this$0 -> b
     75:75:int getCount() -> getCount
@@ -10849,14 +10855,14 @@ com.yshow.shike.activities.MyTeacherListActivity -> com.yshow.shike.activities.M
     30:30:com.nostra13.universalimageloader.core.DisplayImageOptions access$100(com.yshow.shike.activities.MyTeacherListActivity) -> b
     30:30:com.nostra13.universalimageloader.core.ImageLoader access$200(com.yshow.shike.activities.MyTeacherListActivity) -> c
     30:30:com.nostra13.universalimageloader.core.DisplayImageOptions access$300(com.yshow.shike.activities.MyTeacherListActivity) -> d
-com.yshow.shike.activities.MyTeacherListActivity$1 -> com.yshow.shike.activities.dn:
+com.yshow.shike.activities.MyTeacherListActivity$1 -> com.yshow.shike.activities.do:
     com.yshow.shike.activities.MyTeacherListActivity$MyAdapter val$adapter -> a
     com.yshow.shike.activities.MyTeacherListActivity this$0 -> b
     61:66:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.yshow.shike.activities.MyTeacherListActivity$2 -> com.yshow.shike.activities.do:
+com.yshow.shike.activities.MyTeacherListActivity$2 -> com.yshow.shike.activities.dp:
     com.yshow.shike.activities.MyTeacherListActivity this$0 -> a
     75:88:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.MyTeacherListActivity$MyAdapter -> com.yshow.shike.activities.dp:
+com.yshow.shike.activities.MyTeacherListActivity$MyAdapter -> com.yshow.shike.activities.dq:
     java.util.ArrayList star_Teacher_Parses -> a
     com.yshow.shike.activities.MyTeacherListActivity this$0 -> b
     107:107:int getCount() -> getCount
@@ -10904,7 +10910,7 @@ com.yshow.shike.activities.My_Question_Count_Two -> com.yshow.shike.activities.M
     29:29:java.lang.Boolean access$502(com.yshow.shike.activities.My_Question_Count_Two,java.lang.Boolean) -> a
     29:29:java.lang.Boolean access$500(com.yshow.shike.activities.My_Question_Count_Two) -> e
     29:29:android.graphics.Bitmap access$602(com.yshow.shike.activities.My_Question_Count_Two,android.graphics.Bitmap) -> a
-com.yshow.shike.activities.My_Question_Count_Two$GridviewAdapter -> com.yshow.shike.activities.dq:
+com.yshow.shike.activities.My_Question_Count_Two$GridviewAdapter -> com.yshow.shike.activities.dr:
     java.util.ArrayList voice -> b
     android.content.Context context -> c
     com.yshow.shike.activities.My_Question_Count_Two this$0 -> a
@@ -10913,7 +10919,7 @@ com.yshow.shike.activities.My_Question_Count_Two$GridviewAdapter -> com.yshow.sh
     185:185:long getItemId(int) -> getItemId
     189:203:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
     167:167:java.lang.Object getItem(int) -> getItem
-com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter -> com.yshow.shike.activities.dr:
+com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter -> com.yshow.shike.activities.ds:
     java.util.ArrayList reslist -> a
     com.yshow.shike.utils.MediaPlayerUtil mediaPlayer -> b
     android.widget.ImageView student_delete -> d
@@ -10923,14 +10929,14 @@ com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter -> com.yshow.shi
     115:115:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
     118:163:android.view.View instantiateItem(android.view.ViewGroup,int) -> a
     97:97:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter$1 -> com.yshow.shike.activities.ds:
+com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter$1 -> com.yshow.shike.activities.dt:
     int val$position -> a
     com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter this$1 -> b
     131:133:void onClick(android.view.View) -> onClick
-com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter$2 -> com.yshow.shike.activities.dt:
+com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter$2 -> com.yshow.shike.activities.du:
     com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter this$1 -> a
     141:145:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter$3 -> com.yshow.shike.activities.du:
+com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter$3 -> com.yshow.shike.activities.dv:
     android.widget.ImageView val$select_bac -> a
     android.widget.ImageView val$img_count -> b
     com.yshow.shike.activities.My_Question_Count_Two$MyPagerAdapter this$1 -> c
@@ -10957,13 +10963,13 @@ com.yshow.shike.activities.OnlineTeaListActivity -> com.yshow.shike.activities.O
     25:25:com.nostra13.universalimageloader.core.DisplayImageOptions access$500(com.yshow.shike.activities.OnlineTeaListActivity) -> e
     25:25:com.yshow.shike.widget.XListView access$600(com.yshow.shike.activities.OnlineTeaListActivity) -> f
     25:25:void access$700(com.yshow.shike.activities.OnlineTeaListActivity) -> g
-com.yshow.shike.activities.OnlineTeaListActivity$1 -> com.yshow.shike.activities.dv:
+com.yshow.shike.activities.OnlineTeaListActivity$1 -> com.yshow.shike.activities.dw:
     com.yshow.shike.activities.OnlineTeaListActivity this$0 -> a
     52:62:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.yshow.shike.activities.OnlineTeaListActivity$2 -> com.yshow.shike.activities.dw:
+com.yshow.shike.activities.OnlineTeaListActivity$2 -> com.yshow.shike.activities.dx:
     com.yshow.shike.activities.OnlineTeaListActivity this$0 -> a
     143:159:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.OnlineTeaListActivity$MyAdapter -> com.yshow.shike.activities.dx:
+com.yshow.shike.activities.OnlineTeaListActivity$MyAdapter -> com.yshow.shike.activities.dy:
     com.yshow.shike.activities.OnlineTeaListActivity this$0 -> a
     91:91:int getCount() -> getCount
     96:96:java.lang.Object getItem(int) -> getItem
@@ -10971,7 +10977,7 @@ com.yshow.shike.activities.OnlineTeaListActivity$MyAdapter -> com.yshow.shike.ac
     106:135:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
 com.yshow.shike.activities.PaiZhaoHelpActivity -> com.yshow.shike.activities.PaiZhaoHelpActivity:
     15:27:void onCreate(android.os.Bundle) -> onCreate
-com.yshow.shike.activities.PaiZhaoHelpActivity$1 -> com.yshow.shike.activities.dy:
+com.yshow.shike.activities.PaiZhaoHelpActivity$1 -> com.yshow.shike.activities.dz:
     com.yshow.shike.activities.PaiZhaoHelpActivity this$0 -> a
     24:25:void onClick(android.view.View) -> onClick
 com.yshow.shike.activities.PasswordSetting -> com.yshow.shike.activities.PasswordSetting:
@@ -10998,16 +11004,16 @@ com.yshow.shike.activities.PasswordSetting -> com.yshow.shike.activities.Passwor
     26:26:void access$200(com.yshow.shike.activities.PasswordSetting,java.lang.String) -> a
     26:26:android.content.Context access$300(com.yshow.shike.activities.PasswordSetting) -> b
     26:26:com.yshow.shike.utils.FileService access$400(com.yshow.shike.activities.PasswordSetting) -> c
-com.yshow.shike.activities.PasswordSetting$1 -> com.yshow.shike.activities.dz:
+com.yshow.shike.activities.PasswordSetting$1 -> com.yshow.shike.activities.ea:
     com.yshow.shike.activities.PasswordSetting this$0 -> a
     94:97:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.PasswordSetting$2 -> com.yshow.shike.activities.ea:
+com.yshow.shike.activities.PasswordSetting$2 -> com.yshow.shike.activities.eb:
     com.yshow.shike.activities.PasswordSetting this$0 -> a
     108:122:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.PasswordSetting$2$1 -> com.yshow.shike.activities.eb:
+com.yshow.shike.activities.PasswordSetting$2$1 -> com.yshow.shike.activities.ec:
     com.yshow.shike.activities.PasswordSetting$2 this$1 -> a
     113:118:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.PasswordSetting$3 -> com.yshow.shike.activities.ec:
+com.yshow.shike.activities.PasswordSetting$3 -> com.yshow.shike.activities.ed:
     com.yshow.shike.activities.PasswordSetting this$0 -> a
     140:153:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.PublishImageActivity -> com.yshow.shike.activities.PublishImageActivity:
@@ -11055,17 +11061,17 @@ com.yshow.shike.activities.PublishImageActivity -> com.yshow.shike.activities.Pu
     50:50:java.util.Timer access$302(com.yshow.shike.activities.PublishImageActivity,java.util.Timer) -> a
     50:50:int access$010(com.yshow.shike.activities.PublishImageActivity) -> o
     50:50:android.os.Handler access$1300(com.yshow.shike.activities.PublishImageActivity) -> p
-com.yshow.shike.activities.PublishImageActivity$1 -> com.yshow.shike.activities.ed:
+com.yshow.shike.activities.PublishImageActivity$1 -> com.yshow.shike.activities.ee:
     com.yshow.shike.activities.PublishImageActivity this$0 -> a
     58:70:void handleMessage(android.os.Message) -> handleMessage
-com.yshow.shike.activities.PublishImageActivity$2 -> com.yshow.shike.activities.ee:
+com.yshow.shike.activities.PublishImageActivity$2 -> com.yshow.shike.activities.ef:
     java.lang.Long uptime -> b
     java.lang.Long downtime -> c
     boolean start_boolear -> d
     com.yshow.shike.activities.PublishImageActivity this$0 -> a
     149:212:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
     216:228:void Timer_Time() -> a
-com.yshow.shike.activities.PublishImageActivity$2$1 -> com.yshow.shike.activities.ef:
+com.yshow.shike.activities.PublishImageActivity$2$1 -> com.yshow.shike.activities.eg:
     com.yshow.shike.activities.PublishImageActivity$2 this$1 -> a
     221:225:void run() -> run
 com.yshow.shike.activities.RecommendTeacherListActivity -> com.yshow.shike.activities.RecommendTeacherListActivity:
@@ -11100,21 +11106,21 @@ com.yshow.shike.activities.RecommendTeacherListActivity -> com.yshow.shike.activ
     27:27:com.nostra13.universalimageloader.core.DisplayImageOptions access$800(com.yshow.shike.activities.RecommendTeacherListActivity) -> h
     27:27:com.nostra13.universalimageloader.core.ImageLoader access$900(com.yshow.shike.activities.RecommendTeacherListActivity) -> i
     27:27:com.nostra13.universalimageloader.core.DisplayImageOptions access$1000(com.yshow.shike.activities.RecommendTeacherListActivity) -> j
-com.yshow.shike.activities.RecommendTeacherListActivity$1 -> com.yshow.shike.activities.eg:
+com.yshow.shike.activities.RecommendTeacherListActivity$1 -> com.yshow.shike.activities.eh:
     com.yshow.shike.activities.RecommendTeacherListActivity this$0 -> a
     58:67:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.yshow.shike.activities.RecommendTeacherListActivity$2 -> com.yshow.shike.activities.eh:
+com.yshow.shike.activities.RecommendTeacherListActivity$2 -> com.yshow.shike.activities.ei:
     com.yshow.shike.activities.RecommendTeacherListActivity this$0 -> a
     94:120:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.RecommendTeacherListActivity$2$1 -> com.yshow.shike.activities.ei:
+com.yshow.shike.activities.RecommendTeacherListActivity$2$1 -> com.yshow.shike.activities.ej:
     com.yshow.shike.utils.XuekeSelectUtil val$subjectId -> a
     com.yshow.shike.activities.RecommendTeacherListActivity$2 this$1 -> b
     108:108:void onClickRight() -> onClickRight
     112:117:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.RecommendTeacherListActivity$3 -> com.yshow.shike.activities.ej:
+com.yshow.shike.activities.RecommendTeacherListActivity$3 -> com.yshow.shike.activities.ek:
     com.yshow.shike.activities.RecommendTeacherListActivity this$0 -> a
     133:149:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.RecommendTeacherListActivity$MyAdapter -> com.yshow.shike.activities.ek:
+com.yshow.shike.activities.RecommendTeacherListActivity$MyAdapter -> com.yshow.shike.activities.el:
     com.yshow.shike.activities.RecommendTeacherListActivity this$0 -> a
     177:177:int getCount() -> getCount
     182:182:com.yshow.shike.entity.Star_Teacher_Parse getItem(int) -> a
@@ -11133,10 +11139,10 @@ com.yshow.shike.activities.SearchResultTeacherListActivity -> com.yshow.shike.ac
     25:25:com.nostra13.universalimageloader.core.DisplayImageOptions access$100(com.yshow.shike.activities.SearchResultTeacherListActivity) -> b
     25:25:com.nostra13.universalimageloader.core.ImageLoader access$200(com.yshow.shike.activities.SearchResultTeacherListActivity) -> c
     25:25:com.nostra13.universalimageloader.core.DisplayImageOptions access$300(com.yshow.shike.activities.SearchResultTeacherListActivity) -> d
-com.yshow.shike.activities.SearchResultTeacherListActivity$1 -> com.yshow.shike.activities.el:
+com.yshow.shike.activities.SearchResultTeacherListActivity$1 -> com.yshow.shike.activities.em:
     com.yshow.shike.activities.SearchResultTeacherListActivity this$0 -> a
     62:66:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.yshow.shike.activities.SearchResultTeacherListActivity$MyAdapter -> com.yshow.shike.activities.em:
+com.yshow.shike.activities.SearchResultTeacherListActivity$MyAdapter -> com.yshow.shike.activities.en:
     java.util.ArrayList list -> a
     com.yshow.shike.activities.SearchResultTeacherListActivity this$0 -> b
     86:86:int getCount() -> getCount
@@ -11174,31 +11180,31 @@ com.yshow.shike.activities.SearchTeacherActivity -> com.yshow.shike.activities.S
     27:27:android.widget.TextView access$300(com.yshow.shike.activities.SearchTeacherActivity) -> b
     27:27:java.lang.String access$402(com.yshow.shike.activities.SearchTeacherActivity,java.lang.String) -> c
     27:27:android.widget.TextView access$500(com.yshow.shike.activities.SearchTeacherActivity) -> c
-com.yshow.shike.activities.SearchTeacherActivity$1 -> com.yshow.shike.activities.en:
+com.yshow.shike.activities.SearchTeacherActivity$1 -> com.yshow.shike.activities.eo:
     com.yshow.shike.activities.SearchTeacherActivity this$0 -> a
     112:135:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.SearchTeacherActivity$1$1 -> com.yshow.shike.activities.eo:
+com.yshow.shike.activities.SearchTeacherActivity$1$1 -> com.yshow.shike.activities.ep:
     com.yshow.shike.utils.XuekeSelectUtil val$subjectId -> a
     com.yshow.shike.activities.SearchTeacherActivity$1 this$1 -> b
     126:126:void onClickRight() -> onClickRight
     130:132:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.SearchTeacherActivity$2 -> com.yshow.shike.activities.ep:
+com.yshow.shike.activities.SearchTeacherActivity$2 -> com.yshow.shike.activities.eq:
     com.yshow.shike.activities.SearchTeacherActivity this$0 -> a
     143:165:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.SearchTeacherActivity$2$1 -> com.yshow.shike.activities.eq:
+com.yshow.shike.activities.SearchTeacherActivity$2$1 -> com.yshow.shike.activities.er:
     com.yshow.shike.utils.AreaSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.SearchTeacherActivity$2 this$1 -> b
     157:157:void onClickRight() -> onClickRight
     161:163:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.SearchTeacherActivity$3 -> com.yshow.shike.activities.er:
+com.yshow.shike.activities.SearchTeacherActivity$3 -> com.yshow.shike.activities.es:
     com.yshow.shike.utils.SexSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.SearchTeacherActivity this$0 -> b
     176:176:void onClickRight() -> onClickRight
     180:182:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.SearchTeacherActivity$4 -> com.yshow.shike.activities.es:
+com.yshow.shike.activities.SearchTeacherActivity$4 -> com.yshow.shike.activities.et:
     com.yshow.shike.activities.SearchTeacherActivity this$0 -> a
     195:203:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.SearchTeacherActivity$5 -> com.yshow.shike.activities.et:
+com.yshow.shike.activities.SearchTeacherActivity$5 -> com.yshow.shike.activities.eu:
     com.yshow.shike.activities.SearchTeacherActivity this$0 -> a
     213:219:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.StarTeacherListActivity -> com.yshow.shike.activities.StarTeacherListActivity:
@@ -11242,35 +11248,35 @@ com.yshow.shike.activities.StarTeacherListActivity -> com.yshow.shike.activities
     32:32:com.yshow.shike.widget.XListView access$1000(com.yshow.shike.activities.StarTeacherListActivity) -> j
     32:32:android.content.Context access$1100(com.yshow.shike.activities.StarTeacherListActivity) -> k
     32:32:void access$1200(com.yshow.shike.activities.StarTeacherListActivity) -> l
-com.yshow.shike.activities.StarTeacherListActivity$1 -> com.yshow.shike.activities.eu:
+com.yshow.shike.activities.StarTeacherListActivity$1 -> com.yshow.shike.activities.ev:
     com.yshow.shike.activities.StarTeacherListActivity this$0 -> a
     73:82:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.yshow.shike.activities.StarTeacherListActivity$2 -> com.yshow.shike.activities.ev:
+com.yshow.shike.activities.StarTeacherListActivity$2 -> com.yshow.shike.activities.ew:
     com.yshow.shike.activities.StarTeacherListActivity this$0 -> a
     109:135:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StarTeacherListActivity$2$1 -> com.yshow.shike.activities.ew:
+com.yshow.shike.activities.StarTeacherListActivity$2$1 -> com.yshow.shike.activities.ex:
     com.yshow.shike.utils.XuekeSelectUtil val$subjectId -> a
     com.yshow.shike.activities.StarTeacherListActivity$2 this$1 -> b
     123:123:void onClickRight() -> onClickRight
     127:132:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.StarTeacherListActivity$3 -> com.yshow.shike.activities.ex:
+com.yshow.shike.activities.StarTeacherListActivity$3 -> com.yshow.shike.activities.ey:
     com.yshow.shike.activities.StarTeacherListActivity this$0 -> a
     143:168:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StarTeacherListActivity$3$1 -> com.yshow.shike.activities.ey:
+com.yshow.shike.activities.StarTeacherListActivity$3$1 -> com.yshow.shike.activities.ez:
     com.yshow.shike.utils.AreaSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.StarTeacherListActivity$3 this$1 -> b
     157:157:void onClickRight() -> onClickRight
     161:166:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.StarTeacherListActivity$4 -> com.yshow.shike.activities.ez:
+com.yshow.shike.activities.StarTeacherListActivity$4 -> com.yshow.shike.activities.fa:
     com.yshow.shike.activities.StarTeacherListActivity this$0 -> a
     254:268:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StarTeacherListActivity$5 -> com.yshow.shike.activities.fa:
+com.yshow.shike.activities.StarTeacherListActivity$5 -> com.yshow.shike.activities.fb:
     com.yshow.shike.activities.StarTeacherListActivity this$0 -> a
     279:292:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StarTeacherListActivity$6 -> com.yshow.shike.activities.fb:
+com.yshow.shike.activities.StarTeacherListActivity$6 -> com.yshow.shike.activities.fc:
     com.yshow.shike.activities.StarTeacherListActivity this$0 -> a
     303:316:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StarTeacherListActivity$RegionAdapter -> com.yshow.shike.activities.fc:
+com.yshow.shike.activities.StarTeacherListActivity$RegionAdapter -> com.yshow.shike.activities.fd:
     com.yshow.shike.activities.StarTeacherListActivity this$0 -> a
     195:195:int getCount() -> getCount
     200:200:com.yshow.shike.entity.Star_Teacher_Parse getItem(int) -> a
@@ -11283,10 +11289,10 @@ com.yshow.shike.activities.StartHelpActivity -> com.yshow.shike.activities.Start
     24:51:void onCreate(android.os.Bundle) -> onCreate
     17:17:android.view.View[] access$100(com.yshow.shike.activities.StartHelpActivity) -> a
     17:17:int[] access$200(com.yshow.shike.activities.StartHelpActivity) -> b
-com.yshow.shike.activities.StartHelpActivity$1 -> com.yshow.shike.activities.fd:
+com.yshow.shike.activities.StartHelpActivity$1 -> com.yshow.shike.activities.fe:
     com.yshow.shike.activities.StartHelpActivity this$0 -> a
     36:39:void onClick(android.view.View) -> onClick
-com.yshow.shike.activities.StartHelpActivity$MyPageAdapter -> com.yshow.shike.activities.fe:
+com.yshow.shike.activities.StartHelpActivity$MyPageAdapter -> com.yshow.shike.activities.ff:
     com.yshow.shike.activities.StartHelpActivity this$0 -> a
     57:58:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
     63:64:void destroyItem(android.view.ViewGroup,int,java.lang.Object) -> destroyItem
@@ -11302,12 +11308,12 @@ com.yshow.shike.activities.StartingUp -> com.yshow.shike.activities.StartingUp:
     94:120:void autoLogin(java.lang.String,java.lang.String) -> a
     22:22:void access$000(com.yshow.shike.activities.StartingUp) -> a
     22:22:com.yshow.shike.utils.FileService access$100(com.yshow.shike.activities.StartingUp) -> b
-com.yshow.shike.activities.StartingUp$1 -> com.yshow.shike.activities.ff:
+com.yshow.shike.activities.StartingUp$1 -> com.yshow.shike.activities.fg:
     com.yshow.shike.activities.StartingUp this$0 -> a
     79:79:void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
     83:83:void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
     87:88:void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
-com.yshow.shike.activities.StartingUp$2 -> com.yshow.shike.activities.fg:
+com.yshow.shike.activities.StartingUp$2 -> com.yshow.shike.activities.fh:
     com.yshow.shike.activities.StartingUp this$0 -> a
     97:118:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.StuPersonInfoActivity -> com.yshow.shike.activities.StuPersonInfoActivity:
@@ -11382,37 +11388,37 @@ com.yshow.shike.activities.StuPersonInfoActivity -> com.yshow.shike.activities.S
     66:66:com.nostra13.universalimageloader.core.ImageLoader access$2300(com.yshow.shike.activities.StuPersonInfoActivity) -> x
     66:66:android.widget.TextView access$2400(com.yshow.shike.activities.StuPersonInfoActivity) -> y
     66:66:android.widget.TextView access$2500(com.yshow.shike.activities.StuPersonInfoActivity) -> z
-com.yshow.shike.activities.StuPersonInfoActivity$1 -> com.yshow.shike.activities.fh:
+com.yshow.shike.activities.StuPersonInfoActivity$1 -> com.yshow.shike.activities.fi:
     com.yshow.shike.activities.StuPersonInfoActivity this$0 -> a
     138:179:void onClick(android.view.View) -> onClick
-com.yshow.shike.activities.StuPersonInfoActivity$2 -> com.yshow.shike.activities.fi:
+com.yshow.shike.activities.StuPersonInfoActivity$2 -> com.yshow.shike.activities.fj:
     com.yshow.shike.activities.StuPersonInfoActivity this$0 -> a
     232:248:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StuPersonInfoActivity$2$1 -> com.yshow.shike.activities.fj:
+com.yshow.shike.activities.StuPersonInfoActivity$2$1 -> com.yshow.shike.activities.fk:
     com.yshow.shike.utils.AreaSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.StuPersonInfoActivity$2 this$1 -> b
     240:240:void onClickRight() -> onClickRight
     244:246:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.StuPersonInfoActivity$3 -> com.yshow.shike.activities.fk:
+com.yshow.shike.activities.StuPersonInfoActivity$3 -> com.yshow.shike.activities.fl:
     com.yshow.shike.activities.StuPersonInfoActivity this$0 -> a
     264:266:void onClickLeft(java.lang.String,java.lang.String,java.lang.String) -> onClickLeft
-com.yshow.shike.activities.StuPersonInfoActivity$4 -> com.yshow.shike.activities.fl:
+com.yshow.shike.activities.StuPersonInfoActivity$4 -> com.yshow.shike.activities.fm:
     com.yshow.shike.activities.StuPersonInfoActivity this$0 -> a
     275:295:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StuPersonInfoActivity$4$1 -> com.yshow.shike.activities.fm:
+com.yshow.shike.activities.StuPersonInfoActivity$4$1 -> com.yshow.shike.activities.fn:
     com.yshow.shike.utils.GradeSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.StuPersonInfoActivity$4 this$1 -> b
     286:286:void onClickRight() -> onClickRight
     290:292:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.StuPersonInfoActivity$5 -> com.yshow.shike.activities.fn:
+com.yshow.shike.activities.StuPersonInfoActivity$5 -> com.yshow.shike.activities.fo:
     com.yshow.shike.activities.StuPersonInfoActivity this$0 -> a
     384:391:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StuPersonInfoActivity$5$1 -> com.yshow.shike.activities.fo:
+com.yshow.shike.activities.StuPersonInfoActivity$5$1 -> com.yshow.shike.activities.fp:
     com.yshow.shike.activities.StuPersonInfoActivity$5 this$1 -> a
-com.yshow.shike.activities.StuPersonInfoActivity$6 -> com.yshow.shike.activities.fp:
+com.yshow.shike.activities.StuPersonInfoActivity$6 -> com.yshow.shike.activities.fq:
     com.yshow.shike.activities.StuPersonInfoActivity this$0 -> a
     401:446:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.StuPersonInfoActivity$7 -> com.yshow.shike.activities.fq:
+com.yshow.shike.activities.StuPersonInfoActivity$7 -> com.yshow.shike.activities.fr:
     com.yshow.shike.activities.StuPersonInfoActivity this$0 -> a
     457:470:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.Stu_Message_Detail_Activity -> com.yshow.shike.activities.Stu_Message_Detail_Activity:
@@ -11478,48 +11484,48 @@ com.yshow.shike.activities.Stu_Message_Detail_Activity -> com.yshow.shike.activi
     62:62:com.nostra13.universalimageloader.core.ImageLoader access$1500(com.yshow.shike.activities.Stu_Message_Detail_Activity) -> o
     62:62:void access$1600(com.yshow.shike.activities.Stu_Message_Detail_Activity,java.lang.String,java.lang.String) -> a
     62:62:void access$1700(com.yshow.shike.activities.Stu_Message_Detail_Activity) -> p
-com.yshow.shike.activities.Stu_Message_Detail_Activity$1 -> com.yshow.shike.activities.fr:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$1 -> com.yshow.shike.activities.fs:
     com.yshow.shike.activities.Stu_Message_Detail_Activity this$0 -> a
     89:104:void handleMessage(android.os.Message) -> handleMessage
-com.yshow.shike.activities.Stu_Message_Detail_Activity$2 -> com.yshow.shike.activities.fs:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$2 -> com.yshow.shike.activities.ft:
     java.lang.Long uptime -> b
     java.lang.Long downtime -> c
     boolean start_boolear -> d
     com.yshow.shike.activities.Stu_Message_Detail_Activity this$0 -> a
     268:317:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
     321:333:void Timer_Time() -> a
-com.yshow.shike.activities.Stu_Message_Detail_Activity$2$1 -> com.yshow.shike.activities.ft:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$2$1 -> com.yshow.shike.activities.fu:
     com.yshow.shike.activities.Stu_Message_Detail_Activity$2 this$1 -> a
     326:330:void run() -> run
-com.yshow.shike.activities.Stu_Message_Detail_Activity$3 -> com.yshow.shike.activities.fu:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$3 -> com.yshow.shike.activities.fv:
     java.lang.String val$questionId -> a
     com.yshow.shike.activities.Stu_Message_Detail_Activity this$0 -> b
     436:442:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Stu_Message_Detail_Activity$4 -> com.yshow.shike.activities.fv:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$4 -> com.yshow.shike.activities.fw:
     android.content.Context val$context -> a
     com.yshow.shike.activities.Stu_Message_Detail_Activity this$0 -> b
     452:469:void onClick(android.content.DialogInterface,int) -> onClick
-com.yshow.shike.activities.Stu_Message_Detail_Activity$4$1 -> com.yshow.shike.activities.fw:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$4$1 -> com.yshow.shike.activities.fx:
     com.yshow.shike.activities.Stu_Message_Detail_Activity$4 this$1 -> a
     455:467:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Stu_Message_Detail_Activity$5 -> com.yshow.shike.activities.fx:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$5 -> com.yshow.shike.activities.fy:
     java.lang.String val$questionId -> a
     com.yshow.shike.activities.Stu_Message_Detail_Activity this$0 -> b
     483:511:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Stu_Message_Detail_Activity$5$1 -> com.yshow.shike.activities.fy:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$5$1 -> com.yshow.shike.activities.fz:
     com.yshow.shike.activities.Stu_Message_Detail_Activity$5 this$1 -> a
     498:499:void onClick(android.content.DialogInterface,int) -> onClick
-com.yshow.shike.activities.Stu_Message_Detail_Activity$6 -> com.yshow.shike.activities.fz:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$6 -> com.yshow.shike.activities.ga:
     com.yshow.shike.activities.Stu_Message_Detail_Activity this$0 -> a
     522:534:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Stu_Message_Detail_Activity$MyAdapter -> com.yshow.shike.activities.ga:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$MyAdapter -> com.yshow.shike.activities.gb:
     java.util.ArrayList reslist -> a
     com.yshow.shike.activities.Stu_Message_Detail_Activity this$0 -> b
     380:380:int getCount() -> getCount
     385:385:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
     390:390:void destroyItem(android.view.View,int,java.lang.Object) -> destroyItem
     397:427:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-com.yshow.shike.activities.Stu_Message_Detail_Activity$MyAdapter$1 -> com.yshow.shike.activities.gb:
+com.yshow.shike.activities.Stu_Message_Detail_Activity$MyAdapter$1 -> com.yshow.shike.activities.gc:
     com.yshow.shike.entity.SkMessage_Res val$skMessage_Res -> a
     int val$position -> b
     com.yshow.shike.activities.Stu_Message_Detail_Activity$MyAdapter this$1 -> c
@@ -11553,18 +11559,18 @@ com.yshow.shike.activities.Stu_Paint_Activity -> com.yshow.shike.activities.Stu_
     35:35:com.yshow.shike.utils.ProgressDialogUtil access$500(com.yshow.shike.activities.Stu_Paint_Activity) -> e
     35:35:android.content.Context access$600(com.yshow.shike.activities.Stu_Paint_Activity) -> f
     35:35:void access$700(com.yshow.shike.activities.Stu_Paint_Activity,java.lang.String,java.lang.String) -> a
-com.yshow.shike.activities.Stu_Paint_Activity$1 -> com.yshow.shike.activities.gc:
+com.yshow.shike.activities.Stu_Paint_Activity$1 -> com.yshow.shike.activities.gd:
     com.yshow.shike.activities.Stu_Paint_Activity this$0 -> a
     50:66:void handleMessage(android.os.Message) -> handleMessage
-com.yshow.shike.activities.Stu_Paint_Activity$2 -> com.yshow.shike.activities.gd:
+com.yshow.shike.activities.Stu_Paint_Activity$2 -> com.yshow.shike.activities.ge:
     java.lang.String val$questionId -> a
     com.yshow.shike.activities.Stu_Paint_Activity this$0 -> b
     190:197:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Stu_Paint_Activity$3 -> com.yshow.shike.activities.ge:
+com.yshow.shike.activities.Stu_Paint_Activity$3 -> com.yshow.shike.activities.gf:
     java.lang.String val$questionId -> a
     com.yshow.shike.activities.Stu_Paint_Activity this$0 -> b
     214:249:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Stu_Paint_Activity$3$1 -> com.yshow.shike.activities.gf:
+com.yshow.shike.activities.Stu_Paint_Activity$3$1 -> com.yshow.shike.activities.gg:
     com.yshow.shike.activities.Stu_Paint_Activity$3 this$1 -> a
     232:234:void onClick(android.content.DialogInterface,int) -> onClick
 com.yshow.shike.activities.StudentRegisterActivity -> com.yshow.shike.activities.StudentRegisterActivity:
@@ -11590,13 +11596,13 @@ com.yshow.shike.activities.StudentRegisterActivity -> com.yshow.shike.activities
     33:33:com.yshow.shike.entity.SKStudent access$202(com.yshow.shike.activities.StudentRegisterActivity,com.yshow.shike.entity.SKStudent) -> a
     33:33:com.yshow.shike.entity.SKStudent access$200(com.yshow.shike.activities.StudentRegisterActivity) -> b
     33:33:android.widget.EditText access$300(com.yshow.shike.activities.StudentRegisterActivity) -> c
-com.yshow.shike.activities.StudentRegisterActivity$1 -> com.yshow.shike.activities.gg:
+com.yshow.shike.activities.StudentRegisterActivity$1 -> com.yshow.shike.activities.gh:
     com.yshow.shike.activities.StudentRegisterActivity this$0 -> a
     43:54:void handleMessage(android.os.Message) -> handleMessage
-com.yshow.shike.activities.StudentRegisterActivity$2 -> com.yshow.shike.activities.gh:
+com.yshow.shike.activities.StudentRegisterActivity$2 -> com.yshow.shike.activities.gi:
     com.yshow.shike.activities.StudentRegisterActivity this$0 -> a
     83:84:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.yshow.shike.activities.StudentRegisterActivity$3 -> com.yshow.shike.activities.gi:
+com.yshow.shike.activities.StudentRegisterActivity$3 -> com.yshow.shike.activities.gj:
     java.lang.String val$mob -> a
     com.yshow.shike.activities.StudentRegisterActivity this$0 -> b
     170:178:void onSuccess(java.lang.String) -> onSuccess
@@ -11631,29 +11637,29 @@ com.yshow.shike.activities.StudentRegisterUserinfoActivity -> com.yshow.shike.ac
     34:34:android.widget.TextView access$400(com.yshow.shike.activities.StudentRegisterUserinfoActivity) -> c
     34:34:android.widget.TextView access$500(com.yshow.shike.activities.StudentRegisterUserinfoActivity) -> d
     34:34:android.widget.TextView access$600(com.yshow.shike.activities.StudentRegisterUserinfoActivity) -> e
-com.yshow.shike.activities.StudentRegisterUserinfoActivity$1 -> com.yshow.shike.activities.gj:
+com.yshow.shike.activities.StudentRegisterUserinfoActivity$1 -> com.yshow.shike.activities.gk:
     com.yshow.shike.activities.StudentRegisterUserinfoActivity this$0 -> a
     107:121:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.StudentRegisterUserinfoActivity$1$1 -> com.yshow.shike.activities.gk:
+com.yshow.shike.activities.StudentRegisterUserinfoActivity$1$1 -> com.yshow.shike.activities.gl:
     com.yshow.shike.activities.StudentRegisterUserinfoActivity$1 this$1 -> a
     112:117:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StudentRegisterUserinfoActivity$2 -> com.yshow.shike.activities.gl:
+com.yshow.shike.activities.StudentRegisterUserinfoActivity$2 -> com.yshow.shike.activities.gm:
     com.yshow.shike.activities.StudentRegisterUserinfoActivity this$0 -> a
     181:202:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StudentRegisterUserinfoActivity$2$1 -> com.yshow.shike.activities.gm:
+com.yshow.shike.activities.StudentRegisterUserinfoActivity$2$1 -> com.yshow.shike.activities.gn:
     com.yshow.shike.utils.XuelingDuanSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.StudentRegisterUserinfoActivity$2 this$1 -> b
     193:193:void onClickRight() -> onClickRight
     197:199:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.StudentRegisterUserinfoActivity$3 -> com.yshow.shike.activities.gn:
+com.yshow.shike.activities.StudentRegisterUserinfoActivity$3 -> com.yshow.shike.activities.go:
     com.yshow.shike.utils.JieDuanSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.StudentRegisterUserinfoActivity this$0 -> b
     219:219:void onClickRight() -> onClickRight
     223:225:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.StudentRegisterUserinfoActivity$4 -> com.yshow.shike.activities.go:
+com.yshow.shike.activities.StudentRegisterUserinfoActivity$4 -> com.yshow.shike.activities.gp:
     com.yshow.shike.activities.StudentRegisterUserinfoActivity this$0 -> a
     234:253:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.StudentRegisterUserinfoActivity$4$1 -> com.yshow.shike.activities.gp:
+com.yshow.shike.activities.StudentRegisterUserinfoActivity$4$1 -> com.yshow.shike.activities.gq:
     com.yshow.shike.utils.AreaSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.StudentRegisterUserinfoActivity$4 this$1 -> b
     245:245:void onClickRight() -> onClickRight
@@ -11676,23 +11682,23 @@ com.yshow.shike.activities.Student_Main_Activity -> com.yshow.shike.activities.S
     207:209:void onPause() -> onPause
     36:36:void access$000(com.yshow.shike.activities.Student_Main_Activity,com.yshow.shike.entity.VersionModel) -> a
     36:36:void access$100(com.yshow.shike.activities.Student_Main_Activity,java.lang.String) -> a
-com.yshow.shike.activities.Student_Main_Activity$1 -> com.yshow.shike.activities.gq:
+com.yshow.shike.activities.Student_Main_Activity$1 -> com.yshow.shike.activities.gr:
     com.yshow.shike.activities.Student_Main_Activity this$0 -> a
     66:69:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Student_Main_Activity$2 -> com.yshow.shike.activities.gr:
+com.yshow.shike.activities.Student_Main_Activity$2 -> com.yshow.shike.activities.gs:
     com.yshow.shike.activities.Student_Main_Activity this$0 -> a
     109:112:void transformCanvas(android.graphics.Canvas,float) -> a
-com.yshow.shike.activities.Student_Main_Activity$3 -> com.yshow.shike.activities.gs:
+com.yshow.shike.activities.Student_Main_Activity$3 -> com.yshow.shike.activities.gt:
     com.yshow.shike.activities.Student_Main_Activity this$0 -> a
     118:120:void transformCanvas(android.graphics.Canvas,float) -> a
-com.yshow.shike.activities.Student_Main_Activity$4 -> com.yshow.shike.activities.gt:
+com.yshow.shike.activities.Student_Main_Activity$4 -> com.yshow.shike.activities.gu:
     com.yshow.shike.activities.Student_Main_Activity this$0 -> a
     141:142:void onClick(android.content.DialogInterface,int) -> onClick
-com.yshow.shike.activities.Student_Main_Activity$5 -> com.yshow.shike.activities.gu:
+com.yshow.shike.activities.Student_Main_Activity$5 -> com.yshow.shike.activities.gv:
     java.lang.String val$url -> a
     com.yshow.shike.activities.Student_Main_Activity this$0 -> b
     147:148:void onClick(android.content.DialogInterface,int) -> onClick
-com.yshow.shike.activities.Student_Main_Activity$6 -> com.yshow.shike.activities.gv:
+com.yshow.shike.activities.Student_Main_Activity$6 -> com.yshow.shike.activities.gw:
     java.lang.String val$url -> a
     com.yshow.shike.activities.Student_Main_Activity this$0 -> b
     156:157:void onClick(android.content.DialogInterface,int) -> onClick
@@ -11777,51 +11783,51 @@ com.yshow.shike.activities.TeaPersonInfoActivity -> com.yshow.shike.activities.T
     65:65:android.widget.ImageView access$2700(com.yshow.shike.activities.TeaPersonInfoActivity) -> A
     65:65:com.nostra13.universalimageloader.core.ImageLoader access$2800(com.yshow.shike.activities.TeaPersonInfoActivity) -> B
     65:65:android.widget.TextView access$2900(com.yshow.shike.activities.TeaPersonInfoActivity) -> C
-com.yshow.shike.activities.TeaPersonInfoActivity$1 -> com.yshow.shike.activities.gw:
+com.yshow.shike.activities.TeaPersonInfoActivity$1 -> com.yshow.shike.activities.gx:
     com.yshow.shike.activities.TeaPersonInfoActivity this$0 -> a
     147:197:void onClick(android.view.View) -> onClick
-com.yshow.shike.activities.TeaPersonInfoActivity$2 -> com.yshow.shike.activities.gx:
+com.yshow.shike.activities.TeaPersonInfoActivity$2 -> com.yshow.shike.activities.gy:
     com.yshow.shike.activities.TeaPersonInfoActivity this$0 -> a
     252:268:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeaPersonInfoActivity$2$1 -> com.yshow.shike.activities.gy:
+com.yshow.shike.activities.TeaPersonInfoActivity$2$1 -> com.yshow.shike.activities.gz:
     com.yshow.shike.utils.AreaSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.TeaPersonInfoActivity$2 this$1 -> b
     260:260:void onClickRight() -> onClickRight
     264:266:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.TeaPersonInfoActivity$3 -> com.yshow.shike.activities.gz:
+com.yshow.shike.activities.TeaPersonInfoActivity$3 -> com.yshow.shike.activities.ha:
     com.yshow.shike.activities.TeaPersonInfoActivity this$0 -> a
     284:286:void onClickLeft(java.lang.String,java.lang.String,java.lang.String) -> onClickLeft
-com.yshow.shike.activities.TeaPersonInfoActivity$4 -> com.yshow.shike.activities.ha:
+com.yshow.shike.activities.TeaPersonInfoActivity$4 -> com.yshow.shike.activities.hb:
     com.yshow.shike.activities.TeaPersonInfoActivity this$0 -> a
     375:393:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeaPersonInfoActivity$4$1 -> com.yshow.shike.activities.hb:
+com.yshow.shike.activities.TeaPersonInfoActivity$4$1 -> com.yshow.shike.activities.hc:
     com.yshow.shike.utils.Grade_Level_Utils val$grade_utils -> a
     com.yshow.shike.activities.TeaPersonInfoActivity$4 this$1 -> b
     382:382:void onClickRight() -> onClickRight
     386:390:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.TeaPersonInfoActivity$5 -> com.yshow.shike.activities.hc:
+com.yshow.shike.activities.TeaPersonInfoActivity$5 -> com.yshow.shike.activities.hd:
     com.yshow.shike.activities.TeaPersonInfoActivity this$0 -> a
     402:418:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeaPersonInfoActivity$5$1 -> com.yshow.shike.activities.hd:
+com.yshow.shike.activities.TeaPersonInfoActivity$5$1 -> com.yshow.shike.activities.he:
     com.yshow.shike.utils.AreaSeltorUtil val$subjectId -> a
     com.yshow.shike.activities.TeaPersonInfoActivity$5 this$1 -> b
     410:410:void onClickRight() -> onClickRight
     414:416:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.TeaPersonInfoActivity$6 -> com.yshow.shike.activities.he:
+com.yshow.shike.activities.TeaPersonInfoActivity$6 -> com.yshow.shike.activities.hf:
     com.yshow.shike.activities.TeaPersonInfoActivity this$0 -> a
     433:440:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeaPersonInfoActivity$6$1 -> com.yshow.shike.activities.hf:
+com.yshow.shike.activities.TeaPersonInfoActivity$6$1 -> com.yshow.shike.activities.hg:
     com.yshow.shike.activities.TeaPersonInfoActivity$6 this$1 -> a
-com.yshow.shike.activities.TeaPersonInfoActivity$7 -> com.yshow.shike.activities.hg:
+com.yshow.shike.activities.TeaPersonInfoActivity$7 -> com.yshow.shike.activities.hh:
     com.yshow.shike.activities.TeaPersonInfoActivity this$0 -> a
     450:504:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeaPersonInfoActivity$8 -> com.yshow.shike.activities.hh:
+com.yshow.shike.activities.TeaPersonInfoActivity$8 -> com.yshow.shike.activities.hi:
     android.widget.TextView val$view -> a
     com.yshow.shike.activities.TeaPersonInfoActivity this$0 -> b
     521:529:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeaPersonInfoActivity$8$1 -> com.yshow.shike.activities.hi:
+com.yshow.shike.activities.TeaPersonInfoActivity$8$1 -> com.yshow.shike.activities.hj:
     com.yshow.shike.activities.TeaPersonInfoActivity$8 this$1 -> a
-com.yshow.shike.activities.TeaPersonInfoActivity$9 -> com.yshow.shike.activities.hj:
+com.yshow.shike.activities.TeaPersonInfoActivity$9 -> com.yshow.shike.activities.hk:
     com.yshow.shike.activities.TeaPersonInfoActivity this$0 -> a
     540:553:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.Tea_Message_Detail_Activity -> com.yshow.shike.activities.Tea_Message_Detail_Activity:
@@ -11902,53 +11908,53 @@ com.yshow.shike.activities.Tea_Message_Detail_Activity -> com.yshow.shike.activi
     70:70:android.widget.LinearLayout access$2200(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> u
     70:70:boolean access$1402(com.yshow.shike.activities.Tea_Message_Detail_Activity,boolean) -> b
     70:70:void access$2300(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.lang.String) -> a
-com.yshow.shike.activities.Tea_Message_Detail_Activity$1 -> com.yshow.shike.activities.hk:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$1 -> com.yshow.shike.activities.hl:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
     102:119:void handleMessage(android.os.Message) -> handleMessage
-com.yshow.shike.activities.Tea_Message_Detail_Activity$10 -> com.yshow.shike.activities.hl:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$10 -> com.yshow.shike.activities.hm:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
     623:626:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Tea_Message_Detail_Activity$2 -> com.yshow.shike.activities.hm:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$2 -> com.yshow.shike.activities.hn:
     java.lang.Long uptime -> b
     java.lang.Long downtime -> c
     boolean start_boolear -> d
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
     275:324:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
     328:340:void Timer_Time() -> a
-com.yshow.shike.activities.Tea_Message_Detail_Activity$2$1 -> com.yshow.shike.activities.hn:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$2$1 -> com.yshow.shike.activities.ho:
     com.yshow.shike.activities.Tea_Message_Detail_Activity$2 this$1 -> a
     333:337:void run() -> run
-com.yshow.shike.activities.Tea_Message_Detail_Activity$3 -> com.yshow.shike.activities.ho:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$3 -> com.yshow.shike.activities.hp:
     java.lang.String val$questionId -> a
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> b
     443:449:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Tea_Message_Detail_Activity$4 -> com.yshow.shike.activities.hp:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$4 -> com.yshow.shike.activities.hq:
     java.lang.String val$questionId -> a
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> b
     459:487:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Tea_Message_Detail_Activity$4$1 -> com.yshow.shike.activities.hq:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$4$1 -> com.yshow.shike.activities.hr:
     com.yshow.shike.activities.Tea_Message_Detail_Activity$4 this$1 -> a
     474:475:void onClick(android.content.DialogInterface,int) -> onClick
-com.yshow.shike.activities.Tea_Message_Detail_Activity$5 -> com.yshow.shike.activities.hr:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$5 -> com.yshow.shike.activities.hs:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
     498:510:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Tea_Message_Detail_Activity$6 -> com.yshow.shike.activities.hs:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$6 -> com.yshow.shike.activities.ht:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
     554:555:void onClick(android.content.DialogInterface,int) -> onClick
-com.yshow.shike.activities.Tea_Message_Detail_Activity$7 -> com.yshow.shike.activities.ht:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$7 -> com.yshow.shike.activities.hu:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
     566:577:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.Tea_Message_Detail_Activity$9 -> com.yshow.shike.activities.hu:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$9 -> com.yshow.shike.activities.hv:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
     602:605:void onClick(android.content.DialogInterface,int) -> onClick
-com.yshow.shike.activities.Tea_Message_Detail_Activity$MyAdapter -> com.yshow.shike.activities.hv:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$MyAdapter -> com.yshow.shike.activities.hw:
     java.util.ArrayList reslist -> a
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> b
     387:387:int getCount() -> getCount
     392:392:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
     397:397:void destroyItem(android.view.View,int,java.lang.Object) -> destroyItem
     404:434:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
-com.yshow.shike.activities.Tea_Message_Detail_Activity$MyAdapter$1 -> com.yshow.shike.activities.hw:
+com.yshow.shike.activities.Tea_Message_Detail_Activity$MyAdapter$1 -> com.yshow.shike.activities.hx:
     com.yshow.shike.entity.SkMessage_Res val$skMessage_Res -> a
     int val$position -> b
     com.yshow.shike.activities.Tea_Message_Detail_Activity$MyAdapter this$1 -> c
@@ -11975,23 +11981,23 @@ com.yshow.shike.activities.TeacherBankEditActivity -> com.yshow.shike.activities
     28:28:void access$600(com.yshow.shike.activities.TeacherBankEditActivity,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
     28:28:com.yshow.shike.entity.Bank access$702(com.yshow.shike.activities.TeacherBankEditActivity,com.yshow.shike.entity.Bank) -> a
     28:28:com.yshow.shike.entity.Bank access$700(com.yshow.shike.activities.TeacherBankEditActivity) -> g
-com.yshow.shike.activities.TeacherBankEditActivity$1 -> com.yshow.shike.activities.hx:
+com.yshow.shike.activities.TeacherBankEditActivity$1 -> com.yshow.shike.activities.hy:
     com.yshow.shike.activities.TeacherBankEditActivity this$0 -> a
     55:63:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherBankEditActivity$2 -> com.yshow.shike.activities.hy:
+com.yshow.shike.activities.TeacherBankEditActivity$2 -> com.yshow.shike.activities.hz:
     com.yshow.shike.activities.TeacherBankEditActivity this$0 -> a
     74:93:void onClick(android.view.View) -> onClick
-com.yshow.shike.activities.TeacherBankEditActivity$3 -> com.yshow.shike.activities.hz:
+com.yshow.shike.activities.TeacherBankEditActivity$3 -> com.yshow.shike.activities.ia:
     com.yshow.shike.activities.TeacherBankEditActivity this$0 -> a
     100:121:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherBankEditActivity$3$1 -> com.yshow.shike.activities.ia:
+com.yshow.shike.activities.TeacherBankEditActivity$3$1 -> com.yshow.shike.activities.ib:
     com.yshow.shike.activities.TeacherBankEditActivity$3 this$1 -> a
-com.yshow.shike.activities.TeacherBankEditActivity$3$2 -> com.yshow.shike.activities.ib:
+com.yshow.shike.activities.TeacherBankEditActivity$3$2 -> com.yshow.shike.activities.ic:
     com.yshow.shike.utils.BankSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.TeacherBankEditActivity$3 this$1 -> b
     112:112:void onClickRight() -> onClickRight
     116:118:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.TeacherBankEditActivity$4 -> com.yshow.shike.activities.ic:
+com.yshow.shike.activities.TeacherBankEditActivity$4 -> com.yshow.shike.activities.id:
     com.yshow.shike.activities.TeacherBankEditActivity this$0 -> a
     136:141:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.TeacherExchangeGodsActivity -> com.yshow.shike.activities.TeacherExchangeGodsActivity:
@@ -12035,32 +12041,32 @@ com.yshow.shike.activities.TeacherExchangeGodsActivity -> com.yshow.shike.activi
     39:39:android.widget.TextView access$1200(com.yshow.shike.activities.TeacherExchangeGodsActivity) -> k
     39:39:void access$1300(com.yshow.shike.activities.TeacherExchangeGodsActivity) -> l
     39:39:void access$1400(com.yshow.shike.activities.TeacherExchangeGodsActivity,java.lang.String) -> b
-com.yshow.shike.activities.TeacherExchangeGodsActivity$1 -> com.yshow.shike.activities.id:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$1 -> com.yshow.shike.activities.ie:
     com.yshow.shike.activities.TeacherExchangeGodsActivity this$0 -> a
     76:76:void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-com.yshow.shike.activities.TeacherExchangeGodsActivity$2 -> com.yshow.shike.activities.ie:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$2 -> com.yshow.shike.activities.if:
     com.yshow.shike.activities.TeacherExchangeGodsActivity this$0 -> a
     81:82:void onRefresh() -> a
-com.yshow.shike.activities.TeacherExchangeGodsActivity$3 -> com.yshow.shike.activities.if:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$3 -> com.yshow.shike.activities.ig:
     com.yshow.shike.activities.TeacherExchangeGodsActivity this$0 -> a
     99:107:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherExchangeGodsActivity$3$1 -> com.yshow.shike.activities.ig:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$3$1 -> com.yshow.shike.activities.ih:
     com.yshow.shike.activities.TeacherExchangeGodsActivity$3 this$1 -> a
-com.yshow.shike.activities.TeacherExchangeGodsActivity$4 -> com.yshow.shike.activities.ih:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$4 -> com.yshow.shike.activities.ii:
     com.yshow.shike.activities.TeacherExchangeGodsActivity this$0 -> a
     174:181:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherExchangeGodsActivity$4$1 -> com.yshow.shike.activities.ii:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$4$1 -> com.yshow.shike.activities.ij:
     com.yshow.shike.activities.TeacherExchangeGodsActivity$4 this$1 -> a
-com.yshow.shike.activities.TeacherExchangeGodsActivity$5 -> com.yshow.shike.activities.ij:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$5 -> com.yshow.shike.activities.ik:
     com.yshow.shike.activities.TeacherExchangeGodsActivity this$0 -> a
     188:191:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherExchangeGodsActivity$6 -> com.yshow.shike.activities.ik:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$6 -> com.yshow.shike.activities.il:
     com.yshow.shike.activities.TeacherExchangeGodsActivity this$0 -> a
     231:233:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherExchangeGodsActivity$7 -> com.yshow.shike.activities.il:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$7 -> com.yshow.shike.activities.im:
     com.yshow.shike.activities.TeacherExchangeGodsActivity this$0 -> a
     241:244:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherExchangeGodsActivity$MyListAdapter -> com.yshow.shike.activities.im:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$MyListAdapter -> com.yshow.shike.activities.in:
     java.util.List lists -> b
     com.yshow.shike.activities.TeacherExchangeGodsActivity this$0 -> a
     120:120:int getCount() -> getCount
@@ -12068,7 +12074,7 @@ com.yshow.shike.activities.TeacherExchangeGodsActivity$MyListAdapter -> com.ysho
     130:130:long getItemId(int) -> getItemId
     135:166:android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
     111:111:java.util.List access$700(com.yshow.shike.activities.TeacherExchangeGodsActivity$MyListAdapter) -> a
-com.yshow.shike.activities.TeacherExchangeGodsActivity$MyListAdapter$1 -> com.yshow.shike.activities.in:
+com.yshow.shike.activities.TeacherExchangeGodsActivity$MyListAdapter$1 -> com.yshow.shike.activities.io:
     int val$id -> a
     com.yshow.shike.activities.TeacherExchangeGodsActivity$MyListAdapter this$1 -> b
     152:164:void onClick(android.view.View) -> onClick
@@ -12082,7 +12088,7 @@ com.yshow.shike.activities.TeacherExchangeMainActivity -> com.yshow.shike.activi
     19:19:com.yshow.shike.entity.User_Info access$002(com.yshow.shike.activities.TeacherExchangeMainActivity,com.yshow.shike.entity.User_Info) -> a
     19:19:com.yshow.shike.entity.User_Info access$000(com.yshow.shike.activities.TeacherExchangeMainActivity) -> a
     19:19:android.widget.TextView access$100(com.yshow.shike.activities.TeacherExchangeMainActivity) -> b
-com.yshow.shike.activities.TeacherExchangeMainActivity$1 -> com.yshow.shike.activities.io:
+com.yshow.shike.activities.TeacherExchangeMainActivity$1 -> com.yshow.shike.activities.ip:
     com.yshow.shike.activities.TeacherExchangeMainActivity this$0 -> a
     43:45:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.TeacherExchangeMoneyActivity -> com.yshow.shike.activities.TeacherExchangeMoneyActivity:
@@ -12109,13 +12115,13 @@ com.yshow.shike.activities.TeacherExchangeMoneyActivity -> com.yshow.shike.activ
     28:28:com.yshow.shike.entity.User_Info access$300(com.yshow.shike.activities.TeacherExchangeMoneyActivity) -> d
     28:28:android.widget.TextView access$400(com.yshow.shike.activities.TeacherExchangeMoneyActivity) -> e
     28:28:int access$502(com.yshow.shike.activities.TeacherExchangeMoneyActivity,int) -> a
-com.yshow.shike.activities.TeacherExchangeMoneyActivity$1 -> com.yshow.shike.activities.ip:
+com.yshow.shike.activities.TeacherExchangeMoneyActivity$1 -> com.yshow.shike.activities.iq:
     com.yshow.shike.activities.TeacherExchangeMoneyActivity this$0 -> a
     72:90:void onClick(android.view.View) -> onClick
-com.yshow.shike.activities.TeacherExchangeMoneyActivity$2 -> com.yshow.shike.activities.iq:
+com.yshow.shike.activities.TeacherExchangeMoneyActivity$2 -> com.yshow.shike.activities.ir:
     com.yshow.shike.activities.TeacherExchangeMoneyActivity this$0 -> a
     96:103:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherExchangeMoneyActivity$3 -> com.yshow.shike.activities.ir:
+com.yshow.shike.activities.TeacherExchangeMoneyActivity$3 -> com.yshow.shike.activities.is:
     com.yshow.shike.activities.TeacherExchangeMoneyActivity this$0 -> a
     152:159:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.TeacherInfoActivity -> com.yshow.shike.activities.TeacherInfoActivity:
@@ -12160,13 +12166,13 @@ com.yshow.shike.activities.TeacherInfoActivity -> com.yshow.shike.activities.Tea
     31:31:android.widget.ImageView access$1300(com.yshow.shike.activities.TeacherInfoActivity) -> m
     31:31:android.widget.RelativeLayout access$1400(com.yshow.shike.activities.TeacherInfoActivity) -> n
     31:31:boolean access$1502(com.yshow.shike.activities.TeacherInfoActivity,boolean) -> a
-com.yshow.shike.activities.TeacherInfoActivity$1 -> com.yshow.shike.activities.is:
+com.yshow.shike.activities.TeacherInfoActivity$1 -> com.yshow.shike.activities.it:
     com.yshow.shike.activities.TeacherInfoActivity this$0 -> a
     131:154:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherInfoActivity$2 -> com.yshow.shike.activities.it:
+com.yshow.shike.activities.TeacherInfoActivity$2 -> com.yshow.shike.activities.iu:
     com.yshow.shike.activities.TeacherInfoActivity this$0 -> a
     192:199:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherInfoActivity$3 -> com.yshow.shike.activities.iu:
+com.yshow.shike.activities.TeacherInfoActivity$3 -> com.yshow.shike.activities.iv:
     com.yshow.shike.activities.TeacherInfoActivity this$0 -> a
     209:216:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.TeacherRegisterActivity -> com.yshow.shike.activities.TeacherRegisterActivity:
@@ -12191,13 +12197,13 @@ com.yshow.shike.activities.TeacherRegisterActivity -> com.yshow.shike.activities
     29:29:int access$000(com.yshow.shike.activities.TeacherRegisterActivity) -> a
     29:29:android.widget.TextView access$100(com.yshow.shike.activities.TeacherRegisterActivity) -> b
     29:29:boolean access$202(com.yshow.shike.activities.TeacherRegisterActivity,boolean) -> a
-com.yshow.shike.activities.TeacherRegisterActivity$1 -> com.yshow.shike.activities.iv:
+com.yshow.shike.activities.TeacherRegisterActivity$1 -> com.yshow.shike.activities.iw:
     com.yshow.shike.activities.TeacherRegisterActivity this$0 -> a
     39:50:void handleMessage(android.os.Message) -> handleMessage
-com.yshow.shike.activities.TeacherRegisterActivity$2 -> com.yshow.shike.activities.iw:
+com.yshow.shike.activities.TeacherRegisterActivity$2 -> com.yshow.shike.activities.ix:
     com.yshow.shike.activities.TeacherRegisterActivity this$0 -> a
     82:83:void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
-com.yshow.shike.activities.TeacherRegisterActivity$3 -> com.yshow.shike.activities.ix:
+com.yshow.shike.activities.TeacherRegisterActivity$3 -> com.yshow.shike.activities.iy:
     com.yshow.shike.activities.TeacherRegisterActivity this$0 -> a
     142:147:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.TeacherRegisterUploadPapersActivity -> com.yshow.shike.activities.TeacherRegisterUploadPapersActivity:
@@ -12225,14 +12231,14 @@ com.yshow.shike.activities.TeacherRegisterUploadPapersActivity -> com.yshow.shik
     39:39:android.app.Dialog access$500(com.yshow.shike.activities.TeacherRegisterUploadPapersActivity) -> f
     39:39:void access$600(com.yshow.shike.activities.TeacherRegisterUploadPapersActivity) -> g
     39:39:void access$700(com.yshow.shike.activities.TeacherRegisterUploadPapersActivity) -> h
-com.yshow.shike.activities.TeacherRegisterUploadPapersActivity$1 -> com.yshow.shike.activities.iy:
+com.yshow.shike.activities.TeacherRegisterUploadPapersActivity$1 -> com.yshow.shike.activities.iz:
     com.yshow.shike.activities.TeacherRegisterUploadPapersActivity this$0 -> a
     74:109:void onClick(android.view.View) -> onClick
-com.yshow.shike.activities.TeacherRegisterUploadPapersActivity$2 -> com.yshow.shike.activities.iz:
+com.yshow.shike.activities.TeacherRegisterUploadPapersActivity$2 -> com.yshow.shike.activities.ja:
     android.content.Context val$context -> a
     com.yshow.shike.activities.TeacherRegisterUploadPapersActivity this$0 -> b
     192:209:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherRegisterUploadPapersActivity$2$1 -> com.yshow.shike.activities.ja:
+com.yshow.shike.activities.TeacherRegisterUploadPapersActivity$2$1 -> com.yshow.shike.activities.jb:
     com.yshow.shike.activities.TeacherRegisterUploadPapersActivity$2 this$1 -> a
 com.yshow.shike.activities.TeacherRegisterUserInfoActivity -> com.yshow.shike.activities.TeacherRegisterUserInfoActivity:
     android.widget.EditText nickname_edit -> a
@@ -12261,29 +12267,29 @@ com.yshow.shike.activities.TeacherRegisterUserInfoActivity -> com.yshow.shike.ac
     31:31:android.widget.TextView access$100(com.yshow.shike.activities.TeacherRegisterUserInfoActivity) -> b
     31:31:android.widget.TextView access$200(com.yshow.shike.activities.TeacherRegisterUserInfoActivity) -> c
     31:31:android.widget.TextView access$300(com.yshow.shike.activities.TeacherRegisterUserInfoActivity) -> d
-com.yshow.shike.activities.TeacherRegisterUserInfoActivity$1 -> com.yshow.shike.activities.jb:
+com.yshow.shike.activities.TeacherRegisterUserInfoActivity$1 -> com.yshow.shike.activities.jc:
     com.yshow.shike.activities.TeacherRegisterUserInfoActivity this$0 -> a
     109:118:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherRegisterUserInfoActivity$2 -> com.yshow.shike.activities.jc:
+com.yshow.shike.activities.TeacherRegisterUserInfoActivity$2 -> com.yshow.shike.activities.jd:
     com.yshow.shike.activities.TeacherRegisterUserInfoActivity this$0 -> a
     127:144:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherRegisterUserInfoActivity$2$1 -> com.yshow.shike.activities.jd:
+com.yshow.shike.activities.TeacherRegisterUserInfoActivity$2$1 -> com.yshow.shike.activities.je:
     com.yshow.shike.utils.AreaSeltorUtil val$systemDialog -> a
     com.yshow.shike.activities.TeacherRegisterUserInfoActivity$2 this$1 -> b
     136:136:void onClickRight() -> onClickRight
     140:142:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.TeacherRegisterUserInfoActivity$3 -> com.yshow.shike.activities.je:
+com.yshow.shike.activities.TeacherRegisterUserInfoActivity$3 -> com.yshow.shike.activities.jf:
     com.yshow.shike.activities.TeacherRegisterUserInfoActivity this$0 -> a
     153:170:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherRegisterUserInfoActivity$3$1 -> com.yshow.shike.activities.jf:
+com.yshow.shike.activities.TeacherRegisterUserInfoActivity$3$1 -> com.yshow.shike.activities.jg:
     com.yshow.shike.utils.AreaSeltorUtil val$subjectId -> a
     com.yshow.shike.activities.TeacherRegisterUserInfoActivity$3 this$1 -> b
     161:161:void onClickRight() -> onClickRight
     165:168:void onClickLeft() -> onClickLeft
-com.yshow.shike.activities.TeacherRegisterUserInfoActivity$4 -> com.yshow.shike.activities.jg:
+com.yshow.shike.activities.TeacherRegisterUserInfoActivity$4 -> com.yshow.shike.activities.jh:
     com.yshow.shike.activities.TeacherRegisterUserInfoActivity this$0 -> a
     179:198:void onSuccess(int,java.lang.String) -> onSuccess
-com.yshow.shike.activities.TeacherRegisterUserInfoActivity$4$1 -> com.yshow.shike.activities.jh:
+com.yshow.shike.activities.TeacherRegisterUserInfoActivity$4$1 -> com.yshow.shike.activities.ji:
     com.yshow.shike.utils.Grade_Level_Utils val$grade_utils -> a
     com.yshow.shike.activities.TeacherRegisterUserInfoActivity$4 this$1 -> b
     186:186:void onClickRight() -> onClickRight
@@ -12315,32 +12321,32 @@ com.yshow.shike.activities.Teather_Main_Activity -> com.yshow.shike.activities.T
     211:213:void onPause() -> onPause
     35:35:void access$000(com.yshow.shike.activities.Teather_Main_Activity,com.yshow.shike.entity.VersionModel) -> a
     35:35:void access$100(com.yshow.shike.activities.Teather_Main_Activity,java.lang.String) -> a
-com.yshow.shike.activities.Teather_Main_Activity$1 -> com.yshow.shike.activities.ji:
+com.yshow.shike.activities.Teather_Main_Activity$1 -> com.yshow.shike.activities.jj:
     com.yshow.shike.activities.Teather_Main_Activity this$0 -> a
     63:66:void onSuccess(java.lang.String) -> onSuccess
-com.yshow.shike.activities.Teather_Main_Activity$2 -> com.yshow.shike.activities.jj:
+com.yshow.shike.activities.Teather_Main_Activity$2 -> com.yshow.shike.activities.jk:
     com.yshow.shike.activities.Teather_Main_Activity this$0 -> a
     95:98:void transformCanvas(android.graphics.Canvas,float) -> a
-com.yshow.shike.activities.Teather_Main_Activity$3 -> com.yshow.shike.activities.jk:
+com.yshow.shike.activities.Teather_Main_Activity$3 -> com.yshow.shike.activities.jl:
     com.yshow.shike.activities.Teather_Main_Activity this$0 -> a
     104:106:void transformCanvas(android.graphics.Canvas,float) -> a
-com.yshow.shike.activities.Teather_Main_Activity$4 -> com.yshow.shike.activities.jl:
+com.yshow.shike.activities.Teather_Main_Activity$4 -> com.yshow.shike.activities.jm:
     com.yshow.shike.activities.Teather_Main_Activity this$0 -> a
     125:126:void onClick(android.content.DialogInterface,int) -> onClick
-com.yshow.shike.activities.Teather_Main_Activity$5 -> com.yshow.shike.activities.jm:
+com.yshow.shike.activities.Teather_Main_Activity$5 -> com.yshow.shike.activities.jn:
     java.lang.String val$url -> a
     com.yshow.shike.activities.Teather_Main_Activity this$0 -> b
     131:132:void onClick(android.content.DialogInterface,int) -> onClick
-com.yshow.shike.activities.Teather_Main_Activity$6 -> com.yshow.shike.activities.jn:
+com.yshow.shike.activities.Teather_Main_Activity$6 -> com.yshow.shike.activities.jo:
     java.lang.String val$url -> a
     com.yshow.shike.activities.Teather_Main_Activity this$0 -> b
     140:141:void onClick(android.content.DialogInterface,int) -> onClick
 com.yshow.shike.activities.WebViewActivity -> com.yshow.shike.activities.WebViewActivity:
     17:44:void onCreate(android.os.Bundle) -> onCreate
-com.yshow.shike.activities.WebViewActivity$1 -> com.yshow.shike.activities.jo:
+com.yshow.shike.activities.WebViewActivity$1 -> com.yshow.shike.activities.jp:
     com.yshow.shike.activities.WebViewActivity this$0 -> a
     24:25:void onClick(android.view.View) -> onClick
-com.yshow.shike.activities.WebViewActivity$2 -> com.yshow.shike.activities.jp:
+com.yshow.shike.activities.WebViewActivity$2 -> com.yshow.shike.activities.jq:
     com.yshow.shike.activities.WebViewActivity this$0 -> a
     39:40:boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String) -> shouldOverrideUrlLoading
 com.yshow.shike.adapter.SKMessageAdapter -> com.yshow.shike.a.a:

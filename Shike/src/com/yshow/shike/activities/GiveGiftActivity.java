@@ -15,7 +15,9 @@ import android.widget.Toast;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
+import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.Send_Gife;
+import com.yshow.shike.entity.User_Info;
 import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
@@ -40,6 +42,8 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
 
     private String url;
 
+    private int userTotalPoint = -1;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,7 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
         mGridView = (GridView) findViewById(R.id.gridview);
         mImageloader = ImageLoader.getInstance();
         mImageOption = ImageLoadOption.getImageOption(R.drawable.xiaoxi_moren);
+        update_info(LoginManage.getInstance().getStudent().getUid());
         getGiftImgs();
         mAdapter = new MyAdapter();
         mGridView.setAdapter(mAdapter);
@@ -57,6 +62,20 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mSelectedTags[position] = mSelectedTags[position] ? false : true;
                 mAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+
+    private void update_info(String uid) {
+        SKAsyncApiController.User_Info(uid, new MyAsyncHttpResponseHandler(this, false) {
+            public void onSuccess(int arg0, String json) {
+                super.onSuccess(arg0, json);
+                boolean atent_Success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, GiveGiftActivity.this);
+                if (atent_Success) {
+                    User_Info info = SKResolveJsonUtil.getInstance().My_teather1(json);
+                    userTotalPoint = Integer.parseInt(info.getPoints());
+                }
             }
         });
     }
@@ -71,8 +90,8 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
                 Intent it = new Intent();
                 if (arrayList.size() > 0) {
                     calIdAndCounts();
-                    if(mTotalCount>100){
-                        Toast.makeText(GiveGiftActivity.this, "送分过多,请不要超过100分", Toast.LENGTH_SHORT).show();
+                    if (userTotalPoint != -1 && mTotalCount > userTotalPoint) {
+                        Toast.makeText(GiveGiftActivity.this, "送分过多,请不要超过现有学分", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     it.putExtra("count", mTotalCount);
