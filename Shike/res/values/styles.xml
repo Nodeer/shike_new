@@ -118,6 +118,10 @@
         <item name="android:textSize">16dp</item>
         <item name="android:textColor">#333333</item>
     </style>
+    <style name="text_16_blue">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">#ff529CD1</item>
+    </style>
     <style name="text_16_red">
         <item name="android:textSize">16dp</item>
         <item name="android:textColor">@color/red_color</item>

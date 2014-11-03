@@ -19,7 +19,6 @@ import com.yshow.shike.utils.SharePreferenceUtil;
 public class UIApplication extends FrontiaApplication {
     private List<Bitmap> bitmaplist = new ArrayList<Bitmap>();
     private static UIApplication instance;
-    public Boolean isTestUser;// 自动注册标识
     //	private String NickName;// 自动登录用户名
     private String mac;// wifi网卡地址
     private Boolean reg_tea_three = false; // 老师注册页面3
@@ -139,7 +138,7 @@ public class UIApplication extends FrontiaApplication {
     @Override
     public String toString() {
         return "UIApplication [bitmaplist=" + bitmaplist + ", Auid_flag="
-                + isTestUser + ", mac=" + mac + ", reg_tea_three="
+                + ", mac=" + mac + ", reg_tea_three="
                 + reg_tea_three + ", attention_tea=" + attention_tea
                 + ", user_name=" + user_name + ", myPicUrls=" + myPicUrls;
     }

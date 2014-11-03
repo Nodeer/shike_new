@@ -54,7 +54,7 @@ public class TeacherRegisterActivity extends BaseActivity implements
 
     private CheckBox agrementBox;
     private TextView agrementBtn;
-    private boolean isAgrement = false;
+    private boolean isAgrement = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +75,7 @@ public class TeacherRegisterActivity extends BaseActivity implements
 
 
         agrementBox = (CheckBox) findViewById(R.id.agrement_checkbox);
+        agrementBox.setChecked(true);
         agrementBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

@@ -33,6 +33,9 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
     private int page = 1;
     private ArrayList<Star_Teacher_Parse> mDataList = new ArrayList<Star_Teacher_Parse>();
     private String mSubjectId = "0";
+    private DisplayImageOptions options;
+    private ImageLoader imageLoader;
+    private DisplayImageOptions grayOption;
 
 
     @Override
@@ -42,6 +45,9 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
         TextView titletext = (TextView) findViewById(R.id.title_text);
         titletext.setText("推荐老师");
         findViewById(R.id.left_btn).setOnClickListener(this);
+        options = ImageLoadOption.getTeaHeadImageOption();
+        grayOption = ImageLoadOption.getTeaHeadGrayImageOption();
+        imageLoader = ImageLoader.getInstance();
         recommend_name = (TextView) findViewById(R.id.tv_recommend_subject);
         recommend_name.setOnClickListener(this);
         lv_recommend = (XListView) findViewById(R.id.lv_recommend);
@@ -184,8 +190,6 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             teacher_Parse = mDataList.get(position);
-            DisplayImageOptions options = Net_Servse.getInstence().Picture_Shipei(R.drawable.my_tea_phon);
-            ImageLoader imageLoader = ImageLoader.getInstance();
             if (convertView == null) {
                 convertView = View.inflate(RecommendTeacherListActivity.this, R.layout.fragment_start_text, null);
             }
@@ -196,12 +200,16 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
             TextView tv_diqu = (TextView) convertView.findViewById(R.id.tv_diqu);
             TextView tv_gerenxinxi = (TextView) convertView.findViewById(R.id.tv_gerenxinxi);
             View iv_teather_online = convertView.findViewById(R.id.iv_teather_isonline);
+            TextView isonline = (TextView) convertView.findViewById(R.id.tv_isonline);
             if (!teacher_Parse.isOnline) {
-                iv_teather_online.setVisibility(View.VISIBLE);
+//                iv_teather_online.setVisibility(View.VISIBLE);
+                isonline.setText("离线");
+                imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
             } else {
-                iv_teather_online.setVisibility(View.GONE);
+//                iv_teather_online.setVisibility(View.GONE);
+                isonline.setText("在线");
+                imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, grayOption);
             }
-            imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
             tv_nicheng.setText(teacher_Parse.getNickname());
             tv_subject.setText(teacher_Parse.getSubiect());
             tv_grade.setText(teacher_Parse.getGrade());

@@ -33,6 +33,7 @@ import com.yshow.shike.entity.SkMessage_Voice;
 import com.yshow.shike.fragments.Fragment_Message;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.Dialog;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.SKAsyncApiController;
@@ -52,9 +53,8 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
     public SKMessageAdapter(Context context, ArrayList<SKMessageList> list) {
         this.context = context;
         this.list = list;
-        Net_Servse image_loding = Net_Servse.getInstence();
-        s_options = image_loding.Picture_Shipei(R.drawable.my_tea_phon);
-        t_options = image_loding.Picture_Shipei(R.drawable.teather_stu_picture);
+        s_options = ImageLoadOption.getStuHeadImageOption();
+        t_options = ImageLoadOption.getTeaHeadImageOption();
         imageLoader = ImageLoader.getInstance();
     }
 

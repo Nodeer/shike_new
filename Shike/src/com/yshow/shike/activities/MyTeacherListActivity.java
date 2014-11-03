@@ -18,6 +18,7 @@ import com.yshow.shike.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.entity.Star_Teacher_Parse;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.SKAsyncApiController;
@@ -30,6 +31,7 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
     private DisplayImageOptions options;
     private ImageLoader imageLoader;
     private LinearLayout ll_my_teather;
+    private DisplayImageOptions grayOption;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,8 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
         findViewById(R.id.left_btn).setOnClickListener(this);
 
         ll_my_teather = (LinearLayout) findViewById(R.id.ll_my_teather);
-        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.my_tea_phon);
+        options = ImageLoadOption.getTeaHeadImageOption();
+        grayOption = ImageLoadOption.getTeaHeadGrayImageOption();
         imageLoader = ImageLoader.getInstance();
 
     }
@@ -120,15 +123,19 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
             View item_view = View.inflate(MyTeacherListActivity.this, R.layout.my_gridview_teather_item, null);
             TextView tv_wenben = (TextView) item_view.findViewById(R.id.tv_wenben);
             ImageView my_teather_img = (ImageView) item_view.findViewById(R.id.my_teather_img);
+            TextView isonline = (TextView) item_view.findViewById(R.id.tv_isonline);
             tv_wenben.setText(teacher_Parse.getNickname());
             View iv_teather_online = item_view
                     .findViewById(R.id.iv_teather_isonline);
             if (!teacher_Parse.isOnline) {
-                iv_teather_online.setVisibility(View.VISIBLE);
+//                iv_teather_online.setVisibility(View.VISIBLE);
+                isonline.setText("离线");
+                imageLoader.displayImage(teacher_Parse.getIcon(), my_teather_img, grayOption);
             } else {
-                iv_teather_online.setVisibility(View.GONE);
+//                iv_teather_online.setVisibility(View.GONE);
+                isonline.setText("在线");
+                imageLoader.displayImage(teacher_Parse.getIcon(), my_teather_img, options);
             }
-            imageLoader.displayImage(teacher_Parse.getIcon(), my_teather_img, options);
             return item_view;
         }
     }

@@ -56,7 +56,7 @@ public class StudentRegisterActivity extends BaseActivity implements
 
     private CheckBox agrementBox;
     private TextView agrementBtn;
-    private boolean isAgrement = false;
+    private boolean isAgrement = true;
 
     private EditText extra_code;
 
@@ -76,6 +76,7 @@ public class StudentRegisterActivity extends BaseActivity implements
         titleText.setText("学生注册");
 
         agrementBox = (CheckBox) findViewById(R.id.agrement_checkbox);
+        agrementBox.setChecked(true);
         agrementBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

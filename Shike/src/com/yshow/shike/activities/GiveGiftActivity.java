@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -70,6 +71,10 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
                 Intent it = new Intent();
                 if (arrayList.size() > 0) {
                     calIdAndCounts();
+                    if(mTotalCount>100){
+                        Toast.makeText(GiveGiftActivity.this, "送分过多,请不要超过100分", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     it.putExtra("count", mTotalCount);
                     it.putExtra("data", mSelcetFileIds.toString());
                     it.putExtra("url", url);

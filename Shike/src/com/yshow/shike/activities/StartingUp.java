@@ -107,7 +107,6 @@ public class StartingUp extends BaseActivity {
                         Dialog.Intent(StartingUp.this, Teather_Main_Activity.class);
                     } else {
                         // 学生登录
-                        UIApplication.getInstance().isTestUser = false;
                         Dialog.Intent(StartingUp.this, Student_Main_Activity.class);
                     }
                     finish();

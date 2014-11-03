@@ -15,6 +15,36 @@ public class ImageLoadOption {
                 .showImageOnFail(failbitmap).cacheInMemory(true).build();
         return options;
     }
+
+    public static DisplayImageOptions getStuHeadImageOption() {
+        DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .cacheOnDisc(true).showImageForEmptyUri(R.drawable.stu_head_defult).showImageOnLoading(R.drawable.loading_img).displayer(new RoundedBitmapDisplayer(ScreenSizeUtil.Dp2Px(UIApplication.getInstance().getApplicationContext(), 10)))
+                .showImageOnFail(R.drawable.stu_head_defult).cacheInMemory(true).build();
+        return options;
+    }
+
+
+    public static DisplayImageOptions getStuHeadGrayImageOption() {
+        DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .cacheOnDisc(true).showImageForEmptyUri(R.drawable.stu_head_defult).showImageOnLoading(R.drawable.loading_img).displayer(new GrayAndRoundBitmapDisplayer(ScreenSizeUtil.Dp2Px(UIApplication.getInstance().getApplicationContext(), 10)))
+                .showImageOnFail(R.drawable.stu_head_defult).cacheInMemory(true).build();
+        return options;
+    }
+
+    public static DisplayImageOptions getTeaHeadImageOption() {
+        DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .cacheOnDisc(true).showImageForEmptyUri(R.drawable.tea_head_defult).showImageOnLoading(R.drawable.loading_img).displayer(new RoundedBitmapDisplayer(ScreenSizeUtil.Dp2Px(UIApplication.getInstance().getApplicationContext(), 10)))
+                .showImageOnFail(R.drawable.tea_head_defult).cacheInMemory(true).build();
+        return options;
+    }
+
+    public static DisplayImageOptions getTeaHeadGrayImageOption() {
+        DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .cacheOnDisc(true).showImageForEmptyUri(R.drawable.tea_head_defult).showImageOnLoading(R.drawable.loading_img).displayer(new GrayAndRoundBitmapDisplayer(ScreenSizeUtil.Dp2Px(UIApplication.getInstance().getApplicationContext(), 10)))
+                .showImageOnFail(R.drawable.tea_head_defult).cacheInMemory(true).build();
+        return options;
+    }
+
     public static DisplayImageOptions getBigImageOption(int failbitmap) {
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .cacheOnDisc(true).showImageForEmptyUri(failbitmap).showImageOnLoading(R.drawable.big_loading_img)

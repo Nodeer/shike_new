@@ -137,11 +137,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
 //                startActivity(it);
                 break;
             case R.id.account_btn:
-                if (student.getMob() != null) {
-                    Dialog.Intent(getActivity(), Activity_Recharge.class);
-                } else {
-                    Dialog.finsh_Reg_Dialog(getActivity());
-                }
+                Dialog.Intent(getActivity(), Activity_Recharge.class);
                 break;
             case R.id.user_info_btn:
                 Dialog.Intent(getActivity(), StuPersonInfoActivity.class);

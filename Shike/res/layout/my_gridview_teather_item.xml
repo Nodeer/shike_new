@@ -7,16 +7,23 @@
         android:id="@+id/my_teather_img"
         android:layout_width="78dp"
         android:layout_height="78dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/xiaoxi_moren" />
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/tv_isonline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_alignRight="@id/my_teather_img"
+        android:layout_alignBottom="@id/my_teather_img"
+        style="@style/text_16_333333" />
 
     <View
         android:layout_width="78dp"
         android:layout_height="78dp"
         android:id="@+id/iv_teather_isonline"
-        android:background="#66000000"
-        android:visibility="gone"
-        />
+        android:background="@drawable/head_gray_mask_bg"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_wenben"

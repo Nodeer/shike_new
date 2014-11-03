@@ -7,38 +7,52 @@
 
     <include layout="@layout/title_layout" />
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="300dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="30dp"
-        android:padding="10dp"
-        android:background="@drawable/white_btn_nor">
+        android:layout_height="fill_parent">
 
-        <ImageView
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/paper_btn"
-            android:src="@drawable/tea_upload_paper_img" />
-    </FrameLayout>
+            android:orientation="vertical"
+            android:layout_height="fill_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        style="@style/text_16_gray"
-        android:text="您可以直接点击&quot;下一步&quot;跳过此步骤" />
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="30dp"
+                android:padding="10dp"
+                android:background="@drawable/white_btn_nor">
 
-    <Button
-        android:id="@+id/next_btn"
-        android:layout_width="fill_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
-        android:text="下一步"
-        style="@style/text_30_white"
-        android:padding="10dp"
-        android:background="@drawable/blue_btn_bg"
-        android:layout_marginRight="30dp"
-        android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/paper_btn"
+                    android:src="@drawable/tea_upload_paper_img" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                style="@style/text_16_gray"
+                android:text="您可以直接点击&quot;下一步&quot;跳过此步骤" />
+
+            <Button
+                android:id="@+id/next_btn"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:text="下一步"
+                style="@style/text_30_white"
+                android:padding="10dp"
+                android:background="@drawable/blue_btn_bg"
+                android:layout_marginRight="30dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </LinearLayout>

@@ -159,29 +159,11 @@ public class ActivitySelectTeacher extends BaseActivity implements OnClickListen
         // 获取自动登录 昵称
         FileService auto_sp = new FileService(context);
         String auto_nickName = auto_sp.getSp_Date("auto_user_name");
-        if (!UIApplication.getInstance().isTestUser) {
-            if (isReSendmessge) {
-                tryQusetion();
-            } else {
-                //正常注册 发送信息
-                Send_New_Mess();
-            }
+        if (isReSendmessge) {
+            tryQusetion();
         } else {
-            //从立即登录进来的 发送信息
-            if (TextUtils.isEmpty(auto_nickName)) {
-                if (!subjectid.equals("-1")) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("subjectid", subjectid);
-                    bundle.putStringArrayList("urllist", urllist);
-                    Dialog.intent(context, Com_Per_Data.class, bundle);
-                } else {
-                    Toast.makeText(this, "请选择学科", Toast.LENGTH_SHORT).show();
-                }
-            } else if (isReSendmessge) {
-                tryQusetion();
-            } else {
-                Send_New_Mess();
-            }
+            //正常注册 发送信息
+            Send_New_Mess();
         }
     }
 

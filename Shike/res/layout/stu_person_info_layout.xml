@@ -194,35 +194,27 @@
                         style="@style/text_14_gray" />
                 </LinearLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:layout_width="80dp"
                         android:gravity="right"
                         android:layout_height="wrap_content"
                         android:text="生   日:"
-                        android:layout_gravity="center"
+                        android:id="@+id/bir_title"
+                        android:layout_centerVertical="true"
                         style="@style/text_16_gray" />
 
-                    <TextView
-                        android:id="@+id/ed_day_bir"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/white_btn_nor"
-                        android:padding="5dp"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="5dp"
-                        android:text="xxxx-xx-xx"
-                        android:layout_gravity="center_vertical"
-                        style="@style/text_14_gray" />
 
                     <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/sex_group"
                         android:orientation="horizontal">
 
                         <RadioButton
@@ -250,7 +242,21 @@
                             style="@style/text_16_gray" />
                     </RadioGroup>
 
-                </LinearLayout>
+                    <TextView
+                        android:id="@+id/ed_day_bir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/white_btn_nor"
+                        android:layout_toLeftOf="@id/sex_group"
+                        android:layout_toRightOf="@id/bir_title"
+                        android:layout_centerVertical="true"
+                        android:padding="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="xxxx-xx-xx"
+                        android:layout_gravity="center_vertical"
+                        style="@style/text_14_gray" />
+
+                </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -362,11 +368,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
                         android:padding="5dp"
-                        android:textColorHint="@color/white"
-                        android:gravity="center"
                         android:layout_marginLeft="5dp"
                         android:background="@drawable/white_btn_nor"
-                        android:hint="请输入你所在学校"
+                        android:hint="请输入您就读的学校"
                         style="@style/text_14_gray" />
                 </LinearLayout>
 
@@ -412,10 +416,8 @@
                         android:id="@+id/ed_base_email"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:padding="5dp"
                         android:layout_marginLeft="5dp"
-                        android:textColorHint="@color/white"
                         android:background="@drawable/white_btn_nor"
                         android:hint="请输入邮箱"
                         style="@style/text_14_gray" />

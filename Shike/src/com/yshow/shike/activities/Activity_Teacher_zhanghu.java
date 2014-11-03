@@ -17,7 +17,7 @@ import android.widget.TextView;
 public class Activity_Teacher_zhanghu extends BaseActivity {
     private FragmentTransaction ft; // Fragment 转化活动
     private FragmentManager manager; //Fragment管理器
-    private TextView acc_balance, exchange_info;//银行账户 收入明细 兑换信息
+    private TextView duihuan_btn, shouru_btn;//银行账户 收入明细 兑换信息
     private boolean isLeft = true;
 
     @Override
@@ -32,18 +32,20 @@ public class Activity_Teacher_zhanghu extends BaseActivity {
         TextView titleText = (TextView) findViewById(R.id.title_text);
         titleText.setText("账户明细");
         findViewById(R.id.left_btn).setOnClickListener(listener);
-        acc_balance = (TextView) findViewById(R.id.tv_acc_balance);
-        exchange_info = (TextView) findViewById(R.id.tv_exchange_info);
-        exchange_info.setOnClickListener(listener);
-        acc_balance.setOnClickListener(listener);
+        shouru_btn = (TextView) findViewById(R.id.tv_exchange_info);
+        shouru_btn.setOnClickListener(listener);
+        duihuan_btn = (TextView) findViewById(R.id.tv_acc_balance);
+        duihuan_btn.setOnClickListener(listener);
         manager = getSupportFragmentManager();
         ft = manager.beginTransaction();
-        if (isShowDuihuan) {
+        if (!isShowDuihuan) {
+            shouru_btn.setSelected(true);
+            duihuan_btn.setSelected(false);
             ft.replace(R.id.li_th_content, new Fragment_Teacher_Zhanghu_Shouru());
         } else {
-            exchange_info.setSelected(true);
-            acc_balance.setSelected(false);
-            isLeft = true;
+            shouru_btn.setSelected(false);
+            duihuan_btn.setSelected(true);
+            isLeft = false;
             ft.replace(R.id.li_th_content, new Fragment_Teacher_Zhanghu_duihuan());
         }
         ft.commitAllowingStateLoss();
@@ -61,8 +63,8 @@ public class Activity_Teacher_zhanghu extends BaseActivity {
                 // 兑换信息
                 case R.id.tv_acc_balance:
                     if (isLeft) {
-                        exchange_info.setSelected(false);
-                        acc_balance.setSelected(true);
+                        shouru_btn.setSelected(false);
+                        duihuan_btn.setSelected(true);
                         isLeft = false;
                     }
                     ft.replace(R.id.li_th_content, new Fragment_Teacher_Zhanghu_duihuan());
@@ -70,8 +72,8 @@ public class Activity_Teacher_zhanghu extends BaseActivity {
                 //收入明细
                 case R.id.tv_exchange_info:
                     if (!isLeft) {
-                        exchange_info.setSelected(true);
-                        acc_balance.setSelected(false);
+                        shouru_btn.setSelected(true);
+                        duihuan_btn.setSelected(false);
                         isLeft = true;
                     }
                     ft.replace(R.id.li_th_content, new Fragment_Teacher_Zhanghu_Shouru());

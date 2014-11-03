@@ -872,6 +872,7 @@ public class SKResolveJsonUtil {
                             steacher.setSubjectId(jsonObject2.optString("subjectId"));
                             steacher.setTeacherId(jsonObject2.optString("uid"));
                             steacher.subject = jsonObject2.optString("subject");
+                            steacher.isOnline = jsonObject2.optBoolean("isOnline");
                             JSONObject imgurl = jsonObject2.optJSONObject("url");
                             if (imgurl != null) {
                                 steacher.icon = imgurl.optString("tub");

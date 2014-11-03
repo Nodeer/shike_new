@@ -24,7 +24,7 @@ import com.yshow.shike.widget.XListView;
 
 public class OnlineTeaListActivity extends BaseActivity implements TopAndBottomLoadListView.OnRefreshListener, XListView.IXListViewListener, View.OnClickListener {
     private XListView mOnlineListView;
-    private DisplayImageOptions options;
+    private DisplayImageOptions options,grayOption;
     private ImageLoader imageLoader;
     private MyAdapter adapter;
     private int page = 1;
@@ -39,7 +39,8 @@ public class OnlineTeaListActivity extends BaseActivity implements TopAndBottomL
         findViewById(R.id.left_btn).setOnClickListener(this);
 
         mOnlineListView = (XListView) findViewById(R.id.online_lv);
-        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.my_tea_phon);
+        options = ImageLoadOption.getTeaHeadImageOption();
+        grayOption = ImageLoadOption.getTeaHeadGrayImageOption();
         imageLoader = ImageLoader.getInstance();
         adapter = new MyAdapter();
         mOnlineListView.setAdapter(adapter);
@@ -112,6 +113,7 @@ public class OnlineTeaListActivity extends BaseActivity implements TopAndBottomL
             TextView tea_subject = (TextView) convertView.findViewById(R.id.tv_subject);
             TextView diqu = (TextView) convertView.findViewById(R.id.tv_diqu);
             TextView tea_info = (TextView) convertView.findViewById(R.id.tv_gerenxinxi);
+            TextView isonline = (TextView) convertView.findViewById(R.id.tv_isonline);
             if (on_Tea != null) {
                 tea_name.setText(on_Tea.getNickname());
                 tv_grade.setText(on_Tea.getGrade());
@@ -121,11 +123,14 @@ public class OnlineTeaListActivity extends BaseActivity implements TopAndBottomL
                 View iv_teather_online = convertView
                         .findViewById(R.id.iv_teather_isonline);
                 if (!on_Tea.isOnline) {
-                    iv_teather_online.setVisibility(View.VISIBLE);
+//                    iv_teather_online.setVisibility(View.VISIBLE);
+                    isonline.setText("离线");
+                    imageLoader.displayImage(on_Tea.getIcon(), tea_piture, grayOption);
                 } else {
-                    iv_teather_online.setVisibility(View.GONE);
+//                    iv_teather_online.setVisibility(View.GONE);
+                    isonline.setText("在线");
+                    imageLoader.displayImage(on_Tea.getIcon(), tea_piture, options);
                 }
-                imageLoader.displayImage(on_Tea.getIcon(), tea_piture, options);
             }
             return convertView;
         }

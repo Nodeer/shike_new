@@ -18,6 +18,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -45,6 +46,7 @@ public class SearchTeacherActivity extends BaseActivity implements OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_search_teacher);
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         context = this;
         TextView titletext = (TextView) findViewById(R.id.title_text);
         titletext.setText("搜索老师");

@@ -4,7 +4,6 @@ import com.yshow.shike.R;
 import com.yshow.shike.activities.Login_Reg_Activity;
 import com.yshow.shike.activities.StudentRegisterActivity;
 import com.yshow.shike.activities.TeacherRegisterActivity;
-import com.yshow.shike.utils.Auto_Login_User;
 import com.yshow.shike.utils.Dilog_Share;
 
 import android.app.Dialog;
@@ -28,14 +27,12 @@ public class UserRegisterFragment extends Fragment {
     private RelativeLayout teacher_register;
     private RelativeLayout student_register;
     private RelativeLayout ask_first;
-    private Auto_Login_User auto_Login;
     private ImageView mSlideBottomImg;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.sk_fragment_userregister, null);
-        auto_Login = new Auto_Login_User(getActivity());
         teacher_register = (RelativeLayout) view.findViewById(R.id.tea_reg_btn);
         student_register = (RelativeLayout) view.findViewById(R.id.stu_reg_btn);
         ask_first = (RelativeLayout) view.findViewById(R.id.ask_question_btn);
@@ -76,7 +73,7 @@ public class UserRegisterFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        ((Login_Reg_Activity)getActivity()).changeSlide(false);
+        ((Login_Reg_Activity) getActivity()).changeSlide(false);
         super.onDestroy();
     }
 }

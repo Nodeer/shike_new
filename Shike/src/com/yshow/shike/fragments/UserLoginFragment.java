@@ -111,7 +111,6 @@ public class UserLoginFragment extends Fragment implements OnClickListener {
 							//如果不是老师
 							if (!LoginManage.getInstance().isTeacher(context)) {
 								//是学生
-								UIApplication.getInstance().isTestUser = false;
 								Dialog.Intent(getActivity(),Student_Main_Activity.class);
 							}else{
 								//是老师

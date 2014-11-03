@@ -35,6 +35,7 @@ public class ActivitySelectTeacherList extends BaseActivity implements
     private SKTeacherOrSubject item;
     private ImageLoader imgLoader;
     private DisplayImageOptions option;
+    private DisplayImageOptions grayOption;
     ;
 
     @Override
@@ -57,7 +58,8 @@ public class ActivitySelectTeacherList extends BaseActivity implements
         skGetTeacher(getIntent().getStringExtra("subjectid"));
 
 
-        option = ImageLoadOption.getImageOption(R.drawable.xiaoxi_moren);
+        option = ImageLoadOption.getTeaHeadImageOption();
+        grayOption = ImageLoadOption.getTeaHeadGrayImageOption();
     }
 
     private void skGetTeacher(final String subjectId) {
@@ -123,7 +125,14 @@ public class ActivitySelectTeacherList extends BaseActivity implements
             TextView teacherName = (TextView) convertView.findViewById(R.id.teacher_name);
             teacherName.setText(skSubject.getName());
             ImageView teacherImage = (ImageView) convertView.findViewById(R.id.teacher_img);
-            imgLoader.displayImage(skSubject.icon, teacherImage, option);
+            TextView isonline = (TextView) convertView.findViewById(R.id.tv_isonline);
+            if (!skSubject.isOnline) {
+                isonline.setText("离线");
+                imgLoader.displayImage(skSubject.icon, teacherImage, grayOption);
+            } else {
+                isonline.setText("在线");
+                imgLoader.displayImage(skSubject.icon, teacherImage, option);
+            }
             return convertView;
         }
     }

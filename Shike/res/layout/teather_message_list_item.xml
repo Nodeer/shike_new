@@ -30,7 +30,7 @@
                         android:id="@+id/iv_message_teacher"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/teather_stu_picture" />
+                        />
 
                     <TextView
                         android:id="@+id/tv_message_updatanum"

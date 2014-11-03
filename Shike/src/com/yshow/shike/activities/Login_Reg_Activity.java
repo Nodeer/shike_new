@@ -137,7 +137,6 @@ public class Login_Reg_Activity extends BaseActivity implements OnClickListener 
                             //如果不是老师
                             if (!LoginManage.getInstance().isTeacher(Login_Reg_Activity.this)) {
                                 //是学生
-                                UIApplication.getInstance().isTestUser = false;
                                 Dialog.Intent(Login_Reg_Activity.this, Student_Main_Activity.class);
                             } else {
                                 //是老师

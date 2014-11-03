@@ -462,14 +462,14 @@ com.yshow.shike.SubjectIds:
     public static final java.lang.String HUAXUE
     6:6:public SubjectIds()
 com.yshow.shike.UIApplication:
-    31:31:public java.lang.String getUser_name()
-    39:39:public java.lang.Boolean getAttention_tea()
-    43:44:public void setAttention_tea(java.lang.Boolean)
-    47:47:public java.lang.Boolean getReg_tea_three()
-    55:55:public java.lang.String getMac()
-    59:60:public void setMac(java.lang.String)
-    91:92:public void addPicUrls(java.lang.String)
-    122:136:public java.io.File getExternalStorageDirectory()
+    30:30:public java.lang.String getUser_name()
+    38:38:public java.lang.Boolean getAttention_tea()
+    42:43:public void setAttention_tea(java.lang.Boolean)
+    46:46:public java.lang.Boolean getReg_tea_three()
+    54:54:public java.lang.String getMac()
+    58:59:public void setMac(java.lang.String)
+    90:91:public void addPicUrls(java.lang.String)
+    121:135:public java.io.File getExternalStorageDirectory()
 com.yshow.shike.activities.ActicityStudentInfo:
     126:144:private void skGetArea()
     28:28:static synthetic android.widget.TextView access$700(com.yshow.shike.activities.ActicityStudentInfo)
@@ -479,8 +479,6 @@ com.yshow.shike.activities.Activity_MyShiKe:
     private static final int Edit_Info_Code
 com.yshow.shike.activities.Activity_My_Board:
     360:361:public void setVoiceLevel(int)
-com.yshow.shike.activities.Activity_Student_Yindao
-com.yshow.shike.activities.Activity_Teather_Yindao
 com.yshow.shike.activities.AppraiseMainActivity:
     private java.lang.String praiseFileId
     private java.lang.String fileId

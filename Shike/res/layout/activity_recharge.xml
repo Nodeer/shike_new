@@ -7,202 +7,215 @@
 
     <include layout="@layout/title_layout" />
 
-    <LinearLayout
-        android:id="@+id/ll_recharge_one_five"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:id="@+id/re_five_bai"
-            android:layout_width="150dp"
-            android:layout_height="150dp">
-
-            <ImageView
-                android:id="@+id/iv_five_bai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/chongzhi_500" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="50元"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/button_typeface_color"
-                android:textSize="18dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/re_one_qian"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp">
-
-            <ImageView
-                android:id="@+id/iv_one"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/chongzhi_1000" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="100元"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/button_typeface_color"
-                android:textSize="18dp" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_recharge_five_qian"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginRight="10dp"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:id="@+id/iv_two_qian"
-            android:layout_width="150dp"
-            android:layout_height="150dp">
-
-            <ImageView
-                android:id="@+id/iv_five_bai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/chognzhi_2000" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="200元"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/button_typeface_color"
-                android:textSize="18dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/re_five_qain"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="10dp">
-
-            <ImageView
-                android:id="@+id/iv_five_bai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/chognzhi_5000" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="480元(优惠)"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"
-                android:textColor="#fffefc5e"
-                android:textSize="18dp" />
-
-        </RelativeLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_margin="10dp"
-        style="@style/list_cell_divider" />
-
-    <LinearLayout
-        android:id="@+id/LinearLayout"
-        android:layout_marginTop="10dp"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/text_16_black"
-            android:layout_gravity="center_vertical"
-            android:text="充值卡:" />
-
+        android:layout_height="fill_parent">
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/white_btn_nor"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_height="fill_parent">
 
-            <EditText
-                android:id="@+id/card_pass_edit"
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:paddingTop="5dp"
-                android:singleLine="true"
-                android:paddingBottom="5dp"
-                android:background="@color/white"
-                android:layout_margin="2dp"
-                style="@style/text_16_gray"
-                android:paddingLeft="5dp"
-                android:numeric="integer"
-                android:gravity="center_vertical"
-                android:hint="请输入充值卡密码" />
-
-            <TextView
-                android:id="@+id/card_charge_btn"
+            <LinearLayout
+                android:id="@+id/ll_recharge_one_five"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:background="@drawable/right_green_btn_bg"
-                android:paddingTop="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="充值"
-                style="@style/text_16_white"></TextView>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/re_five_bai"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp">
+
+                    <ImageView
+                        android:id="@+id/iv_five_bai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/chongzhi_500" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="50元"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/button_typeface_color"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/re_one_qian"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp">
+
+                    <ImageView
+                        android:id="@+id/iv_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/chongzhi_1000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="100元"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/button_typeface_color"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_recharge_five_qian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/iv_two_qian"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp">
+
+                    <ImageView
+                        android:id="@+id/iv_five_bai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/chognzhi_2000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="200元"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/button_typeface_color"
+                        android:textSize="18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/re_five_qain"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="10dp">
+
+                    <ImageView
+                        android:id="@+id/iv_five_bai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/chognzhi_5000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="480元(优惠)"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="#fffefc5e"
+                        android:textSize="18dp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_margin="10dp"
+                style="@style/list_cell_divider" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayout"
+                android:layout_marginTop="10dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/text_16_black"
+                    android:layout_gravity="center_vertical"
+                    android:text="充值卡:" />
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/white_btn_nor"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/card_pass_edit"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:paddingBottom="5dp"
+                        android:background="@color/white"
+                        android:layout_margin="2dp"
+                        style="@style/text_16_gray"
+                        android:paddingLeft="5dp"
+                        android:numeric="integer"
+                        android:gravity="center_vertical"
+                        android:hint="请输入充值卡密码" />
+
+                    <TextView
+                        android:id="@+id/card_charge_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/right_green_btn_bg"
+                        android:paddingTop="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="5dp"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="充值"
+                        style="@style/text_16_white"></TextView>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/account_btn"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="40dp"
+                android:text="账户明细"
+                style="@style/text_30_white"
+                android:padding="10dp"
+                android:background="@drawable/stu_slide_btn1_bg"
+                android:layout_marginRight="30dp"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
 
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/account_btn"
-        android:layout_width="fill_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
-        android:text="账户明细"
-        style="@style/text_30_white"
-        android:padding="10dp"
-        android:background="@drawable/stu_slide_btn1_bg"
-        android:layout_marginRight="30dp"
-        android:layout_height="wrap_content" />
+    </ScrollView>
 
 
 </LinearLayout>

@@ -122,10 +122,7 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
      * 点击确定
      */
     private void confing() {
-        if (count > 900) {//大于100分
-            Toast.makeText(AppraiseMainActivity.this, "送分过多", Toast.LENGTH_SHORT).show();
-            // 发送 赞美
-        } else if (count != 0) {//积分不为0
+        if (count != 0) {//积分不为0
             thankConfirm();
         } else {//无积分,无赞
             Thank_Teather(questionId);

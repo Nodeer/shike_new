@@ -41,6 +41,9 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
     private ArrayList<Star_Teacher_Parse> mDataList = new ArrayList<Star_Teacher_Parse>();
     private String mSubjectId = "0";
     private String mAreaId = "0";
+    private DisplayImageOptions options;
+    private ImageLoader imageLoader;
+    private DisplayImageOptions grayOption;
 
 
     @Override
@@ -53,6 +56,9 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
         context = this;
 
         ll_diqu = (TextView) findViewById(R.id.ll_diqu);
+        options = ImageLoadOption.getTeaHeadImageOption();
+        grayOption = ImageLoadOption.getTeaHeadGrayImageOption();
+        imageLoader = ImageLoader.getInstance();
         seleck_subject = (TextView) findViewById(R.id.ll_seleck_subject1);
         starListView = (XListView) findViewById(R.id.start_listView);
         starListView.setXListViewListener(this);
@@ -202,8 +208,6 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             Star_Teacher_Parse teacher_Parse = mDataList.get(position);
-            DisplayImageOptions options = Net_Servse.getInstence().Picture_Shipei(R.drawable.my_tea_phon);
-            ImageLoader imageLoader = ImageLoader.getInstance();
             if (convertView == null) {
                 convertView = View.inflate(StarTeacherListActivity.this, R.layout.fragment_start_text, null);
             }
@@ -215,12 +219,16 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
             TextView tv_gerenxinxi = (TextView) convertView.findViewById(R.id.tv_gerenxinxi);
             View iv_teather_online = convertView
                     .findViewById(R.id.iv_teather_isonline);
+            TextView isonline = (TextView) convertView.findViewById(R.id.tv_isonline);
             if (!teacher_Parse.isOnline) {
-                iv_teather_online.setVisibility(View.VISIBLE);
+//                iv_teather_online.setVisibility(View.VISIBLE);
+                isonline.setText("离线");
+                imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, grayOption);
             } else {
-                iv_teather_online.setVisibility(View.GONE);
+//                iv_teather_online.setVisibility(View.GONE);
+                isonline.setText("在线");
+                imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
             }
-            imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
             tv_nicheng.setText(teacher_Parse.getNickname());
             tv_subject.setText(teacher_Parse.getSubiect());
             tv_grade.setText(teacher_Parse.getGrade());

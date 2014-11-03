@@ -77,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="制作题目"
+                android:text="  接题目  "
                 style="@style/text_30_white" />
         </LinearLayout>
     </RelativeLayout>

@@ -11,12 +11,12 @@
         android:layout_height="80dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:src="@drawable/teather_stu_picture"
         android:id="@+id/teacher_img" />
 
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -37,4 +37,14 @@
             android:layout_marginTop="10dp"
             android:text="数学" />
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_isonline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center_vertical"
+        style="@style/text_16_333333" />
 </LinearLayout>

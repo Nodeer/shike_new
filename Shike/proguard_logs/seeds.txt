@@ -10364,7 +10364,6 @@ com.yshow.shike.R$drawable: int about_wentifankui_icon
 com.yshow.shike.R$drawable: int account_bg
 com.yshow.shike.R$drawable: int account_nor
 com.yshow.shike.R$drawable: int account_press
-com.yshow.shike.R$drawable: int activity_indao
 com.yshow.shike.R$drawable: int back
 com.yshow.shike.R$drawable: int back11
 com.yshow.shike.R$drawable: int back12
@@ -10421,6 +10420,7 @@ com.yshow.shike.R$drawable: int guanzhu_big_icon_balck
 com.yshow.shike.R$drawable: int guanzhu_big_icon_white
 com.yshow.shike.R$drawable: int h_line
 com.yshow.shike.R$drawable: int half_black_corner_bg
+com.yshow.shike.R$drawable: int head_gray_mask_bg
 com.yshow.shike.R$drawable: int huaxue_btn_bg
 com.yshow.shike.R$drawable: int huaxue_icon_bg
 com.yshow.shike.R$drawable: int huaxue_icon_nor
@@ -10584,11 +10584,6 @@ com.yshow.shike.R$drawable: int stu_tape_play_02
 com.yshow.shike.R$drawable: int stu_tape_play_03
 com.yshow.shike.R$drawable: int stu_tape_play_04
 com.yshow.shike.R$drawable: int stu_userinfo_seticon
-com.yshow.shike.R$drawable: int stu_yd2
-com.yshow.shike.R$drawable: int stu_yd3
-com.yshow.shike.R$drawable: int stu_yd4
-com.yshow.shike.R$drawable: int stu_yd5
-com.yshow.shike.R$drawable: int stu_yindao_1
 com.yshow.shike.R$drawable: int student_picture
 com.yshow.shike.R$drawable: int take_phon0
 com.yshow.shike.R$drawable: int take_phon1
@@ -10664,9 +10659,6 @@ com.yshow.shike.R$drawable: int xiaoren
 com.yshow.shike.R$drawable: int xiaoxi_moren
 com.yshow.shike.R$drawable: int xlistview_arrow
 com.yshow.shike.R$drawable: int yindao1
-com.yshow.shike.R$drawable: int yindao2
-com.yshow.shike.R$drawable: int yindao3
-com.yshow.shike.R$drawable: int yindao4
 com.yshow.shike.R$drawable: int yindao5
 com.yshow.shike.R$drawable: int yingyu_btn_bg
 com.yshow.shike.R$drawable: int yingyu_icon_bg
@@ -10702,13 +10694,13 @@ com.yshow.shike.R$id: int bac_voide
 com.yshow.shike.R$id: int bank_account
 com.yshow.shike.R$id: int big_img_btn
 com.yshow.shike.R$id: int bind_bank_btn
+com.yshow.shike.R$id: int bir_title
 com.yshow.shike.R$id: int bottom_container
 com.yshow.shike.R$id: int bottom_layout
 com.yshow.shike.R$id: int bt_cancle_message
 com.yshow.shike.R$id: int bt_delete_message
 com.yshow.shike.R$id: int bt_jifen_cen
 com.yshow.shike.R$id: int bt_jifen_set
-com.yshow.shike.R$id: int bt_next
 com.yshow.shike.R$id: int btn_cancel
 com.yshow.shike.R$id: int btn_pick_photo
 com.yshow.shike.R$id: int btn_refresh
@@ -10801,7 +10793,6 @@ com.yshow.shike.R$id: int huode_zanmei
 com.yshow.shike.R$id: int im_que2_item
 com.yshow.shike.R$id: int im_que2_item1
 com.yshow.shike.R$id: int image
-com.yshow.shike.R$id: int imageView1
 com.yshow.shike.R$id: int image_view
 com.yshow.shike.R$id: int img
 com.yshow.shike.R$id: int img_button
@@ -10996,6 +10987,7 @@ com.yshow.shike.R$id: int select_icon
 com.yshow.shike.R$id: int select_kumu_layout
 com.yshow.shike.R$id: int selected_view
 com.yshow.shike.R$id: int send_code_btn
+com.yshow.shike.R$id: int sex_group
 com.yshow.shike.R$id: int sex_men
 com.yshow.shike.R$id: int sex_miss
 com.yshow.shike.R$id: int share_btn
@@ -11128,6 +11120,7 @@ com.yshow.shike.R$id: int tv_grade_name
 com.yshow.shike.R$id: int tv_guan_zhu
 com.yshow.shike.R$id: int tv_i_is_void
 com.yshow.shike.R$id: int tv_info
+com.yshow.shike.R$id: int tv_isonline
 com.yshow.shike.R$id: int tv_jieti
 com.yshow.shike.R$id: int tv_jieti_count
 com.yshow.shike.R$id: int tv_loading
@@ -11263,11 +11256,6 @@ com.yshow.shike.R$id: int xuelingduan_text
 com.yshow.shike.R$id: int xuesheng_guanzhu
 com.yshow.shike.R$id: int year
 com.yshow.shike.R$id: int year_period
-com.yshow.shike.R$id: int yindao_1
-com.yshow.shike.R$id: int yindao_2
-com.yshow.shike.R$id: int yindao_3
-com.yshow.shike.R$id: int yindao_4
-com.yshow.shike.R$id: int yindao_5
 com.yshow.shike.R$id: int yingyu_btn
 com.yshow.shike.R$id: int yingyu_select_icon
 com.yshow.shike.R$id: int yuwen_btn
@@ -11395,7 +11383,6 @@ com.yshow.shike.R$layout: int stu_reg_dialog
 com.yshow.shike.R$layout: int stu_register_userinfo_layout
 com.yshow.shike.R$layout: int stu_slide_layout
 com.yshow.shike.R$layout: int student_register_layout
-com.yshow.shike.R$layout: int student_yindao
 com.yshow.shike.R$layout: int tea_content_layout
 com.yshow.shike.R$layout: int tea_message_detail_layout
 com.yshow.shike.R$layout: int tea_person_info_layout
@@ -11407,7 +11394,6 @@ com.yshow.shike.R$layout: int teacher_exchange_main_layout
 com.yshow.shike.R$layout: int teacher_list_layout
 com.yshow.shike.R$layout: int teacher_register_uploadpaper_layout
 com.yshow.shike.R$layout: int teacher_register_userinfo_layout
-com.yshow.shike.R$layout: int teacher_yindao
 com.yshow.shike.R$layout: int teather_message_list_item
 com.yshow.shike.R$layout: int thank_add_tool
 com.yshow.shike.R$layout: int ti_ku_itme
@@ -11470,6 +11456,7 @@ com.yshow.shike.R$style: int text_14_green
 com.yshow.shike.R$style: int text_14_white
 com.yshow.shike.R$style: int text_16_333333
 com.yshow.shike.R$style: int text_16_black
+com.yshow.shike.R$style: int text_16_blue
 com.yshow.shike.R$style: int text_16_gray
 com.yshow.shike.R$style: int text_16_red
 com.yshow.shike.R$style: int text_16_white
@@ -11547,7 +11534,6 @@ com.yshow.shike.activities.Activity_Stu_Ask_Step2: Activity_Stu_Ask_Step2()
 com.yshow.shike.activities.Activity_Stu_Ask_Step2: void onClick(android.view.View)
 com.yshow.shike.activities.Activity_Student_Account_Message
 com.yshow.shike.activities.Activity_Student_Account_Message: Activity_Student_Account_Message()
-com.yshow.shike.activities.Activity_Student_Yindao: void onClick(android.view.View)
 com.yshow.shike.activities.Activity_Tea_Tool_Sele
 com.yshow.shike.activities.Activity_Tea_Tool_Sele: Activity_Tea_Tool_Sele()
 com.yshow.shike.activities.Activity_Teacher_Account
@@ -12182,6 +12168,7 @@ com.yshow.shike.entity.SKTeacherOrSubject: java.lang.String name
 com.yshow.shike.entity.SKTeacherOrSubject: java.lang.String subjectId
 com.yshow.shike.entity.SKTeacherOrSubject: java.lang.String icon
 com.yshow.shike.entity.SKTeacherOrSubject: java.lang.String subject
+com.yshow.shike.entity.SKTeacherOrSubject: boolean isOnline
 com.yshow.shike.entity.SKTeacherOrSubject: SKTeacherOrSubject()
 com.yshow.shike.entity.SKTeacherOrSubject: java.lang.String getTeacherId()
 com.yshow.shike.entity.SKTeacherOrSubject: void setTeacherId(java.lang.String)
@@ -12800,19 +12787,6 @@ com.yshow.shike.utils.AreaSeltorUtil$CountryAdapter: AreaSeltorUtil$CountryAdapt
 com.yshow.shike.utils.AreaSeltorUtil$CountryAdapter: android.view.View getItem(int,android.view.View,android.view.ViewGroup)
 com.yshow.shike.utils.AreaSeltorUtil$CountryAdapter: int getItemsCount()
 com.yshow.shike.utils.AreaSeltorUtil$CountryAdapter: java.lang.CharSequence getItemText(int)
-com.yshow.shike.utils.Auto_Login_User
-com.yshow.shike.utils.Auto_Login_User: com.yshow.shike.utils.MD5_PhonDis md5_phondis
-com.yshow.shike.utils.Auto_Login_User: com.yshow.shike.utils.FileService save_auto_uid
-com.yshow.shike.utils.Auto_Login_User: android.content.Context context
-com.yshow.shike.utils.Auto_Login_User: Auto_Login_User(android.content.Context)
-com.yshow.shike.utils.Auto_Login_User: void auto_login_info()
-com.yshow.shike.utils.Auto_Login_User: android.content.Context access$000(com.yshow.shike.utils.Auto_Login_User)
-com.yshow.shike.utils.Auto_Login_User: com.yshow.shike.utils.FileService access$100(com.yshow.shike.utils.Auto_Login_User)
-com.yshow.shike.utils.Auto_Login_User$1
-com.yshow.shike.utils.Auto_Login_User$1: com.yshow.shike.utils.Auto_Login_User this$0
-com.yshow.shike.utils.Auto_Login_User$1: Auto_Login_User$1(com.yshow.shike.utils.Auto_Login_User)
-com.yshow.shike.utils.Auto_Login_User$1: void onFailure(java.lang.Throwable)
-com.yshow.shike.utils.Auto_Login_User$1: void onSuccess(java.lang.String)
 com.yshow.shike.utils.BankSeltorUtil
 com.yshow.shike.utils.BankSeltorUtil: android.content.Context context
 com.yshow.shike.utils.BankSeltorUtil: android.app.AlertDialog$Builder alertDialog
@@ -13221,6 +13195,10 @@ com.yshow.shike.utils.Grade_Level_Utils$CountryAdapter: java.lang.CharSequence g
 com.yshow.shike.utils.Grade_Level_Utils$GradeSeltorUtilButtonOnclickListening
 com.yshow.shike.utils.Grade_Level_Utils$GradeSeltorUtilButtonOnclickListening: void onClickLeft()
 com.yshow.shike.utils.Grade_Level_Utils$GradeSeltorUtilButtonOnclickListening: void onClickRight()
+com.yshow.shike.utils.GrayAndRoundBitmapDisplayer
+com.yshow.shike.utils.GrayAndRoundBitmapDisplayer: int mRoundPixels
+com.yshow.shike.utils.GrayAndRoundBitmapDisplayer: GrayAndRoundBitmapDisplayer(int)
+com.yshow.shike.utils.GrayAndRoundBitmapDisplayer: android.graphics.Bitmap display(android.graphics.Bitmap,android.widget.ImageView,com.nostra13.universalimageloader.core.assist.LoadedFrom)
 com.yshow.shike.utils.HelpUtil
 com.yshow.shike.utils.HelpUtil: int HELP_STU_1
 com.yshow.shike.utils.HelpUtil: int HELP_STU_2
@@ -13244,6 +13222,10 @@ com.yshow.shike.utils.HelpUtil$1: void onClick(android.view.View)
 com.yshow.shike.utils.ImageLoadOption
 com.yshow.shike.utils.ImageLoadOption: ImageLoadOption()
 com.yshow.shike.utils.ImageLoadOption: com.nostra13.universalimageloader.core.DisplayImageOptions getImageOption(int)
+com.yshow.shike.utils.ImageLoadOption: com.nostra13.universalimageloader.core.DisplayImageOptions getStuHeadImageOption()
+com.yshow.shike.utils.ImageLoadOption: com.nostra13.universalimageloader.core.DisplayImageOptions getStuHeadGrayImageOption()
+com.yshow.shike.utils.ImageLoadOption: com.nostra13.universalimageloader.core.DisplayImageOptions getTeaHeadImageOption()
+com.yshow.shike.utils.ImageLoadOption: com.nostra13.universalimageloader.core.DisplayImageOptions getTeaHeadGrayImageOption()
 com.yshow.shike.utils.ImageLoadOption: com.nostra13.universalimageloader.core.DisplayImageOptions getBigImageOption(int)
 com.yshow.shike.utils.ImageUtil
 com.yshow.shike.utils.ImageUtil: ImageUtil()
@@ -13690,15 +13672,16 @@ com.yshow.shike.utils.Send_Message: void Back_Main_Page12()
 com.yshow.shike.utils.Send_Message: void Look_Message(java.lang.String)
 com.yshow.shike.utils.Send_Message: android.content.Context access$000(com.yshow.shike.utils.Send_Message)
 com.yshow.shike.utils.Send_Message: void access$100(com.yshow.shike.utils.Send_Message,java.lang.String)
-com.yshow.shike.utils.Send_Message: com.yshow.shike.entity.SkUpLoadQuestion access$200(com.yshow.shike.utils.Send_Message)
-com.yshow.shike.utils.Send_Message: void access$300(com.yshow.shike.utils.Send_Message,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
-com.yshow.shike.utils.Send_Message: java.lang.String access$400(com.yshow.shike.utils.Send_Message)
-com.yshow.shike.utils.Send_Message: void access$500(com.yshow.shike.utils.Send_Message,java.lang.String,java.lang.String,java.lang.String)
-com.yshow.shike.utils.Send_Message: com.yshow.shike.utils.ProgressDialogUtil access$600(com.yshow.shike.utils.Send_Message)
+com.yshow.shike.utils.Send_Message: com.yshow.shike.utils.ProgressDialogUtil access$200(com.yshow.shike.utils.Send_Message)
+com.yshow.shike.utils.Send_Message: com.yshow.shike.entity.SkUpLoadQuestion access$300(com.yshow.shike.utils.Send_Message)
+com.yshow.shike.utils.Send_Message: void access$400(com.yshow.shike.utils.Send_Message,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+com.yshow.shike.utils.Send_Message: java.lang.String access$500(com.yshow.shike.utils.Send_Message)
+com.yshow.shike.utils.Send_Message: void access$600(com.yshow.shike.utils.Send_Message,java.lang.String,java.lang.String,java.lang.String)
 com.yshow.shike.utils.Send_Message$1
 com.yshow.shike.utils.Send_Message$1: com.yshow.shike.utils.Send_Message this$0
 com.yshow.shike.utils.Send_Message$1: Send_Message$1(com.yshow.shike.utils.Send_Message)
 com.yshow.shike.utils.Send_Message$1: void onSuccess(java.lang.String)
+com.yshow.shike.utils.Send_Message$1: void onFailure(java.lang.Throwable,java.lang.String)
 com.yshow.shike.utils.Send_Message$2
 com.yshow.shike.utils.Send_Message$2: java.lang.String val$questionId
 com.yshow.shike.utils.Send_Message$2: com.yshow.shike.utils.Send_Message this$0
@@ -13715,6 +13698,7 @@ com.yshow.shike.utils.Send_Message$4: java.lang.String val$teachUid
 com.yshow.shike.utils.Send_Message$4: com.yshow.shike.utils.Send_Message this$0
 com.yshow.shike.utils.Send_Message$4: Send_Message$4(com.yshow.shike.utils.Send_Message,java.lang.String,java.lang.String)
 com.yshow.shike.utils.Send_Message$4: void onSuccess(java.lang.String)
+com.yshow.shike.utils.Send_Message$4: void onFailure(java.lang.Throwable,java.lang.String)
 com.yshow.shike.utils.Send_Message$4$1
 com.yshow.shike.utils.Send_Message$4$1: com.yshow.shike.utils.Send_Message$4 this$1
 com.yshow.shike.utils.Send_Message$4$1: Send_Message$4$1(com.yshow.shike.utils.Send_Message$4)

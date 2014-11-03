@@ -128,7 +128,6 @@ public class PasswordSetting extends Activity implements OnClickListener {
 		SKStudent student = SKResolveJsonUtil.getInstance().resolveLoginInfo(json);
 		instance.setStudent(student);
 		Dialog.Intent(PasswordSetting.this,Student_Main_Activity.class);
-		UIApplication.getInstance().isTestUser = false;
 	}
 	/**
 	 * 登录成功后记住密码
@@ -148,7 +147,6 @@ public class PasswordSetting extends Activity implements OnClickListener {
 							Bundle bundle = new Bundle();
 							bundle.putString("!reg_user", student.getName());
 						    Dialog.intent(context,Student_Main_Activity.class, bundle);
-						    UIApplication.getInstance().isTestUser = false;
 						    fileService.set_auto_info(null, "");
 							finish();
 						}

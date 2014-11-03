@@ -15,6 +15,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
 import com.yshow.shike.entity.Star_Teacher_Parse;
+import com.yshow.shike.utils.ImageLoadOption;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,9 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
     private ListView list_view;
 
     private MyAdapter adapter;
+    private DisplayImageOptions options;
+    private ImageLoader imageLoader;
+    private DisplayImageOptions grayOption;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,11 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
             Toast.makeText(this, "没有找到符合条件的老师", Toast.LENGTH_SHORT).show();
         }
 
+
+        options = ImageLoadOption.getTeaHeadImageOption();
+        grayOption = ImageLoadOption.getTeaHeadGrayImageOption();
+        imageLoader = ImageLoader.getInstance();
+        imageLoader = ImageLoader.getInstance();
         adapter = new MyAdapter(list);
         list_view = (ListView) findViewById(R.id.lv_list_view);
         list_view.setAdapter(adapter);
@@ -90,12 +99,6 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             Star_Teacher_Parse teacher_Parse = list.get(position);
-            DisplayImageOptions options = new DisplayImageOptions.Builder()
-                    .cacheOnDisc(true)
-                    .showImageForEmptyUri(R.drawable.my_tea_phon)
-                    .showImageOnFail(R.drawable.my_tea_phon)
-                    .cacheInMemory(true).build();
-            ImageLoader imageLoader = ImageLoader.getInstance();
             if (convertView == null) {
                 convertView = View.inflate(SearchResultTeacherListActivity.this,
                         R.layout.fragment_start_text, null);
@@ -112,14 +115,18 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
                     .findViewById(R.id.tv_diqu);
             TextView tv_gerenxinxi = (TextView) convertView
                     .findViewById(R.id.tv_gerenxinxi);
+            TextView isonline = (TextView) convertView.findViewById(R.id.tv_isonline);
             View iv_teather_online = convertView
                     .findViewById(R.id.iv_teather_isonline);
             if (!teacher_Parse.isOnline) {
-                iv_teather_online.setVisibility(View.VISIBLE);
+//                iv_teather_online.setVisibility(View.VISIBLE);
+                isonline.setText("离线");
+                imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, grayOption);
             } else {
-                iv_teather_online.setVisibility(View.GONE);
+//                iv_teather_online.setVisibility(View.GONE);
+                isonline.setText("在线");
+                imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
             }
-            imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
             tv_nicheng.setText(teacher_Parse.getNickname());
             tv_subject.setText(teacher_Parse.getSubiect());
             tv_grade.setText(teacher_Parse.getGrade());

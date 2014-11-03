@@ -128,7 +128,6 @@ public class StudentRegisterUserinfoActivity extends BaseActivity implements OnC
         SKStudent student = SKResolveJsonUtil.getInstance().resolveLoginInfo(json);
         instance.setStudent(student);
         Dialog.Intent(StudentRegisterUserinfoActivity.this, Student_Main_Activity.class);
-        UIApplication.getInstance().isTestUser = false;
     }
 
 

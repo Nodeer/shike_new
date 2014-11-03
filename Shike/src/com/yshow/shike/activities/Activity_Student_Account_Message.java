@@ -48,6 +48,9 @@ public class Activity_Student_Account_Message extends BaseActivity {
         ft = manager.beginTransaction();
         ft.replace(R.id.li_th_content, new Fragment_Account_Prepraid());
         ft.commit();
+        tv_cz_reg.setSelected(true);
+        tv_sy_reg.setSelected(false);
+        isLeft = true;
     }
 
     private OnClickListener listener = new OnClickListener() {

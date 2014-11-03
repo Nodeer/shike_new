@@ -109,7 +109,7 @@ public class GalleryView extends LinearLayout {
     /**
      * 时间间隔
      */
-    private long time = 4000;
+    private long time = 30000;
 
     /**
      * 圆点默认居右

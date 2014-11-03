@@ -8,284 +8,296 @@
 
     <include layout="@layout/title_layout" />
 
-    <LinearLayout
-        android:id="@+id/LinearLayout"
-        android:layout_below="@+id/li_search_navigation"
-        android:layout_marginTop="10dp"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="@dimen/pd_tp_bm"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/text_16_black"
-            android:layout_gravity="center_vertical"
-            android:text="精确搜索:" />
-
+        android:layout_height="fill_parent">
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/white_btn_nor"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/et_user_phon"
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:paddingTop="5dp"
-                android:singleLine="true"
-                android:paddingBottom="5dp"
-                android:background="@color/white"
-                android:layout_margin="2dp"
-                style="@style/text_16_gray"
-                android:paddingLeft="5dp"
-                android:numeric="integer"
-                android:gravity="center_vertical"
-                android:hint="请输入老师的手机号码" />
-
-            <TextView
-                android:id="@+id/phone_search_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:background="@drawable/right_green_btn_bg"
-                android:paddingTop="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="5dp"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="搜"
-                style="@style/text_16_white"></TextView>
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <View style="@style/list_cell_divider" />
-
-    <TextView
-        android:id="@+id/iv_sousuo_laoshi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/text_16_black"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center_vertical"
-        android:text="选项搜索:" />
-
-    <View
-        android:layout_marginTop="10dp"
-        style="@style/list_cell_divider" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_marginLeft="@dimen/pd_tp_bm"
-        android:layout_marginRight="@dimen/pd_tp_bm">
-
-        <LinearLayout
-            android:id="@+id/aearther_linearlayout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="学    科:"
-                android:gravity="center"
-                style="@style/text_16_black" />
+            android:orientation="vertical"
+            android:layout_height="fill_parent">
 
             <LinearLayout
+                android:id="@+id/LinearLayout"
+                android:layout_below="@+id/li_search_navigation"
+                android:layout_marginTop="10dp"
                 android:layout_width="fill_parent"
-                android:background="@drawable/white_btn_nor"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/xueke_btn"
-                android:layout_height="40dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="不限"
-                    android:paddingLeft="10dp"
-                    style="@style/text_16_gray"
-                    android:id="@+id/xueke_text"
-                    android:layout_height="fill_parent" />
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/pulldown1"
-                    android:scaleType="centerInside"
-                    android:background="@drawable/gray_btn_bg" />
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_area"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="10dp"
-            android:layout_width="fill_parent"
-            android:gravity="center_vertical"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_nickname_seather"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="地    区:"
-                android:gravity="center_horizontal"
-                style="@style/text_16_black" />
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:background="@drawable/white_btn_nor"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/diqu_btn"
-                android:layout_height="40dp">
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="@dimen/pd_tp_bm"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="不限"
-                    android:paddingLeft="10dp"
-                    style="@style/text_16_gray"
-                    android:id="@+id/diqu_text"
-                    android:layout_height="fill_parent" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/text_16_black"
+                    android:layout_gravity="center_vertical"
+                    android:text="精确搜索:" />
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/pulldown1"
-                    android:scaleType="centerInside"
-                    android:background="@drawable/gray_btn_bg" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/white_btn_nor"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_user_phon"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:paddingTop="5dp"
+                        android:singleLine="true"
+                        android:paddingBottom="5dp"
+                        android:background="@color/white"
+                        android:layout_margin="2dp"
+                        style="@style/text_16_gray"
+                        android:paddingLeft="5dp"
+                        android:numeric="integer"
+                        android:gravity="center_vertical"
+                        android:hint="请输入老师的手机号码" />
+
+                    <TextView
+                        android:id="@+id/phone_search_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/right_green_btn_bg"
+                        android:paddingTop="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="5dp"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="搜"
+                        style="@style/text_16_white"></TextView>
+                </LinearLayout>
 
 
             </LinearLayout>
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/li_user_name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginTop="10dp">
+            <View style="@style/list_cell_divider" />
 
             <TextView
+                android:id="@+id/iv_sousuo_laoshi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="性    别:"
-                android:gravity="center"
-                style="@style/text_16_black" />
+                style="@style/text_16_black"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_vertical"
+                android:text="选项搜索:" />
+
+            <View
+                android:layout_marginTop="10dp"
+                style="@style/list_cell_divider" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:background="@drawable/white_btn_nor"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/xingbie_btn"
-                android:layout_height="40dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginLeft="@dimen/pd_tp_bm"
+                android:layout_marginRight="@dimen/pd_tp_bm">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
+                <LinearLayout
+                    android:id="@+id/aearther_linearlayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="不限"
-                    android:paddingLeft="10dp"
-                    style="@style/text_16_gray"
-                    android:id="@+id/xingbie_text"
-                    android:layout_height="fill_parent" />
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/pulldown1"
-                    android:scaleType="centerInside"
-                    android:background="@drawable/gray_btn_bg" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="学    科:"
+                        android:gravity="center"
+                        style="@style/text_16_black" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:background="@drawable/white_btn_nor"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/xueke_btn"
+                        android:layout_height="40dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="不限"
+                            android:paddingLeft="10dp"
+                            style="@style/text_16_gray"
+                            android:id="@+id/xueke_text"
+                            android:layout_height="fill_parent" />
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="fill_parent"
+                            android:src="@drawable/pulldown1"
+                            android:scaleType="centerInside"
+                            android:background="@drawable/gray_btn_bg" />
 
 
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_area"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="fill_parent"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_nickname_seather"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="地    区:"
+                        android:gravity="center_horizontal"
+                        style="@style/text_16_black" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:background="@drawable/white_btn_nor"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/diqu_btn"
+                        android:layout_height="40dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="不限"
+                            android:paddingLeft="10dp"
+                            style="@style/text_16_gray"
+                            android:id="@+id/diqu_text"
+                            android:layout_height="fill_parent" />
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="fill_parent"
+                            android:src="@drawable/pulldown1"
+                            android:scaleType="centerInside"
+                            android:background="@drawable/gray_btn_bg" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/li_user_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="性    别:"
+                        android:gravity="center"
+                        style="@style/text_16_black" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:background="@drawable/white_btn_nor"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/xingbie_btn"
+                        android:layout_height="40dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="不限"
+                            android:paddingLeft="10dp"
+                            style="@style/text_16_gray"
+                            android:id="@+id/xingbie_text"
+                            android:layout_height="fill_parent" />
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="fill_parent"
+                            android:src="@drawable/pulldown1"
+                            android:scaleType="centerInside"
+                            android:background="@drawable/gray_btn_bg" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/li_user_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_area"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_nickname_seather"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="用户名:"
+                        android:gravity="center"
+                        style="@style/text_16_black" />
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:background="@drawable/white_btn_nor"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/et_user_name"
+                        android:layout_height="40dp"></EditText>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/li_user_name"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_nickname_seather"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="学    校:"
+                        android:gravity="center"
+                        style="@style/text_16_black" />
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:background="@drawable/white_btn_nor"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/et_school"
+                        android:layout_height="40dp"></EditText>
+                </LinearLayout>
             </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/li_user_name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ll_area"
-            android:gravity="center_vertical"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:id="@+id/tv_nickname_seather"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="用户名:"
-                android:gravity="center"
-                style="@style/text_16_black" />
-
-            <EditText
+            <Button
+                android:id="@+id/search_btn"
                 android:layout_width="fill_parent"
-                android:background="@drawable/white_btn_nor"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/et_user_name"
-                android:layout_height="40dp"></EditText>
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:text="搜索"
+                style="@style/text_30_white"
+                android:padding="10dp"
+                android:background="@drawable/stu_slide_btn1_bg"
+                android:layout_marginRight="30dp"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/li_user_name"
-            android:gravity="center_vertical"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:id="@+id/tv_nickname_seather"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="学    校:"
-                android:gravity="center"
-                style="@style/text_16_black" />
-
-            <EditText
-                android:layout_width="fill_parent"
-                android:background="@drawable/white_btn_nor"
-                android:layout_marginLeft="5dp"
-                android:id="@+id/et_school"
-                android:layout_height="40dp"></EditText>
-        </LinearLayout>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/search_btn"
-        android:layout_width="fill_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:text="搜索"
-        style="@style/text_30_white"
-        android:padding="10dp"
-        android:background="@drawable/stu_slide_btn1_bg"
-        android:layout_marginRight="30dp"
-        android:layout_height="wrap_content" />
+    </ScrollView>
 
 
 </LinearLayout>
