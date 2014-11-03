@@ -6,4 +6,5 @@ package com.yshow.shike.entity;
 public class VersionModel {
     public String version = "0.0";
     public String url;
+    public boolean isForce = false;
 }

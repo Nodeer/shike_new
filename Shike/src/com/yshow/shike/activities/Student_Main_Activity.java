@@ -132,12 +132,31 @@ public class Student_Main_Activity extends SlidingFragmentActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setMessage("检测到新版本,是否更新?");
                 builder.setNegativeButton("取消", null);
-                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        doUpdate(url);
-                    }
-                });
+                if (model.isForce) {
+                    builder.setCancelable(false);
+                    builder.setMessage("检测到新版本,需要更新");
+                    builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+                    builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            doUpdate(url);
+                        }
+                    });
+                } else {
+                    builder.setMessage("检测到新版本,是否更新?");
+                    builder.setNegativeButton("取消", null);
+                    builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            doUpdate(url);
+                        }
+                    });
+                }
                 builder.show();
             }
         }

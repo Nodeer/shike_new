@@ -8,6 +8,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.activities.ActicityStudentInfo;
 import com.yshow.shike.entity.Star_Teacher_Parse;
 import com.yshow.shike.utils.Dialog;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.SKAsyncApiController;
@@ -30,6 +31,8 @@ public class MyStudentActivity extends BaseActivity {
     private ListView listview;
     private Context context;
     ArrayList<Star_Teacher_Parse> myStudentList;
+    private ImageLoader imageLoader;
+    private DisplayImageOptions options;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,9 @@ public class MyStudentActivity extends BaseActivity {
                 Dialog.intent(context, ActicityStudentInfo.class, bundle);
             }
         });
+
+        options = ImageLoadOption.getStuHeadImageOption();
+        imageLoader = ImageLoader.getInstance();
         Stu_Info();
 
     }
@@ -82,8 +88,6 @@ public class MyStudentActivity extends BaseActivity {
         @Override
         public View getView(int arg0, View convertView, ViewGroup arg2) {
             final Star_Teacher_Parse parse = arrayList.get(arg0);
-            DisplayImageOptions options = Net_Servse.getInstence().Picture_Shipei(R.drawable.teather_stu_picture);
-            ImageLoader imageLoader = ImageLoader.getInstance();
             if (convertView == null) {
                 convertView = View.inflate(context, R.layout.my_student_item, null);
             }

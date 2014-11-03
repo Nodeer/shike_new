@@ -12688,6 +12688,7 @@ com.yshow.shike.entity.User_Info: java.lang.String toString()
 com.yshow.shike.entity.VersionModel
 com.yshow.shike.entity.VersionModel: java.lang.String version
 com.yshow.shike.entity.VersionModel: java.lang.String url
+com.yshow.shike.entity.VersionModel: boolean isForce
 com.yshow.shike.entity.VersionModel: VersionModel()
 com.yshow.shike.entity.YinLianOrderModel
 com.yshow.shike.entity.YinLianOrderModel: java.lang.String respCode

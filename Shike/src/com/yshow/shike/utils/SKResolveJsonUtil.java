@@ -1147,6 +1147,7 @@ public class SKResolveJsonUtil {
             JSONObject android = version.getJSONObject("android");
             versionmodel.version = android.getString("NO");
             versionmodel.url = android.getString("url");
+            versionmodel.isForce = android.optBoolean("isForce");
         } catch (JSONException e) {
             e.printStackTrace();
         }
