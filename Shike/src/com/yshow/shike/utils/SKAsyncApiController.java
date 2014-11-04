@@ -18,8 +18,8 @@ import com.yshow.shike.entity.Update_User_Info;
  * 联网工具
  */
 public class SKAsyncApiController {
-        public static final String SHIKE_VALUE_API_SERVER_URL = "http://apitest.shikeke.com/";// 测试环境
-//    public static final String SHIKE_VALUE_API_SERVER_URL = "http://api.shikeke.com/";
+//        public static final String SHIKE_VALUE_API_SERVER_URL = "http://apitest.shikeke.com/";// 测试环境
+    public static final String SHIKE_VALUE_API_SERVER_URL = "http://api.shikeke.com/";
     public static AsyncHttpClient client = new AsyncHttpClient();
 
     static {

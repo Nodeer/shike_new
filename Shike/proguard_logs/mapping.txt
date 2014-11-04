@@ -10812,7 +10812,7 @@ com.yshow.shike.activities.LookupPassword -> com.yshow.shike.activities.LookupPa
     61:63:void onResume() -> onResume
     67:69:void onPause() -> onPause
 com.yshow.shike.activities.MessageActivity -> com.yshow.shike.activities.MessageActivity:
-    16:21:void onCreate(android.os.Bundle) -> onCreate
+    18:30:void onCreate(android.os.Bundle) -> onCreate
 com.yshow.shike.activities.MyStudentActivity -> com.yshow.shike.activities.MyStudentActivity:
     android.widget.ListView listview -> b
     android.content.Context context -> c
@@ -13908,18 +13908,19 @@ com.yshow.shike.fragments.TeaSlideMenuFragment -> com.yshow.shike.fragments.bd:
     64:94:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
     99:104:void onActivityCreated(android.os.Bundle) -> onActivityCreated
     108:110:void onDestroy() -> onDestroy
-    114:127:void update_info(java.lang.String) -> a
-    132:182:void onClick(android.view.View) -> onClick
+    114:128:void update_info(java.lang.String) -> a
+    133:183:void onClick(android.view.View) -> onClick
     43:43:com.yshow.shike.entity.SKStudent access$000(com.yshow.shike.fragments.TeaSlideMenuFragment) -> a
     43:43:void access$100(com.yshow.shike.fragments.TeaSlideMenuFragment,java.lang.String) -> a
     43:43:android.widget.TextView access$300(com.yshow.shike.fragments.TeaSlideMenuFragment) -> b
     43:43:android.widget.TextView access$400(com.yshow.shike.fragments.TeaSlideMenuFragment) -> c
-    43:43:android.widget.ImageView access$500(com.yshow.shike.fragments.TeaSlideMenuFragment) -> d
-    43:43:com.nostra13.universalimageloader.core.DisplayImageOptions access$600(com.yshow.shike.fragments.TeaSlideMenuFragment) -> e
-    43:43:com.nostra13.universalimageloader.core.ImageLoader access$700(com.yshow.shike.fragments.TeaSlideMenuFragment) -> f
+    43:43:android.widget.TextView access$500(com.yshow.shike.fragments.TeaSlideMenuFragment) -> d
+    43:43:android.widget.ImageView access$600(com.yshow.shike.fragments.TeaSlideMenuFragment) -> e
+    43:43:com.nostra13.universalimageloader.core.DisplayImageOptions access$700(com.yshow.shike.fragments.TeaSlideMenuFragment) -> f
+    43:43:com.nostra13.universalimageloader.core.ImageLoader access$800(com.yshow.shike.fragments.TeaSlideMenuFragment) -> g
 com.yshow.shike.fragments.TeaSlideMenuFragment$1 -> com.yshow.shike.fragments.be:
     com.yshow.shike.fragments.TeaSlideMenuFragment this$0 -> a
-    116:125:void onSuccess(int,java.lang.String) -> onSuccess
+    116:126:void onSuccess(int,java.lang.String) -> onSuccess
 com.yshow.shike.fragments.TeaSlideMenuFragment$RefreshUserinfoBroadCastReceiver -> com.yshow.shike.fragments.bf:
     com.yshow.shike.fragments.TeaSlideMenuFragment this$0 -> a
     58:59:void onReceive(android.content.Context,android.content.Intent) -> onReceive
@@ -14075,32 +14076,32 @@ com.yshow.shike.service.MySKService -> com.yshow.shike.service.MySKService:
     android.os.Handler handler -> a
     java.lang.Integer newNum -> b
     boolean isLoop -> c
-    48:61:void onCreate() -> onCreate
-    65:66:void onRebind(android.content.Intent) -> onRebind
-    70:70:boolean onUnbind(android.content.Intent) -> onUnbind
-    75:78:void onDestroy() -> onDestroy
-    82:82:android.os.IBinder onBind(android.content.Intent) -> onBind
-    86:129:void getNewMessage() -> a
-    132:162:void haveNewMeassage(java.util.ArrayList) -> a
-    165:173:void initNotifiManager() -> b
-    178:183:void showNotificationS() -> c
-    187:192:void showNotificationT() -> d
-    31:31:boolean access$002(com.yshow.shike.service.MySKService,boolean) -> a
-    31:31:boolean access$102(com.yshow.shike.service.MySKService,boolean) -> b
-    31:31:boolean access$100(com.yshow.shike.service.MySKService) -> a
-    31:31:java.util.ArrayList access$202(com.yshow.shike.service.MySKService,java.util.ArrayList) -> a
-    31:31:java.util.ArrayList access$200(com.yshow.shike.service.MySKService) -> b
-    31:31:void access$300(com.yshow.shike.service.MySKService,java.util.ArrayList) -> b
-    31:31:void access$400(com.yshow.shike.service.MySKService) -> c
+    49:62:void onCreate() -> onCreate
+    66:67:void onRebind(android.content.Intent) -> onRebind
+    71:71:boolean onUnbind(android.content.Intent) -> onUnbind
+    76:79:void onDestroy() -> onDestroy
+    83:83:android.os.IBinder onBind(android.content.Intent) -> onBind
+    87:130:void getNewMessage() -> a
+    133:163:void haveNewMeassage(java.util.ArrayList) -> a
+    166:174:void initNotifiManager() -> b
+    179:184:void showNotificationS() -> c
+    188:193:void showNotificationT() -> d
+    32:32:boolean access$002(com.yshow.shike.service.MySKService,boolean) -> a
+    32:32:boolean access$102(com.yshow.shike.service.MySKService,boolean) -> b
+    32:32:boolean access$100(com.yshow.shike.service.MySKService) -> a
+    32:32:java.util.ArrayList access$202(com.yshow.shike.service.MySKService,java.util.ArrayList) -> a
+    32:32:java.util.ArrayList access$200(com.yshow.shike.service.MySKService) -> b
+    32:32:void access$300(com.yshow.shike.service.MySKService,java.util.ArrayList) -> b
+    32:32:void access$400(com.yshow.shike.service.MySKService) -> c
 com.yshow.shike.service.MySKService$1 -> com.yshow.shike.service.a:
     com.yshow.shike.service.MySKService this$0 -> a
-    55:56:void onLoadComplete(android.media.SoundPool,int,int) -> onLoadComplete
+    56:57:void onLoadComplete(android.media.SoundPool,int,int) -> onLoadComplete
 com.yshow.shike.service.MySKService$2 -> com.yshow.shike.service.b:
     com.yshow.shike.service.MySKService this$0 -> a
-    89:126:void onSuccess(int,java.lang.String) -> onSuccess
+    90:127:void onSuccess(int,java.lang.String) -> onSuccess
 com.yshow.shike.service.MySKService$MyMessageLoop -> com.yshow.shike.service.c:
     com.yshow.shike.service.MySKService this$0 -> a
-    203:210:void run() -> run
+    204:211:void run() -> run
 com.yshow.shike.utils.Animation -> com.yshow.shike.utils.Animation:
     android.view.animation.TranslateAnimation translateAnimation -> translateAnimation
     android.content.Context context -> context
@@ -15134,10 +15135,10 @@ com.yshow.shike.utils.WeixinManager -> com.yshow.shike.utils.WeixinManager:
     43:45:void regToWx() -> regToWx
     52:59:void shareWeixin() -> shareWeixin
     66:75:void shareWeixinCircle() -> shareWeixinCircle
-    86:102:void sendTextMsgToWx(java.lang.String,java.lang.String,boolean) -> sendTextMsgToWx
-    105:106:void unRegToWx() -> unRegToWx
-    109:139:android.graphics.Bitmap comp(android.graphics.Bitmap) -> comp
-    143:153:android.graphics.Bitmap compressImage(android.graphics.Bitmap) -> compressImage
+    86:103:void sendTextMsgToWx(java.lang.String,java.lang.String,boolean) -> sendTextMsgToWx
+    106:107:void unRegToWx() -> unRegToWx
+    110:140:android.graphics.Bitmap comp(android.graphics.Bitmap) -> comp
+    144:154:android.graphics.Bitmap compressImage(android.graphics.Bitmap) -> compressImage
 com.yshow.shike.utils.XuekeSelectUtil -> com.yshow.shike.utils.XuekeSelectUtil:
     android.content.Context context -> context
     android.app.AlertDialog$Builder alertDialog -> alertDialog

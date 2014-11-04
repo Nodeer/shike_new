@@ -28,12 +28,7 @@
         android:largeHeap="true"
         android:theme="@style/Theme.Shike">
 
-        <meta-data
-            android:value="53acfc3d56240bb78d09f9e2"
-            android:name="UMENG_APPKEY"></meta-data>
-        <meta-data
-            android:value="ShikeAndroid"
-            android:name="UMENG_CHANNEL" />
+
 
         <activity
             android:name="com.yshow.shike.activities.StartingUp"
@@ -328,6 +323,12 @@
         <meta-data
             android:name="api_key"
             android:value="LlsoI2KDNlevDXhgioPTD9nQ" />
+        <meta-data
+            android:value="53acfc3d56240bb78d09f9e2"
+            android:name="UMENG_APPKEY"></meta-data>
+        <meta-data
+            android:value="schoool"
+            android:name="UMENG_CHANNEL" />
 
     </application>
 
