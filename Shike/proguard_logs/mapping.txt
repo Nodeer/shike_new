@@ -9884,43 +9884,42 @@ com.yshow.shike.activities.Activity_My_Board -> com.yshow.shike.activities.Activ
     android.os.Handler handler -> a
     java.util.TimerTask task -> y
     boolean isRecordCancel -> z
-    83:87:void onCreate(android.os.Bundle) -> onCreate
-    91:190:void InitDtae() -> b
-    195:203:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    207:237:void REC() -> c
-    241:326:void onClick(android.view.View) -> onClick
-    329:331:void View_Hide(android.view.View,android.view.View) -> a
-    337:347:void Distinction_Stu_Tea() -> d
-    350:357:void VoideShow() -> a
-    365:367:void onResume() -> onResume
-    371:373:void onPause() -> onPause
-    377:379:void onStop() -> onStop
-    42:42:int access$000(com.yshow.shike.activities.Activity_My_Board) -> a
-    42:42:android.widget.TextView access$100(com.yshow.shike.activities.Activity_My_Board) -> b
-    42:42:android.media.MediaRecorder access$200(com.yshow.shike.activities.Activity_My_Board) -> c
-    42:42:java.util.Timer access$300(com.yshow.shike.activities.Activity_My_Board) -> d
-    42:42:java.util.TimerTask access$400(com.yshow.shike.activities.Activity_My_Board) -> e
-    42:42:int access$002(com.yshow.shike.activities.Activity_My_Board,int) -> a
-    42:42:int access$500(com.yshow.shike.activities.Activity_My_Board) -> f
-    42:42:boolean access$602(com.yshow.shike.activities.Activity_My_Board,boolean) -> a
-    42:42:void access$700(com.yshow.shike.activities.Activity_My_Board) -> g
-    42:42:boolean access$600(com.yshow.shike.activities.Activity_My_Board) -> h
-    42:42:java.lang.String access$800(com.yshow.shike.activities.Activity_My_Board) -> i
-    42:42:java.util.ArrayList access$900(com.yshow.shike.activities.Activity_My_Board) -> j
-    42:42:int access$508(com.yshow.shike.activities.Activity_My_Board) -> k
-    42:42:android.widget.RelativeLayout access$1000(com.yshow.shike.activities.Activity_My_Board) -> l
-    42:42:int access$010(com.yshow.shike.activities.Activity_My_Board) -> m
+    82:86:void onCreate(android.os.Bundle) -> onCreate
+    90:189:void InitDtae() -> b
+    194:224:void REC() -> c
+    228:313:void onClick(android.view.View) -> onClick
+    316:318:void View_Hide(android.view.View,android.view.View) -> a
+    324:334:void Distinction_Stu_Tea() -> d
+    337:344:void VoideShow() -> a
+    352:354:void onResume() -> onResume
+    358:360:void onPause() -> onPause
+    364:366:void onStop() -> onStop
+    41:41:int access$000(com.yshow.shike.activities.Activity_My_Board) -> a
+    41:41:android.widget.TextView access$100(com.yshow.shike.activities.Activity_My_Board) -> b
+    41:41:android.media.MediaRecorder access$200(com.yshow.shike.activities.Activity_My_Board) -> c
+    41:41:java.util.Timer access$300(com.yshow.shike.activities.Activity_My_Board) -> d
+    41:41:java.util.TimerTask access$400(com.yshow.shike.activities.Activity_My_Board) -> e
+    41:41:int access$002(com.yshow.shike.activities.Activity_My_Board,int) -> a
+    41:41:int access$500(com.yshow.shike.activities.Activity_My_Board) -> f
+    41:41:boolean access$602(com.yshow.shike.activities.Activity_My_Board,boolean) -> a
+    41:41:void access$700(com.yshow.shike.activities.Activity_My_Board) -> g
+    41:41:boolean access$600(com.yshow.shike.activities.Activity_My_Board) -> h
+    41:41:java.lang.String access$800(com.yshow.shike.activities.Activity_My_Board) -> i
+    41:41:java.util.ArrayList access$900(com.yshow.shike.activities.Activity_My_Board) -> j
+    41:41:int access$508(com.yshow.shike.activities.Activity_My_Board) -> k
+    41:41:android.widget.RelativeLayout access$1000(com.yshow.shike.activities.Activity_My_Board) -> l
+    41:41:int access$010(com.yshow.shike.activities.Activity_My_Board) -> m
 com.yshow.shike.activities.Activity_My_Board$1 -> com.yshow.shike.activities.ad:
     com.yshow.shike.activities.Activity_My_Board this$0 -> a
-    65:76:void handleMessage(android.os.Message) -> handleMessage
+    64:75:void handleMessage(android.os.Message) -> handleMessage
 com.yshow.shike.activities.Activity_My_Board$2 -> com.yshow.shike.activities.ae:
     long xianzaitime -> b
     java.lang.Long i -> c
     com.yshow.shike.activities.Activity_My_Board this$0 -> a
-    129:174:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    128:173:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
 com.yshow.shike.activities.Activity_My_Board$3 -> com.yshow.shike.activities.af:
     com.yshow.shike.activities.Activity_My_Board this$0 -> a
-    213:217:void run() -> run
+    200:204:void run() -> run
 com.yshow.shike.activities.Activity_My_SkSeting -> com.yshow.shike.activities.Activity_My_SkSeting:
     android.content.Context context -> a
     android.app.Dialog dialog -> b
@@ -10217,16 +10216,15 @@ com.yshow.shike.activities.Activity_Tea_Tool_Sele -> com.yshow.shike.activities.
     android.view.View$OnClickListener listener -> j
     43:51:void onCreate(android.os.Bundle) -> onCreate
     54:70:void initData() -> a
-    74:80:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    110:160:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    164:166:void onDestroy() -> onDestroy
-    170:172:void onResume() -> onResume
-    176:178:void onPause() -> onPause
+    100:150:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    154:156:void onDestroy() -> onDestroy
+    160:162:void onResume() -> onResume
+    166:168:void onPause() -> onPause
     27:27:android.app.Dialog access$000(com.yshow.shike.activities.Activity_Tea_Tool_Sele) -> a
     27:27:com.yshow.shike.utils.Take_Phon_album access$100(com.yshow.shike.activities.Activity_Tea_Tool_Sele) -> b
 com.yshow.shike.activities.Activity_Tea_Tool_Sele$1 -> com.yshow.shike.activities.bh:
     com.yshow.shike.activities.Activity_Tea_Tool_Sele this$0 -> a
-    85:105:void onClick(android.view.View) -> onClick
+    75:95:void onClick(android.view.View) -> onClick
 com.yshow.shike.activities.Activity_Teacher_Account -> com.yshow.shike.activities.Activity_Teacher_Account:
     12:13:void onCreate(android.os.Bundle) -> onCreate
     17:19:void onResume() -> onResume
@@ -11859,106 +11857,106 @@ com.yshow.shike.activities.Tea_Message_Detail_Activity -> com.yshow.shike.activi
     android.widget.LinearLayout mVoiceShowLayout -> z
     boolean isRecordCancel -> A
     android.view.View$OnTouchListener touchlistener -> B
-    124:157:boolean setSKMNewessage(java.util.ArrayList) -> a
-    162:164:void onNewIntent(android.content.Intent) -> onNewIntent
-    168:181:void onCreate(android.os.Bundle) -> onCreate
-    185:187:void onStop() -> onStop
-    190:235:void initData() -> a
-    240:262:void onClick(android.view.View) -> onClick
-    346:346:void onPageScrolled(int,float,int) -> onPageScrolled
-    350:351:void onPageSelected(int) -> onPageSelected
-    354:369:void addVoiceView(int) -> a
-    374:374:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
-    440:451:void skUploadMp3(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    455:489:void skSend_messge(java.lang.String,java.lang.String) -> a
-    495:512:void getSKMessage() -> b
-    516:522:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
-    526:547:void Teather_Decide() -> c
-    550:559:void Qiang_Da(android.content.Context) -> a
-    562:579:void Teather_QuestionId() -> d
-    598:609:void Giew_Up(android.content.Context) -> b
-    613:617:void onResume() -> onResume
-    620:628:void Record_Stu(java.lang.String) -> a
-    70:70:boolean access$000(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.util.ArrayList) -> a
-    70:70:void access$100(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> a
-    70:70:int access$200(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> b
-    70:70:android.widget.TextView access$300(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> c
-    70:70:com.yshow.shike.utils.MediaRecorderUtil access$400(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> d
-    70:70:java.util.Timer access$500(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> e
-    70:70:int access$202(com.yshow.shike.activities.Tea_Message_Detail_Activity,int) -> a
-    70:70:boolean access$602(com.yshow.shike.activities.Tea_Message_Detail_Activity,boolean) -> a
-    70:70:android.view.View access$700(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> f
-    70:70:boolean access$600(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> g
-    70:70:android.support.v4.view.ViewPager access$800(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> h
-    70:70:java.util.ArrayList access$900(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> i
-    70:70:java.lang.String access$1000(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> j
-    70:70:void access$1100(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
-    70:70:java.util.Timer access$502(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.util.Timer) -> a
-    70:70:int access$210(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> k
-    70:70:android.os.Handler access$1200(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> l
-    70:70:com.yshow.shike.entity.SKMessage access$1300(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> m
-    70:70:boolean access$1400(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> n
-    70:70:android.content.Context access$1500(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> o
-    70:70:com.nostra13.universalimageloader.core.DisplayImageOptions access$1600(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> p
-    70:70:com.nostra13.universalimageloader.core.ImageLoader access$1700(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> q
-    70:70:void access$1800(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.lang.String,java.lang.String) -> a
-    70:70:void access$1900(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> r
-    70:70:void access$2000(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> s
-    70:70:android.widget.LinearLayout access$2100(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> t
-    70:70:android.widget.LinearLayout access$2200(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> u
-    70:70:boolean access$1402(com.yshow.shike.activities.Tea_Message_Detail_Activity,boolean) -> b
-    70:70:void access$2300(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.lang.String) -> a
+    123:156:boolean setSKMNewessage(java.util.ArrayList) -> a
+    161:163:void onNewIntent(android.content.Intent) -> onNewIntent
+    167:180:void onCreate(android.os.Bundle) -> onCreate
+    184:186:void onStop() -> onStop
+    189:234:void initData() -> a
+    239:261:void onClick(android.view.View) -> onClick
+    345:345:void onPageScrolled(int,float,int) -> onPageScrolled
+    349:350:void onPageSelected(int) -> onPageSelected
+    353:368:void addVoiceView(int) -> a
+    373:373:void onPageScrollStateChanged(int) -> onPageScrollStateChanged
+    439:450:void skUploadMp3(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    454:488:void skSend_messge(java.lang.String,java.lang.String) -> a
+    494:511:void getSKMessage() -> b
+    515:521:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    525:546:void Teather_Decide() -> c
+    549:558:void Qiang_Da(android.content.Context) -> a
+    561:578:void Teather_QuestionId() -> d
+    597:608:void Giew_Up(android.content.Context) -> b
+    612:616:void onResume() -> onResume
+    619:627:void Record_Stu(java.lang.String) -> a
+    69:69:boolean access$000(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.util.ArrayList) -> a
+    69:69:void access$100(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> a
+    69:69:int access$200(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> b
+    69:69:android.widget.TextView access$300(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> c
+    69:69:com.yshow.shike.utils.MediaRecorderUtil access$400(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> d
+    69:69:java.util.Timer access$500(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> e
+    69:69:int access$202(com.yshow.shike.activities.Tea_Message_Detail_Activity,int) -> a
+    69:69:boolean access$602(com.yshow.shike.activities.Tea_Message_Detail_Activity,boolean) -> a
+    69:69:android.view.View access$700(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> f
+    69:69:boolean access$600(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> g
+    69:69:android.support.v4.view.ViewPager access$800(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> h
+    69:69:java.util.ArrayList access$900(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> i
+    69:69:java.lang.String access$1000(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> j
+    69:69:void access$1100(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> a
+    69:69:java.util.Timer access$502(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.util.Timer) -> a
+    69:69:int access$210(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> k
+    69:69:android.os.Handler access$1200(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> l
+    69:69:com.yshow.shike.entity.SKMessage access$1300(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> m
+    69:69:boolean access$1400(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> n
+    69:69:android.content.Context access$1500(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> o
+    69:69:com.nostra13.universalimageloader.core.DisplayImageOptions access$1600(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> p
+    69:69:com.nostra13.universalimageloader.core.ImageLoader access$1700(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> q
+    69:69:void access$1800(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.lang.String,java.lang.String) -> a
+    69:69:void access$1900(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> r
+    69:69:void access$2000(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> s
+    69:69:android.widget.LinearLayout access$2100(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> t
+    69:69:android.widget.LinearLayout access$2200(com.yshow.shike.activities.Tea_Message_Detail_Activity) -> u
+    69:69:boolean access$1402(com.yshow.shike.activities.Tea_Message_Detail_Activity,boolean) -> b
+    69:69:void access$2300(com.yshow.shike.activities.Tea_Message_Detail_Activity,java.lang.String) -> a
 com.yshow.shike.activities.Tea_Message_Detail_Activity$1 -> com.yshow.shike.activities.hl:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
-    102:119:void handleMessage(android.os.Message) -> handleMessage
+    101:118:void handleMessage(android.os.Message) -> handleMessage
 com.yshow.shike.activities.Tea_Message_Detail_Activity$10 -> com.yshow.shike.activities.hm:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
-    623:626:void onSuccess(java.lang.String) -> onSuccess
+    622:625:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.Tea_Message_Detail_Activity$2 -> com.yshow.shike.activities.hn:
     java.lang.Long uptime -> b
     java.lang.Long downtime -> c
     boolean start_boolear -> d
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
-    275:324:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
-    328:340:void Timer_Time() -> a
+    274:323:boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    327:339:void Timer_Time() -> a
 com.yshow.shike.activities.Tea_Message_Detail_Activity$2$1 -> com.yshow.shike.activities.ho:
     com.yshow.shike.activities.Tea_Message_Detail_Activity$2 this$1 -> a
-    333:337:void run() -> run
+    332:336:void run() -> run
 com.yshow.shike.activities.Tea_Message_Detail_Activity$3 -> com.yshow.shike.activities.hp:
     java.lang.String val$questionId -> a
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> b
-    443:449:void onSuccess(java.lang.String) -> onSuccess
+    442:448:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.Tea_Message_Detail_Activity$4 -> com.yshow.shike.activities.hq:
     java.lang.String val$questionId -> a
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> b
-    459:487:void onSuccess(java.lang.String) -> onSuccess
+    458:486:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.Tea_Message_Detail_Activity$4$1 -> com.yshow.shike.activities.hr:
     com.yshow.shike.activities.Tea_Message_Detail_Activity$4 this$1 -> a
-    474:475:void onClick(android.content.DialogInterface,int) -> onClick
+    473:474:void onClick(android.content.DialogInterface,int) -> onClick
 com.yshow.shike.activities.Tea_Message_Detail_Activity$5 -> com.yshow.shike.activities.hs:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
-    498:510:void onSuccess(java.lang.String) -> onSuccess
+    497:509:void onSuccess(java.lang.String) -> onSuccess
 com.yshow.shike.activities.Tea_Message_Detail_Activity$6 -> com.yshow.shike.activities.ht:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
-    554:555:void onClick(android.content.DialogInterface,int) -> onClick
+    553:554:void onClick(android.content.DialogInterface,int) -> onClick
 com.yshow.shike.activities.Tea_Message_Detail_Activity$7 -> com.yshow.shike.activities.hu:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
-    566:577:void onSuccess(int,java.lang.String) -> onSuccess
+    565:576:void onSuccess(int,java.lang.String) -> onSuccess
 com.yshow.shike.activities.Tea_Message_Detail_Activity$9 -> com.yshow.shike.activities.hv:
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> a
-    602:605:void onClick(android.content.DialogInterface,int) -> onClick
+    601:604:void onClick(android.content.DialogInterface,int) -> onClick
 com.yshow.shike.activities.Tea_Message_Detail_Activity$MyAdapter -> com.yshow.shike.activities.hw:
     java.util.ArrayList reslist -> a
     com.yshow.shike.activities.Tea_Message_Detail_Activity this$0 -> b
-    387:387:int getCount() -> getCount
-    392:392:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
-    397:397:void destroyItem(android.view.View,int,java.lang.Object) -> destroyItem
-    404:434:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
+    386:386:int getCount() -> getCount
+    391:391:boolean isViewFromObject(android.view.View,java.lang.Object) -> isViewFromObject
+    396:396:void destroyItem(android.view.View,int,java.lang.Object) -> destroyItem
+    403:433:java.lang.Object instantiateItem(android.view.ViewGroup,int) -> instantiateItem
 com.yshow.shike.activities.Tea_Message_Detail_Activity$MyAdapter$1 -> com.yshow.shike.activities.hx:
     com.yshow.shike.entity.SkMessage_Res val$skMessage_Res -> a
     int val$position -> b
     com.yshow.shike.activities.Tea_Message_Detail_Activity$MyAdapter this$1 -> c
-    412:430:void onClick(android.view.View) -> onClick
+    411:429:void onClick(android.view.View) -> onClick
 com.yshow.shike.activities.TeacherBankEditActivity -> com.yshow.shike.activities.TeacherBankEditActivity:
     com.yshow.shike.entity.Bank bank -> a
     android.widget.TextView bindBankText -> b
@@ -14533,24 +14531,6 @@ com.yshow.shike.utils.Grade_Level_Utils$GradeSeltorUtilButtonOnclickListening ->
 com.yshow.shike.utils.GrayAndRoundBitmapDisplayer -> com.yshow.shike.utils.GrayAndRoundBitmapDisplayer:
     int mRoundPixels -> mRoundPixels
     28:41:android.graphics.Bitmap display(android.graphics.Bitmap,android.widget.ImageView,com.nostra13.universalimageloader.core.assist.LoadedFrom) -> display
-com.yshow.shike.utils.HelpUtil -> com.yshow.shike.utils.HelpUtil:
-    int HELP_STU_1 -> HELP_STU_1
-    int HELP_STU_2 -> HELP_STU_2
-    int HELP_STU_3 -> HELP_STU_3
-    int HELP_STU_4 -> HELP_STU_4
-    int HELP_STU_5 -> HELP_STU_5
-    int HELP_STU_6 -> HELP_STU_6
-    int HELP_TEA_1 -> HELP_TEA_1
-    int HELP_TEA_2 -> HELP_TEA_2
-    int HELP_TEA_3 -> HELP_TEA_3
-    int HELP_TEA_4 -> HELP_TEA_4
-    int HELP_TEA_5 -> HELP_TEA_5
-    int HELP_TEA_6 -> HELP_TEA_6
-    android.widget.PopupWindow sPopWindow -> sPopWindow
-    33:101:void showHelp(android.app.Activity,int,android.view.View) -> showHelp
-    17:17:android.widget.PopupWindow access$000() -> access$000
-com.yshow.shike.utils.HelpUtil$1 -> com.yshow.shike.utils.HelpUtil$1:
-    52:53:void onClick(android.view.View) -> onClick
 com.yshow.shike.utils.ImageLoadOption -> com.yshow.shike.utils.ImageLoadOption:
     13:16:com.nostra13.universalimageloader.core.DisplayImageOptions getImageOption(int) -> getImageOption
     20:23:com.nostra13.universalimageloader.core.DisplayImageOptions getStuHeadImageOption() -> getStuHeadImageOption

@@ -478,7 +478,7 @@ com.yshow.shike.activities.ActivitySelectTeacher$Callback
 com.yshow.shike.activities.Activity_MyShiKe:
     private static final int Edit_Info_Code
 com.yshow.shike.activities.Activity_My_Board:
-    360:361:public void setVoiceLevel(int)
+    347:348:public void setVoiceLevel(int)
 com.yshow.shike.activities.AppraiseMainActivity:
     private java.lang.String praiseFileId
     private java.lang.String fileId
@@ -496,7 +496,7 @@ com.yshow.shike.activities.Stu_madequestionFragment
 com.yshow.shike.activities.Student_Main_Activity:
     private android.support.v4.app.FragmentTransaction ft
 com.yshow.shike.activities.Tea_Message_Detail_Activity:
-    582:594:public void Save_Dialog()
+    581:593:public void Save_Dialog()
 com.yshow.shike.activities.Tea_Message_Detail_Activity$8
 com.yshow.shike.activities.TeacherExchangeMoneyActivity:
     164:171:private void refreshUserInfo()

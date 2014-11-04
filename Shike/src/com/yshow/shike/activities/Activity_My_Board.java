@@ -31,7 +31,6 @@ import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.utils.Dialog;
-import com.yshow.shike.utils.HelpUtil;
 import com.yshow.shike.utils.MediaPlayerUtil;
 
 /**
@@ -189,18 +188,6 @@ public class Activity_My_Board extends Activity implements OnClickListener {
         }
     }
 
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            if (LoginManage.getInstance().isTeacher(this)) {
-                HelpUtil.showHelp(Activity_My_Board.this, HelpUtil.HELP_TEA_3, findViewById(R.id.stu_add_voide));
-            } else {
-                HelpUtil.showHelp(Activity_My_Board.this, HelpUtil.HELP_STU_4, findViewById(R.id.stu_add_voide));
-            }
-        }
-    }
 
     @SuppressWarnings("static-access")
     private void REC() {

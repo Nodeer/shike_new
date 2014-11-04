@@ -10562,12 +10562,6 @@ com.yshow.shike.R$drawable: int stu_about_fankui_bg
 com.yshow.shike.R$drawable: int stu_bra_dele
 com.yshow.shike.R$drawable: int stu_gongju_pencilsmalll
 com.yshow.shike.R$drawable: int stu_head_defult
-com.yshow.shike.R$drawable: int stu_help1
-com.yshow.shike.R$drawable: int stu_help2
-com.yshow.shike.R$drawable: int stu_help3
-com.yshow.shike.R$drawable: int stu_help4
-com.yshow.shike.R$drawable: int stu_help5
-com.yshow.shike.R$drawable: int stu_help6
 com.yshow.shike.R$drawable: int stu_ring_01
 com.yshow.shike.R$drawable: int stu_ring_02
 com.yshow.shike.R$drawable: int stu_ring_03
@@ -10590,12 +10584,6 @@ com.yshow.shike.R$drawable: int take_phon1
 com.yshow.shike.R$drawable: int tea_about_fankui_bg
 com.yshow.shike.R$drawable: int tea_blue_btn
 com.yshow.shike.R$drawable: int tea_head_defult
-com.yshow.shike.R$drawable: int tea_help1
-com.yshow.shike.R$drawable: int tea_help2
-com.yshow.shike.R$drawable: int tea_help3
-com.yshow.shike.R$drawable: int tea_help4
-com.yshow.shike.R$drawable: int tea_help5
-com.yshow.shike.R$drawable: int tea_help6
 com.yshow.shike.R$drawable: int tea_ring_01
 com.yshow.shike.R$drawable: int tea_ring_02
 com.yshow.shike.R$drawable: int tea_ring_03
@@ -13200,26 +13188,6 @@ com.yshow.shike.utils.GrayAndRoundBitmapDisplayer
 com.yshow.shike.utils.GrayAndRoundBitmapDisplayer: int mRoundPixels
 com.yshow.shike.utils.GrayAndRoundBitmapDisplayer: GrayAndRoundBitmapDisplayer(int)
 com.yshow.shike.utils.GrayAndRoundBitmapDisplayer: android.graphics.Bitmap display(android.graphics.Bitmap,android.widget.ImageView,com.nostra13.universalimageloader.core.assist.LoadedFrom)
-com.yshow.shike.utils.HelpUtil
-com.yshow.shike.utils.HelpUtil: int HELP_STU_1
-com.yshow.shike.utils.HelpUtil: int HELP_STU_2
-com.yshow.shike.utils.HelpUtil: int HELP_STU_3
-com.yshow.shike.utils.HelpUtil: int HELP_STU_4
-com.yshow.shike.utils.HelpUtil: int HELP_STU_5
-com.yshow.shike.utils.HelpUtil: int HELP_STU_6
-com.yshow.shike.utils.HelpUtil: int HELP_TEA_1
-com.yshow.shike.utils.HelpUtil: int HELP_TEA_2
-com.yshow.shike.utils.HelpUtil: int HELP_TEA_3
-com.yshow.shike.utils.HelpUtil: int HELP_TEA_4
-com.yshow.shike.utils.HelpUtil: int HELP_TEA_5
-com.yshow.shike.utils.HelpUtil: int HELP_TEA_6
-com.yshow.shike.utils.HelpUtil: android.widget.PopupWindow sPopWindow
-com.yshow.shike.utils.HelpUtil: HelpUtil()
-com.yshow.shike.utils.HelpUtil: void showHelp(android.app.Activity,int,android.view.View)
-com.yshow.shike.utils.HelpUtil: android.widget.PopupWindow access$000()
-com.yshow.shike.utils.HelpUtil$1
-com.yshow.shike.utils.HelpUtil$1: HelpUtil$1()
-com.yshow.shike.utils.HelpUtil$1: void onClick(android.view.View)
 com.yshow.shike.utils.ImageLoadOption
 com.yshow.shike.utils.ImageLoadOption: ImageLoadOption()
 com.yshow.shike.utils.ImageLoadOption: com.nostra13.universalimageloader.core.DisplayImageOptions getImageOption(int)

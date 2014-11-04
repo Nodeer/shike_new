@@ -70,7 +70,7 @@ public class StartingUp extends BaseActivity {
 
     private void Start_Anim() {
         AlphaAnimation animation = new AlphaAnimation(0.1f, 1.0f);
-        animation.setDuration(1000);
+        animation.setDuration(2000);
         view.setAnimation(animation);
         animation.start();
         animation.setAnimationListener(new AnimationListener() {

@@ -69,16 +69,6 @@ public class Activity_Tea_Tool_Sele extends Activity {
         }
 	}
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            if (is_tea) {
-                    HelpUtil.showHelp(this, HelpUtil.HELP_TEA_5, findViewById(R.id.tea_tool2));
-            }
-        }
-    }
-
 	private OnClickListener listener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {

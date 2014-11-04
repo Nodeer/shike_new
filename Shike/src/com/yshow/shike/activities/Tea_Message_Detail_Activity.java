@@ -43,7 +43,6 @@ import com.yshow.shike.fragments.Fragment_Message;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.DateUtils;
 import com.yshow.shike.utils.Dialog;
-import com.yshow.shike.utils.HelpUtil;
 import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MediaPlayerUtil;
 import com.yshow.shike.utils.MediaRecorderUtil;
