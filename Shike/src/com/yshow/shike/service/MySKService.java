@@ -18,6 +18,7 @@ import android.util.Log;
 import com.yshow.shike.R;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.yshow.shike.activities.Login_Reg_Activity;
+import com.yshow.shike.activities.MessageActivity;
 import com.yshow.shike.activities.Student_Main_Activity;
 import com.yshow.shike.activities.Teather_Main_Activity;
 import com.yshow.shike.entity.LoginManage;
@@ -176,7 +177,7 @@ public class MySKService extends Service {
     @SuppressWarnings("deprecation")
     private void showNotificationS() {
         mNotification.when = System.currentTimeMillis();
-        Intent i = new Intent(this, Student_Main_Activity.class);
+        Intent i = new Intent(this, MessageActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, Intent.FLAG_ACTIVITY_NEW_TASK);
         mNotification.setLatestEventInfo(this, getResources().getString(R.string.app_name), "您有一条新师课消息,请注意查看!", pendingIntent);
         mManager.notify(0, mNotification);
@@ -185,7 +186,7 @@ public class MySKService extends Service {
     @SuppressWarnings("deprecation")
     private void showNotificationT() {
         mNotification.when = System.currentTimeMillis();
-        Intent i = new Intent(this, Teather_Main_Activity.class);
+        Intent i = new Intent(this, MessageActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, Intent.FLAG_ACTIVITY_NEW_TASK);
         mNotification.setLatestEventInfo(this, getResources().getString(R.string.app_name), "您有一条新师课消息,请注意查看!", pendingIntent);
         mManager.notify(0, mNotification);

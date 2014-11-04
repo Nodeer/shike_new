@@ -117,7 +117,8 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
                 boolean atent_Success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, getActivity());
                 if (atent_Success) {
                     User_Info info = SKResolveJsonUtil.getInstance().My_teather1(json);
-                    mGrade.setText("授    课:" + info.getGrade() + info.getGradeName());
+                    mUserName.setText("用户名:" + info.getNickname());
+                    mGrade.setText("授    课:" + info.getGrade() + info.getSubject());
                     mFenbiNum.setText("赞美数:" + info.getLike_num());
                     mImageLoader.displayImage(info.getPicurl(), mHeadIcon, mOption);
 

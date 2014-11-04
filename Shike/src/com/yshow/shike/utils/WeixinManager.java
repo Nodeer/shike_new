@@ -84,7 +84,8 @@ public class WeixinManager {
 	 */
 	public void sendTextMsgToWx(String title, String description,boolean isToTimeline) {
 		picture = BitmapFactory.decodeResource(context.getResources(),R.drawable.icon);
-		WXWebpageObject webObj = new WXWebpageObject("www.shikeke.com");
+		WXWebpageObject webObj = new WXWebpageObject();
+        webObj.webpageUrl = "http://www.schoool.cn/ipa";
 		final SendMessageToWX.Req req = new SendMessageToWX.Req();
 		if (isToTimeline) {
 			req.scene = SendMessageToWX.Req.WXSceneTimeline;
