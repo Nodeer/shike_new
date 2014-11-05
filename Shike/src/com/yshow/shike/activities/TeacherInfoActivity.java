@@ -10,6 +10,7 @@ import com.yshow.shike.entity.SKMessage;
 import com.yshow.shike.entity.Star_Teacher_Parse;
 import com.yshow.shike.entity.User_Info;
 import com.yshow.shike.utils.Dialog;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.PartnerConfig;
@@ -66,7 +67,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
         findViewById(R.id.left_btn).setOnClickListener(this);
 
 
-        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.my_tea_phon);
+        options = ImageLoadOption.getTeaHeadImageOption();
         imageLoader = ImageLoader.getInstance();
 
         teacher_nick = (TextView) findViewById(R.id.tv_teacher_nick);
@@ -87,32 +88,33 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
         tv_shike_fen = (TextView) findViewById(R.id.tv_jieti_count);
         item = (Star_Teacher_Parse) getIntent().getSerializableExtra("headpicture");
         if (item != null) {
-            isMyTeacher = getIntent().getBooleanExtra("ismyTeacher", false);
-            if (isMyTeacher) {
-                TextView tiwenBtn = (TextView) findViewById(R.id.next_btn);
-                tiwenBtn.setVisibility(View.VISIBLE);
-                tiwenBtn.setOnClickListener(this);
-            }
+//            isMyTeacher = getIntent().getBooleanExtra("ismyTeacher", false);
+//            if (isMyTeacher) {
+//                TextView tiwenBtn = (TextView) findViewById(R.id.next_btn);
+//                tiwenBtn.setVisibility(View.VISIBLE);
+//                tiwenBtn.setOnClickListener(this);
+//            }
             teaUid = item.getUid();
-            myteather = item.getiSmyteath();
-            teacher_nick.setText(item.getNickname());
-            strdent_count.setText("学生数量:" + item.getFansNum());
-            tv_subject.setText("学科：" + item.getSubiect());
-            tv_guan_zhu.setText(item.getInfo());
-            imageLoader.displayImage(item.getIcon(), tudent_picture, options);
-            tv_shike_fen.setText("接题次数：" + item.getClaim_question_num());
-            tv_zan_shu.setText("学生赞美：" + item.getLike_num());
-            if (myteather != null && myteather.equals("1")) {
-                tv_attention.setText("取消关注");
-                guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_balck);
-                guanzhuBtn.setBackgroundResource(R.drawable.gray_btn_bg);
-                flag = true;
-            } else {
-                tv_attention.setText("关注");
-                guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_white);
-                guanzhuBtn.setBackgroundResource(R.drawable.stu_slide_btn1_bg);
-                flag = false;
-            }
+            MyShiKeInfo(teaUid);
+//            myteather = item.getiSmyteath();
+//            teacher_nick.setText(item.getNickname());
+//            strdent_count.setText("学生数量:" + item.getFansNum());
+//            tv_subject.setText("学科：" + item.getSubiect());
+//            tv_guan_zhu.setText(item.getInfo());
+//            imageLoader.displayImage(item.getIcon(), tudent_picture, options);
+//            tv_shike_fen.setText("接题次数：" + item.getClaim_question_num());
+//            tv_zan_shu.setText("学生赞美：" + item.getLike_num());
+//            if (myteather != null && myteather.equals("1")) {
+//                tv_attention.setText("取消关注");
+//                guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_balck);
+//                guanzhuBtn.setBackgroundResource(R.drawable.gray_btn_bg);
+//                flag = true;
+//            } else {
+//                tv_attention.setText("关注");
+//                guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_white);
+//                guanzhuBtn.setBackgroundResource(R.drawable.stu_slide_btn1_bg);
+//                flag = false;
+//            }
         } else {
             String uid = "";
             extra = (SKMessage) getIntent().getSerializableExtra("teather_sKMessage");
@@ -134,26 +136,24 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                     teaUid = my_teather.getUid();
                     teacher_nick.setText(my_teather.getNickname());
                     strdent_count.setText("学生数量:" + my_teather.getFansNum());
-                    tv_subject.setText("学科：" + my_teather.getSubject());
+                    tv_subject.setText("学科：" + my_teather.getGrade()+my_teather.getSubject());
                     tv_guan_zhu.setText(my_teather.getInfo());
                     imageLoader.displayImage(my_teather.getIcon(), tudent_picture, options);
                     tv_shike_fen.setText("接题次数：" + my_teather.getClaim_question_num());
                     tv_zan_shu.setText("学生赞美：" + my_teather.getLike_num());
-                    if (extra.getiSmyteach().equals("1")) {
-                        tv_attention.setText("取消关注");
-                        guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_balck);
-                        guanzhuBtn.setBackgroundResource(R.drawable.gray_btn_bg);
-                        flag = true;
-                    } else {
-                        tv_attention.setText("关注");
-                        guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_white);
-                        guanzhuBtn.setBackgroundResource(R.drawable.stu_slide_btn1_bg);
-                        flag = false;
-                    }
+//                    if (extra.getiSmyteach().equals("1")) {
+//                        tv_attention.setText("取消关注");
+//                        guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_balck);
+//                        guanzhuBtn.setBackgroundResource(R.drawable.gray_btn_bg);
+//                        flag = true;
+//                    } else {
+//                        tv_attention.setText("关注");
+//                        guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_white);
+//                        guanzhuBtn.setBackgroundResource(R.drawable.stu_slide_btn1_bg);
+//                        flag = false;
+//                    }
                 }
             }
-
-            ;
         });
     }
 

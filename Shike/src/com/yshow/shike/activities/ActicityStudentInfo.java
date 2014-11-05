@@ -14,6 +14,7 @@ import com.yshow.shike.entity.SKArea;
 import com.yshow.shike.entity.SKMessage;
 import com.yshow.shike.entity.Star_Teacher_Parse;
 import com.yshow.shike.entity.Student_Info;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
  */
 public class ActicityStudentInfo extends BaseActivity {
     private TextView tv_stu_nick;
-    private TextView tv_stu_name;
+    //    private TextView tv_stu_name;
     private TextView tv_stu_day;
     private TextView tv_stu_ti_wen;
     private ImageView tudent_picture;
@@ -36,6 +37,8 @@ public class ActicityStudentInfo extends BaseActivity {
 
     private TextView diqu, ziwojieshao;
     Student_Info student_Info;
+    private DisplayImageOptions options;
+    private ImageLoader imageLoader;
 
 
     @Override
@@ -50,13 +53,15 @@ public class ActicityStudentInfo extends BaseActivity {
         stu_Info = (Star_Teacher_Parse) bundleExtra.getSerializable("Star_Teacher_Parse");
         extra = (SKMessage) bundleExtra.getSerializable("teather_sKMessage");//这条比较常用..老师从消息列表点击头像进来
         tv_stu_nick = (TextView) findViewById(R.id.tv_stu_nick);
-        tv_stu_name = (TextView) findViewById(R.id.tv_stu_name);
+//        tv_stu_name = (TextView) findViewById(R.id.tv_stu_name);
         tv_stu_day = (TextView) findViewById(R.id.tv_stu_day);
         tv_stu_ti_wen = (TextView) findViewById(R.id.tv_jieti_count);
         diqu = (TextView) findViewById(R.id.tv_zan_coun);
         ziwojieshao = (TextView) findViewById(R.id.tv_guan_zhu);
         tudent_picture = (ImageView) findViewById(R.id.tudent_picture);
         findViewById(R.id.left_btn).setOnClickListener(listener);
+        options = ImageLoadOption.getStuHeadImageOption();
+        imageLoader = ImageLoader.getInstance();
         None_Null();
     }
 
@@ -91,11 +96,12 @@ public class ActicityStudentInfo extends BaseActivity {
                 if (success) {
                     student_Info = SKResolveJsonUtil.getInstance().Student_Info_Pase(json);
                     tv_stu_nick.setText("用户名：" + student_Info.getNickname());
-                    tv_stu_name.setText("姓    名：" + student_Info.getName());
+//                    tv_stu_name.setText("姓    名：" + student_Info.getName());
+                    diqu.setText("所在地区：" + student_Info.area);
                     tv_stu_day.setText("学龄段：" + student_Info.getGrade() + "" + student_Info.getGradeName());
                     tv_stu_ti_wen.setText("提问次数：" + student_Info.getQuestions());
                     ziwojieshao.setText(student_Info.getInfo());
-                    Init_Picture(student_Info.getIcon(), tudent_picture);
+                    showPic(student_Info.getIcon(), tudent_picture);
                 }
             }
         });
@@ -104,18 +110,15 @@ public class ActicityStudentInfo extends BaseActivity {
     // 从我的学生页面跳转过来 设置学生的基本信息
     private void stu_info() {
         tv_stu_nick.setText("用户名 :" + stu_Info.getNickname());
-        tv_stu_name.setText("姓    名:" + stu_Info.getName());
+//        tv_stu_name.setText("姓    名:" + stu_Info.getName());
         tv_stu_day.setText("学龄段 :" + stu_Info.getGrade() + "" + stu_Info.getGradeName());
+        diqu.setText("所在地区：" + stu_Info.areaName);
         tv_stu_ti_wen.setText("提问次数：" + stu_Info.getQuestions());
-        Init_Picture(stu_Info.getIcon(), tudent_picture);
+        showPic(stu_Info.getIcon(), tudent_picture);
     }
 
     // 设置头像
-    private void Init_Picture(String url, ImageView imageView) {
-        DisplayImageOptions options = new DisplayImageOptions.Builder().cacheOnDisc(true)
-                .showImageForEmptyUri(R.drawable.teather_stu_picture).showImageOnFail(R.drawable.teather_stu_picture).cacheInMemory(true)
-                .build();
-        ImageLoader imageLoader = ImageLoader.getInstance();
+    private void showPic(String url, ImageView imageView) {
         imageLoader.displayImage(url, imageView, options);
     }
 

@@ -221,10 +221,6 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
                     img.changeDelView();
                 }
                 break;
-            // 设置老师照相的点击事件
-            case R.id.tv_paizhao:
-                Dialog.Intent(this, Activity_Tea_Tool_Sele.class);
-                break;
         }
     }
 
@@ -240,15 +236,9 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
      */
     private void Distinction_Stu_Tea() {
         Bundle bundle = new Bundle();
-//		bundle.putParcelable("bitmap", bitmap);
-        if (!LoginManage.getInstance().isTeacher(this)) {//是学生
-            bundle.putStringArrayList("urllist", urllist);
-            ActivitySelectTeacher.saveBitmap = bitmap;
-            Dialog.intent(this, ActivitySelectTeacher.class, bundle);
-        } else {//如果是老师...显然就是拍照制作题目,下一个页面应该是给题目设置标题和选择文件夹
-            Dialog.intent(this, Activity_Que_board2.class, bundle);
-            finish();
-        }
+        bundle.putStringArrayList("urllist", urllist);
+        ActivitySelectTeacher.saveBitmap = bitmap;
+        Dialog.intent(this, ActivitySelectTeacher.class, bundle);
     }
 
     public void VoideShow() {

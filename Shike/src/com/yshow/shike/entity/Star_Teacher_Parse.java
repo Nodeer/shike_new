@@ -57,6 +57,9 @@ public class Star_Teacher_Parse implements Serializable{
 	String like_num ; // 老师的攒数
 	String claim_question_num;// 接替次数
 
+    /**地区*/
+    public String areaName = "";
+
 
     public boolean isOnline = false;
 	public String getQuestions() {

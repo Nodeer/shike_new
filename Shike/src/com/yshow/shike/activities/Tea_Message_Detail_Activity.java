@@ -577,20 +577,20 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         });
     }
 
-    public void Save_Dialog() {
-        Builder builder = new Builder(context);
-        builder.setTitle("提示");
-        builder.setMessage("该题已交互结束，需要把该题存入题库吗？");
-        builder.setPositiveButton("保存", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface arg0, int arg1) {
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("sKMessage", sKMessage);
-                Dialog.intent(context, Activity_Que_board2.class, bundle);
-            }
-        });
-        builder.setNegativeButton("取消", null);
-        builder.show();
-    }
+//    public void Save_Dialog() {
+//        Builder builder = new Builder(context);
+//        builder.setTitle("提示");
+//        builder.setMessage("该题已交互结束，需要把该题存入题库吗？");
+//        builder.setPositiveButton("保存", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface arg0, int arg1) {
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("sKMessage", sKMessage);
+//                Dialog.intent(context, Activity_Que_board2.class, bundle);
+//            }
+//        });
+//        builder.setNegativeButton("取消", null);
+//        builder.show();
+//    }
 
     // 保存題庫
     private void Giew_Up(Context context) {

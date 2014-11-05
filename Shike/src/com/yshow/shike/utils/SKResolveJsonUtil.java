@@ -1101,6 +1101,7 @@ public class SKResolveJsonUtil {
                 stu_info.setInfo(obj_stu_info.optString("info"));
                 stu_info.setPoints(obj_stu_info.optString("points"));
                 stu_info.setQuestions(obj_stu_info.optString("questions"));
+                stu_info.areaName = obj_stu_info.optString("area_name");
                 list.add(stu_info);
             }
         } catch (JSONException e) {

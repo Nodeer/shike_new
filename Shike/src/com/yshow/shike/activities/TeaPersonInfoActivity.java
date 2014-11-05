@@ -36,6 +36,7 @@ import com.yshow.shike.utils.Grade_Level_Utils.GradeSeltorUtilButtonOnclickListe
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.GradeSeltorUtil;
 import com.yshow.shike.utils.Grade_Level_Utils;
+import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.SKAsyncApiController;
@@ -92,7 +93,7 @@ public class TeaPersonInfoActivity extends BaseActivity {
         instence = Exit_Login.getInLogin();
         stu_info = LoginManage.getInstance().getStudent();
         String uid = stu_info.getUid();
-        options = Net_Servse.getInstence().Picture_Shipei(R.drawable.s_teacher_icon);
+        options = ImageLoadOption.getTeaHeadImageOption();
         setContentView(R.layout.tea_person_info_layout);
         Tea_initData();
         Set_tea_Base_Info();
@@ -484,9 +485,9 @@ public class TeaPersonInfoActivity extends BaseActivity {
                         sex_miss.setChecked(true);
                     }
 
-                    if (!TextUtils.isEmpty(info.getPicurl())) {
-                        imageLoader.displayImage(info.getPicurl(), head_pic);
-                    }
+//                    if (!TextUtils.isEmpty(info.getPicurl())) {
+                        imageLoader.displayImage(info.getPicurl(), head_pic,options);
+//                    }
                     if (!info.getGreatid().equals("")) {
                         if (tv_tea_subject != null) {
                             tv_tea_subject.setText(info.getGreatid());

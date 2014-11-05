@@ -94,8 +94,12 @@ public class MyStudentActivity extends BaseActivity {
             ImageView stu_nic = (ImageView) convertView.findViewById(R.id.iv_teather_picture);
             TextView tv_stu_nic = (TextView) convertView.findViewById(R.id.tv_stu_nic);
             TextView stu_info = (TextView) convertView.findViewById(R.id.tv_stu_info);
+            TextView stu_grade = (TextView) convertView.findViewById(R.id.tv_grade);
+            TextView stu_diqu = (TextView) convertView.findViewById(R.id.tv_diqu);
             tv_stu_nic.setText(parse.getNickname());
             stu_info.setText(parse.getInfo());
+            stu_grade.setText(parse.getGrade() + parse.getGradeName());
+            stu_diqu.setText(parse.areaName);
             imageLoader.displayImage(parse.getIcon(), stu_nic, options);
             return convertView;
         }
