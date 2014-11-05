@@ -347,7 +347,7 @@
                         android:padding="5dp"
                         android:layout_marginLeft="5dp"
                         android:background="@drawable/white_btn_nor"
-                        android:hint="请输入你就读的学校"
+                        android:hint="请输入您在职的学校"
                         style="@style/text_14_gray" />
                 </LinearLayout>
 

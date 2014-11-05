@@ -44,7 +44,7 @@ public class Fragment_Student_GuanYu extends Activity {
         context = this;
 
         TextView titletext = (TextView) findViewById(R.id.title_text);
-        titletext.setText("关于师课");
+        titletext.setText("关于师课家教宝");
 
         findViewById(R.id.gongneng_jieshao_btn).setOnClickListener(listener);
         findViewById(R.id.faq_btn).setOnClickListener(listener);
@@ -79,14 +79,14 @@ public class Fragment_Student_GuanYu extends Activity {
                 case R.id.gongneng_jieshao_btn:// 功能介绍
                     intent = new Intent(context, WebViewActivity.class);
                     String url3 = softInfo.introduceurl;
-                    url = "http://apitest.shikeke.com/" + url3;
+                    url = SKAsyncApiController.SHIKE_VALUE_API_SERVER_URL + url3;
                     intent.putExtra("url", url);
                     intent.putExtra("title", "功能介绍");
                     startActivity(intent);
                     break;
                 case R.id.faq_btn:// 如何获得学分.
                     intent = new Intent(context, WebViewActivity.class);
-                    String stuurl = "http://apitest.shikeke.com/" + softInfo.FAQurl;
+                    String stuurl = SKAsyncApiController.SHIKE_VALUE_API_SERVER_URL + softInfo.FAQurl;
                     intent.putExtra("url", stuurl);
                     intent.putExtra("title", "FAQ问答");
                     startActivity(intent);

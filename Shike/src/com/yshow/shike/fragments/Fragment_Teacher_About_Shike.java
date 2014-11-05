@@ -44,7 +44,7 @@ public class Fragment_Teacher_About_Shike extends Activity {
         Sofy_Info();
 
         TextView titletext = (TextView) findViewById(R.id.title_text);
-        titletext.setText("关于师课");
+        titletext.setText("关于师课家教宝");
 
         findViewById(R.id.gongneng_jieshao_btn).setOnClickListener(listener);
         findViewById(R.id.faq_btn).setOnClickListener(listener);
@@ -77,7 +77,7 @@ public class Fragment_Teacher_About_Shike extends Activity {
                 case R.id.gongneng_jieshao_btn:// 功能介绍
                     intent = new Intent(context, WebViewActivity.class);
                     String url3 = softInfo.introduceurl;
-                    String url = "http://apitest.shikeke.com/" + url3;
+                    String url = SKAsyncApiController.SHIKE_VALUE_API_SERVER_URL + url3;
                     intent.putExtra("url", url);
                     intent.putExtra("title", "功能介绍");
                     startActivity(intent);
@@ -85,7 +85,7 @@ public class Fragment_Teacher_About_Shike extends Activity {
                 case R.id.faq_btn:
                     String url4 = softInfo.FAQ_Turl;
                     intent = new Intent(context, WebViewActivity.class);
-                    String faqurl = "http://apitest.shikeke.com/" + url4;
+                    String faqurl = SKAsyncApiController.SHIKE_VALUE_API_SERVER_URL + url4;
                     intent.putExtra("url", faqurl);
                     intent.putExtra("title", "FAQ问答");
                     startActivity(intent);
