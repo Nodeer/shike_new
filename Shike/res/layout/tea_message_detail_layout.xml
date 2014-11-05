@@ -85,17 +85,17 @@
             android:layout_width="fill_parent"
             android:layout_height="130dp">
 
-            <HorizontalScrollView
+            <ScrollView
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="fill_parent">
 
                 <LinearLayout
                     android:id="@+id/voice_layout"
                     android:layout_width="fill_parent"
                     android:padding="10dp"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_height="100dp"></LinearLayout>
-            </HorizontalScrollView>
+            </ScrollView>
 
             <include
                 android:id="@+id/voice_recordding_layout"

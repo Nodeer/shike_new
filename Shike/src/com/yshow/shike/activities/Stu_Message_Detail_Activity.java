@@ -45,6 +45,7 @@ import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
+import com.yshow.shike.utils.ScreenSizeUtil;
 import com.yshow.shike.widget.StuTapeImage;
 
 import org.json.JSONException;
@@ -346,8 +347,10 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
     private void addVoiceView(int index) {
         mVoiceShowLayout.removeAllViews();
         ArrayList<SkMessage_Voice> voice = reslist.get(index).getVoice();
-        for (int voice_count = 0; voice_count < voice.size(); voice_count++) {
-            SkMessage_Voice voiceitem = voice.get(voice_count);
+        LinearLayout row = null;
+        int toppadding = ScreenSizeUtil.Dp2Px(this, 5);
+        for (int i = 0; i < voice.size(); i++) {
+            SkMessage_Voice voiceitem = voice.get(i);
             StuTapeImage tapeimg = new StuTapeImage(this);
             LinearLayout.LayoutParams pa = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             pa.leftMargin = 20;
@@ -355,10 +358,14 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
             tapeimg.setIsTeacher(!voiceitem.getIsStudent().equals("1"));
             tapeimg.setPlayer(mediaPlayer);
             tapeimg.setVoicePath(voiceitem.getFile());
-            mVoiceShowLayout.addView(tapeimg);
+//            mVoiceShowLayout.addView(tapeimg);
+            if (i % 5 == 0) {
+                row = new LinearLayout(this);
+                row.setPadding(0, toppadding, 0, 0);
+                mVoiceShowLayout.addView(row);
+            }
+            row.addView(tapeimg);
         }
-
-
     }
 
     @Override
@@ -410,7 +417,7 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
 
                     if (sKMessage.getMsgType().equals("1")) {// 这里表示是系统消息
                         bundle.putBoolean("isdone", true);
-                    }else{
+                    } else {
                         bundle.putBoolean("isdone", sKMessage.isDone());
                     }
 
