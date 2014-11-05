@@ -98,7 +98,7 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
         dialog = new Dilog_Share().Dilog_Anim(getActivity(), this);
         weixinManager = new WeixinManager(getActivity());
 
-        mOption = ImageLoadOption.getImageOption(R.drawable.stu_head_defult);
+        mOption = ImageLoadOption.getStuHeadImageOption();
 
         mUserName.setText("用户名:" + student.getNickname());
 

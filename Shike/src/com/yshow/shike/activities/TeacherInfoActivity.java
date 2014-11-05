@@ -35,7 +35,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
     private TextView tv_attention;
     private Context context;
     private TextView tv_shike_fen;
-    private DisplayImageOptions options;
+    private DisplayImageOptions options, options2;
     private ImageLoader imageLoader;
     private String myteather;
 
@@ -68,6 +68,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
 
 
         options = ImageLoadOption.getTeaHeadImageOption();
+        options2 = ImageLoadOption.getTeaHeadGrayImageOption();
         imageLoader = ImageLoader.getInstance();
 
         teacher_nick = (TextView) findViewById(R.id.tv_teacher_nick);
@@ -136,9 +137,13 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                     teaUid = my_teather.getUid();
                     teacher_nick.setText(my_teather.getNickname());
                     strdent_count.setText("学生数量:" + my_teather.getFansNum());
-                    tv_subject.setText("学科：" + my_teather.getGrade()+my_teather.getSubject());
+                    tv_subject.setText("学科：" + my_teather.getGrade() + my_teather.getSubject());
                     tv_guan_zhu.setText(my_teather.getInfo());
-                    imageLoader.displayImage(my_teather.getIcon(), tudent_picture, options);
+                    if (my_teather.isonline) {
+                        imageLoader.displayImage(my_teather.getIcon(), tudent_picture, options);
+                    } else {
+                        imageLoader.displayImage(my_teather.getIcon(), tudent_picture, options2);
+                    }
                     tv_shike_fen.setText("接题次数：" + my_teather.getClaim_question_num());
                     tv_zan_shu.setText("学生赞美：" + my_teather.getLike_num());
 //                    if (extra.getiSmyteach().equals("1")) {

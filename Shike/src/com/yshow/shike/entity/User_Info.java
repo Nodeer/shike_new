@@ -30,6 +30,9 @@ public class User_Info implements Serializable{
     String sex;
     String area;
 
+    public int mTeachers;
+    public boolean isonline;
+
     public String bankId;//兑换现金时的银行id
     public String bankName;//兑换现金时的银行名字
     public String bankAddr;//开户行名称

@@ -88,7 +88,7 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
         mUserName.setText("用户名:" + student.getNickname());
 
 
-        mOption = ImageLoadOption.getImageOption(R.drawable.tea_head_defult);
+        mOption = ImageLoadOption.getTeaHeadImageOption();
 
         update_info(student.getUid());
         return view;

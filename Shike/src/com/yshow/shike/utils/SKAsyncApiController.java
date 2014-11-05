@@ -432,7 +432,7 @@ public class SKAsyncApiController {
         myPost("/?m=soft_info", null, handler);
     }
 
-    // 电话收缩老师
+    // 电话搜索老师
     public static void Searth_Teather_Mob(String mob, AsyncHttpResponseHandler handler) {
         RequestParams params = new RequestParams();
         params.put("mob", mob);

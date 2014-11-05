@@ -447,6 +447,8 @@ public class SKResolveJsonUtil {
             userinfo.setName(objectitme.optString("name"));
             userinfo.setArea(objectitme.optString("aId"));
             userinfo.setGradeName(objectitme.optString("gradeName"));
+            userinfo.mTeachers = objectitme.optInt("teachers");
+            userinfo.isonline = objectitme.optBoolean("isOnline");
 
             userinfo.setLike_num(objectitme.optString("likes"));
             userinfo.setPoints(points);

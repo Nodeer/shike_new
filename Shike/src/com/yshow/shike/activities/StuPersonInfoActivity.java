@@ -81,6 +81,7 @@ public class StuPersonInfoActivity extends BaseActivity {
     private User_Info info;
 
     private TextView points, questions, fanNum;
+    private DisplayImageOptions options;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,7 @@ public class StuPersonInfoActivity extends BaseActivity {
         user_info = new Update_User_Info();
         instence = Exit_Login.getInLogin();
         stu_info = LoginManage.getInstance().getStudent();
+        options = ImageLoadOption.getStuHeadImageOption();
         String uid = stu_info.getUid();
         setContentView(R.layout.stu_person_info_layout);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -414,7 +416,9 @@ public class StuPersonInfoActivity extends BaseActivity {
 
                     points.setText(info.getPoints());
                     questions.setText(info.getQuestions());
-                    fanNum.setText(info.getLike_num());
+                    fanNum.setText(String.valueOf(info.mTeachers));
+
+
 
 
                     try {
@@ -428,9 +432,7 @@ public class StuPersonInfoActivity extends BaseActivity {
                         sex_miss.setChecked(true);
                     }
 
-                    if (!TextUtils.isEmpty(info.getPicurl())) {
-                        imageLoader.displayImage(info.getPicurl(), head_pic);
-                    }
+                    imageLoader.displayImage(info.getPicurl(), head_pic, options);
 
                     if (!info.getGreatid().equals("")) {
                         if (tv_tea_subject != null) {
