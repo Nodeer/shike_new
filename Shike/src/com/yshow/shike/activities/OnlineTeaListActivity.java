@@ -19,12 +19,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yshow.shike.widget.TopAndBottomLoadListView;
 import com.yshow.shike.widget.XListView;
 
-public class OnlineTeaListActivity extends BaseActivity implements TopAndBottomLoadListView.OnRefreshListener, XListView.IXListViewListener, View.OnClickListener {
+public class OnlineTeaListActivity extends BaseActivity implements XListView.IXListViewListener, View.OnClickListener {
     private XListView mOnlineListView;
-    private DisplayImageOptions options,grayOption;
+    private DisplayImageOptions options, grayOption;
     private ImageLoader imageLoader;
     private MyAdapter adapter;
     private int page = 1;

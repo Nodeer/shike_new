@@ -20,7 +20,6 @@ import com.yshow.shike.R;
 import com.yshow.shike.UIApplication;
 import com.yshow.shike.activities.Activity_Stu_Ask_Step1;
 import com.yshow.shike.activities.MessageActivity;
-import com.yshow.shike.activities.My_Question_Count;
 import com.yshow.shike.activities.WebViewActivity;
 import com.yshow.shike.adapter.SKMessageAdapter;
 import com.yshow.shike.entity.HomeImgModel;

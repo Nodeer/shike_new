@@ -32,18 +32,19 @@ import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
 import com.yshow.shike.utils.PartnerConfig;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
+import com.yshow.shike.utils.Timer_Uils;
+import com.yshow.shike.widget.XListView;
 
 /**
  * 学生的消息列表
  */
-public class Fragment_Message extends Fragment implements OnScrollListener, View.OnClickListener {
+public class Fragment_Message extends Fragment implements View.OnClickListener, XListView.IXListViewListener {
     private View view = null;
-    private static ListView mListview;
+    private static XListView mListview;
     private static Context context;
     private static int page = 1;
     private static ArrayList<SKMessageList> resolveMessage;
     private static SKMessageAdapter skMessageAdapter;
-    private int lastVisibleIndex;
     /**
      * 单例对象实例
      */
@@ -81,8 +82,8 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
     }
 
     private void initView() {
-        mListview = (ListView) view.findViewById(R.id.listview);
-        mListview.setOnScrollListener(this);
+        mListview = (XListView) view.findViewById(R.id.listview);
+        mListview.setXListViewListener(this);
         ImageView backBtn = (ImageView) view.findViewById(R.id.tv_tool_back);
         backBtn.setOnClickListener(this);
 
@@ -91,7 +92,6 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
         } else {
             view.findViewById(R.id.right_button).setOnClickListener(this);
         }
-
         // getSKMessage();
     }
 
@@ -118,10 +118,14 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
                     resolveMessage = SKResolveJsonUtil.getInstance().resolveMessage(json);
                     skMessageAdapter = new SKMessageAdapter(context, resolveMessage);
                     mListview.setAdapter(skMessageAdapter);
-                    page++;
+                    if (resolveMessage.size() > 0) {
+                        mListview.setPullLoadEnable(true);
+                    } else {
+                        mListview.setPullLoadEnable(false);
+                    }
+                    onLoad();
                 }
             }
-
         });
     }
 
@@ -135,24 +139,14 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
                     ArrayList<SKMessageList> more = SKResolveJsonUtil.getInstance().resolveMessage(json);
                     if (more.size() > 0) {
                         skMessageAdapter.addMordList(more);
-                        page++;
+                        mListview.setPullLoadEnable(true);
+                    } else {
+                        mListview.setPullLoadEnable(false);
                     }
+                    onLoad();
                 }
             }
-
         });
-    }
-
-    @Override
-    public void onScrollStateChanged(AbsListView view, int scrollState) {
-        if (scrollState == OnScrollListener.SCROLL_STATE_IDLE && lastVisibleIndex == skMessageAdapter.getCount()) {
-            getModeSKMessage();
-        }
-    }
-
-    @Override
-    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-        lastVisibleIndex = firstVisibleItem + visibleItemCount;
     }
 
     @Override
@@ -170,5 +164,23 @@ public class Fragment_Message extends Fragment implements OnScrollListener, View
                 startActivity(new Intent(getActivity(), Activity_Stu_Ask_Step1.class));
                 break;
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        page = 1;
+        getSKMessage();
+    }
+
+    @Override
+    public void onLoadMore() {
+        page++;
+        getModeSKMessage();
+    }
+
+    private static void onLoad() {
+        mListview.stopRefresh();
+        mListview.stopLoadMore();
+        mListview.setRefreshTime(Timer_Uils.getCurrentTime());
     }
 }

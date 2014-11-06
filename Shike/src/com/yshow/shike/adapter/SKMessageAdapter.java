@@ -63,6 +63,8 @@ public class SKMessageAdapter extends BaseAdapter implements ListAdapter {
         notifyDataSetChanged();
     }
 
+
+
     // 改变删除按钮的标记
     public void Dete_Mess() {
         notifyDataSetChanged();

@@ -23,13 +23,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yshow.shike.widget.TopAndBottomLoadListView;
 import com.yshow.shike.widget.XListView;
 
 /**
  * 明星老师
  */
-public class StarTeacherListActivity extends BaseActivity implements OnClickListener, TopAndBottomLoadListView.OnRefreshListener,
+public class StarTeacherListActivity extends BaseActivity implements OnClickListener,
         XListView.IXListViewListener {
     private TextView seleck_subject;
     private TextView ll_diqu;

@@ -21,10 +21,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yshow.shike.widget.TopAndBottomLoadListView;
 import com.yshow.shike.widget.XListView;
 
-public class RecommendTeacherListActivity extends BaseActivity implements OnClickListener, TopAndBottomLoadListView.OnRefreshListener,
+public class RecommendTeacherListActivity extends BaseActivity implements OnClickListener,
         XListView.IXListViewListener {
     private TextView recommend_name;
     private XListView lv_recommend;
