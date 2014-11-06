@@ -463,6 +463,7 @@ com.yshow.shike.SubjectIds:
     6:6:public SubjectIds()
 com.yshow.shike.UIApplication:
     30:30:public java.lang.String getUser_name()
+    34:35:public void setUser_name(java.lang.String)
     38:38:public java.lang.Boolean getAttention_tea()
     42:43:public void setAttention_tea(java.lang.Boolean)
     46:46:public java.lang.Boolean getReg_tea_three()
@@ -471,14 +472,9 @@ com.yshow.shike.UIApplication:
     90:91:public void addPicUrls(java.lang.String)
     121:135:public java.io.File getExternalStorageDirectory()
 com.yshow.shike.activities.ActicityStudentInfo:
-    126:144:private void skGetArea()
-    28:28:static synthetic android.widget.TextView access$700(com.yshow.shike.activities.ActicityStudentInfo)
+    129:147:private void skGetArea()
 com.yshow.shike.activities.ActicityStudentInfo$3
 com.yshow.shike.activities.ActivitySelectTeacher$Callback
-com.yshow.shike.activities.Activity_MyShiKe:
-    private static final int Edit_Info_Code
-com.yshow.shike.activities.Activity_My_Board:
-    347:348:public void setVoiceLevel(int)
 com.yshow.shike.activities.AppraiseMainActivity:
     private java.lang.String praiseFileId
     private java.lang.String fileId
@@ -487,22 +483,15 @@ com.yshow.shike.activities.ImageActivity:
     147:159:private void addVoiceLayout()
 com.yshow.shike.activities.PublishImageActivity:
     private android.widget.TextView tea_end
-com.yshow.shike.activities.Stu_Paint_Activity:
-    private android.widget.TextView pain_huifu
-    private android.widget.TextView next_tool
-    private com.yshow.shike.utils.Bitmap_Manger_utils bitmap_intence
-    113:146:private android.graphics.Bitmap press_bitmap(java.lang.String)
 com.yshow.shike.activities.Stu_madequestionFragment
 com.yshow.shike.activities.Student_Main_Activity:
     private android.support.v4.app.FragmentTransaction ft
-com.yshow.shike.activities.Tea_Message_Detail_Activity:
-    581:593:public void Save_Dialog()
-com.yshow.shike.activities.Tea_Message_Detail_Activity$8
 com.yshow.shike.activities.TeacherExchangeMoneyActivity:
     164:171:private void refreshUserInfo()
 com.yshow.shike.activities.TeacherExchangeMoneyActivity$4
-com.yshow.shike.activities.Teacher_Add_Tool:
-    android.content.Intent intent
+com.yshow.shike.activities.TeacherInfoActivity:
+    private java.lang.String myteather
+    private boolean isMyTeacher
 com.yshow.shike.activities.Teather_Main_Activity:
     private android.support.v4.app.FragmentTransaction ft
     private android.app.Dialog dialog
@@ -527,7 +516,6 @@ com.yshow.shike.fragments.Fragment_Student_GuanYu:
     private android.widget.EditText fankui
     private android.widget.TextView ev_premiere
     private android.widget.TextView ev_faq_huida
-com.yshow.shike.fragments.Fragment_Teacher_Writing_Topic
 com.yshow.shike.fragments.Stu_messFragment
 com.yshow.shike.fragments.UserLoginFragment
 com.yshow.shike.fragments.UserLoginFragment$1

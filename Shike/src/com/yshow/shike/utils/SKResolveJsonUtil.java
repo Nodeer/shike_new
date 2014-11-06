@@ -1092,7 +1092,7 @@ public class SKResolveJsonUtil {
                 Star_Teacher_Parse stu_info = new Star_Teacher_Parse();
                 JSONObject obj_stu_info = jsonObject.getJSONObject("info");
 
-                JSONObject imgObj = jsonObject.optJSONObject("url");
+                JSONObject imgObj = obj_stu_info.optJSONObject("url");
                 if (imgObj != null) {
                     stu_info.setIcon(imgObj.optString("tub"));
                 }

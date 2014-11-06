@@ -10376,6 +10376,11 @@ com.yshow.shike.R$drawable: int blackboard_ad_img
 com.yshow.shike.R$drawable: int blackboard_bg_img
 com.yshow.shike.R$drawable: int blue_btn_bg
 com.yshow.shike.R$drawable: int boart_bac
+com.yshow.shike.R$drawable: int bpush_gray_logo
+com.yshow.shike.R$drawable: int bpush_list_item_bg
+com.yshow.shike.R$drawable: int bpush_message_prompt
+com.yshow.shike.R$drawable: int bpush_return_btn
+com.yshow.shike.R$drawable: int bpush_top_bg
 com.yshow.shike.R$drawable: int btn_style_alert_dialog_background
 com.yshow.shike.R$drawable: int btn_style_alert_dialog_button
 com.yshow.shike.R$drawable: int btn_style_alert_dialog_button_pressed
@@ -10427,10 +10432,6 @@ com.yshow.shike.R$drawable: int huaxue_icon_nor
 com.yshow.shike.R$drawable: int huaxue_icon_press
 com.yshow.shike.R$drawable: int ic_launcher
 com.yshow.shike.R$drawable: int ic_pulltorefresh_arrow
-com.yshow.shike.R$drawable: int ic_voice_volume01
-com.yshow.shike.R$drawable: int ic_voice_volume02
-com.yshow.shike.R$drawable: int ic_voice_volume03
-com.yshow.shike.R$drawable: int ic_voice_volume04
 com.yshow.shike.R$drawable: int icon
 com.yshow.shike.R$drawable: int icon_arrow_right_big
 com.yshow.shike.R$drawable: int icon_ask_ques_big
@@ -10482,7 +10483,6 @@ com.yshow.shike.R$drawable: int my_student_nor
 com.yshow.shike.R$drawable: int my_student_press
 com.yshow.shike.R$drawable: int my_tea_big_icon
 com.yshow.shike.R$drawable: int my_tea_big_icon_green
-com.yshow.shike.R$drawable: int my_tea_phon
 com.yshow.shike.R$drawable: int online_tea_big_icon
 com.yshow.shike.R$drawable: int online_tea_big_icon_green
 com.yshow.shike.R$drawable: int pai_zhao
@@ -10519,8 +10519,6 @@ com.yshow.shike.R$drawable: int restudy_nor
 com.yshow.shike.R$drawable: int restudy_press
 com.yshow.shike.R$drawable: int right_green_btn_bg
 com.yshow.shike.R$drawable: int right_paizhao_img
-com.yshow.shike.R$drawable: int s_student_icon
-com.yshow.shike.R$drawable: int s_teacher_icon
 com.yshow.shike.R$drawable: int search_tea_big_nor
 com.yshow.shike.R$drawable: int select_back
 com.yshow.shike.R$drawable: int select_buttom_find_teacher
@@ -10548,6 +10546,7 @@ com.yshow.shike.R$drawable: int shuxue_btn_bg
 com.yshow.shike.R$drawable: int shuxue_icon_bg
 com.yshow.shike.R$drawable: int shuxue_icon_nor
 com.yshow.shike.R$drawable: int shuxue_icon_press
+com.yshow.shike.R$drawable: int simple_notification_icon
 com.yshow.shike.R$drawable: int sing_file_back_gound
 com.yshow.shike.R$drawable: int slide_btn3_bg
 com.yshow.shike.R$drawable: int slide_btn4_bg
@@ -10578,7 +10577,6 @@ com.yshow.shike.R$drawable: int stu_tape_play_02
 com.yshow.shike.R$drawable: int stu_tape_play_03
 com.yshow.shike.R$drawable: int stu_tape_play_04
 com.yshow.shike.R$drawable: int stu_userinfo_seticon
-com.yshow.shike.R$drawable: int student_picture
 com.yshow.shike.R$drawable: int take_phon0
 com.yshow.shike.R$drawable: int take_phon1
 com.yshow.shike.R$drawable: int tea_about_fankui_bg
@@ -10603,8 +10601,6 @@ com.yshow.shike.R$drawable: int tea_tape_play_04
 com.yshow.shike.R$drawable: int tea_upload_paper_img
 com.yshow.shike.R$drawable: int tea_userinfo_seticon
 com.yshow.shike.R$drawable: int teather_bg_message_image
-com.yshow.shike.R$drawable: int teather_picture
-com.yshow.shike.R$drawable: int teather_stu_picture
 com.yshow.shike.R$drawable: int teather_student
 com.yshow.shike.R$drawable: int teather_void
 com.yshow.shike.R$drawable: int text_color_green
@@ -10632,7 +10628,6 @@ com.yshow.shike.R$drawable: int userinfo_press
 com.yshow.shike.R$drawable: int vioce0
 com.yshow.shike.R$drawable: int voice1
 com.yshow.shike.R$drawable: int voice_level_img
-com.yshow.shike.R$drawable: int volume_control
 com.yshow.shike.R$drawable: int wenhao_small_icon
 com.yshow.shike.R$drawable: int wheel_bg
 com.yshow.shike.R$drawable: int wheel_val
@@ -10646,7 +10641,6 @@ com.yshow.shike.R$drawable: int wuli_icon_press
 com.yshow.shike.R$drawable: int xiaoren
 com.yshow.shike.R$drawable: int xiaoxi_moren
 com.yshow.shike.R$drawable: int xlistview_arrow
-com.yshow.shike.R$drawable: int yindao1
 com.yshow.shike.R$drawable: int yindao5
 com.yshow.shike.R$drawable: int yingyu_btn_bg
 com.yshow.shike.R$drawable: int yingyu_icon_bg
@@ -10678,13 +10672,24 @@ com.yshow.shike.R$id: int android
 com.yshow.shike.R$id: int appraise_img
 com.yshow.shike.R$id: int arrow
 com.yshow.shike.R$id: int ask_question_btn
-com.yshow.shike.R$id: int bac_voide
 com.yshow.shike.R$id: int bank_account
 com.yshow.shike.R$id: int big_img_btn
 com.yshow.shike.R$id: int bind_bank_btn
 com.yshow.shike.R$id: int bir_title
 com.yshow.shike.R$id: int bottom_container
 com.yshow.shike.R$id: int bottom_layout
+com.yshow.shike.R$id: int bpush_download_icon
+com.yshow.shike.R$id: int bpush_download_progress
+com.yshow.shike.R$id: int bpush_media_list_from_text
+com.yshow.shike.R$id: int bpush_media_list_img
+com.yshow.shike.R$id: int bpush_media_list_return_btn
+com.yshow.shike.R$id: int bpush_media_list_time_text
+com.yshow.shike.R$id: int bpush_media_list_title
+com.yshow.shike.R$id: int bpush_media_none_layout
+com.yshow.shike.R$id: int bpush_progress_percent
+com.yshow.shike.R$id: int bpush_progress_text
+com.yshow.shike.R$id: int bpush_progress_title
+com.yshow.shike.R$id: int bpush_type_listview
 com.yshow.shike.R$id: int bt_cancle_message
 com.yshow.shike.R$id: int bt_delete_message
 com.yshow.shike.R$id: int bt_jifen_cen
@@ -10790,12 +10795,7 @@ com.yshow.shike.R$id: int incl_three_buttom_anim
 com.yshow.shike.R$id: int isremember
 com.yshow.shike.R$id: int itme_gridview
 com.yshow.shike.R$id: int iv_bac_pirture
-com.yshow.shike.R$id: int iv_board_picture
-com.yshow.shike.R$id: int iv_board_picture5
 com.yshow.shike.R$id: int iv_data_animation
-com.yshow.shike.R$id: int iv_dele_record1
-com.yshow.shike.R$id: int iv_dele_record2
-com.yshow.shike.R$id: int iv_dele_record3
 com.yshow.shike.R$id: int iv_file_picture
 com.yshow.shike.R$id: int iv_five_bai
 com.yshow.shike.R$id: int iv_message_teacher
@@ -10805,9 +10805,6 @@ com.yshow.shike.R$id: int iv_picture
 com.yshow.shike.R$id: int iv_picture1
 com.yshow.shike.R$id: int iv_point_file
 com.yshow.shike.R$id: int iv_question_picture
-com.yshow.shike.R$id: int iv_record1
-com.yshow.shike.R$id: int iv_record2
-com.yshow.shike.R$id: int iv_record3
 com.yshow.shike.R$id: int iv_red_point
 com.yshow.shike.R$id: int iv_red_small_point
 com.yshow.shike.R$id: int iv_select_bac
@@ -10828,7 +10825,6 @@ com.yshow.shike.R$id: int iv_tiku_file
 com.yshow.shike.R$id: int iv_tiku_time
 com.yshow.shike.R$id: int iv_top_delete
 com.yshow.shike.R$id: int iv_two_qian
-com.yshow.shike.R$id: int iv_voice
 com.yshow.shike.R$id: int iv_void_save
 com.yshow.shike.R$id: int iv_yes
 com.yshow.shike.R$id: int iv_yindao
@@ -10855,9 +10851,7 @@ com.yshow.shike.R$id: int li_myshike
 com.yshow.shike.R$id: int li_search_navigation
 com.yshow.shike.R$id: int li_stu_quescoun
 com.yshow.shike.R$id: int li_take_phon_back
-com.yshow.shike.R$id: int li_tea_bottom
 com.yshow.shike.R$id: int li_tea_my_sk
-com.yshow.shike.R$id: int li_tea_voide
 com.yshow.shike.R$id: int li_th_content
 com.yshow.shike.R$id: int li_user_name
 com.yshow.shike.R$id: int linearLayout1
@@ -10865,9 +10859,6 @@ com.yshow.shike.R$id: int listview
 com.yshow.shike.R$id: int ll_add_tool_bottom
 com.yshow.shike.R$id: int ll_area
 com.yshow.shike.R$id: int ll_back
-com.yshow.shike.R$id: int ll_bottom_JieShpouGuo
-com.yshow.shike.R$id: int ll_bottom_navigation
-com.yshow.shike.R$id: int ll_bottom_navigation2
 com.yshow.shike.R$id: int ll_diqu
 com.yshow.shike.R$id: int ll_file
 com.yshow.shike.R$id: int ll_info
@@ -10877,9 +10868,7 @@ com.yshow.shike.R$id: int ll_paizhao
 com.yshow.shike.R$id: int ll_recharge_five_qian
 com.yshow.shike.R$id: int ll_recharge_one_five
 com.yshow.shike.R$id: int ll_seleck_subject1
-com.yshow.shike.R$id: int ll_shijain_tiban
 com.yshow.shike.R$id: int ll_teacher_info
-com.yshow.shike.R$id: int ll_volume_control
 com.yshow.shike.R$id: int loadFull
 com.yshow.shike.R$id: int loading
 com.yshow.shike.R$id: int login_button
@@ -10923,6 +10912,10 @@ com.yshow.shike.R$id: int nick_name
 com.yshow.shike.R$id: int noData
 com.yshow.shike.R$id: int nodata_layout
 com.yshow.shike.R$id: int none
+com.yshow.shike.R$id: int notification_icon
+com.yshow.shike.R$id: int notification_text
+com.yshow.shike.R$id: int notification_time
+com.yshow.shike.R$id: int notification_title
 com.yshow.shike.R$id: int now_online
 com.yshow.shike.R$id: int old_pwd
 com.yshow.shike.R$id: int online_lv
@@ -10958,8 +10951,6 @@ com.yshow.shike.R$id: int right_layout
 com.yshow.shike.R$id: int rl_bom_anim
 com.yshow.shike.R$id: int rl_count_relativeLayout
 com.yshow.shike.R$id: int rl_data_relativeLayout
-com.yshow.shike.R$id: int rl_dele_mes
-com.yshow.shike.R$id: int rl_fen_recg
 com.yshow.shike.R$id: int rl_file_gone
 com.yshow.shike.R$id: int rl_file_second
 com.yshow.shike.R$id: int rl_file_three
@@ -10991,7 +10982,6 @@ com.yshow.shike.R$id: int slide_bg_frame
 com.yshow.shike.R$id: int slide_img
 com.yshow.shike.R$id: int slidingmenumain
 com.yshow.shike.R$id: int start_listView
-com.yshow.shike.R$id: int stu_add_voide
 com.yshow.shike.R$id: int stu_bottom_delete
 com.yshow.shike.R$id: int stu_coun_undline
 com.yshow.shike.R$id: int stu_gongju_img
@@ -11026,7 +11016,6 @@ com.yshow.shike.R$id: int tea_take_img
 com.yshow.shike.R$id: int tea_three_point
 com.yshow.shike.R$id: int tea_tiku_tiku
 com.yshow.shike.R$id: int tea_tool2
-com.yshow.shike.R$id: int tea_yindao2
 com.yshow.shike.R$id: int teacher_account_bangbank
 com.yshow.shike.R$id: int teacher_account_bank
 com.yshow.shike.R$id: int teacher_account_dengjitext
@@ -11042,7 +11031,6 @@ com.yshow.shike.R$id: int teacher_name
 com.yshow.shike.R$id: int teacomm_anim
 com.yshow.shike.R$id: int teather_stu_picture
 com.yshow.shike.R$id: int ti_ban
-com.yshow.shike.R$id: int ti_ban_three
 com.yshow.shike.R$id: int ti_ku_itme1
 com.yshow.shike.R$id: int tiku_btn
 com.yshow.shike.R$id: int tip
@@ -11061,23 +11049,17 @@ com.yshow.shike.R$id: int tuijian_tea_btn
 com.yshow.shike.R$id: int tv_Dil_cancel
 com.yshow.shike.R$id: int tv_MaSg_Reg
 com.yshow.shike.R$id: int tv_TiWen_Que
-com.yshow.shike.R$id: int tv_about_sk
 com.yshow.shike.R$id: int tv_acc_balance
-com.yshow.shike.R$id: int tv_acc_info
 com.yshow.shike.R$id: int tv_add
 com.yshow.shike.R$id: int tv_add_tool_back
 com.yshow.shike.R$id: int tv_bace_area
 com.yshow.shike.R$id: int tv_back
-com.yshow.shike.R$id: int tv_back_time
 com.yshow.shike.R$id: int tv_base_jieshao
 com.yshow.shike.R$id: int tv_base_name
 com.yshow.shike.R$id: int tv_base_nike
 com.yshow.shike.R$id: int tv_base_schoo
-com.yshow.shike.R$id: int tv_benyue_tiwen
-com.yshow.shike.R$id: int tv_button_back
 com.yshow.shike.R$id: int tv_cash_comf
 com.yshow.shike.R$id: int tv_comfig
-com.yshow.shike.R$id: int tv_comfing2
 com.yshow.shike.R$id: int tv_count_back
 com.yshow.shike.R$id: int tv_count_delete
 com.yshow.shike.R$id: int tv_cz_reg
@@ -11086,7 +11068,6 @@ com.yshow.shike.R$id: int tv_data_back
 com.yshow.shike.R$id: int tv_data_comfige
 com.yshow.shike.R$id: int tv_day
 com.yshow.shike.R$id: int tv_diqu
-com.yshow.shike.R$id: int tv_down_step
 com.yshow.shike.R$id: int tv_edit
 com.yshow.shike.R$id: int tv_exchange_info
 com.yshow.shike.R$id: int tv_file
@@ -11096,18 +11077,13 @@ com.yshow.shike.R$id: int tv_file_back
 com.yshow.shike.R$id: int tv_file_comf
 com.yshow.shike.R$id: int tv_file_dele
 com.yshow.shike.R$id: int tv_file_tiban
-com.yshow.shike.R$id: int tv_finsh_reg
 com.yshow.shike.R$id: int tv_four_back
 com.yshow.shike.R$id: int tv_four_comfing
 com.yshow.shike.R$id: int tv_gerenxinxi
-com.yshow.shike.R$id: int tv_give_up
 com.yshow.shike.R$id: int tv_gong_ju
 com.yshow.shike.R$id: int tv_gong_jv
 com.yshow.shike.R$id: int tv_grade
-com.yshow.shike.R$id: int tv_grade_name
 com.yshow.shike.R$id: int tv_guan_zhu
-com.yshow.shike.R$id: int tv_i_is_void
-com.yshow.shike.R$id: int tv_info
 com.yshow.shike.R$id: int tv_isonline
 com.yshow.shike.R$id: int tv_jieti
 com.yshow.shike.R$id: int tv_jieti_count
@@ -11121,7 +11097,6 @@ com.yshow.shike.R$id: int tv_nickname_seather
 com.yshow.shike.R$id: int tv_no_reg
 com.yshow.shike.R$id: int tv_noreg_name
 com.yshow.shike.R$id: int tv_pai_zhao
-com.yshow.shike.R$id: int tv_paizhao
 com.yshow.shike.R$id: int tv_pasword
 com.yshow.shike.R$id: int tv_per_comg
 com.yshow.shike.R$id: int tv_per_skback
@@ -11134,10 +11109,7 @@ com.yshow.shike.R$id: int tv_save_tiku
 com.yshow.shike.R$id: int tv_second_delete
 com.yshow.shike.R$id: int tv_select_file
 com.yshow.shike.R$id: int tv_seting_back
-com.yshow.shike.R$id: int tv_shengyu_jifen
 com.yshow.shike.R$id: int tv_shike_fen
-com.yshow.shike.R$id: int tv_shre_frd
-com.yshow.shike.R$id: int tv_sk_recg
 com.yshow.shike.R$id: int tv_small_gift
 com.yshow.shike.R$id: int tv_strdent_count
 com.yshow.shike.R$id: int tv_stu_back
@@ -11148,7 +11120,6 @@ com.yshow.shike.R$id: int tv_stu_mob
 com.yshow.shike.R$id: int tv_stu_name
 com.yshow.shike.R$id: int tv_stu_nic
 com.yshow.shike.R$id: int tv_stu_nick
-com.yshow.shike.R$id: int tv_stu_voice
 com.yshow.shike.R$id: int tv_study_year
 com.yshow.shike.R$id: int tv_subject
 com.yshow.shike.R$id: int tv_subject1
@@ -11164,7 +11135,6 @@ com.yshow.shike.R$id: int tv_tea_cancel
 com.yshow.shike.R$id: int tv_tea_cash
 com.yshow.shike.R$id: int tv_tea_data
 com.yshow.shike.R$id: int tv_tea_edit
-com.yshow.shike.R$id: int tv_tea_end
 com.yshow.shike.R$id: int tv_tea_files
 com.yshow.shike.R$id: int tv_tea_mob
 com.yshow.shike.R$id: int tv_tea_prize
@@ -11177,32 +11147,20 @@ com.yshow.shike.R$id: int tv_tea_tiku
 com.yshow.shike.R$id: int tv_tea_upload
 com.yshow.shike.R$id: int tv_teacher_nick
 com.yshow.shike.R$id: int tv_teah_back
-com.yshow.shike.R$id: int tv_teather_comfimg
-com.yshow.shike.R$id: int tv_teather_jiazai
 com.yshow.shike.R$id: int tv_teather_jifen
 com.yshow.shike.R$id: int tv_teather_name
 com.yshow.shike.R$id: int tv_teather_nickname
-com.yshow.shike.R$id: int tv_teather_tianjian
 com.yshow.shike.R$id: int tv_teather_zhu
-com.yshow.shike.R$id: int tv_three_back
-com.yshow.shike.R$id: int tv_tianjian
 com.yshow.shike.R$id: int tv_tiku
 com.yshow.shike.R$id: int tv_tiku_stu
 com.yshow.shike.R$id: int tv_time
 com.yshow.shike.R$id: int tv_time_TiMu
 com.yshow.shike.R$id: int tv_time_fen
-com.yshow.shike.R$id: int tv_time_settings
 com.yshow.shike.R$id: int tv_timu_name
 com.yshow.shike.R$id: int tv_tool_back
-com.yshow.shike.R$id: int tv_up_Step
-com.yshow.shike.R$id: int tv_user_name
-com.yshow.shike.R$id: int tv_user_nickname
 com.yshow.shike.R$id: int tv_verify
-com.yshow.shike.R$id: int tv_visits
-com.yshow.shike.R$id: int tv_voice
 com.yshow.shike.R$id: int tv_wenben
 com.yshow.shike.R$id: int tv_xiagnc
-com.yshow.shike.R$id: int tv_xiaohongyu
 com.yshow.shike.R$id: int tv_zan_coun
 com.yshow.shike.R$id: int two_count_viewpager
 com.yshow.shike.R$id: int undine_linearLayout
@@ -11257,8 +11215,6 @@ com.yshow.shike.R$layout: int activity_file_item
 com.yshow.shike.R$layout: int activity_file_three
 com.yshow.shike.R$layout: int activity_file_three_item
 com.yshow.shike.R$layout: int activity_message_three
-com.yshow.shike.R$layout: int activity_my_board
-com.yshow.shike.R$layout: int activity_my_shike
 com.yshow.shike.R$layout: int activity_my_skseting
 com.yshow.shike.R$layout: int activity_pass_set
 com.yshow.shike.R$layout: int activity_pasword
@@ -11281,6 +11237,9 @@ com.yshow.shike.R$layout: int appraise_main_layout
 com.yshow.shike.R$layout: int area_seltor_layout
 com.yshow.shike.R$layout: int avy_tea_pic_commit
 com.yshow.shike.R$layout: int big_picture_layout
+com.yshow.shike.R$layout: int bpush_download_progress
+com.yshow.shike.R$layout: int bpush_media_list
+com.yshow.shike.R$layout: int bpush_media_list_item
 com.yshow.shike.R$layout: int button_animation
 com.yshow.shike.R$layout: int choosegoods_listview_item
 com.yshow.shike.R$layout: int com_per_data
@@ -11301,7 +11260,6 @@ com.yshow.shike.R$layout: int fragment_duihuan_record
 com.yshow.shike.R$layout: int fragment_feacher_about_shike
 com.yshow.shike.R$layout: int fragment_find_teacher
 com.yshow.shike.R$layout: int fragment_message
-com.yshow.shike.R$layout: int fragment_message_three
 com.yshow.shike.R$layout: int fragment_my_teacher
 com.yshow.shike.R$layout: int fragment_recommend_teacher
 com.yshow.shike.R$layout: int fragment_regiog_text
@@ -11338,6 +11296,7 @@ com.yshow.shike.R$layout: int my_student_layout
 com.yshow.shike.R$layout: int my_teacher_layout
 com.yshow.shike.R$layout: int my_teather_item
 com.yshow.shike.R$layout: int mygallery_view_item
+com.yshow.shike.R$layout: int notification_custom_builder
 com.yshow.shike.R$layout: int online_tea_listview
 com.yshow.shike.R$layout: int paizhao_zhuyi_layout
 com.yshow.shike.R$layout: int praise_item_view
@@ -11494,22 +11453,9 @@ com.yshow.shike.activities.Activity_Compain_Teather: void onClick(android.view.V
 com.yshow.shike.activities.Activity_Data_SubJect
 com.yshow.shike.activities.Activity_Data_SubJect: Activity_Data_SubJect()
 com.yshow.shike.activities.Activity_Data_SubJect: void onClick(android.view.View)
-com.yshow.shike.activities.Activity_File_Three
-com.yshow.shike.activities.Activity_File_Three: Activity_File_Three()
 com.yshow.shike.activities.Activity_File_four
 com.yshow.shike.activities.Activity_File_four: Activity_File_four()
 com.yshow.shike.activities.Activity_File_four: void onClick(android.view.View)
-com.yshow.shike.activities.Activity_MyShiKe
-com.yshow.shike.activities.Activity_MyShiKe: Activity_MyShiKe()
-com.yshow.shike.activities.Activity_MyShiKe: void onClick(android.view.View)
-com.yshow.shike.activities.Activity_My_Board
-com.yshow.shike.activities.Activity_My_Board: Activity_My_Board()
-com.yshow.shike.activities.Activity_My_Board: void onClick(android.view.View)
-com.yshow.shike.activities.Activity_My_SkSeting
-com.yshow.shike.activities.Activity_My_SkSeting: Activity_My_SkSeting()
-com.yshow.shike.activities.Activity_Que_board2
-com.yshow.shike.activities.Activity_Que_board2: Activity_Que_board2()
-com.yshow.shike.activities.Activity_Que_board2: void onClick(android.view.View)
 com.yshow.shike.activities.Activity_Recharge
 com.yshow.shike.activities.Activity_Recharge: Activity_Recharge()
 com.yshow.shike.activities.Activity_Stu_Add_Voice
@@ -11522,8 +11468,6 @@ com.yshow.shike.activities.Activity_Stu_Ask_Step2: Activity_Stu_Ask_Step2()
 com.yshow.shike.activities.Activity_Stu_Ask_Step2: void onClick(android.view.View)
 com.yshow.shike.activities.Activity_Student_Account_Message
 com.yshow.shike.activities.Activity_Student_Account_Message: Activity_Student_Account_Message()
-com.yshow.shike.activities.Activity_Tea_Tool_Sele
-com.yshow.shike.activities.Activity_Tea_Tool_Sele: Activity_Tea_Tool_Sele()
 com.yshow.shike.activities.Activity_Teacher_Account
 com.yshow.shike.activities.Activity_Teacher_Account: Activity_Teacher_Account()
 com.yshow.shike.activities.Activity_Teacher_zhanghu
@@ -11531,18 +11475,8 @@ com.yshow.shike.activities.Activity_Teacher_zhanghu: Activity_Teacher_zhanghu()
 com.yshow.shike.activities.Activity_Teather_Material_Three
 com.yshow.shike.activities.Activity_Teather_Material_Three: Activity_Teather_Material_Three()
 com.yshow.shike.activities.Activity_Teather_Material_Three: void onClick(android.view.View)
-com.yshow.shike.activities.Activity_Teather_ShiKe
-com.yshow.shike.activities.Activity_Teather_ShiKe: Activity_Teather_ShiKe()
-com.yshow.shike.activities.Activity_Teather_ShiKe: void onClick(android.view.View)
-com.yshow.shike.activities.Activity_Teather_Ti_Ku
-com.yshow.shike.activities.Activity_Teather_Ti_Ku: Activity_Teather_Ti_Ku()
-com.yshow.shike.activities.Activity_Teather_Ti_Ku: void onClick(android.view.View)
-com.yshow.shike.activities.Activity_Teather_Ti_Ku_seleck
-com.yshow.shike.activities.Activity_Teather_Ti_Ku_seleck: Activity_Teather_Ti_Ku_seleck()
 com.yshow.shike.activities.Activity_TiKu_Commit
 com.yshow.shike.activities.Activity_TiKu_Commit: Activity_TiKu_Commit()
-com.yshow.shike.activities.Activity_TiKu_second
-com.yshow.shike.activities.Activity_TiKu_second: Activity_TiKu_second()
 com.yshow.shike.activities.AppraiseMainActivity
 com.yshow.shike.activities.AppraiseMainActivity: AppraiseMainActivity()
 com.yshow.shike.activities.AppraiseMainActivity: void onClick(android.view.View)
@@ -11617,9 +11551,6 @@ com.yshow.shike.activities.StuPersonInfoActivity: StuPersonInfoActivity()
 com.yshow.shike.activities.Stu_Message_Detail_Activity
 com.yshow.shike.activities.Stu_Message_Detail_Activity: Stu_Message_Detail_Activity()
 com.yshow.shike.activities.Stu_Message_Detail_Activity: void onClick(android.view.View)
-com.yshow.shike.activities.Stu_Paint_Activity
-com.yshow.shike.activities.Stu_Paint_Activity: Stu_Paint_Activity()
-com.yshow.shike.activities.Stu_Paint_Activity: void onClick(android.view.View)
 com.yshow.shike.activities.StudentRegisterActivity
 com.yshow.shike.activities.StudentRegisterActivity: StudentRegisterActivity()
 com.yshow.shike.activities.StudentRegisterActivity: void onClick(android.view.View)
@@ -11654,9 +11585,6 @@ com.yshow.shike.activities.TeacherRegisterUploadPapersActivity: TeacherRegisterU
 com.yshow.shike.activities.TeacherRegisterUserInfoActivity
 com.yshow.shike.activities.TeacherRegisterUserInfoActivity: TeacherRegisterUserInfoActivity()
 com.yshow.shike.activities.TeacherRegisterUserInfoActivity: void onClick(android.view.View)
-com.yshow.shike.activities.Teacher_Add_Tool
-com.yshow.shike.activities.Teacher_Add_Tool: Teacher_Add_Tool()
-com.yshow.shike.activities.Teacher_Add_Tool: void onClick(android.view.View)
 com.yshow.shike.activities.Teather_Main_Activity
 com.yshow.shike.activities.Teather_Main_Activity: Teather_Main_Activity()
 com.yshow.shike.activities.WebViewActivity
@@ -12362,6 +12290,7 @@ com.yshow.shike.entity.Star_Teacher_Parse: java.lang.String GradeName
 com.yshow.shike.entity.Star_Teacher_Parse: java.lang.String Questions
 com.yshow.shike.entity.Star_Teacher_Parse: java.lang.String like_num
 com.yshow.shike.entity.Star_Teacher_Parse: java.lang.String claim_question_num
+com.yshow.shike.entity.Star_Teacher_Parse: java.lang.String areaName
 com.yshow.shike.entity.Star_Teacher_Parse: boolean isOnline
 com.yshow.shike.entity.Star_Teacher_Parse: Star_Teacher_Parse()
 com.yshow.shike.entity.Star_Teacher_Parse: java.lang.String getQuestions()
@@ -12613,6 +12542,8 @@ com.yshow.shike.entity.User_Info: java.lang.String grade
 com.yshow.shike.entity.User_Info: java.lang.String birthday
 com.yshow.shike.entity.User_Info: java.lang.String sex
 com.yshow.shike.entity.User_Info: java.lang.String area
+com.yshow.shike.entity.User_Info: int mTeachers
+com.yshow.shike.entity.User_Info: boolean isonline
 com.yshow.shike.entity.User_Info: java.lang.String bankId
 com.yshow.shike.entity.User_Info: java.lang.String bankName
 com.yshow.shike.entity.User_Info: java.lang.String bankAddr
@@ -12621,6 +12552,7 @@ com.yshow.shike.entity.User_Info: java.lang.String receiver
 com.yshow.shike.entity.User_Info: java.lang.String phone
 com.yshow.shike.entity.User_Info: java.lang.String addressee
 com.yshow.shike.entity.User_Info: java.lang.String paper
+com.yshow.shike.entity.User_Info: boolean is_myteacher
 com.yshow.shike.entity.User_Info: User_Info()
 com.yshow.shike.entity.User_Info: java.lang.String getArea()
 com.yshow.shike.entity.User_Info: void setArea(java.lang.String)
