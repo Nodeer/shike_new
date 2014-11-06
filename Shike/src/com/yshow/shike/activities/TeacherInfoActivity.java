@@ -140,23 +140,24 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                     tv_subject.setText("学科：" + my_teather.getGrade() + my_teather.getSubject());
                     tv_guan_zhu.setText(my_teather.getInfo());
                     if (my_teather.isonline) {
-                        imageLoader.displayImage(my_teather.getIcon(), tudent_picture, options);
+                        imageLoader.displayImage(my_teather.getPicurl(), tudent_picture, options);
                     } else {
-                        imageLoader.displayImage(my_teather.getIcon(), tudent_picture, options2);
+                        imageLoader.displayImage(my_teather.getPicurl(), tudent_picture, options2);
                     }
                     tv_shike_fen.setText("接题次数：" + my_teather.getClaim_question_num());
                     tv_zan_shu.setText("学生赞美：" + my_teather.getLike_num());
-//                    if (extra.getiSmyteach().equals("1")) {
-//                        tv_attention.setText("取消关注");
-//                        guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_balck);
-//                        guanzhuBtn.setBackgroundResource(R.drawable.gray_btn_bg);
-//                        flag = true;
-//                    } else {
-//                        tv_attention.setText("关注");
-//                        guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_white);
-//                        guanzhuBtn.setBackgroundResource(R.drawable.stu_slide_btn1_bg);
-//                        flag = false;
-//                    }
+                    if (my_teather.is_myteacher) {
+                        tv_attention.setText("取消关注");
+                        guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_balck);
+                        guanzhuBtn.setBackgroundResource(R.drawable.gray_btn_bg);
+                        flag = true;
+                    } else {
+                        tv_attention.setText("关注");
+                        guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_white);
+                        guanzhuBtn.setBackgroundResource(R.drawable.stu_slide_btn1_bg);
+                        flag = false;
+                    }
+                    refreshRightBtn();
                 }
             }
         });
@@ -176,17 +177,24 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                 }
                 break;
             case R.id.next_btn:
-//                if (iv_xuan_zhong.getVisibility() != View.VISIBLE) {
-//                    Dialog.Common_Use(context);
-//                } else {
                 PartnerConfig.TEATHER_ID = item.getUid();
                 PartnerConfig.SUBJECT_ID = item.getSubjectid();
                 PartnerConfig.TEATHER_NAME = item.getNickname();
                 PartnerConfig.SUBJECT_NAME = item.getSubiect();
                 PartnerConfig.TEACHER_IMG = item.getIcon();
                 Dialog.Intent(context, Activity_Stu_Ask_Step1.class);
-//                }
                 break;
+        }
+    }
+
+    private void refreshRightBtn() {
+        if (flag) {
+            TextView tiwenBtn = (TextView) findViewById(R.id.next_btn);
+            tiwenBtn.setVisibility(View.VISIBLE);
+            tiwenBtn.setOnClickListener(this);
+        } else {
+            TextView tiwenBtn = (TextView) findViewById(R.id.next_btn);
+            tiwenBtn.setVisibility(View.GONE);
         }
     }
 
@@ -200,10 +208,9 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                     guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_balck);
                     guanzhuBtn.setBackgroundResource(R.drawable.gray_btn_bg);
                     flag = true;
+                    refreshRightBtn();
                 }
             }
-
-            ;
         });
     }
 
@@ -217,10 +224,9 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                     guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_white);
                     guanzhuBtn.setBackgroundResource(R.drawable.stu_slide_btn1_bg);
                     flag = false;
+                    refreshRightBtn();
                 }
             }
-
-            ;
         });
     }
 }

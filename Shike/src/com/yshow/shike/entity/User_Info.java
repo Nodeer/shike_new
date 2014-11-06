@@ -41,8 +41,9 @@ public class User_Info implements Serializable{
     public String phone;//兑换商品手机号码
     public String addressee;//地址
     public String paper;//教师资格证id
+    public boolean is_myteacher;
 
-	public String getArea() {
+    public String getArea() {
 		return area;
 	}
 	public void setArea(String area) {
