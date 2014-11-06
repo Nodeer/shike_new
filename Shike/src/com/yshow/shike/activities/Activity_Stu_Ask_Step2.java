@@ -146,13 +146,30 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
         int op_w = op.outWidth - 1;
         int rotateDegree = bitmapUtil.readPictureDegree(path);
         if (rotateDegree == 90) {
-            op.inSampleSize = op_h / screenWidth;
+            int f = (int) (((float)op_h)/((float)screenWidth));
+            if(f==0){
+                f = 1;
+            }
+            op.inSampleSize = f;
+//            if(op_h>screenWidth*2){
+//                op.inSampleSize = op_h / screenWidth;
+//            }else{
+//                op.inSampleSize = 1;
+//            }
         } else {
-            op.inSampleSize = op_w / screenWidth;
+            int f = (int) (((float)op_w)/((float)screenWidth));
+            if(f==0){
+                f = 1;
+            }
+            op.inSampleSize = f;
+//            if(op_w>screenWidth*2){
+//                op.inSampleSize = op_w / screenWidth;
+//            }else{
+//                op.inSampleSize = 1;
+//            }
         }
-        op.inSampleSize++;
+//        op.inSampleSize++;
         op.inJustDecodeBounds = false;
-//		op.inSampleSize = op_w/screenWidth;
         op.inDensity = DisplayMetrics.DENSITY_DEFAULT;
         op.inTargetDensity = DisplayMetrics.DENSITY_DEFAULT;
         Bitmap getbitmap = BitmapFactory.decodeFile(path, op).copy(Bitmap.Config.RGB_565, true);

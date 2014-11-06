@@ -88,7 +88,7 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
             isContinue = extras.getBoolean("isContinue");
         }
         next_tool = (TextView) findViewById(R.id.next_btn);
-        if(LoginManage.getInstance().isTeacher()){
+        if (LoginManage.getInstance().isTeacher()) {
             next_tool.setBackgroundResource(R.drawable.tea_blue_btn);
         }
         if (isContinue && !questionId.equals("")) {
@@ -125,22 +125,34 @@ public class Activity_Add_Remark extends BaseActivity implements OnClickListener
         Options op = new BitmapFactory.Options();
         op.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(path, op);
-        int op_h = op.outHeight;
-        int op_w = op.outWidth;
+        int op_h = op.outHeight - 1;
+        int op_w = op.outWidth - 1;
         int rotateDegree = bitmap_intence.readPictureDegree(path);
-//        if (rotateDegree == 90) {
-//            h = screenWidth * op_w / op_h;
-//        } else {
-//            h = screenWidth * op_h / op_w;
-//        }
         if (rotateDegree == 90) {
-            op.inSampleSize = op_h / screenWidth;
+            int f = (int) (((float)op_h)/((float)screenWidth));
+            if(f==0){
+                f = 1;
+            }
+            op.inSampleSize = f;
+//            if(op_h>screenWidth*2){
+//                op.inSampleSize = op_h / screenWidth;
+//            }else{
+//                op.inSampleSize = 1;
+//            }
         } else {
-            op.inSampleSize = op_w / screenWidth;
+            int f = (int) (((float)op_w)/((float)screenWidth));
+            if(f==0){
+                f = 1;
+            }
+            op.inSampleSize = f;
+//            if(op_w>screenWidth*2){
+//                op.inSampleSize = op_w / screenWidth;
+//            }else{
+//                op.inSampleSize = 1;
+//            }
         }
-        op.inSampleSize++;
+//        op.inSampleSize++;
         op.inJustDecodeBounds = false;
-//		op.inSampleSize = op_w/screenWidth;
         op.inDensity = DisplayMetrics.DENSITY_DEFAULT;
         op.inTargetDensity = DisplayMetrics.DENSITY_DEFAULT;
         Bitmap getbitmap = BitmapFactory.decodeFile(path, op).copy(Config.RGB_565, true);

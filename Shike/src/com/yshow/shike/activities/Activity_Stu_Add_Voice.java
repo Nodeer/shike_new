@@ -299,7 +299,6 @@ public class Activity_Stu_Add_Voice extends BaseActivity implements OnClickListe
         if (ratio > 1) {
             db = (int) (20 * Math.log10(ratio));
         }
-        System.out.println("分贝值：" + db + "     " + Math.log10(ratio));
         mVoiceLevelImg.setImageLevel(db);
         mHandler.postDelayed(mUpdateMicStatusTimer, SPACE);
     }
