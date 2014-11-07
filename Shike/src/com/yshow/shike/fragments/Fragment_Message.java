@@ -22,6 +22,8 @@ import android.widget.ListView;
 
 import com.yshow.shike.R;
 import com.yshow.shike.activities.Activity_Stu_Ask_Step1;
+import com.yshow.shike.activities.Login_Reg_Activity;
+import com.yshow.shike.activities.StartingUp;
 import com.yshow.shike.activities.Student_Main_Activity;
 import com.yshow.shike.activities.Teather_Main_Activity;
 import com.yshow.shike.adapter.SKMessageAdapter;
@@ -76,6 +78,11 @@ public class Fragment_Message extends Fragment implements View.OnClickListener, 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         context = inflater.getContext();
+        if (LoginManage.getInstance().getStudent() == null) {
+            startActivity(new Intent(getActivity(), Login_Reg_Activity.class));
+            getActivity().finish();
+            return super.onCreateView(inflater, container, savedInstanceState);
+        }
         view = inflater.inflate(R.layout.fragment_message, null);
         initView();
         return view;

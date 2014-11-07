@@ -18,7 +18,9 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
 import com.yshow.shike.activities.Activity_Teacher_zhanghu;
+import com.yshow.shike.activities.Login_Reg_Activity;
 import com.yshow.shike.activities.MyStudentActivity;
+import com.yshow.shike.activities.StartingUp;
 import com.yshow.shike.activities.TeaPersonInfoActivity;
 import com.yshow.shike.activities.MessageActivity;
 import com.yshow.shike.activities.TeacherExchangeMainActivity;
@@ -81,6 +83,10 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
         mFenbiNum = (TextView) view.findViewById(R.id.fenbi_num);
         mHeadIcon = (ImageView) view.findViewById(R.id.stu_headicon);
         student = LoginManage.getInstance().getStudent();
+        if (student == null) {
+            startActivity(new Intent(getActivity(), Login_Reg_Activity.class));
+            getActivity().finish();
+        }
         dialog = new Dilog_Share().Dilog_Anim(getActivity(), this);
         weixinManager = new WeixinManager(getActivity());
         mImageLoader = ImageLoader.getInstance();
@@ -100,7 +106,7 @@ public class TeaSlideMenuFragment extends Fragment implements View.OnClickListen
         receiver = new RefreshUserinfoBroadCastReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction("update_user_info");
-        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,filter);
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver, filter);
     }
 
     @Override

@@ -20,6 +20,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
 import com.yshow.shike.activities.Activity_Recharge;
 import com.yshow.shike.activities.FindTeacherActivity;
+import com.yshow.shike.activities.Login_Reg_Activity;
+import com.yshow.shike.activities.StartingUp;
 import com.yshow.shike.activities.StuPersonInfoActivity;
 import com.yshow.shike.activities.StudentRegisterActivity;
 import com.yshow.shike.entity.LoginManage;
@@ -95,6 +97,10 @@ public class StuSlideMenuFragment extends Fragment implements View.OnClickListen
         mGrade = (TextView) view.findViewById(R.id.grade);
         mHeadIcon = (ImageView) view.findViewById(R.id.stu_headicon);
         student = LoginManage.getInstance().getStudent();
+        if (student == null) {
+            startActivity(new Intent(getActivity(), Login_Reg_Activity.class));
+            getActivity().finish();
+        }
         dialog = new Dilog_Share().Dilog_Anim(getActivity(), this);
         weixinManager = new WeixinManager(getActivity());
 
