@@ -183,8 +183,8 @@ public class SKAsyncApiController {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         int quity = 100;
         bitmap.compress(Bitmap.CompressFormat.JPEG, quity, baos);
-        LogUtil.d("图片按90%压缩后原始大小:" + quity + ".尺寸" + baos.size());
-//		while (baos.size() > 1024 * 1000) {
+        LogUtil.d("图片按100%压缩后原始大小:" + quity + ".尺寸" + baos.size());
+//		while (baos.size() > 2*1024 * 1000) {
 //			LogUtil.d("图片大于1M.当前压缩比例:" + quity + ".实际尺寸" + baos.size());
 //			quity -= 10;
 //			baos.reset();

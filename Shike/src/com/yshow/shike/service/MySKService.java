@@ -88,7 +88,7 @@ public class MySKService extends Service {
             @Override
             public void onSuccess(int code, String content) {
                 super.onSuccess(code, content);
-                LogUtil.d("推送内容:" + content);
+//                LogUtil.d("推送内容:" + content);
                 resolveIsSuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(content, getApplicationContext());
                 if (resolveIsSuccess) {
                     newresolveMessage = SKResolveJsonUtil.getInstance().resolveNewMessage(content);

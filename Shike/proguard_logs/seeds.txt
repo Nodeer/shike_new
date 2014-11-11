@@ -10423,7 +10423,6 @@ com.yshow.shike.R$drawable: int give_up1
 com.yshow.shike.R$drawable: int gray_btn_bg
 com.yshow.shike.R$drawable: int guanzhu_big_icon_balck
 com.yshow.shike.R$drawable: int guanzhu_big_icon_white
-com.yshow.shike.R$drawable: int h_line
 com.yshow.shike.R$drawable: int half_black_corner_bg
 com.yshow.shike.R$drawable: int head_gray_mask_bg
 com.yshow.shike.R$drawable: int huaxue_btn_bg
@@ -10601,7 +10600,6 @@ com.yshow.shike.R$drawable: int tea_tape_play_04
 com.yshow.shike.R$drawable: int tea_upload_paper_img
 com.yshow.shike.R$drawable: int tea_userinfo_seticon
 com.yshow.shike.R$drawable: int teather_bg_message_image
-com.yshow.shike.R$drawable: int teather_student
 com.yshow.shike.R$drawable: int teather_void
 com.yshow.shike.R$drawable: int text_color_green
 com.yshow.shike.R$drawable: int text_color_white_black
@@ -10670,7 +10668,6 @@ com.yshow.shike.R$id: int agrement_checkbox
 com.yshow.shike.R$id: int agrement_text
 com.yshow.shike.R$id: int android
 com.yshow.shike.R$id: int appraise_img
-com.yshow.shike.R$id: int arrow
 com.yshow.shike.R$id: int ask_question_btn
 com.yshow.shike.R$id: int bank_account
 com.yshow.shike.R$id: int big_img_btn
@@ -10841,8 +10838,6 @@ com.yshow.shike.R$id: int kaihubangbank
 com.yshow.shike.R$id: int kaihubank
 com.yshow.shike.R$id: int kaihukahao
 com.yshow.shike.R$id: int large_img
-com.yshow.shike.R$id: int lastUpdate
-com.yshow.shike.R$id: int layout
 com.yshow.shike.R$id: int left
 com.yshow.shike.R$id: int left_btn
 com.yshow.shike.R$id: int left_button
@@ -10859,7 +10854,6 @@ com.yshow.shike.R$id: int listview
 com.yshow.shike.R$id: int ll_add_tool_bottom
 com.yshow.shike.R$id: int ll_area
 com.yshow.shike.R$id: int ll_back
-com.yshow.shike.R$id: int ll_diqu
 com.yshow.shike.R$id: int ll_file
 com.yshow.shike.R$id: int ll_info
 com.yshow.shike.R$id: int ll_my_board_back
@@ -10867,7 +10861,6 @@ com.yshow.shike.R$id: int ll_my_teather
 com.yshow.shike.R$id: int ll_paizhao
 com.yshow.shike.R$id: int ll_recharge_five_qian
 com.yshow.shike.R$id: int ll_recharge_one_five
-com.yshow.shike.R$id: int ll_seleck_subject1
 com.yshow.shike.R$id: int ll_teacher_info
 com.yshow.shike.R$id: int loadFull
 com.yshow.shike.R$id: int loading
@@ -10940,7 +10933,6 @@ com.yshow.shike.R$id: int re_one_qian
 com.yshow.shike.R$id: int re_share
 com.yshow.shike.R$id: int record_btn
 com.yshow.shike.R$id: int record_remain_text
-com.yshow.shike.R$id: int refreshing
 com.yshow.shike.R$id: int register_student_main
 com.yshow.shike.R$id: int remark_btn
 com.yshow.shike.R$id: int restudy_btn
@@ -11033,7 +11025,6 @@ com.yshow.shike.R$id: int teather_stu_picture
 com.yshow.shike.R$id: int ti_ban
 com.yshow.shike.R$id: int ti_ku_itme1
 com.yshow.shike.R$id: int tiku_btn
-com.yshow.shike.R$id: int tip
 com.yshow.shike.R$id: int tishi
 com.yshow.shike.R$id: int title_layout
 com.yshow.shike.R$id: int title_left
@@ -11102,7 +11093,6 @@ com.yshow.shike.R$id: int tv_per_comg
 com.yshow.shike.R$id: int tv_per_skback
 com.yshow.shike.R$id: int tv_que_count_comfg
 com.yshow.shike.R$id: int tv_ques
-com.yshow.shike.R$id: int tv_recommend_subject
 com.yshow.shike.R$id: int tv_reg
 com.yshow.shike.R$id: int tv_register
 com.yshow.shike.R$id: int tv_save_tiku
@@ -11260,7 +11250,6 @@ com.yshow.shike.R$layout: int fragment_duihuan_record
 com.yshow.shike.R$layout: int fragment_feacher_about_shike
 com.yshow.shike.R$layout: int fragment_find_teacher
 com.yshow.shike.R$layout: int fragment_message
-com.yshow.shike.R$layout: int fragment_my_teacher
 com.yshow.shike.R$layout: int fragment_recommend_teacher
 com.yshow.shike.R$layout: int fragment_regiog_text
 com.yshow.shike.R$layout: int fragment_region
@@ -11301,7 +11290,6 @@ com.yshow.shike.R$layout: int online_tea_listview
 com.yshow.shike.R$layout: int paizhao_zhuyi_layout
 com.yshow.shike.R$layout: int praise_item_view
 com.yshow.shike.R$layout: int publish_big_picture_layout
-com.yshow.shike.R$layout: int pull_to_refresh_header
 com.yshow.shike.R$layout: int quecount_subject
 com.yshow.shike.R$layout: int search_result_teacher_llist_layout
 com.yshow.shike.R$layout: int second_pager_item
@@ -11318,6 +11306,7 @@ com.yshow.shike.R$layout: int sk_question_item
 com.yshow.shike.R$layout: int sk_teacher_register
 com.yshow.shike.R$layout: int slidingmenumain
 com.yshow.shike.R$layout: int start_slide_layout
+com.yshow.shike.R$layout: int start_teacher_list_layout
 com.yshow.shike.R$layout: int start_viewpager_item
 com.yshow.shike.R$layout: int stu_add_voice_layout
 com.yshow.shike.R$layout: int stu_ask_step1_layout
@@ -11513,12 +11502,6 @@ com.yshow.shike.activities.MyStudentActivity: MyStudentActivity()
 com.yshow.shike.activities.MyTeacherListActivity
 com.yshow.shike.activities.MyTeacherListActivity: MyTeacherListActivity()
 com.yshow.shike.activities.MyTeacherListActivity: void onClick(android.view.View)
-com.yshow.shike.activities.My_Question_Count
-com.yshow.shike.activities.My_Question_Count: My_Question_Count()
-com.yshow.shike.activities.My_Question_Count: void onClick(android.view.View)
-com.yshow.shike.activities.My_Question_Count_Two
-com.yshow.shike.activities.My_Question_Count_Two: My_Question_Count_Two()
-com.yshow.shike.activities.My_Question_Count_Two: void onClick(android.view.View)
 com.yshow.shike.activities.OnlineTeaListActivity
 com.yshow.shike.activities.OnlineTeaListActivity: OnlineTeaListActivity()
 com.yshow.shike.activities.OnlineTeaListActivity: void onClick(android.view.View)
@@ -13422,14 +13405,14 @@ com.yshow.shike.utils.SKAsyncApiController: void skGetMyTeacher(com.loopj.androi
 com.yshow.shike.utils.SKAsyncApiController: void skUploadImage(java.lang.String,android.graphics.Bitmap,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skUploadMp3(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skSend_messge(java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
-com.yshow.shike.utils.SKAsyncApiController: void start_teather(java.lang.String,java.lang.String,int,com.loopj.android.http.AsyncHttpResponseHandler)
+com.yshow.shike.utils.SKAsyncApiController: void start_teather(java.lang.String,java.lang.String,java.lang.String,int,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skDel_messge(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void ChongFa(java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skCancel_messge(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skDonemessge(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Attention_Taeather_Parse(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void My_Taeather_Parse(com.loopj.android.http.AsyncHttpResponseHandler)
-com.yshow.shike.utils.SKAsyncApiController: void recommend_teather(java.lang.String,java.lang.String,int,com.loopj.android.http.AsyncHttpResponseHandler)
+com.yshow.shike.utils.SKAsyncApiController: void recommend_teather(java.lang.String,java.lang.String,java.lang.String,int,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void User_Info(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void getBitmap(java.lang.String,java.io.File)
 com.yshow.shike.utils.SKAsyncApiController: void Complaint_Teather(java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
@@ -13471,7 +13454,7 @@ com.yshow.shike.utils.SKAsyncApiController: void Reset_Password(java.lang.String
 com.yshow.shike.utils.SKAsyncApiController: void AuTo_log(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void auto_Info(java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Back_Login(com.loopj.android.http.AsyncHttpResponseHandler)
-com.yshow.shike.utils.SKAsyncApiController: void OnLine_Tea(int,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
+com.yshow.shike.utils.SKAsyncApiController: void OnLine_Tea(int,java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Look_Mess(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Up_Loading_Tea(android.graphics.Bitmap,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void record_Stu(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
@@ -13902,12 +13885,6 @@ com.yshow.shike.widget.StuTapeImage: void setVoicePath(java.lang.String)
 com.yshow.shike.widget.StuTapeImage: java.lang.String getVoicePath()
 com.yshow.shike.widget.StuTapeImage: void setmVoiceImageClickListener(com.yshow.shike.widget.StuTapeImage$VoiceImageClickListener)
 com.yshow.shike.widget.StuTapeImage: void setDelVisiable(boolean)
-com.yshow.shike.widget.TopAndBottomLoadListView: void setOnRefreshListener(com.yshow.shike.widget.TopAndBottomLoadListView$OnRefreshListener)
-com.yshow.shike.widget.TopAndBottomLoadListView: void setOnLoadListener(com.yshow.shike.widget.TopAndBottomLoadListView$OnLoadListener)
-com.yshow.shike.widget.TopAndBottomLoadListView: void setLoadEnable(boolean)
-com.yshow.shike.widget.TopAndBottomLoadListView: int getPageSize()
-com.yshow.shike.widget.TopAndBottomLoadListView: void setPageSize(int)
-com.yshow.shike.widget.TopAndBottomLoadListView: void setResultSize(int)
 com.yshow.shike.widget.XListView
 com.yshow.shike.widget.XListView: XListView(android.content.Context)
 com.yshow.shike.widget.XListView: XListView(android.content.Context,android.util.AttributeSet)
