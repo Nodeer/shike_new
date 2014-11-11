@@ -1136,7 +1136,7 @@ public final class R {
         public static final int fragment_find_teacher=0x7f030043;
         public static final int fragment_message=0x7f030044;
         public static final int fragment_message_three=0x7f030045;
-        public static final int fragment_my_teacher=0x7f030046;
+        public static final int start_teacher_list_layout =0x7f030046;
         public static final int fragment_recommend_teacher=0x7f030047;
         public static final int fragment_regiog_text=0x7f030048;
         public static final int fragment_region=0x7f030049;

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import com.yshow.shike.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.yshow.shike.entity.SKArea;
+import com.yshow.shike.entity.SKGrade;
 import com.yshow.shike.entity.SKTeacherOrSubject;
 import com.yshow.shike.entity.Star_Teacher_Parse;
 import com.yshow.shike.utils.*;
@@ -25,16 +27,20 @@ import com.yshow.shike.widget.XListView;
 
 public class RecommendTeacherListActivity extends BaseActivity implements OnClickListener,
         XListView.IXListViewListener {
-    private TextView recommend_name;
     private XListView lv_recommend;
     private Star_Teacher_Parse teacher_Parse;
     private MyAdapter adapter;
     private int page = 1;
     private ArrayList<Star_Teacher_Parse> mDataList = new ArrayList<Star_Teacher_Parse>();
-    private String mSubjectId = "0";
     private DisplayImageOptions options;
     private ImageLoader imageLoader;
     private DisplayImageOptions grayOption;
+
+    private String mSubjectId = "0";
+    private String mAreaId = "0";
+    private String mJieduanId = "0";
+
+    private TextView jieduanText, xuekeText, diquText;
 
 
     @Override
@@ -47,8 +53,12 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
         options = ImageLoadOption.getTeaHeadImageOption();
         grayOption = ImageLoadOption.getTeaHeadGrayImageOption();
         imageLoader = ImageLoader.getInstance();
-        recommend_name = (TextView) findViewById(R.id.tv_recommend_subject);
-        recommend_name.setOnClickListener(this);
+        jieduanText = (TextView) findViewById(R.id.jieduan_text);
+        xuekeText = (TextView) findViewById(R.id.xueke_text);
+        diquText = (TextView) findViewById(R.id.diqu_text);
+        jieduanText.setOnClickListener(this);
+        xuekeText.setOnClickListener(this);
+        diquText.setOnClickListener(this);
         lv_recommend = (XListView) findViewById(R.id.lv_recommend);
         lv_recommend.setXListViewListener(this);
         lv_recommend.setOnItemClickListener(new OnItemClickListener() {
@@ -67,21 +77,57 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
         });
         adapter = new MyAdapter();
         lv_recommend.setAdapter(adapter);
-        searchRecommendTeather(mSubjectId, true);
+        searchRecommendTeather(true);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            // 推荐老师
-            case R.id.tv_recommend_subject:
+            case R.id.jieduan_text:
+                getJieDuan();
+                break;
+            case R.id.xueke_text:
                 skGetSubject();
-                ;
+                break;
+            case R.id.diqu_text:
+                skGetArea();
                 break;
             case R.id.left_btn:
                 RecommendTeacherListActivity.this.finish();
                 break;
         }
+    }
+
+    // 获取学龄段
+    private void getJieDuan() {
+        SKAsyncApiController.skGetGrade(new MyAsyncHttpResponseHandler(this, true) {
+            @Override
+            public void onSuccess(final int arg0, final String json) {
+                super.onSuccess(arg0, json);
+                ArrayList<SKGrade> SKGrades = SKResolveJsonUtil.getInstance().resolveGrade(json);
+                SKGrade grade = new SKGrade();
+                grade.setName("不限");
+                grade.setId("0");
+                SKGrades.add(0, grade);
+
+                final XuelingDuanSeltorUtil grade_utils = new XuelingDuanSeltorUtil(RecommendTeacherListActivity.this, SKGrades);
+                grade_utils.setLeftButtonText("完成");
+                grade_utils.setXuelingSeltorUtilButtonOnclickListening(new XuelingDuanSeltorUtil.XuelingSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        String seltotText = grade_utils.getSeltotText();
+                        jieduanText.setText(seltotText);
+                        mJieduanId = grade_utils.getGradeId();
+                        onRefresh();
+                    }
+                });
+                grade_utils.show();
+            }
+        });
     }
 
 
@@ -109,10 +155,8 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
                     @Override
                     public void onClickLeft() {
                         mSubjectId = subjectId.getGradeId();
-                        recommend_name.setText(subjectId.getSeltotText());
-                        page = 1;
-                        mDataList.clear();
-                        searchRecommendTeather(mSubjectId, true);
+                        xuekeText.setText(subjectId.getSeltotText());
+                        onRefresh();
                     }
                 });
 
@@ -120,14 +164,43 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
         });
     }
 
+    private void skGetArea() {
+        SKAsyncApiController.skGetArea(new MyAsyncHttpResponseHandler(RecommendTeacherListActivity.this, true) {
+            @Override
+            public void onSuccess(String arg0) {
+                super.onSuccess(arg0);
+                ArrayList<SKArea> resolveArea = SKResolveJsonUtil.getInstance().resolveArea(arg0);
+                SKArea skArea = new SKArea();
+                skArea.setId("0");
+                skArea.setName("不限");
+                resolveArea.add(0, skArea);
+
+
+                final AreaSeltorUtil systemDialog = new AreaSeltorUtil(RecommendTeacherListActivity.this, resolveArea);
+                systemDialog.setLeftButtonText("完成");
+                systemDialog.show();
+                systemDialog.setAreaSeltorUtilButtonOnclickListening(new AreaSeltorUtil.AreaSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        mAreaId = systemDialog.getGradeId();
+                        diquText.setText(systemDialog.getSeltotText());
+                        onRefresh();
+                    }
+                });
+            }
+        });
+    }
+
 
     /**
      * 获取推荐老师
-     *
-     * @param id
      */
-    public void searchRecommendTeather(String id, boolean needProgress) {
-        SKAsyncApiController.recommend_teather(id, "0", page, new MyAsyncHttpResponseHandler(this, needProgress) {
+    public void searchRecommendTeather(boolean needProgress) {
+        SKAsyncApiController.recommend_teather(mJieduanId, mSubjectId, mAreaId, page, new MyAsyncHttpResponseHandler(this, needProgress) {
             public void onSuccess(int arg0, String json) {
                 super.onSuccess(arg0, json);
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, RecommendTeacherListActivity.this);
@@ -160,14 +233,14 @@ public class RecommendTeacherListActivity extends BaseActivity implements OnClic
     @Override
     public void onLoadMore() {
         page++;
-        searchRecommendTeather(mSubjectId, false);
+        searchRecommendTeather(false);
     }
 
     @Override
     public void onRefresh() {
         page = 1;
         mDataList.clear();
-        searchRecommendTeather(mSubjectId, false);
+        searchRecommendTeather(false);
     }
 
     class MyAdapter extends BaseAdapter {

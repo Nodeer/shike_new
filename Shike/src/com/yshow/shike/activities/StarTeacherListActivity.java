@@ -6,6 +6,7 @@ import com.yshow.shike.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.entity.SKArea;
+import com.yshow.shike.entity.SKGrade;
 import com.yshow.shike.entity.SKTeacherOrSubject;
 import com.yshow.shike.entity.Star_Teacher_Parse;
 import com.yshow.shike.utils.*;
@@ -30,8 +31,6 @@ import com.yshow.shike.widget.XListView;
  */
 public class StarTeacherListActivity extends BaseActivity implements OnClickListener,
         XListView.IXListViewListener {
-    private TextView seleck_subject;
-    private TextView ll_diqu;
     private XListView starListView;
     private Context context;
     private String currentSubjiect, currentArea;
@@ -40,6 +39,8 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
     private ArrayList<Star_Teacher_Parse> mDataList = new ArrayList<Star_Teacher_Parse>();
     private String mSubjectId = "0";
     private String mAreaId = "0";
+    private String mJieduanId = "0";
+    private TextView jieduanText, xuekeText, diquText;
     private DisplayImageOptions options;
     private ImageLoader imageLoader;
     private DisplayImageOptions grayOption;
@@ -48,24 +49,26 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_my_teacher);
+        setContentView(R.layout.start_teacher_list_layout);
         TextView titletext = (TextView) findViewById(R.id.title_text);
         titletext.setText("明星老师");
         findViewById(R.id.left_btn).setOnClickListener(this);
         context = this;
 
-        ll_diqu = (TextView) findViewById(R.id.ll_diqu);
+        diquText = (TextView) findViewById(R.id.diqu_text);
         options = ImageLoadOption.getTeaHeadImageOption();
         grayOption = ImageLoadOption.getTeaHeadGrayImageOption();
         imageLoader = ImageLoader.getInstance();
-        seleck_subject = (TextView) findViewById(R.id.ll_seleck_subject1);
+        xuekeText = (TextView) findViewById(R.id.xueke_text);
+        jieduanText = (TextView) findViewById(R.id.jieduan_text);
         starListView = (XListView) findViewById(R.id.start_listView);
         starListView.setXListViewListener(this);
-        ll_diqu.setOnClickListener(this);
-        seleck_subject.setOnClickListener(this);
+        diquText.setOnClickListener(this);
+        xuekeText.setOnClickListener(this);
+        jieduanText.setOnClickListener(this);
         adapter = new RegionAdapter();
         starListView.setAdapter(adapter);
-        startSearchTeacher(mSubjectId, mAreaId);
+        startSearchTeacher(mJieduanId, mSubjectId, mAreaId);
         starListView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
@@ -87,12 +90,16 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             // 地区选择按钮
-            case R.id.ll_diqu:
+            case R.id.diqu_text:
                 skGetArea();
                 break;
             // 科目选择按钮
-            case R.id.ll_seleck_subject1:
+            case R.id.xueke_text:
                 skGetSubject();
+                break;
+            // 阶段选择按钮
+            case R.id.jieduan_text:
+                getJieDuan();
                 break;
             case R.id.left_btn:
                 StarTeacherListActivity.this.finish();
@@ -124,13 +131,43 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
                     @Override
                     public void onClickLeft() {
                         mSubjectId = subjectId.getGradeId();
-                        seleck_subject.setText(subjectId.getSeltotText());
-                        page = 1;
-                        mDataList.clear();
-                        startSearchTeacher(mSubjectId, mAreaId);
+                        xuekeText.setText(subjectId.getSeltotText());
+                        onRefresh();
                     }
                 });
 
+            }
+        });
+    }
+
+    // 获取学龄段
+    private void getJieDuan() {
+        SKAsyncApiController.skGetGrade(new MyAsyncHttpResponseHandler(this, true) {
+            @Override
+            public void onSuccess(final int arg0, final String json) {
+                super.onSuccess(arg0, json);
+                ArrayList<SKGrade> SKGrades = SKResolveJsonUtil.getInstance().resolveGrade(json);
+                SKGrade grade = new SKGrade();
+                grade.setName("不限");
+                grade.setId("0");
+                SKGrades.add(0, grade);
+
+                final XuelingDuanSeltorUtil grade_utils = new XuelingDuanSeltorUtil(StarTeacherListActivity.this, SKGrades);
+                grade_utils.setLeftButtonText("完成");
+                grade_utils.setXuelingSeltorUtilButtonOnclickListening(new XuelingDuanSeltorUtil.XuelingSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        String seltotText = grade_utils.getSeltotText();
+                        jieduanText.setText(seltotText);
+                        mJieduanId = grade_utils.getGradeId();
+                        onRefresh();
+                    }
+                });
+                grade_utils.show();
             }
         });
     }
@@ -158,10 +195,8 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
                     @Override
                     public void onClickLeft() {
                         mAreaId = systemDialog.getGradeId();
-                        ll_diqu.setText(systemDialog.getSeltotText());
-                        page = 1;
-                        mDataList.clear();
-                        startSearchTeacher(mSubjectId, mAreaId);
+                        diquText.setText(systemDialog.getSeltotText());
+                        onRefresh();
                     }
                 });
             }
@@ -173,13 +208,13 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
     public void onRefresh() {
         page = 1;
         mDataList.clear();
-        refreshStarTeacher(mSubjectId, mAreaId);
+        refreshStarTeacher(mJieduanId, mSubjectId, mAreaId);
     }
 
     @Override
     public void onLoadMore() {
         page++;
-        getMoreStarTeacher(mSubjectId, mAreaId);
+        getMoreStarTeacher(mJieduanId, mSubjectId, mAreaId);
     }
 
     private void onLoad() {
@@ -245,10 +280,10 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
      * @param subjectId
      * @param aId
      */
-    public void startSearchTeacher(String subjectId, String aId) {
+    public void startSearchTeacher(String jieduan, String subjectId, String aId) {
         currentSubjiect = subjectId;
         currentArea = aId;
-        SKAsyncApiController.start_teather(subjectId, aId, page, new MyAsyncHttpResponseHandler(context, true) {
+        SKAsyncApiController.start_teather(jieduan, subjectId, aId, page, new MyAsyncHttpResponseHandler(context, true) {
             public void onSuccess(String json) {
                 super.onSuccess(json);
                 ArrayList<Star_Teacher_Parse> list = SKResolveJsonUtil.getInstance().start_teather(json);
@@ -270,10 +305,10 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
         });
     }
 
-    public void getMoreStarTeacher(String subjectId, String aId) {
+    public void getMoreStarTeacher(String jieduan, String subjectId, String aId) {
         currentSubjiect = subjectId;
         currentArea = aId;
-        SKAsyncApiController.start_teather(subjectId, aId, page, new MyAsyncHttpResponseHandler(context, false) {
+        SKAsyncApiController.start_teather(jieduan, subjectId, aId, page, new MyAsyncHttpResponseHandler(context, false) {
             public void onSuccess(String json) {
                 super.onSuccess(json);
                 ArrayList<Star_Teacher_Parse> list = SKResolveJsonUtil.getInstance().start_teather(json);
@@ -294,10 +329,10 @@ public class StarTeacherListActivity extends BaseActivity implements OnClickList
         });
     }
 
-    public void refreshStarTeacher(String subjectId, String aId) {
+    public void refreshStarTeacher(String jieduan, String subjectId, String aId) {
         currentSubjiect = subjectId;
         currentArea = aId;
-        SKAsyncApiController.start_teather(subjectId, aId, page, new MyAsyncHttpResponseHandler(context, false) {
+        SKAsyncApiController.start_teather(jieduan, subjectId, aId, page, new MyAsyncHttpResponseHandler(context, false) {
             public void onSuccess(String json) {
                 super.onSuccess(json);
                 ArrayList<Star_Teacher_Parse> list = SKResolveJsonUtil.getInstance().start_teather(json);
