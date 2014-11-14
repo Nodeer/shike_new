@@ -146,14 +146,10 @@ public class OnlineTeaListActivity extends BaseActivity implements XListView.IXL
                 tea_subject.setText(on_Tea.getSubiect());
                 diqu.setText(on_Tea.getArea());
                 tea_info.setText(on_Tea.getInfo());
-                View iv_teather_online = convertView
-                        .findViewById(R.id.iv_teather_isonline);
                 if (!on_Tea.isOnline) {
-//                    iv_teather_online.setVisibility(View.VISIBLE);
                     isonline.setText("离线");
                     imageLoader.displayImage(on_Tea.getIcon(), tea_piture, grayOption);
                 } else {
-//                    iv_teather_online.setVisibility(View.GONE);
                     isonline.setText("在线");
                     imageLoader.displayImage(on_Tea.getIcon(), tea_piture, options);
                 }

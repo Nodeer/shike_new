@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +20,12 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
     private String voicePath;
     private VoiceImageClickListener mVoiceImageClickListener;
     private ImageView del;
+    private ImageView isReadImg;
     private MediaPlayerUtil mediaPlayerUtil;
     private ImageView imageView;
     private boolean isTeacher = false;
     private boolean isPlaying = false;
+    private boolean isRead = false;
 
     public static StuTapeImage surrentPlayingTapeView;
 
@@ -57,7 +58,6 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
     }
 
     private void addChilds() {
-
         imageView = new ImageView(getContext());
         imageView.setImageResource(R.drawable.stu_tape_bg);
         addView(imageView);
@@ -73,6 +73,15 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
         del.setVisibility(View.GONE);
         del.setOnClickListener(this);
         addView(del);
+
+        isReadImg = new ImageView(getContext());
+        isReadImg.setImageResource(R.drawable.red_icon);
+        FrameLayout.LayoutParams pa2 = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        pa2.gravity = Gravity.RIGHT;
+        isReadImg.setLayoutParams(pa2);
+        isReadImg.setVisibility(View.GONE);
+        addView(isReadImg);
+
     }
 
     @Override
@@ -157,5 +166,14 @@ public class StuTapeImage extends FrameLayout implements View.OnClickListener {
         } else {
             del.setVisibility(View.GONE);
         }
+    }
+
+    public void setIsRead(boolean isRead) {
+        this.isRead = isRead;
+        this.isReadImg.setVisibility(isRead ? View.GONE : View.VISIBLE);
+    }
+
+    public boolean getIsRead() {
+        return this.isRead;
     }
 }

@@ -18,13 +18,6 @@
         android:layout_alignBottom="@id/my_teather_img"
         style="@style/text_16_333333" />
 
-    <View
-        android:layout_width="78dp"
-        android:layout_height="78dp"
-        android:id="@+id/iv_teather_isonline"
-        android:background="@drawable/head_gray_mask_bg"
-        android:visibility="gone" />
-
     <TextView
         android:id="@+id/tv_wenben"
         android:layout_width="98dp"

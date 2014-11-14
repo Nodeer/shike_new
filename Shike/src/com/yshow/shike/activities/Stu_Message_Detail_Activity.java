@@ -29,6 +29,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.yshow.shike.R;
+import com.yshow.shike.db.VoiceDatabaseDao;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKMessage;
 import com.yshow.shike.entity.SKMessageList;
@@ -60,7 +61,7 @@ import java.util.TimerTask;
 /**
  * 学生进入的消息交互页面
  */
-public class Stu_Message_Detail_Activity extends BaseActivity implements OnClickListener, ViewPager.OnPageChangeListener {
+public class Stu_Message_Detail_Activity extends BaseActivity implements OnClickListener, ViewPager.OnPageChangeListener, StuTapeImage.VoiceImageClickListener {
     private LinearLayout bottom_navigation;
     private ArrayList<SkMessage_Res> reslist;
     private DisplayImageOptions options;
@@ -82,6 +83,9 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
 
     private String mTeacherName;
     private String mName;
+
+
+    private VoiceDatabaseDao databaseDao;
 
     private LinearLayout mVoiceShowLayout;
 
@@ -156,6 +160,7 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stu_message_detail_layout);
         context = this;
+        databaseDao = new VoiceDatabaseDao(context);
         mediaPlayer = new MediaPlayerUtil();
         iniData();
         mediaRecorderUtil = new MediaRecorderUtil(this);
@@ -358,6 +363,12 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
             tapeimg.setIsTeacher(!voiceitem.getIsStudent().equals("1"));
             tapeimg.setPlayer(mediaPlayer);
             tapeimg.setVoicePath(voiceitem.getFile());
+            tapeimg.setmVoiceImageClickListener(this);
+            if (databaseDao.hasItem(voiceitem.getFile())) {
+                tapeimg.setIsRead(true);
+            } else {
+                tapeimg.setIsRead(false);
+            }
 //            mVoiceShowLayout.addView(tapeimg);
             if (i % 5 == 0) {
                 row = new LinearLayout(this);
@@ -370,6 +381,19 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
 
     @Override
     public void onPageScrollStateChanged(int i) {
+
+    }
+
+    @Override
+    public void onImageClick(StuTapeImage img) {
+        if(!img.getIsRead()){
+            databaseDao.insert(img.getVoicePath());
+            img.setIsRead(true);
+        }
+    }
+
+    @Override
+    public void onDelClick(StuTapeImage img) {
 
     }
 
