@@ -22,7 +22,7 @@ public class PartnerConfig {
     // 老师工具引导参数
     public static final String TEA_TOOL = "TEA_TOOL";
     //邮件 短信分享内容
-    public static String CONTEBT = "“师课家教宝”，解决作业难题，老师随叫随“道”。手机下载地址：http://www.schoool.cn/ipa";
+    public static String CONTEBT = "嗨！我发现一个帮我学习的好应用“师课家教宝”，任何难题都能找到老师一对一辅导，快速、方便、准确。下载地址：www.schoool.cn/ipa";
     //记录老师是否是被关注过
     public static ArrayList<String> list = new ArrayList<String>();
     //用户自动提问没有注册显示的内容

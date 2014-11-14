@@ -86,13 +86,25 @@ public class SKResolveJsonUtil {
                 return false;
             } else {
                 String error = jsonObject.optString("error");
-                Toast.makeText(context, error, 0).show();
+                Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
                 return false;
             }
         } catch (Exception e) {
-            Toast.makeText(context, "数据加载失败", 0).show();
+            Toast.makeText(context, "数据加载失败", Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
+
+    public String resolveTakeQuestion(String json, Context context) {
+        JSONObject jsonObject = null;
+        String error = "";
+        try {
+            jsonObject = new JSONObject(json);
+            error = jsonObject.optString("error");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return error;
     }
 
     public boolean resolveIsSuccess(String json) {
@@ -132,6 +144,7 @@ public class SKResolveJsonUtil {
                     student.setTypes(jsonObject.optString("types"));
                     student.setUid(jsonObject.optString("uid"));
                     student.setIcon(jsonObject.optString("icon"));
+                    student.gradePart = jsonObject.optInt("grade_part");
                     return student;
                 }
             } catch (JSONException e) {

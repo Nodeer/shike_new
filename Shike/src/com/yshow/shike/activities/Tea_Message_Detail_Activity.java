@@ -376,7 +376,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
 
     @Override
     public void onImageClick(StuTapeImage img) {
-        if(!img.getIsRead()){
+        if (!img.getIsRead()) {
             databaseDao.insert(img.getVoicePath());
             img.setIsRead(true);
         }
@@ -585,7 +585,9 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
                     Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
                     Toast.makeText(context, "接收成功", Toast.LENGTH_SHORT).show();
                     hasGetQuestion = true;
-//                    HelpUtil.showHelp(Tea_Message_Detail_Activity.this, HelpUtil.HELP_TEA_3, null);
+                } else {
+                    String error = SKResolveJsonUtil.getInstance().resolveTakeQuestion(arg1, context);
+                    Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
                 }
             }
         });

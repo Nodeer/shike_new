@@ -196,9 +196,6 @@ public class MySKService extends Service {
         public MyMessageLoop() {
             Log.e("MySKService", "MyMessageLoop");
         }
-
-        ;
-
         @Override
         public void run() {
             while (isLoop) {

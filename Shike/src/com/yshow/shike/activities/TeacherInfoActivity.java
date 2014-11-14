@@ -37,7 +37,6 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
     private TextView tv_shike_fen;
     private DisplayImageOptions options, options2;
     private ImageLoader imageLoader;
-    private String myteather;
 
     private RelativeLayout guanzhuBtn;
     private ImageView guanzhuImg;
@@ -50,7 +49,9 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
     private SKMessage extra;
 
     private String teaUid;
-    private boolean isMyTeacher;
+
+
+    private User_Info my_teather;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,33 +90,8 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
         tv_shike_fen = (TextView) findViewById(R.id.tv_jieti_count);
         item = (Star_Teacher_Parse) getIntent().getSerializableExtra("headpicture");
         if (item != null) {
-//            isMyTeacher = getIntent().getBooleanExtra("ismyTeacher", false);
-//            if (isMyTeacher) {
-//                TextView tiwenBtn = (TextView) findViewById(R.id.next_btn);
-//                tiwenBtn.setVisibility(View.VISIBLE);
-//                tiwenBtn.setOnClickListener(this);
-//            }
             teaUid = item.getUid();
             MyShiKeInfo(teaUid);
-//            myteather = item.getiSmyteath();
-//            teacher_nick.setText(item.getNickname());
-//            strdent_count.setText("学生数量:" + item.getFansNum());
-//            tv_subject.setText("学科：" + item.getSubiect());
-//            tv_guan_zhu.setText(item.getInfo());
-//            imageLoader.displayImage(item.getIcon(), tudent_picture, options);
-//            tv_shike_fen.setText("接题次数：" + item.getClaim_question_num());
-//            tv_zan_shu.setText("学生赞美：" + item.getLike_num());
-//            if (myteather != null && myteather.equals("1")) {
-//                tv_attention.setText("取消关注");
-//                guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_balck);
-//                guanzhuBtn.setBackgroundResource(R.drawable.gray_btn_bg);
-//                flag = true;
-//            } else {
-//                tv_attention.setText("关注");
-//                guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_white);
-//                guanzhuBtn.setBackgroundResource(R.drawable.stu_slide_btn1_bg);
-//                flag = false;
-//            }
         } else {
             String uid = "";
             extra = (SKMessage) getIntent().getSerializableExtra("teather_sKMessage");
@@ -133,7 +109,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
             public void onSuccess(int arg0, String json) {
                 boolean atent_Success = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, context);
                 if (atent_Success) {
-                    User_Info my_teather = SKResolveJsonUtil.getInstance().My_teather1(json);
+                    my_teather = SKResolveJsonUtil.getInstance().My_teather1(json);
                     teaUid = my_teather.getUid();
                     teacher_nick.setText(my_teather.getNickname());
                     strdent_count.setText("学生数量:" + my_teather.getFansNum());
@@ -177,11 +153,11 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                 }
                 break;
             case R.id.next_btn:
-                PartnerConfig.TEATHER_ID = item.getUid();
-                PartnerConfig.SUBJECT_ID = item.getSubjectid();
-                PartnerConfig.TEATHER_NAME = item.getNickname();
-                PartnerConfig.SUBJECT_NAME = item.getSubiect();
-                PartnerConfig.TEACHER_IMG = item.getIcon();
+                PartnerConfig.TEATHER_ID = my_teather.getUid();
+                PartnerConfig.SUBJECT_ID = my_teather.getSubjectid();
+                PartnerConfig.TEATHER_NAME = my_teather.getNickname();
+                PartnerConfig.SUBJECT_NAME = my_teather.getSubject();
+                PartnerConfig.TEACHER_IMG = my_teather.getPicurl();
                 Dialog.Intent(context, Activity_Stu_Ask_Step1.class);
                 break;
         }
