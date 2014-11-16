@@ -14,13 +14,6 @@
             android:id="@+id/iv_teather_picture"
             android:layout_width="53dp"
             android:layout_height="53dp" />
-
-        <View
-            android:id="@+id/iv_teather_isonline"
-            android:layout_width="53dp"
-            android:layout_height="53dp"
-            android:background="@drawable/head_gray_mask_bg"
-            android:visibility="gone" />
     </RelativeLayout>
 
     <LinearLayout

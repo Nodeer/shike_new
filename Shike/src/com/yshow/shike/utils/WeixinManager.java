@@ -21,7 +21,7 @@ import com.yshow.shike.R;
 
 public class WeixinManager {
 	private final String title = "师课分享";
-	private final String content = "“师课家教宝”，解决作业难题，老师随叫随“道”。手机下载地址：http://www.schoool.cn/ipa";
+	private final String content = "嗨！我发现一个帮我学习的好应用“师课家教宝”，任何难题都能找到老师一对一辅导，快速、方便、准确。下载地址：www.schoool.cn/ipa";
 	private Activity context;
 	private Bitmap picture;
 	private static final String APP_ID = "wx24f646c87357277a";

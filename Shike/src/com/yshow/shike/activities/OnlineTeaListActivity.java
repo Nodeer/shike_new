@@ -6,6 +6,9 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
+import com.yshow.shike.entity.SKArea;
+import com.yshow.shike.entity.SKGrade;
+import com.yshow.shike.entity.SKTeacherOrSubject;
 import com.yshow.shike.entity.Star_Teacher_Parse;
 import com.yshow.shike.utils.*;
 
@@ -16,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +32,12 @@ public class OnlineTeaListActivity extends BaseActivity implements XListView.IXL
     private MyAdapter adapter;
     private int page = 1;
     private ArrayList<Star_Teacher_Parse> mDataList = new ArrayList<Star_Teacher_Parse>();
+
+    private String mSubjectId = "0";
+    private String mAreaId = "0";
+    private String mJieduanId = "0";
+
+    private TextView jieduanText, xuekeText, diquText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +70,14 @@ public class OnlineTeaListActivity extends BaseActivity implements XListView.IXL
 
             }
         });
+
+
+        jieduanText = (TextView) findViewById(R.id.jieduan_text);
+        jieduanText.setOnClickListener(this);
+        xuekeText = (TextView) findViewById(R.id.xueke_text);
+        xuekeText.setOnClickListener(this);
+        diquText = (TextView) findViewById(R.id.diqu_text);
+        diquText.setOnClickListener(this);
     }
 
     @Override
@@ -80,6 +98,15 @@ public class OnlineTeaListActivity extends BaseActivity implements XListView.IXL
         switch (v.getId()) {
             case R.id.left_btn:
                 finish();
+                break;
+            case R.id.jieduan_text:
+                getJieDuan();
+                break;
+            case R.id.xueke_text:
+                skGetSubject();
+                break;
+            case R.id.diqu_text:
+                skGetArea();
                 break;
         }
     }
@@ -119,14 +146,10 @@ public class OnlineTeaListActivity extends BaseActivity implements XListView.IXL
                 tea_subject.setText(on_Tea.getSubiect());
                 diqu.setText(on_Tea.getArea());
                 tea_info.setText(on_Tea.getInfo());
-                View iv_teather_online = convertView
-                        .findViewById(R.id.iv_teather_isonline);
                 if (!on_Tea.isOnline) {
-//                    iv_teather_online.setVisibility(View.VISIBLE);
                     isonline.setText("离线");
                     imageLoader.displayImage(on_Tea.getIcon(), tea_piture, grayOption);
                 } else {
-//                    iv_teather_online.setVisibility(View.GONE);
                     isonline.setText("在线");
                     imageLoader.displayImage(on_Tea.getIcon(), tea_piture, options);
                 }
@@ -136,7 +159,7 @@ public class OnlineTeaListActivity extends BaseActivity implements XListView.IXL
     }
 
     private void Seather_Tea(boolean b) {
-        SKAsyncApiController.OnLine_Tea(page, "0", new MyAsyncHttpResponseHandler(this, b) {
+        SKAsyncApiController.OnLine_Tea(page, mJieduanId, mSubjectId, mAreaId, new MyAsyncHttpResponseHandler(this, b) {
             @Override
             public void onSuccess(String json) {
                 super.onSuccess(json);
@@ -172,4 +195,103 @@ public class OnlineTeaListActivity extends BaseActivity implements XListView.IXL
             adapter.notifyDataSetChanged();
         }
     }
+
+
+    // 获取学龄段
+    private void getJieDuan() {
+        SKAsyncApiController.skGetGrade(new MyAsyncHttpResponseHandler(this, true) {
+            @Override
+            public void onSuccess(final int arg0, final String json) {
+                super.onSuccess(arg0, json);
+                ArrayList<SKGrade> SKGrades = SKResolveJsonUtil.getInstance().resolveGrade(json);
+                SKGrade grade = new SKGrade();
+                grade.setName("不限");
+                grade.setId("0");
+                SKGrades.add(0, grade);
+
+                final XuelingDuanSeltorUtil grade_utils = new XuelingDuanSeltorUtil(OnlineTeaListActivity.this, SKGrades);
+                grade_utils.setLeftButtonText("完成");
+                grade_utils.setXuelingSeltorUtilButtonOnclickListening(new XuelingDuanSeltorUtil.XuelingSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        String seltotText = grade_utils.getSeltotText();
+                        jieduanText.setText(seltotText);
+                        mJieduanId = grade_utils.getGradeId();
+                        onRefresh();
+                    }
+                });
+                grade_utils.show();
+            }
+        });
+    }
+
+
+    // 联网那一科目为条件的科目
+    private void skGetSubject() {
+        SKAsyncApiController.skGetSubject(new MyAsyncHttpResponseHandler(OnlineTeaListActivity.this, true) {
+            @Override
+            public void onSuccess(String arg0) {
+                super.onSuccess(arg0);
+                ArrayList<SKTeacherOrSubject> subjects = SKResolveJsonUtil.getInstance().resolveSubject(arg0);
+                SKTeacherOrSubject skTeacherOrSubject = new SKTeacherOrSubject();
+                skTeacherOrSubject.setName("不限");
+                skTeacherOrSubject.setSubjectId("0");
+                subjects.add(0, skTeacherOrSubject);
+
+
+                final XuekeSelectUtil subjectId = new XuekeSelectUtil(OnlineTeaListActivity.this, subjects);
+                subjectId.setLeftButtonText("完成");
+                subjectId.show();
+                subjectId.setAreaSeltorUtilButtonOnclickListening(new XuekeSelectUtil.AreaSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        mSubjectId = subjectId.getGradeId();
+                        xuekeText.setText(subjectId.getSeltotText());
+                        onRefresh();
+                    }
+                });
+
+            }
+        });
+    }
+
+    private void skGetArea() {
+        SKAsyncApiController.skGetArea(new MyAsyncHttpResponseHandler(OnlineTeaListActivity.this, true) {
+            @Override
+            public void onSuccess(String arg0) {
+                super.onSuccess(arg0);
+                ArrayList<SKArea> resolveArea = SKResolveJsonUtil.getInstance().resolveArea(arg0);
+                SKArea skArea = new SKArea();
+                skArea.setId("0");
+                skArea.setName("不限");
+                resolveArea.add(0, skArea);
+
+
+                final AreaSeltorUtil systemDialog = new AreaSeltorUtil(OnlineTeaListActivity.this, resolveArea);
+                systemDialog.setLeftButtonText("完成");
+                systemDialog.show();
+                systemDialog.setAreaSeltorUtilButtonOnclickListening(new AreaSeltorUtil.AreaSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        mAreaId = systemDialog.getGradeId();
+                        diquText.setText(systemDialog.getSeltotText());
+                        onRefresh();
+                    }
+                });
+            }
+        });
+    }
+
 }

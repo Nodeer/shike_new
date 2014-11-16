@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import com.yshow.shike.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.yshow.shike.db.DatabaseDao;
+import com.yshow.shike.db.VoiceDatabaseDao;
 import com.yshow.shike.entity.LoginManage;
 import com.yshow.shike.entity.SKMessage;
 import com.yshow.shike.entity.SkMessage_Res;
@@ -54,7 +54,7 @@ public class SKQuestsAdapter extends BaseAdapter {
 			String file = skMessage_Voice.getFile();
 			String uid = skMessage_Voice.getUid();
 			if(!uid.equals(uid2)){
-				String locad_url = new DatabaseDao(context).Query_Condition(file);
+				String locad_url = new VoiceDatabaseDao(context).Query_Condition(file);
 				if (locad_url == null) {
 					boolean1 = true;
 					break;

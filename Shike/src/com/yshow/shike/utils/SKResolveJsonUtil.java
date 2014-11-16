@@ -86,13 +86,25 @@ public class SKResolveJsonUtil {
                 return false;
             } else {
                 String error = jsonObject.optString("error");
-                Toast.makeText(context, error, 0).show();
+                Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
                 return false;
             }
         } catch (Exception e) {
-            Toast.makeText(context, "数据加载失败", 0).show();
+            Toast.makeText(context, "数据加载失败", Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
+
+    public String resolveTakeQuestion(String json, Context context) {
+        JSONObject jsonObject = null;
+        String error = "";
+        try {
+            jsonObject = new JSONObject(json);
+            error = jsonObject.optString("error");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return error;
     }
 
     public boolean resolveIsSuccess(String json) {
@@ -132,6 +144,7 @@ public class SKResolveJsonUtil {
                     student.setTypes(jsonObject.optString("types"));
                     student.setUid(jsonObject.optString("uid"));
                     student.setIcon(jsonObject.optString("icon"));
+                    student.gradePart = jsonObject.optInt("grade_part");
                     return student;
                 }
             } catch (JSONException e) {
@@ -894,15 +907,14 @@ public class SKResolveJsonUtil {
     }
 
     // 我的老师
-    public java.util.ArrayList<java.util.ArrayList<Star_Teacher_Parse>> My_Teather(String json) {
-        java.util.ArrayList<java.util.ArrayList<Star_Teacher_Parse>> list2 = new ArrayList<ArrayList<Star_Teacher_Parse>>();
+    public ArrayList<Star_Teacher_Parse> My_Teather(String json) {
+        ArrayList<Star_Teacher_Parse> myTeacherList = new ArrayList<Star_Teacher_Parse>();
         JSONObject object;
         try {
             object = new JSONObject(json);
             dataobject = object.getJSONObject("data");
             JSONArray namesarray = dataobject.names();
             for (int i = 0; i < namesarray.length(); i++) {
-                java.util.ArrayList<Star_Teacher_Parse> list = new ArrayList<Star_Teacher_Parse>();
                 JSONArray array = dataobject.getJSONArray(namesarray.getString(i));
                 for (int j = 0; j < array.length(); j++) {
                     JSONObject jsonObject = array.getJSONObject(j);
@@ -925,14 +937,13 @@ public class SKResolveJsonUtil {
                         parse.setIcon(optString);
                     }
                     parse.setName(jsonObject.optString("name"));
-                    list.add(parse);
+                    myTeacherList.add(parse);
                 }
-                list2.add(list);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return list2;
+        return myTeacherList;
     }
 
     public Student_Info Student_Info_Pase(String json) {

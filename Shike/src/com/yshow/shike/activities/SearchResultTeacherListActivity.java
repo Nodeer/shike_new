@@ -116,14 +116,10 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
             TextView tv_gerenxinxi = (TextView) convertView
                     .findViewById(R.id.tv_gerenxinxi);
             TextView isonline = (TextView) convertView.findViewById(R.id.tv_isonline);
-            View iv_teather_online = convertView
-                    .findViewById(R.id.iv_teather_isonline);
             if (!teacher_Parse.isOnline) {
-//                iv_teather_online.setVisibility(View.VISIBLE);
                 isonline.setText("离线");
                 imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, grayOption);
             } else {
-//                iv_teather_online.setVisibility(View.GONE);
                 isonline.setText("在线");
                 imageLoader.displayImage(teacher_Parse.getIcon(), teather_picture, options);
             }

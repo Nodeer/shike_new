@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.yshow.shike.R;
 import com.yshow.shike.SubjectIds;
+import com.yshow.shike.entity.LoginManage;
+import com.yshow.shike.entity.SKStudent;
 import com.yshow.shike.utils.Bitmap_Manger_utils;
 import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.ScreenSizeUtil;
@@ -49,9 +51,8 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
         mYingyuButton = (RelativeLayout) findViewById(R.id.yingyu_btn);
         mYingyuButton.setOnClickListener(this);
         mWuliButton = (RelativeLayout) findViewById(R.id.wuli_btn);
-        mWuliButton.setOnClickListener(this);
         mHuaxueButton = (RelativeLayout) findViewById(R.id.huaxue_btn);
-        mHuaxueButton.setOnClickListener(this);
+
         mYuwenSelectIcon = (ImageView) findViewById(R.id.yuwen_select_icon);
         mShuxueSelectIcon = (ImageView) findViewById(R.id.shuxue_select_icon);
         mYingyuSelectIcon = (ImageView) findViewById(R.id.yingyu_select_icon);
@@ -66,6 +67,15 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
         if (imgPath != null) {
             mBitmap = press_bitmap(imgPath);
             mImageview.setImageBitmap(mBitmap);
+        }
+
+        SKStudent aa = LoginManage.getInstance().getStudent();
+        if (aa.gradePart < 2) {//小学1,初中2,高中3.小学生屏蔽物理化学
+            mWuliButton.setEnabled(false);
+            mHuaxueButton.setEnabled(false);
+        } else {
+            mWuliButton.setOnClickListener(this);
+            mHuaxueButton.setOnClickListener(this);
         }
         findViewById(R.id.next_btn).setOnClickListener(this);
     }
@@ -146,8 +156,8 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
         int op_w = op.outWidth - 1;
         int rotateDegree = bitmapUtil.readPictureDegree(path);
         if (rotateDegree == 90) {
-            int f = (int) (((float)op_h)/((float)screenWidth));
-            if(f==0){
+            int f = (int) (((float) op_h) / ((float) screenWidth));
+            if (f == 0) {
                 f = 1;
             }
             op.inSampleSize = f;
@@ -157,8 +167,8 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
 //                op.inSampleSize = 1;
 //            }
         } else {
-            int f = (int) (((float)op_w)/((float)screenWidth));
-            if(f==0){
+            int f = (int) (((float) op_w) / ((float) screenWidth));
+            if (f == 0) {
                 f = 1;
             }
             op.inSampleSize = f;

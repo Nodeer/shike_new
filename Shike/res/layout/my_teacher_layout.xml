@@ -23,15 +23,11 @@
 
         </FrameLayout>
 
-    <ScrollView
+    <com.yshow.shike.widget.XListView
+        android:id="@+id/online_lv"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
-        <LinearLayout
-            android:id="@+id/ll_my_teather"
-            android:layout_width="fill_parent"
-            android:padding="10dp"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" />
-    </ScrollView>
+        android:layout_height="fill_parent"
+        android:dividerHeight="1px"
+        android:listSelector="@drawable/list_selector_color"
+        android:divider="@color/ui_bg_divider" />
 </LinearLayout>

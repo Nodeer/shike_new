@@ -30,6 +30,8 @@ public class SKStudent implements Serializable {
     private String Paper;
     private InputStream stream;
 
+    public int gradePart = 0;
+
     public String reference = "";
     public String getPaper() {
 		return Paper;

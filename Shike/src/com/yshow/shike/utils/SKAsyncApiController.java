@@ -18,8 +18,8 @@ import com.yshow.shike.entity.Update_User_Info;
  * 联网工具
  */
 public class SKAsyncApiController {
-        public static final String SHIKE_VALUE_API_SERVER_URL = "http://apitest.shikeke.com/";// 测试环境
-//    public static final String SHIKE_VALUE_API_SERVER_URL = "http://api.shikeke.com/";
+    public static final String SHIKE_VALUE_API_SERVER_URL = "http://apitest.shikeke.com/";// 测试环境
+    //    public static final String SHIKE_VALUE_API_SERVER_URL = "http://api.shikeke.com/";
     public static AsyncHttpClient client = new AsyncHttpClient();
 
     static {
@@ -183,8 +183,8 @@ public class SKAsyncApiController {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         int quity = 100;
         bitmap.compress(Bitmap.CompressFormat.JPEG, quity, baos);
-        LogUtil.d("图片按90%压缩后原始大小:" + quity + ".尺寸" + baos.size());
-//		while (baos.size() > 1024 * 1000) {
+        LogUtil.d("图片按100%压缩后原始大小:" + quity + ".尺寸" + baos.size());
+//		while (baos.size() > 2*1024 * 1000) {
 //			LogUtil.d("图片大于1M.当前压缩比例:" + quity + ".实际尺寸" + baos.size());
 //			quity -= 10;
 //			baos.reset();
@@ -221,10 +221,11 @@ public class SKAsyncApiController {
     }
 
     // 明星老师
-    public static void start_teather(String subjectId, String aId, int page, AsyncHttpResponseHandler handler) {
+    public static void start_teather(String jieduan, String subjectId, String aId, int page, AsyncHttpResponseHandler handler) {
         RequestParams params = new RequestParams();
         params.put("subjectId", subjectId);
         params.put("aId", aId);
+        params.put("grade", jieduan);
         params.put("page", "" + page);
         myPost("?m=top_teacher&a=star", params, handler);
     }
@@ -281,10 +282,11 @@ public class SKAsyncApiController {
     }
 
     // 推荐老师
-    public static void recommend_teather(String subjectId, String aId, int page, AsyncHttpResponseHandler handler) {
+    public static void recommend_teather(String jieduan,String subjectId, String aId, int page, AsyncHttpResponseHandler handler) {
         RequestParams params = new RequestParams();
         params.put("subjectId", subjectId);
         params.put("aId", aId);
+        params.put("grade", jieduan);
         params.put("page", String.valueOf(page));
         myPost("?m=top_teacher&a=recommend", params, handler);
     }
@@ -649,10 +651,12 @@ public class SKAsyncApiController {
     }
 
     // 在线老师
-    public static void OnLine_Tea(int page, String subjectId, AsyncHttpResponseHandler handler) {
+    public static void OnLine_Tea(int page, String jieduan, String subjectId, String diqu, AsyncHttpResponseHandler handler) {
         RequestParams params = new RequestParams();
         params.put("page", String.valueOf(page));
+        params.put("grade", jieduan);
         params.put("subjectId", subjectId);
+        params.put("aId", diqu);
         myPost("/?m=online_teacher", params, handler);
     }
 

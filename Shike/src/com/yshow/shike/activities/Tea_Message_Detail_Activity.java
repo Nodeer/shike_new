@@ -17,15 +17,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,8 +27,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
-import com.yshow.shike.db.DatabaseDao;
-import com.yshow.shike.entity.LoginManage;
+import com.yshow.shike.db.VoiceDatabaseDao;
 import com.yshow.shike.entity.SKMessage;
 import com.yshow.shike.entity.SKMessageList;
 import com.yshow.shike.entity.SkMessage_Res;
@@ -42,17 +35,13 @@ import com.yshow.shike.entity.SkMessage_Voice;
 import com.yshow.shike.fragments.Fragment_Message;
 import com.yshow.shike.service.MySKService;
 import com.yshow.shike.utils.DateUtils;
-import com.yshow.shike.utils.Dialog;
 import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MediaPlayerUtil;
 import com.yshow.shike.utils.MediaRecorderUtil;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
-import com.yshow.shike.utils.Net_Servse;
-import com.yshow.shike.utils.PartnerConfig;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
 import com.yshow.shike.utils.ScreenSizeUtil;
-import com.yshow.shike.utils.YD;
 import com.yshow.shike.widget.StuTapeImage;
 
 import org.json.JSONException;
@@ -67,7 +56,7 @@ import java.util.TimerTask;
 /**
  * 老师的交互主页面
  */
-public class Tea_Message_Detail_Activity extends Activity implements OnClickListener, ViewPager.OnPageChangeListener {
+public class Tea_Message_Detail_Activity extends Activity implements OnClickListener, ViewPager.OnPageChangeListener, StuTapeImage.VoiceImageClickListener {
     private LinearLayout teaDecideLayout;
     private ArrayList<SkMessage_Res> reslist;
     private List<String> bitmap_list = new ArrayList<String>(); // ViewPager显示的一个集合
@@ -86,8 +75,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
     private SKMessage sKMessage;
     private String claim_uid;
     private TextView back_time;
-    private DatabaseDao databaseDao;
-    private List<String> query_voidce; // 查询所有数据库的录音
+    private VoiceDatabaseDao databaseDao;
     private MediaPlayerUtil mediaPlayer;
 
     private Button sendVoiceButton;
@@ -169,8 +157,7 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         setContentView(R.layout.tea_message_detail_layout);
         context = this;
         mediaPlayer = new MediaPlayerUtil();
-        databaseDao = new DatabaseDao(context);
-        query_voidce = databaseDao.Query();
+        databaseDao = new VoiceDatabaseDao(context);
         initData();
         mediaRecorderUtil = new MediaRecorderUtil(this);
         mediaRecorderUtil.setVoiceLevelImg((ImageView) findViewById(R.id.voice_level_img));
@@ -364,6 +351,12 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
             tapeimg.setIsTeacher(!voiceitem.getIsStudent().equals("1"));
             tapeimg.setPlayer(mediaPlayer);
             tapeimg.setVoicePath(voiceitem.getFile());
+            tapeimg.setmVoiceImageClickListener(this);
+            if (databaseDao.hasItem(voiceitem.getFile())) {
+                tapeimg.setIsRead(true);
+            } else {
+                tapeimg.setIsRead(false);
+            }
 //            mVoiceShowLayout.addView(tapeimg);
             if (i % 5 == 0) {
                 row = new LinearLayout(this);
@@ -378,6 +371,19 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
 
     @Override
     public void onPageScrollStateChanged(int i) {
+
+    }
+
+    @Override
+    public void onImageClick(StuTapeImage img) {
+        if (!img.getIsRead()) {
+            databaseDao.insert(img.getVoicePath());
+            img.setIsRead(true);
+        }
+    }
+
+    @Override
+    public void onDelClick(StuTapeImage img) {
 
     }
 
@@ -577,10 +583,11 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
                     bottomLayout.setVisibility(View.VISIBLE);
                     teaDecideLayout.setVisibility(View.GONE);
                     Fragment_Message.handler.sendEmptyMessage(MySKService.HAVE_NEW_MESSAGE);
-                    YD.getInstence().getYD(context, PartnerConfig.TEA_YD_TOOL, true);
                     Toast.makeText(context, "接收成功", Toast.LENGTH_SHORT).show();
                     hasGetQuestion = true;
-//                    HelpUtil.showHelp(Tea_Message_Detail_Activity.this, HelpUtil.HELP_TEA_3, null);
+                } else {
+                    String error = SKResolveJsonUtil.getInstance().resolveTakeQuestion(arg1, context);
+                    Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
                 }
             }
         });

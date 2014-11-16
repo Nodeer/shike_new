@@ -10854,7 +10854,6 @@ com.yshow.shike.R$id: int listview
 com.yshow.shike.R$id: int ll_add_tool_bottom
 com.yshow.shike.R$id: int ll_area
 com.yshow.shike.R$id: int ll_back
-com.yshow.shike.R$id: int ll_diqu
 com.yshow.shike.R$id: int ll_file
 com.yshow.shike.R$id: int ll_info
 com.yshow.shike.R$id: int ll_my_board_back
@@ -10862,7 +10861,6 @@ com.yshow.shike.R$id: int ll_my_teather
 com.yshow.shike.R$id: int ll_paizhao
 com.yshow.shike.R$id: int ll_recharge_five_qian
 com.yshow.shike.R$id: int ll_recharge_one_five
-com.yshow.shike.R$id: int ll_seleck_subject1
 com.yshow.shike.R$id: int ll_teacher_info
 com.yshow.shike.R$id: int loadFull
 com.yshow.shike.R$id: int loading
@@ -11095,7 +11093,6 @@ com.yshow.shike.R$id: int tv_per_comg
 com.yshow.shike.R$id: int tv_per_skback
 com.yshow.shike.R$id: int tv_que_count_comfg
 com.yshow.shike.R$id: int tv_ques
-com.yshow.shike.R$id: int tv_recommend_subject
 com.yshow.shike.R$id: int tv_reg
 com.yshow.shike.R$id: int tv_register
 com.yshow.shike.R$id: int tv_save_tiku
@@ -11253,7 +11250,6 @@ com.yshow.shike.R$layout: int fragment_duihuan_record
 com.yshow.shike.R$layout: int fragment_feacher_about_shike
 com.yshow.shike.R$layout: int fragment_find_teacher
 com.yshow.shike.R$layout: int fragment_message
-com.yshow.shike.R$layout: int fragment_my_teacher
 com.yshow.shike.R$layout: int fragment_recommend_teacher
 com.yshow.shike.R$layout: int fragment_regiog_text
 com.yshow.shike.R$layout: int fragment_region
@@ -11310,6 +11306,7 @@ com.yshow.shike.R$layout: int sk_question_item
 com.yshow.shike.R$layout: int sk_teacher_register
 com.yshow.shike.R$layout: int slidingmenumain
 com.yshow.shike.R$layout: int start_slide_layout
+com.yshow.shike.R$layout: int start_teacher_list_layout
 com.yshow.shike.R$layout: int start_viewpager_item
 com.yshow.shike.R$layout: int stu_add_voice_layout
 com.yshow.shike.R$layout: int stu_ask_step1_layout
@@ -13408,14 +13405,14 @@ com.yshow.shike.utils.SKAsyncApiController: void skGetMyTeacher(com.loopj.androi
 com.yshow.shike.utils.SKAsyncApiController: void skUploadImage(java.lang.String,android.graphics.Bitmap,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skUploadMp3(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skSend_messge(java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
-com.yshow.shike.utils.SKAsyncApiController: void start_teather(java.lang.String,java.lang.String,int,com.loopj.android.http.AsyncHttpResponseHandler)
+com.yshow.shike.utils.SKAsyncApiController: void start_teather(java.lang.String,java.lang.String,java.lang.String,int,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skDel_messge(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void ChongFa(java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skCancel_messge(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skDonemessge(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Attention_Taeather_Parse(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void My_Taeather_Parse(com.loopj.android.http.AsyncHttpResponseHandler)
-com.yshow.shike.utils.SKAsyncApiController: void recommend_teather(java.lang.String,java.lang.String,int,com.loopj.android.http.AsyncHttpResponseHandler)
+com.yshow.shike.utils.SKAsyncApiController: void recommend_teather(java.lang.String,java.lang.String,java.lang.String,int,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void User_Info(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void getBitmap(java.lang.String,java.io.File)
 com.yshow.shike.utils.SKAsyncApiController: void Complaint_Teather(java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
@@ -13457,7 +13454,7 @@ com.yshow.shike.utils.SKAsyncApiController: void Reset_Password(java.lang.String
 com.yshow.shike.utils.SKAsyncApiController: void AuTo_log(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void auto_Info(java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Back_Login(com.loopj.android.http.AsyncHttpResponseHandler)
-com.yshow.shike.utils.SKAsyncApiController: void OnLine_Tea(int,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
+com.yshow.shike.utils.SKAsyncApiController: void OnLine_Tea(int,java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Look_Mess(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Up_Loading_Tea(android.graphics.Bitmap,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void record_Stu(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
