@@ -2,6 +2,7 @@ package com.yshow.shike.activities;
 
 import java.util.ArrayList;
 
+import com.loopj.android.http.RequestParams;
 import com.yshow.shike.R;
 import com.yshow.shike.entity.SKArea;
 import com.yshow.shike.entity.SKTeacherOrSubject;
@@ -197,6 +198,7 @@ public class SearchTeacherActivity extends BaseActivity implements OnClickListen
                         if (success) {
                             ArrayList<Star_Teacher_Parse> list = SKResolveJsonUtil.getInstance().Search_Terms(json);
                             Intent it = new Intent(SearchTeacherActivity.this, SearchResultTeacherListActivity.class);
+                            it.putExtra("isPhone", true);
                             it.putExtra("data", list);
                             startActivity(it);
                         }
@@ -205,17 +207,28 @@ public class SearchTeacherActivity extends BaseActivity implements OnClickListen
     }
 
     // 条件搜索
-    private void Searth_Teather_TiaoJian(String nickname, String school, String sex) {
-        SKAsyncApiController.Searth_Teather_TiaoJian(nickname, school, subject_id,
+    private void Searth_Teather_TiaoJian(final String nickname, final String school, final String sex) {
+        SKAsyncApiController.Searth_Teather_TiaoJian("0",nickname, school, subject_id,
                 diqu_id, sex, new MyAsyncHttpResponseHandler(context, true) {
                     @Override
                     public void onSuccess(String json) {
                         super.onSuccess(json);
-                        SKResolveJsonUtil.getInstance().resolveIsSuccess(json, SearchTeacherActivity.this);
-                        ArrayList<Star_Teacher_Parse> list = SKResolveJsonUtil.getInstance().Search_Terms(json);
-                        Intent it = new Intent(SearchTeacherActivity.this, SearchResultTeacherListActivity.class);
-                        it.putExtra("data", list);
-                        startActivity(it);
+                        boolean isSuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, SearchTeacherActivity.this);
+                        if (isSuccess) {
+                            ArrayList<Star_Teacher_Parse> list = SKResolveJsonUtil.getInstance().Search_Terms(json);
+                            Intent it = new Intent(SearchTeacherActivity.this, SearchResultTeacherListActivity.class);
+                            it.putExtra("isPhone", false);
+                            it.putExtra("data", list);
+
+                            it.putExtra("subjectId", subject_id);
+                            it.putExtra("subjectName", tvSubject.getText().toString());
+                            it.putExtra("areaId", diqu_id);
+                            it.putExtra("areaName", diqu_text.getText().toString());
+                            it.putExtra("sex", sex);
+                            it.putExtra("nickname", nickname);
+                            it.putExtra("school", school);
+                            startActivity(it);
+                        }
                     }
                 });
     }

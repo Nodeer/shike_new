@@ -9,9 +9,19 @@
         android:id="@+id/iv_picture"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scaleType="fitCenter" />
+        android:scaleType="centerCrop" />
+
+    <WebView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/web_image"
+        android:focusable="false"
+        android:visibility="gone"
+        android:focusableInTouchMode="false"
+        ></WebView>
 
     <ImageView
+        android:id="@+id/big_img_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/icon_big_image"

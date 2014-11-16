@@ -666,20 +666,21 @@ public class SKResolveJsonUtil {
 
     // 表情�?获取
     public Fase_1 Face_Package_Pase(String json) {
-        Fase_1 fase_1 = null;
+        ArrayList<Fase_Packs> Fase_Packs_List = new ArrayList<Fase_Packs>();
+        Fase_1 fase_1 = new Fase_1();
+        ;
+        fase_1.setRes(Fase_Packs_List);
         try {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray datalist = jsonObject.getJSONArray("data");
             for (int i = 0; i < datalist.length(); i++) {
                 JSONObject data = datalist.getJSONObject(i);
-                fase_1 = new Fase_1();
-                fase_1.setId(data.optString("id"));
-                fase_1.setFileId(data.optString("fileId"));
-                fase_1.setName(data.optString("name"));
-                fase_1.setPrice(data.optString("price"));
-                fase_1.setCount(data.optJSONObject("face_img").optString("url"));
-                ArrayList<Fase_Packs> Fase_Packs_List = new ArrayList<Fase_Packs>();
-                fase_1.setRes(Fase_Packs_List);
+//                fase_1 = new Fase_1();
+//                fase_1.setId(data.optString("id"));
+//                fase_1.setFileId(data.optString("fileId"));
+//                fase_1.setName(data.optString("name"));
+//                fase_1.setPrice(data.optString("price"));
+//                fase_1.setCount(data.optJSONObject("face_img").optString("url"));
                 JSONArray listPacks = data.getJSONArray("list");
                 for (int j = 0; j < listPacks.length(); j++) {
                     Fase_Packs fase_Packs = new Fase_Packs();
@@ -929,6 +930,8 @@ public class SKResolveJsonUtil {
                     parse.setLike_num(jsonObject.optString("like_num"));
                     parse.setSubjectid(jsonObject.optString("subjectId"));
                     parse.setClaim_question_num(jsonObject.optString("claim_question_num"));
+                    parse.setArea(jsonObject.optString("area_name"));
+                    parse.setGrade(jsonObject.optString("grade"));
 
                     parse.isOnline = jsonObject.optBoolean("isOnline");
                     JSONObject optJSONObject = jsonObject.optJSONObject("url");

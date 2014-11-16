@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -386,7 +387,7 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
 
     @Override
     public void onImageClick(StuTapeImage img) {
-        if(!img.getIsRead()){
+        if (!img.getIsRead()) {
             databaseDao.insert(img.getVoicePath());
             img.setIsRead(true);
         }
@@ -426,34 +427,48 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
         @Override
         public Object instantiateItem(ViewGroup container, final int position) {
             final SkMessage_Res skMessage_Res = reslist.get(position);
-            final String files = skMessage_Res.getFile_tub();
+            final String files = skMessage_Res.getFile();
             View view = View.inflate(Stu_Message_Detail_Activity.this, R.layout.img_page_item, null);
-            final ImageView iv_picture = (ImageView) view.findViewById(R.id.iv_picture);
-            iv_picture.setTag(files);
+            ImageView iv_picture = (ImageView) view.findViewById(R.id.iv_picture);
+            ImageView big_img_btn = (ImageView) view.findViewById(R.id.big_img_btn);
+            WebView image = (WebView) view.findViewById(R.id.web_image);
 
-            OnClickListener lister = new OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    String file = skMessage_Res.getFile();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Message_Three", file);
-                    bundle.putSerializable("res", sKMessage.getRes().get(position));
+            if (files.endsWith("gif")) {
+                iv_picture.setVisibility(View.GONE);
+                big_img_btn.setVisibility(View.GONE);
+                image.setVisibility(View.VISIBLE);
 
-                    if (sKMessage.getMsgType().equals("1")) {// 这里表示是系统消息
-                        bundle.putBoolean("isdone", true);
-                    } else {
-                        bundle.putBoolean("isdone", sKMessage.isDone());
+                image.getSettings().setLoadWithOverviewMode(true);
+                image.getSettings().setUseWideViewPort(true);
+                image.loadUrl(files);
+
+            } else {
+                iv_picture.setVisibility(View.VISIBLE);
+                big_img_btn.setVisibility(View.VISIBLE);
+                image.setVisibility(View.GONE);
+                iv_picture.setTag(files);
+                OnClickListener lister = new OnClickListener() {
+                    @Override
+                    public void onClick(View arg0) {
+                        String file = skMessage_Res.getFile();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("Message_Three", file);
+                        bundle.putSerializable("res", sKMessage.getRes().get(position));
+
+                        if (sKMessage.getMsgType().equals("1")) {// 这里表示是系统消息
+                            bundle.putBoolean("isdone", true);
+                        } else {
+                            bundle.putBoolean("isdone", sKMessage.isDone());
+                        }
+                        Intent intent = new Intent(context, ImageActivity.class);
+                        intent.putExtras(bundle);
+                        startActivityForResult(intent, 1);
                     }
+                };
+                iv_picture.setOnClickListener(lister);
+                imageLoader.displayImage(files, iv_picture, options);
+            }
 
-
-                    Intent intent = new Intent(context, ImageActivity.class);
-                    intent.putExtras(bundle);
-                    startActivityForResult(intent, 1);
-                }
-            };
-
-            iv_picture.setOnClickListener(lister);
-            imageLoader.displayImage(files, iv_picture, options);
             container.addView(view);
             return view;
         }

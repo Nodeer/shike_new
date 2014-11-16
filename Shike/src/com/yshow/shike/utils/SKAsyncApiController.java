@@ -277,8 +277,12 @@ public class SKAsyncApiController {
     }
 
     // 我的老师
-    public static void My_Taeather_Parse(AsyncHttpResponseHandler handler) {
-        myGet("?m=myteacher", null, handler);
+    public static void My_Taeather_Parse(String jieduan,String subjectId, String aId, AsyncHttpResponseHandler handler) {
+        RequestParams params = new RequestParams();
+        params.put("subjectId", subjectId);
+        params.put("aId", aId);
+        params.put("grade", jieduan);
+        myGet("?m=myteacher", params, handler);
     }
 
     // 推荐老师
@@ -442,7 +446,7 @@ public class SKAsyncApiController {
     }
 
     // 条件搜索
-    public static void Searth_Teather_TiaoJian(String nickname, String school, String subjectId, String areaId, String sex,
+    public static void Searth_Teather_TiaoJian(String jieduan,String nickname, String school, String subjectId, String areaId, String sex,
                                                AsyncHttpResponseHandler handler) {
         RequestParams params = new RequestParams();
         params.put("nickname", nickname);
@@ -451,6 +455,7 @@ public class SKAsyncApiController {
             params.put("subjectId", subjectId);
         }
         params.put("areaId", areaId);
+        params.put("grade", jieduan);
         if (sex != null && !sex.equals("-1")) {
             params.put("sex", sex);
         }

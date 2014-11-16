@@ -10,18 +10,20 @@
         android:layout_gravity="center"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <WebView
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:id="@+id/web_image"
             android:layout_centerHorizontal="true"
-            android:id="@+id/image" />
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_height="100dp"></WebView>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/select_icon"
-            android:layout_alignRight="@id/image"
-            android:layout_alignTop="@id/image"
+            android:layout_alignRight="@id/web_image"
+            android:layout_alignTop="@id/web_image"
             android:visibility="gone"
             android:src="@drawable/checked_icon" />
 
@@ -30,11 +32,17 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_below="@id/image"
+            android:layout_below="@id/web_image"
             android:layout_centerHorizontal="true"
             android:text="分数"
             android:background="@color/green1"
             style="@style/text_16_white" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/click_view"
+            />
     </RelativeLayout>
 
 

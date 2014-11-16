@@ -8,6 +8,56 @@
 
     <include layout="@layout/title_layout" />
 
+    <LinearLayout
+        android:id="@+id/tiaojian_layout"
+        android:layout_width="fill_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/jieduan_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/gray_btn_bg"
+            android:drawableRight="@drawable/pulldown1"
+            android:text="选择阶段"
+            style="@style/text_16_black" />
+
+        <TextView
+            android:id="@+id/xueke_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:gravity="center"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/gray_btn_bg"
+            android:drawableRight="@drawable/pulldown1"
+            android:text="选择学科"
+            style="@style/text_16_black" />
+        <TextView
+            android:id="@+id/diqu_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            android:paddingRight="5dp"
+            android:background="@drawable/gray_btn_bg"
+            android:drawableRight="@drawable/pulldown1"
+            android:text="选择地区"
+            style="@style/text_16_black" />
+    </LinearLayout>
+
 
     <ListView
         android:id="@+id/lv_list_view"

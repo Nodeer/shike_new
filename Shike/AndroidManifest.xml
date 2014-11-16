@@ -29,7 +29,6 @@
         android:theme="@style/Theme.Shike">
 
 
-
         <activity
             android:name="com.yshow.shike.activities.StartingUp"
             android:label="@string/app_name"
@@ -38,11 +37,17 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            </activity>
+        <activity
+            android:name="com.yshow.shike.activities.WebViewActivity"
+            android:screenOrientation="portrait">
         </activity>
+
         <!-- 支付宝Activity声明 -->
         <activity
             android:name="com.alipay.android.app.sdk.WapPayActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"></activity>
         <!-- 微信分享 -->
         <activity
             android:name="com.yshow.shike.wxapi.WXEntryActivity"
@@ -114,9 +119,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.fragments.Fragment_Region"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.yshow.shike.activities.WebViewActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yshow.shike.activities.TeacherRegisterActivity"
@@ -282,14 +284,12 @@
         <activity
             android:name="com.baidu.android.pushservice.richmedia.MediaViewActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:label="MediaViewActivity" >
-        </activity>
+            android:label="MediaViewActivity"></activity>
         <activity
             android:name="com.baidu.android.pushservice.richmedia.MediaListActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="MediaListActivity"
-            android:launchMode="singleTask" >
-        </activity>
+            android:launchMode="singleTask"></activity>
         <!-- push富媒体结束 -->
 
         <!-- 在百度开发者中心查询应用的API Key -->

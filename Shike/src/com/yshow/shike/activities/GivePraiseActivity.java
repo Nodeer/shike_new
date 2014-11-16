@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
@@ -44,24 +45,23 @@ public class GivePraiseActivity extends BaseActivity implements View.OnClickList
         getPraiseImgs();
         mAdapter = new MyAdapter();
         mGridView.setAdapter(mAdapter);
-        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == mSelectedIndex) {
-                    mSelectedIndex = -1;
-                } else {
-                    mSelectedIndex = position;
-                }
-                Intent it = new Intent();
-                it.putExtra("index", mSelectedIndex);
-                if (mSelectedIndex != -1) {
-                    it.putExtra("data", arrayList.get(mSelectedIndex));
-                }
-                setResult(Activity.RESULT_OK, it);
-                finish();
-//                mAdapter.notifyDataSetChanged();
-            }
-        });
+//        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                if (position == mSelectedIndex) {
+//                    mSelectedIndex = -1;
+//                } else {
+//                    mSelectedIndex = position;
+//                }
+//                Intent it = new Intent();
+//                it.putExtra("index", mSelectedIndex);
+//                if (mSelectedIndex != -1) {
+//                    it.putExtra("data", arrayList.get(mSelectedIndex));
+//                }
+//                setResult(Activity.RESULT_OK, it);
+//                finish();
+//            }
+//        });
     }
 
     /**
@@ -130,14 +130,31 @@ public class GivePraiseActivity extends BaseActivity implements View.OnClickList
         @Override
         public View getView(final int arg0, View arg1, ViewGroup arg2) {
             View view = View.inflate(GivePraiseActivity.this, R.layout.praise_item_view, null);
-            ImageView imageView = (ImageView) view.findViewById(R.id.image);
+            WebView imageView = (WebView) view.findViewById(R.id.web_image);
             ImageView select_icon = (ImageView) view.findViewById(R.id.select_icon);
-            mImageloader.displayImage(arrayList.get(arg0).getFase_url(), imageView, mImageOption);
+
+            imageView.getSettings().setLoadWithOverviewMode(true);
+            imageView.getSettings().setUseWideViewPort(true);
+            imageView.loadUrl(arrayList.get(arg0).getFase_url());
+
             if (arg0 == mSelectedIndex) {
                 select_icon.setVisibility(View.VISIBLE);
             } else {
                 select_icon.setVisibility(View.GONE);
             }
+
+
+            View clickView = view.findViewById(R.id.click_view);
+            clickView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent it = new Intent();
+                    it.putExtra("index", arg0);
+                    it.putExtra("data", arrayList.get(arg0));
+                    setResult(Activity.RESULT_OK, it);
+                    finish();
+                }
+            });
             return view;
         }
 

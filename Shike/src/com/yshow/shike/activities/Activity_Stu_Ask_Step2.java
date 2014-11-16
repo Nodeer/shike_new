@@ -1,6 +1,7 @@
 package com.yshow.shike.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -68,15 +69,14 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
             mBitmap = press_bitmap(imgPath);
             mImageview.setImageBitmap(mBitmap);
         }
-
-        SKStudent aa = LoginManage.getInstance().getStudent();
-        if (aa.gradePart < 2) {//小学1,初中2,高中3.小学生屏蔽物理化学
-            mWuliButton.setEnabled(false);
-            mHuaxueButton.setEnabled(false);
-        } else {
-            mWuliButton.setOnClickListener(this);
-            mHuaxueButton.setOnClickListener(this);
-        }
+//        SKStudent aa = LoginManage.getInstance().getStudent();
+//        if (aa.gradePart < 2) {//小学1,初中2,高中3.小学生屏蔽物理化学
+//            mWuliButton.setEnabled(false);
+//            mHuaxueButton.setEnabled(false);
+//        } else {
+//            mWuliButton.setOnClickListener(this);
+//            mHuaxueButton.setOnClickListener(this);
+//        }
         findViewById(R.id.next_btn).setOnClickListener(this);
     }
 
@@ -96,12 +96,16 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
                 mSubjectId = SubjectIds.YINGYU;
                 break;
             case R.id.wuli_btn:
-                changeSelectBtn(v, 3);
-                mSubjectId = SubjectIds.WULI;
+                if (checkAge()) {
+                    changeSelectBtn(v, 3);
+                    mSubjectId = SubjectIds.WULI;
+                }
                 break;
             case R.id.huaxue_btn:
-                changeSelectBtn(v, 4);
-                mSubjectId = SubjectIds.HUAXUE;
+                if (checkAge()) {
+                    changeSelectBtn(v, 4);
+                    mSubjectId = SubjectIds.HUAXUE;
+                }
                 break;
             case R.id.remark_btn:
                 goRemarkScreen();
@@ -120,6 +124,18 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
                 }
                 break;
         }
+    }
+
+    private boolean checkAge() {
+        SKStudent aa = LoginManage.getInstance().getStudent();
+        if (aa.gradePart < 2) {//小学1,初中2,高中3.小学生屏蔽物理化学
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("小学没有物理和化学,请重新选择科目");
+            builder.setNegativeButton("确定", null);
+            builder.show();
+            return false;
+        }
+        return true;
     }
 
     private void goRemarkScreen() {

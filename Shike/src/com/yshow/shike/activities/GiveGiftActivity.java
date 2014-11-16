@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
@@ -61,11 +62,14 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mSelectedTags[position] = mSelectedTags[position] ? false : true;
-                mAdapter.notifyDataSetChanged();
+
+                ImageView select_img = (ImageView) view.findViewById(R.id.select_icon);
+                select_img.setVisibility(mSelectedTags[position] ? View.VISIBLE : View.GONE);
+
+//                mAdapter.notifyDataSetChanged();
             }
         });
     }
-
 
     private void update_info(String uid) {
         SKAsyncApiController.User_Info(uid, new MyAsyncHttpResponseHandler(this, false) {
@@ -158,18 +162,33 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
         }
 
         @Override
-        public View getView(int arg0, View contentView, ViewGroup arg2) {
+        public View getView(final int arg0, View contentView, ViewGroup arg2) {
             View view = View.inflate(GiveGiftActivity.this, R.layout.give_gift_item, null);
-            ImageView image = (ImageView) view.findViewById(R.id.image);
-            ImageView select_img = (ImageView) view.findViewById(R.id.select_icon);
+            WebView image = (WebView) view.findViewById(R.id.web_image);
+            final ImageView select_img = (ImageView) view.findViewById(R.id.select_icon);
             TextView tv_send_fen = (TextView) view.findViewById(R.id.fenshu_text);
-            mImageloader.displayImage(arrayList.get(arg0).getFaceuri(), image, mImageOption);
+
+            image.getSettings().setLoadWithOverviewMode(true);
+            image.getSettings().setUseWideViewPort(true);
+            image.loadUrl(arrayList.get(arg0).getFaceuri());
+
             tv_send_fen.setText(arrayList.get(arg0).getPoints() + "分");
             if (mSelectedTags[arg0]) {
                 select_img.setVisibility(View.VISIBLE);
             } else {
                 select_img.setVisibility(View.GONE);
             }
+
+
+            View clickView = view.findViewById(R.id.click_view);
+            clickView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mSelectedTags[arg0] = mSelectedTags[arg0] ? false : true;
+                    select_img.setVisibility(mSelectedTags[arg0] ? View.VISIBLE : View.GONE);
+//                    mAdapter.notifyDataSetChanged();
+                }
+            });
             return view;
         }
     }

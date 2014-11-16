@@ -9,20 +9,24 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yshow.shike.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.yshow.shike.entity.SKArea;
+import com.yshow.shike.entity.SKGrade;
+import com.yshow.shike.entity.SKTeacherOrSubject;
 import com.yshow.shike.entity.Star_Teacher_Parse;
+import com.yshow.shike.utils.AreaSeltorUtil;
 import com.yshow.shike.utils.ImageLoadOption;
 import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
-import com.yshow.shike.utils.Net_Servse;
 import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
+import com.yshow.shike.utils.XuekeSelectUtil;
+import com.yshow.shike.utils.XuelingDuanSeltorUtil;
 import com.yshow.shike.widget.XListView;
 
 /**
@@ -34,7 +38,13 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
     private DisplayImageOptions grayOption;
     private ArrayList<Star_Teacher_Parse> mDataList = new ArrayList<Star_Teacher_Parse>();
     private MyAdapter adapter;
-    private XListView mOnlineListView;
+    private ListView mOnlineListView;
+
+    private String mSubjectId = "0";
+    private String mAreaId = "0";
+    private String mJieduanId = "0";
+
+    private TextView jieduanText, xuekeText, diquText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,7 +59,7 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
         imageLoader = ImageLoader.getInstance();
 
 
-        mOnlineListView = (XListView) findViewById(R.id.online_lv);
+        mOnlineListView = (ListView) findViewById(R.id.online_lv);
         adapter = new MyAdapter();
         mOnlineListView.setAdapter(adapter);
 
@@ -63,6 +73,14 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
                 MyTeacherListActivity.this.startActivity(intent);
             }
         });
+        getMyTeacher();
+
+        jieduanText = (TextView) findViewById(R.id.jieduan_text);
+        jieduanText.setOnClickListener(this);
+        xuekeText = (TextView) findViewById(R.id.xueke_text);
+        xuekeText.setOnClickListener(this);
+        diquText = (TextView) findViewById(R.id.diqu_text);
+        diquText.setOnClickListener(this);
 
     }
 
@@ -114,8 +132,8 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
         }
     }
 
-    private void My_Teather() {
-        SKAsyncApiController.My_Taeather_Parse(new MyAsyncHttpResponseHandler(this, true) {
+    private void getMyTeacher() {
+        SKAsyncApiController.My_Taeather_Parse(mJieduanId, mSubjectId, mAreaId, new MyAsyncHttpResponseHandler(this, true) {
             @Override
             public void onSuccess(String json) {
                 super.onSuccess(json);
@@ -125,6 +143,8 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
                     mDataList = my_Teather;
                     if (my_Teather.size() == 0) {
                         findViewById(R.id.nodata_layout).setVisibility(View.VISIBLE);
+                    }else{
+                        findViewById(R.id.nodata_layout).setVisibility(View.GONE);
                     }
                     adapter.notifyDataSetChanged();
                 }
@@ -134,13 +154,117 @@ public class MyTeacherListActivity extends BaseActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        MyTeacherListActivity.this.finish();
+        switch (v.getId()) {
+            case R.id.left_btn:
+                finish();
+                break;
+            case R.id.jieduan_text:
+                getJieDuan();
+                break;
+            case R.id.xueke_text:
+                skGetSubject();
+                break;
+            case R.id.diqu_text:
+                skGetArea();
+                break;
+        }
+    }
+
+    // 获取学龄段
+    private void getJieDuan() {
+        SKAsyncApiController.skGetGrade(new MyAsyncHttpResponseHandler(this, true) {
+            @Override
+            public void onSuccess(final int arg0, final String json) {
+                super.onSuccess(arg0, json);
+                ArrayList<SKGrade> SKGrades = SKResolveJsonUtil.getInstance().resolveGrade(json);
+                SKGrade grade = new SKGrade();
+                grade.setName("不限");
+                grade.setId("0");
+                SKGrades.add(0, grade);
+
+                final XuelingDuanSeltorUtil grade_utils = new XuelingDuanSeltorUtil(MyTeacherListActivity.this, SKGrades);
+                grade_utils.setLeftButtonText("完成");
+                grade_utils.setXuelingSeltorUtilButtonOnclickListening(new XuelingDuanSeltorUtil.XuelingSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        String seltotText = grade_utils.getSeltotText();
+                        jieduanText.setText(seltotText);
+                        mJieduanId = grade_utils.getGradeId();
+                        getMyTeacher();
+                    }
+                });
+                grade_utils.show();
+            }
+        });
     }
 
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        My_Teather();
+    // 联网那一科目为条件的科目
+    private void skGetSubject() {
+        SKAsyncApiController.skGetSubject(new MyAsyncHttpResponseHandler(MyTeacherListActivity.this, true) {
+            @Override
+            public void onSuccess(String arg0) {
+                super.onSuccess(arg0);
+                ArrayList<SKTeacherOrSubject> subjects = SKResolveJsonUtil.getInstance().resolveSubject(arg0);
+                SKTeacherOrSubject skTeacherOrSubject = new SKTeacherOrSubject();
+                skTeacherOrSubject.setName("不限");
+                skTeacherOrSubject.setSubjectId("0");
+                subjects.add(0, skTeacherOrSubject);
+
+
+                final XuekeSelectUtil subjectId = new XuekeSelectUtil(MyTeacherListActivity.this, subjects);
+                subjectId.setLeftButtonText("完成");
+                subjectId.show();
+                subjectId.setAreaSeltorUtilButtonOnclickListening(new XuekeSelectUtil.AreaSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        mSubjectId = subjectId.getGradeId();
+                        xuekeText.setText(subjectId.getSeltotText());
+                        getMyTeacher();
+                    }
+                });
+
+            }
+        });
     }
+
+    private void skGetArea() {
+        SKAsyncApiController.skGetArea(new MyAsyncHttpResponseHandler(MyTeacherListActivity.this, true) {
+            @Override
+            public void onSuccess(String arg0) {
+                super.onSuccess(arg0);
+                ArrayList<SKArea> resolveArea = SKResolveJsonUtil.getInstance().resolveArea(arg0);
+                SKArea skArea = new SKArea();
+                skArea.setId("0");
+                skArea.setName("不限");
+                resolveArea.add(0, skArea);
+
+
+                final AreaSeltorUtil systemDialog = new AreaSeltorUtil(MyTeacherListActivity.this, resolveArea);
+                systemDialog.setLeftButtonText("完成");
+                systemDialog.show();
+                systemDialog.setAreaSeltorUtilButtonOnclickListening(new AreaSeltorUtil.AreaSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        mAreaId = systemDialog.getGradeId();
+                        diquText.setText(systemDialog.getSeltotText());
+                        getMyTeacher();
+                    }
+                });
+            }
+        });
+    }
+
 }

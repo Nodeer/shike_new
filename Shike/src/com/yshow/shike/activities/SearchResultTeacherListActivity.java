@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,8 +15,17 @@ import android.widget.Toast;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yshow.shike.R;
+import com.yshow.shike.entity.SKArea;
+import com.yshow.shike.entity.SKGrade;
+import com.yshow.shike.entity.SKTeacherOrSubject;
 import com.yshow.shike.entity.Star_Teacher_Parse;
+import com.yshow.shike.utils.AreaSeltorUtil;
 import com.yshow.shike.utils.ImageLoadOption;
+import com.yshow.shike.utils.MyAsyncHttpResponseHandler;
+import com.yshow.shike.utils.SKAsyncApiController;
+import com.yshow.shike.utils.SKResolveJsonUtil;
+import com.yshow.shike.utils.XuekeSelectUtil;
+import com.yshow.shike.utils.XuelingDuanSeltorUtil;
 
 import java.util.ArrayList;
 
@@ -31,6 +41,16 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
     private ImageLoader imageLoader;
     private DisplayImageOptions grayOption;
 
+    private String mSubjectId = "0";
+    private String mAreaId = "0";
+    private String mJieduanId = "0";
+
+
+    private String nickname, sex, school;
+
+
+    private TextView jieduanText, xuekeText, diquText;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +60,12 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
         titletext.setText("老师列表");
         findViewById(R.id.left_btn).setOnClickListener(this);
 
+        xuekeText = (TextView) findViewById(R.id.xueke_text);
+        xuekeText.setOnClickListener(this);
+        diquText = (TextView) findViewById(R.id.diqu_text);
+        diquText.setOnClickListener(this);
+        jieduanText = (TextView) findViewById(R.id.jieduan_text);
+        jieduanText.setOnClickListener(this);
 
         ArrayList<Star_Teacher_Parse> list = (ArrayList<Star_Teacher_Parse>) getIntent().getSerializableExtra("data");
 
@@ -47,6 +73,20 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
             Toast.makeText(this, "没有找到符合条件的老师", Toast.LENGTH_SHORT).show();
         }
 
+        Intent it = getIntent();
+        mSubjectId = it.getStringExtra("subjectId");
+        xuekeText.setText(it.getStringExtra("subjectName"));
+        mAreaId = it.getStringExtra("areaId");
+        diquText.setText(it.getStringExtra("areaName"));
+        sex = it.getStringExtra("sex");
+        nickname = it.getStringExtra("nickname");
+        school = it.getStringExtra("school");
+
+        boolean isFromPhone = it.getBooleanExtra("isPhone", false);
+        if (isFromPhone) {
+            LinearLayout layout = (LinearLayout) findViewById(R.id.tiaojian_layout);
+            layout.setVisibility(View.GONE);
+        }
 
         options = ImageLoadOption.getTeaHeadImageOption();
         grayOption = ImageLoadOption.getTeaHeadGrayImageOption();
@@ -65,11 +105,24 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
                 SearchResultTeacherListActivity.this.startActivity(intent);
             }
         });
+
+
     }
 
     @Override
     public void onClick(View v) {
-        finish();
+        switch (v.getId()) {
+            case R.id.left_btn:
+                finish();
+                break;
+            case R.id.xueke_text:
+                skGetSubject();
+                break;
+            case R.id.diqu_text:
+                skGetArea();
+                break;
+
+        }
     }
 
     // listview 适配器
@@ -79,6 +132,11 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
         public MyAdapter(ArrayList<Star_Teacher_Parse> list) {
             super();
             this.list = list;
+        }
+
+        public void setData(ArrayList<Star_Teacher_Parse> list) {
+            this.list = list;
+            notifyDataSetChanged();
         }
 
         @Override
@@ -130,5 +188,116 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
             tv_gerenxinxi.setText(teacher_Parse.getInfo());
             return convertView;
         }
+    }
+
+    private void searchTeachers() {
+        SKAsyncApiController.Searth_Teather_TiaoJian(mJieduanId, nickname, school, mSubjectId,
+                mAreaId, sex, new MyAsyncHttpResponseHandler(this, true) {
+                    @Override
+                    public void onSuccess(String json) {
+                        super.onSuccess(json);
+                        boolean isSuccess = SKResolveJsonUtil.getInstance().resolveIsSuccess(json, SearchResultTeacherListActivity.this);
+                        if (isSuccess) {
+                            ArrayList<Star_Teacher_Parse> list = SKResolveJsonUtil.getInstance().Search_Terms(json);
+                            adapter.setData(list);
+                        }
+                    }
+                });
+    }
+
+    // 获取学龄段
+    private void getJieDuan() {
+        SKAsyncApiController.skGetGrade(new MyAsyncHttpResponseHandler(this, true) {
+            @Override
+            public void onSuccess(final int arg0, final String json) {
+                super.onSuccess(arg0, json);
+                ArrayList<SKGrade> SKGrades = SKResolveJsonUtil.getInstance().resolveGrade(json);
+                SKGrade grade = new SKGrade();
+                grade.setName("不限");
+                grade.setId("0");
+                SKGrades.add(0, grade);
+
+                final XuelingDuanSeltorUtil grade_utils = new XuelingDuanSeltorUtil(SearchResultTeacherListActivity.this, SKGrades);
+                grade_utils.setLeftButtonText("完成");
+                grade_utils.setXuelingSeltorUtilButtonOnclickListening(new XuelingDuanSeltorUtil.XuelingSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        String seltotText = grade_utils.getSeltotText();
+                        jieduanText.setText(seltotText);
+                        mJieduanId = grade_utils.getGradeId();
+                        searchTeachers();
+                    }
+                });
+                grade_utils.show();
+            }
+        });
+    }
+
+    // 联网那一科目为条件的科目
+    private void skGetSubject() {
+        SKAsyncApiController.skGetSubject(new MyAsyncHttpResponseHandler(SearchResultTeacherListActivity.this, true) {
+            @Override
+            public void onSuccess(String arg0) {
+                super.onSuccess(arg0);
+                ArrayList<SKTeacherOrSubject> subjects = SKResolveJsonUtil.getInstance().resolveSubject(arg0);
+                SKTeacherOrSubject skTeacherOrSubject = new SKTeacherOrSubject();
+                skTeacherOrSubject.setName("不限");
+                skTeacherOrSubject.setSubjectId("0");
+                subjects.add(0, skTeacherOrSubject);
+
+
+                final XuekeSelectUtil subjectId = new XuekeSelectUtil(SearchResultTeacherListActivity.this, subjects);
+                subjectId.setLeftButtonText("完成");
+                subjectId.show();
+                subjectId.setAreaSeltorUtilButtonOnclickListening(new XuekeSelectUtil.AreaSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        mSubjectId = subjectId.getGradeId();
+                        xuekeText.setText(subjectId.getSeltotText());
+                        searchTeachers();
+                    }
+                });
+
+            }
+        });
+    }
+
+    private void skGetArea() {
+        SKAsyncApiController.skGetArea(new MyAsyncHttpResponseHandler(SearchResultTeacherListActivity.this, true) {
+            @Override
+            public void onSuccess(String arg0) {
+                super.onSuccess(arg0);
+                ArrayList<SKArea> resolveArea = SKResolveJsonUtil.getInstance().resolveArea(arg0);
+                SKArea skArea = new SKArea();
+                skArea.setId("0");
+                skArea.setName("不限");
+                resolveArea.add(0, skArea);
+
+
+                final AreaSeltorUtil systemDialog = new AreaSeltorUtil(SearchResultTeacherListActivity.this, resolveArea);
+                systemDialog.setLeftButtonText("完成");
+                systemDialog.show();
+                systemDialog.setAreaSeltorUtilButtonOnclickListening(new AreaSeltorUtil.AreaSeltorUtilButtonOnclickListening() {
+                    @Override
+                    public void onClickRight() {
+                    }
+
+                    @Override
+                    public void onClickLeft() {
+                        mAreaId = systemDialog.getGradeId();
+                        diquText.setText(systemDialog.getSeltotText());
+                        searchTeachers();
+                    }
+                });
+            }
+        });
     }
 }

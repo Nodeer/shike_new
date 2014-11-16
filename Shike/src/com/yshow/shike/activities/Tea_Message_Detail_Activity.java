@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -416,34 +417,48 @@ public class Tea_Message_Detail_Activity extends Activity implements OnClickList
         @Override
         public Object instantiateItem(ViewGroup container, final int position) {
             final SkMessage_Res skMessage_Res = reslist.get(position);
-            final String files = skMessage_Res.getFile_tub();
+            final String files = skMessage_Res.getFile();
             View view = View.inflate(Tea_Message_Detail_Activity.this, R.layout.img_page_item, null);
+
             ImageView iv_picture = (ImageView) view.findViewById(R.id.iv_picture);
-            iv_picture.setTag(files);
-            iv_picture.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    String file = skMessage_Res.getFile();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Message_Three", file);
-                    bundle.putSerializable("res", sKMessage.getRes().get(position));
+            ImageView big_img_btn = (ImageView) view.findViewById(R.id.big_img_btn);
+            WebView image = (WebView) view.findViewById(R.id.web_image);
 
-                    if (sKMessage.getMsgType().equals("1")) {// 这里表示是系统消息
-                        bundle.putBoolean("isdone", true);
-                    } else if (hasGetQuestion) {
-                        bundle.putBoolean("isdone", false);
-                    } else if (sKMessage.getClaim_uid().equals("0")) {
-                        bundle.putBoolean("isdone", true);
-                    } else {
-                        bundle.putBoolean("isdone", sKMessage.isDone());
+
+            if (files.endsWith("gif")) {
+                iv_picture.setVisibility(View.GONE);
+                big_img_btn.setVisibility(View.GONE);
+                image.setVisibility(View.VISIBLE);
+                image.getSettings().setLoadWithOverviewMode(true);
+                image.getSettings().setUseWideViewPort(true);
+                image.loadUrl(files);
+            } else {
+                iv_picture.setTag(files);
+                iv_picture.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View arg0) {
+                        String file = skMessage_Res.getFile();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("Message_Three", file);
+                        bundle.putSerializable("res", sKMessage.getRes().get(position));
+
+                        if (sKMessage.getMsgType().equals("1")) {// 这里表示是系统消息
+                            bundle.putBoolean("isdone", true);
+                        } else if (hasGetQuestion) {
+                            bundle.putBoolean("isdone", false);
+                        } else if (sKMessage.getClaim_uid().equals("0")) {
+                            bundle.putBoolean("isdone", true);
+                        } else {
+                            bundle.putBoolean("isdone", sKMessage.isDone());
+                        }
+
+                        Intent intent = new Intent(context, ImageActivity.class);
+                        intent.putExtras(bundle);
+                        startActivityForResult(intent, 1);
                     }
-
-                    Intent intent = new Intent(context, ImageActivity.class);
-                    intent.putExtras(bundle);
-                    startActivityForResult(intent, 1);
-                }
-            });
-            imageLoader.displayImage(files, iv_picture, options);
+                });
+                imageLoader.displayImage(files, iv_picture, options);
+            }
             container.addView(view);
             return view;
         }
