@@ -483,7 +483,6 @@ com.yshow.shike.activities.ImageActivity:
     147:159:private void addVoiceLayout()
 com.yshow.shike.activities.PublishImageActivity:
     private android.widget.TextView tea_end
-com.yshow.shike.activities.Stu_madequestionFragment
 com.yshow.shike.activities.Student_Main_Activity:
     private android.support.v4.app.FragmentTransaction ft
 com.yshow.shike.activities.TeacherExchangeMoneyActivity:
@@ -558,9 +557,6 @@ com.yshow.shike.widget.StuTapeImage:
     37:39:public StuTapeImage(android.content.Context,android.util.AttributeSet)
     42:44:public StuTapeImage(android.content.Context,android.util.AttributeSet,int)
     135:135:public void startPlaying()
-com.yshow.shike.widget.TopAndBottomLoadListView
-com.yshow.shike.widget.TopAndBottomLoadListView$OnLoadListener
-com.yshow.shike.widget.TopAndBottomLoadListView$OnRefreshListener
 com.yshow.shike.widget.XListView:
     private static final int SCROLLBACK_HEADER
     private static final int SCROLLBACK_FOOTER
