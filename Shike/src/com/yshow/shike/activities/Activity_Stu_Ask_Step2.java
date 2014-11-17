@@ -52,7 +52,9 @@ public class Activity_Stu_Ask_Step2 extends BaseActivity implements View.OnClick
         mYingyuButton = (RelativeLayout) findViewById(R.id.yingyu_btn);
         mYingyuButton.setOnClickListener(this);
         mWuliButton = (RelativeLayout) findViewById(R.id.wuli_btn);
+        mWuliButton.setOnClickListener(this);
         mHuaxueButton = (RelativeLayout) findViewById(R.id.huaxue_btn);
+        mHuaxueButton.setOnClickListener(this);
 
         mYuwenSelectIcon = (ImageView) findViewById(R.id.yuwen_select_icon);
         mShuxueSelectIcon = (ImageView) findViewById(R.id.shuxue_select_icon);

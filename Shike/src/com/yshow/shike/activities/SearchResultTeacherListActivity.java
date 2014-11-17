@@ -121,6 +121,9 @@ public class SearchResultTeacherListActivity extends BaseActivity implements Vie
             case R.id.diqu_text:
                 skGetArea();
                 break;
+            case R.id.jieduan_text:
+                getJieDuan();
+                break;
 
         }
     }

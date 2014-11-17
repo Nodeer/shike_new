@@ -26,6 +26,14 @@
             android:visibility="gone"
             android:src="@drawable/checked_icon" />
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressbar"
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_centerInParent="true"
+            />
+
         <View
             android:layout_width="100dp"
             android:layout_height="100dp"

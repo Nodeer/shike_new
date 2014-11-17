@@ -2,14 +2,17 @@ package com.yshow.shike.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -132,6 +135,23 @@ public class GivePraiseActivity extends BaseActivity implements View.OnClickList
             View view = View.inflate(GivePraiseActivity.this, R.layout.praise_item_view, null);
             WebView imageView = (WebView) view.findViewById(R.id.web_image);
             ImageView select_icon = (ImageView) view.findViewById(R.id.select_icon);
+
+
+            final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressbar);
+
+            imageView.setWebViewClient(new WebViewClient(){
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+                    progressBar.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                    super.onPageStarted(view, url, favicon);
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+            });
 
             imageView.getSettings().setLoadWithOverviewMode(true);
             imageView.getSettings().setUseWideViewPort(true);

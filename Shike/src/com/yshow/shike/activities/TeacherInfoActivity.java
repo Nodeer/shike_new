@@ -53,6 +53,8 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
 
     private User_Info my_teather;
 
+    private boolean isFromMyTeacher = false;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +64,8 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
 
     private void initDate() {
         context = this;
+
+        isFromMyTeacher = getIntent().getBooleanExtra("ismyTeacher", false);
 
         TextView titletext = (TextView) findViewById(R.id.title_text);
         titletext.setText("老师信息");
@@ -123,7 +127,11 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
                     tv_shike_fen.setText("接题次数：" + my_teather.getClaim_question_num());
                     tv_zan_shu.setText("学生赞美：" + my_teather.getLike_num());
                     if (my_teather.is_myteacher) {
-                        tv_attention.setText("取消关注");
+                        if (isFromMyTeacher) {
+                            tv_attention.setText("取消关注");
+                        } else {
+                            tv_attention.setText("已关注");
+                        }
                         guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_balck);
                         guanzhuBtn.setBackgroundResource(R.drawable.gray_btn_bg);
                         flag = true;
@@ -174,13 +182,17 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
         }
     }
 
-    // 取消老师 联网操作
+    // 关注老师 联网操作
     private void Teather_Info_Attention() {
         SKAsyncApiController.Attention_Taeather_Parse(teaUid, new MyAsyncHttpResponseHandler(this, true) {
             public void onSuccess(int arg0, String jion) {
                 boolean success = SKResolveJsonUtil.getInstance().resolveIsSuccess(jion, context);
                 if (success) {
-                    tv_attention.setText("取消关注");
+                    if (isFromMyTeacher) {
+                        tv_attention.setText("取消关注");
+                    } else {
+                        tv_attention.setText("已关注");
+                    }
                     guanzhuImg.setImageResource(R.drawable.guanzhu_big_icon_balck);
                     guanzhuBtn.setBackgroundResource(R.drawable.gray_btn_bg);
                     flag = true;
@@ -190,7 +202,7 @@ public class TeacherInfoActivity extends BaseActivity implements OnClickListener
         });
     }
 
-    // 关注老师 联网操作
+    // 取消关注老师 联网操作
     private void Teather_Info_QuXiao() {
         SKAsyncApiController.Qu_Xiao_GuanZhu(teaUid, new MyAsyncHttpResponseHandler(this, true) {
             public void onSuccess(String jion) {
