@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -58,6 +60,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import pl.droidsonroids.gif.GifImageView;
 
 /**
  * 学生进入的消息交互页面
@@ -431,17 +435,18 @@ public class Stu_Message_Detail_Activity extends BaseActivity implements OnClick
             View view = View.inflate(Stu_Message_Detail_Activity.this, R.layout.img_page_item, null);
             ImageView iv_picture = (ImageView) view.findViewById(R.id.iv_picture);
             ImageView big_img_btn = (ImageView) view.findViewById(R.id.big_img_btn);
-            WebView image = (WebView) view.findViewById(R.id.web_image);
+            GifImageView image = (GifImageView) view.findViewById(R.id.gif_image);
 
             if (files.endsWith("gif")) {
                 iv_picture.setVisibility(View.GONE);
                 big_img_btn.setVisibility(View.GONE);
                 image.setVisibility(View.VISIBLE);
-
-                image.getSettings().setLoadWithOverviewMode(true);
-                image.getSettings().setUseWideViewPort(true);
-                image.loadUrl(files);
-
+                int resId = getResources().getIdentifier("gif" + skMessage_Res.getFileId(), "drawable", getPackageName());
+                if (resId != 0) {
+                    image.setImageResource(resId);
+                } else {
+                    image.setImageDrawable(new ColorDrawable(Color.WHITE));
+                }
             } else {
                 iv_picture.setVisibility(View.VISIBLE);
                 big_img_btn.setVisibility(View.VISIBLE);

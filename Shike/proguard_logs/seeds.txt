@@ -10364,6 +10364,7 @@ com.yshow.shike.R$drawable: int about_wentifankui_icon
 com.yshow.shike.R$drawable: int account_bg
 com.yshow.shike.R$drawable: int account_nor
 com.yshow.shike.R$drawable: int account_press
+com.yshow.shike.R$drawable: int ag
 com.yshow.shike.R$drawable: int back
 com.yshow.shike.R$drawable: int back11
 com.yshow.shike.R$drawable: int back12
@@ -10701,6 +10702,7 @@ com.yshow.shike.R$id: int bv_view_task_progress_dialog_loading
 com.yshow.shike.R$id: int camera_btn
 com.yshow.shike.R$id: int card_charge_btn
 com.yshow.shike.R$id: int card_pass_edit
+com.yshow.shike.R$id: int click_view
 com.yshow.shike.R$id: int confirm_btn
 com.yshow.shike.R$id: int content
 com.yshow.shike.R$id: int content_frame
@@ -10811,7 +10813,6 @@ com.yshow.shike.R$id: int iv_stu_dele
 com.yshow.shike.R$id: int iv_stu_delete
 com.yshow.shike.R$id: int iv_student_delete
 com.yshow.shike.R$id: int iv_tea_delete
-com.yshow.shike.R$id: int iv_teather_isonline
 com.yshow.shike.R$id: int iv_teather_picture
 com.yshow.shike.R$id: int iv_three_delete
 com.yshow.shike.R$id: int iv_three_item
@@ -10857,7 +10858,6 @@ com.yshow.shike.R$id: int ll_back
 com.yshow.shike.R$id: int ll_file
 com.yshow.shike.R$id: int ll_info
 com.yshow.shike.R$id: int ll_my_board_back
-com.yshow.shike.R$id: int ll_my_teather
 com.yshow.shike.R$id: int ll_paizhao
 com.yshow.shike.R$id: int ll_recharge_five_qian
 com.yshow.shike.R$id: int ll_recharge_one_five
@@ -10927,6 +10927,7 @@ com.yshow.shike.R$id: int phn_name
 com.yshow.shike.R$id: int phone_search_btn
 com.yshow.shike.R$id: int phonenum
 com.yshow.shike.R$id: int pop_layout
+com.yshow.shike.R$id: int progressbar
 com.yshow.shike.R$id: int re_five_bai
 com.yshow.shike.R$id: int re_five_qain
 com.yshow.shike.R$id: int re_one_qian
@@ -11024,6 +11025,7 @@ com.yshow.shike.R$id: int teacomm_anim
 com.yshow.shike.R$id: int teather_stu_picture
 com.yshow.shike.R$id: int ti_ban
 com.yshow.shike.R$id: int ti_ku_itme1
+com.yshow.shike.R$id: int tiaojian_layout
 com.yshow.shike.R$id: int tiku_btn
 com.yshow.shike.R$id: int tishi
 com.yshow.shike.R$id: int title_layout
@@ -11169,6 +11171,7 @@ com.yshow.shike.R$id: int vp_file_three
 com.yshow.shike.R$id: int vp_ques_coun
 com.yshow.shike.R$id: int vp_second
 com.yshow.shike.R$id: int webView
+com.yshow.shike.R$id: int web_image
 com.yshow.shike.R$id: int webview
 com.yshow.shike.R$id: int wenti_fankui_btn
 com.yshow.shike.R$id: int wuli_btn
@@ -12012,6 +12015,7 @@ com.yshow.shike.entity.SKStudent: java.lang.String toGradeId
 com.yshow.shike.entity.SKStudent: java.lang.String icon
 com.yshow.shike.entity.SKStudent: java.lang.String Paper
 com.yshow.shike.entity.SKStudent: java.io.InputStream stream
+com.yshow.shike.entity.SKStudent: int gradePart
 com.yshow.shike.entity.SKStudent: java.lang.String reference
 com.yshow.shike.entity.SKStudent: java.lang.String getPaper()
 com.yshow.shike.entity.SKStudent: void setPaper(java.lang.String)
@@ -13411,7 +13415,7 @@ com.yshow.shike.utils.SKAsyncApiController: void ChongFa(java.lang.String,java.l
 com.yshow.shike.utils.SKAsyncApiController: void skCancel_messge(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void skDonemessge(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Attention_Taeather_Parse(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
-com.yshow.shike.utils.SKAsyncApiController: void My_Taeather_Parse(com.loopj.android.http.AsyncHttpResponseHandler)
+com.yshow.shike.utils.SKAsyncApiController: void My_Taeather_Parse(java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void recommend_teather(java.lang.String,java.lang.String,java.lang.String,int,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void User_Info(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void getBitmap(java.lang.String,java.io.File)
@@ -13430,7 +13434,7 @@ com.yshow.shike.utils.SKAsyncApiController: void Feed_Back(java.lang.String,com.
 com.yshow.shike.utils.SKAsyncApiController: void Function_Introduce(com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Sof_Info(com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Searth_Teather_Mob(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
-com.yshow.shike.utils.SKAsyncApiController: void Searth_Teather_TiaoJian(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
+com.yshow.shike.utils.SKAsyncApiController: void Searth_Teather_TiaoJian(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Qu_Xiao_GuanZhu(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Delete_Bank(java.lang.String,com.loopj.android.http.AsyncHttpResponseHandler)
 com.yshow.shike.utils.SKAsyncApiController: void Acquire_File(com.loopj.android.http.AsyncHttpResponseHandler)
@@ -13479,6 +13483,7 @@ com.yshow.shike.utils.SKResolveJsonUtil: android.os.Handler handler
 com.yshow.shike.utils.SKResolveJsonUtil: SKResolveJsonUtil()
 com.yshow.shike.utils.SKResolveJsonUtil: com.yshow.shike.utils.SKResolveJsonUtil getInstance()
 com.yshow.shike.utils.SKResolveJsonUtil: boolean resolveIsSuccess(java.lang.String,android.content.Context)
+com.yshow.shike.utils.SKResolveJsonUtil: java.lang.String resolveTakeQuestion(java.lang.String,android.content.Context)
 com.yshow.shike.utils.SKResolveJsonUtil: boolean resolveIsSuccess(java.lang.String)
 com.yshow.shike.utils.SKResolveJsonUtil: com.yshow.shike.entity.SKStudent resolveLoginInfo(java.lang.String)
 com.yshow.shike.utils.SKResolveJsonUtil: java.util.ArrayList resolveGrade(java.lang.String)
@@ -13854,14 +13859,6 @@ com.yshow.shike.utils.XuelingDuanSeltorUtil$CountryAdapter: java.lang.CharSequen
 com.yshow.shike.utils.XuelingDuanSeltorUtil$XuelingSeltorUtilButtonOnclickListening
 com.yshow.shike.utils.XuelingDuanSeltorUtil$XuelingSeltorUtilButtonOnclickListening: void onClickLeft()
 com.yshow.shike.utils.XuelingDuanSeltorUtil$XuelingSeltorUtilButtonOnclickListening: void onClickRight()
-com.yshow.shike.utils.YD
-com.yshow.shike.utils.YD: com.yshow.shike.utils.YD yd
-com.yshow.shike.utils.YD: YD()
-com.yshow.shike.utils.YD: com.yshow.shike.utils.YD getInstence()
-com.yshow.shike.utils.YD: void setYD(android.view.View$OnClickListener,android.content.Context,android.view.View,android.view.View)
-com.yshow.shike.utils.YD: void setTea_YD_Tool(android.view.View$OnClickListener,android.content.Context,java.lang.String,android.view.View,android.view.View)
-com.yshow.shike.utils.YD: boolean getYD(android.content.Context,java.lang.String,java.lang.Boolean)
-com.yshow.shike.utils.YD: void <clinit>()
 com.yshow.shike.widget.GalleryView
 com.yshow.shike.widget.GalleryView: GalleryView(android.content.Context,android.util.AttributeSet)
 com.yshow.shike.widget.GalleryView: void setOnItemClickListaner(com.yshow.shike.widget.MyPagerAdapter$OnMyClickListener)
@@ -13885,6 +13882,8 @@ com.yshow.shike.widget.StuTapeImage: void setVoicePath(java.lang.String)
 com.yshow.shike.widget.StuTapeImage: java.lang.String getVoicePath()
 com.yshow.shike.widget.StuTapeImage: void setmVoiceImageClickListener(com.yshow.shike.widget.StuTapeImage$VoiceImageClickListener)
 com.yshow.shike.widget.StuTapeImage: void setDelVisiable(boolean)
+com.yshow.shike.widget.StuTapeImage: void setIsRead(boolean)
+com.yshow.shike.widget.StuTapeImage: boolean getIsRead()
 com.yshow.shike.widget.XListView
 com.yshow.shike.widget.XListView: XListView(android.content.Context)
 com.yshow.shike.widget.XListView: XListView(android.content.Context,android.util.AttributeSet)
@@ -13970,6 +13969,35 @@ kankan.wheel.widget.adapters.NumericWheelAdapter: NumericWheelAdapter(android.co
 kankan.wheel.widget.adapters.NumericWheelAdapter: NumericWheelAdapter(android.content.Context,int,int,java.lang.String)
 kankan.wheel.widget.adapters.NumericWheelAdapter: java.lang.CharSequence getItemText(int)
 kankan.wheel.widget.adapters.NumericWheelAdapter: int getItemsCount()
+pl.droidsonroids.gif.GifDrawable
+pl.droidsonroids.gif.GifDrawable: void renderFrame(int[],int,int[])
+pl.droidsonroids.gif.GifDrawable: int openFd(int[],java.io.FileDescriptor,long)
+pl.droidsonroids.gif.GifDrawable: int openByteArray(int[],byte[])
+pl.droidsonroids.gif.GifDrawable: int openDirectByteBuffer(int[],java.nio.ByteBuffer)
+pl.droidsonroids.gif.GifDrawable: int openStream(int[],java.io.InputStream)
+pl.droidsonroids.gif.GifDrawable: int openFile(int[],java.lang.String)
+pl.droidsonroids.gif.GifDrawable: void free(int)
+pl.droidsonroids.gif.GifDrawable: boolean reset(int)
+pl.droidsonroids.gif.GifDrawable: void setSpeedFactor(int,float)
+pl.droidsonroids.gif.GifDrawable: java.lang.String getComment(int)
+pl.droidsonroids.gif.GifDrawable: int getLoopCount(int)
+pl.droidsonroids.gif.GifDrawable: int getDuration(int)
+pl.droidsonroids.gif.GifDrawable: int getCurrentPosition(int)
+pl.droidsonroids.gif.GifDrawable: int seekToTime(int,int,int[])
+pl.droidsonroids.gif.GifDrawable: int seekToFrame(int,int,int[])
+pl.droidsonroids.gif.GifDrawable: int saveRemainder(int)
+pl.droidsonroids.gif.GifDrawable: int restoreRemainder(int)
+pl.droidsonroids.gif.GifDrawable: long getAllocationByteCount(int)
+pl.droidsonroids.gif.GifError: pl.droidsonroids.gif.GifError[] values()
+pl.droidsonroids.gif.GifError: pl.droidsonroids.gif.GifError valueOf(java.lang.String)
+pl.droidsonroids.gif.GifImageButton: void setImageResource(int)
+pl.droidsonroids.gif.GifImageButton: void setBackgroundResource(int)
+pl.droidsonroids.gif.GifImageButton: void setImageURI(android.net.Uri)
+pl.droidsonroids.gif.GifImageView: void setImageResource(int)
+pl.droidsonroids.gif.GifImageView: void setBackgroundResource(int)
+pl.droidsonroids.gif.GifImageView: void setImageURI(android.net.Uri)
+pl.droidsonroids.gif.GifTextView: void setBackgroundInternal(android.graphics.drawable.Drawable)
+pl.droidsonroids.gif.GifTextView: void setBackgroundResource(int)
 u.aly.G: u.aly.G[] values()
 u.aly.G: u.aly.G valueOf(java.lang.String)
 u.aly.H$e: u.aly.H$e[] values()

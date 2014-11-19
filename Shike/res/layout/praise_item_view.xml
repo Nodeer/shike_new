@@ -9,37 +9,19 @@
         android:layout_margin="5dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content">
-
-        <WebView
+        <pl.droidsonroids.gif.GifImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:id="@+id/web_image" />
+            android:id="@+id/gif_image" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/select_icon"
-            android:layout_alignRight="@id/web_image"
-            android:layout_alignTop="@id/web_image"
+            android:layout_alignRight="@id/gif_image"
+            android:layout_alignTop="@id/gif_image"
             android:visibility="gone"
             android:src="@drawable/checked_icon" />
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressbar"
-            style="@android:style/Widget.ProgressBar.Small"
-            android:layout_centerInParent="true"
-            />
-
-        <View
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/click_view"
-            />
-
     </RelativeLayout>
 
 

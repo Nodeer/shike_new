@@ -3,6 +3,8 @@ package com.yshow.shike.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,8 @@ import com.yshow.shike.utils.SKResolveJsonUtil;
 
 import java.util.ArrayList;
 
+import pl.droidsonroids.gif.GifImageView;
+
 /**
  * Created by Administrator on 2014-10-25.
  */
@@ -48,23 +52,19 @@ public class GivePraiseActivity extends BaseActivity implements View.OnClickList
         getPraiseImgs();
         mAdapter = new MyAdapter();
         mGridView.setAdapter(mAdapter);
-//        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                if (position == mSelectedIndex) {
-//                    mSelectedIndex = -1;
-//                } else {
-//                    mSelectedIndex = position;
-//                }
-//                Intent it = new Intent();
-//                it.putExtra("index", mSelectedIndex);
-//                if (mSelectedIndex != -1) {
-//                    it.putExtra("data", arrayList.get(mSelectedIndex));
-//                }
-//                setResult(Activity.RESULT_OK, it);
-//                finish();
-//            }
-//        });
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mSelectedIndex = position;
+                Intent it = new Intent();
+                it.putExtra("index", mSelectedIndex);
+                if (mSelectedIndex != -1) {
+                    it.putExtra("data", arrayList.get(mSelectedIndex));
+                }
+                setResult(Activity.RESULT_OK, it);
+                finish();
+            }
+        });
     }
 
     /**
@@ -132,50 +132,25 @@ public class GivePraiseActivity extends BaseActivity implements View.OnClickList
 
         @Override
         public View getView(final int arg0, View arg1, ViewGroup arg2) {
-            View view = View.inflate(GivePraiseActivity.this, R.layout.praise_item_view, null);
-            WebView imageView = (WebView) view.findViewById(R.id.web_image);
-            ImageView select_icon = (ImageView) view.findViewById(R.id.select_icon);
+            if (arg1 == null) {
+                arg1 = View.inflate(GivePraiseActivity.this, R.layout.praise_item_view, null);
+            }
+            GifImageView imageView = (GifImageView) arg1.findViewById(R.id.gif_image);
+            ImageView select_icon = (ImageView) arg1.findViewById(R.id.select_icon);
 
-
-            final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressbar);
-
-            imageView.setWebViewClient(new WebViewClient(){
-                @Override
-                public void onPageFinished(WebView view, String url) {
-                    super.onPageFinished(view, url);
-                    progressBar.setVisibility(View.GONE);
-                }
-
-                @Override
-                public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                    super.onPageStarted(view, url, favicon);
-                    progressBar.setVisibility(View.VISIBLE);
-                }
-            });
-
-            imageView.getSettings().setLoadWithOverviewMode(true);
-            imageView.getSettings().setUseWideViewPort(true);
-            imageView.loadUrl(arrayList.get(arg0).getFase_url());
+            int resId = getResources().getIdentifier("gif" + arrayList.get(arg0).getFileId(), "drawable", getPackageName());
+            if (resId != 0) {
+                imageView.setImageResource(resId);
+            } else {
+                imageView.setImageDrawable(new ColorDrawable(Color.WHITE));
+            }
 
             if (arg0 == mSelectedIndex) {
                 select_icon.setVisibility(View.VISIBLE);
             } else {
                 select_icon.setVisibility(View.GONE);
             }
-
-
-            View clickView = view.findViewById(R.id.click_view);
-            clickView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent it = new Intent();
-                    it.putExtra("index", arg0);
-                    it.putExtra("data", arrayList.get(arg0));
-                    setResult(Activity.RESULT_OK, it);
-                    finish();
-                }
-            });
-            return view;
+            return arg1;
         }
 
     }

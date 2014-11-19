@@ -3,6 +3,8 @@ package com.yshow.shike.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,8 @@ import com.yshow.shike.utils.SKAsyncApiController;
 import com.yshow.shike.utils.SKResolveJsonUtil;
 
 import java.util.ArrayList;
+
+import pl.droidsonroids.gif.GifImageView;
 
 /**
  * Created by Administrator on 2014-10-25.
@@ -69,7 +73,7 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
                 ImageView select_img = (ImageView) view.findViewById(R.id.select_icon);
                 select_img.setVisibility(mSelectedTags[position] ? View.VISIBLE : View.GONE);
 
-//                mAdapter.notifyDataSetChanged();
+                mAdapter.notifyDataSetChanged();
             }
         });
     }
@@ -136,7 +140,7 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
             }
             if (mSelcetFileIds.length() != 0) {
                 mSelcetFileIds.deleteCharAt(mSelcetFileIds.length() - 1);
-                url = arrayList.get(lastFileid).getFaceuri();
+                url = arrayList.get(lastFileid).getFileId();
             }
         }
     }
@@ -166,30 +170,20 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
 
         @Override
         public View getView(final int arg0, View contentView, ViewGroup arg2) {
-            View view = View.inflate(GiveGiftActivity.this, R.layout.give_gift_item, null);
-            WebView image = (WebView) view.findViewById(R.id.web_image);
-            final ImageView select_img = (ImageView) view.findViewById(R.id.select_icon);
-            TextView tv_send_fen = (TextView) view.findViewById(R.id.fenshu_text);
+            if (contentView == null) {
+                contentView = View.inflate(GiveGiftActivity.this, R.layout.give_gift_item, null);
+            }
+            GifImageView image = (GifImageView) contentView.findViewById(R.id.gif_image);
+            final ImageView select_img = (ImageView) contentView.findViewById(R.id.select_icon);
+            TextView tv_send_fen = (TextView) contentView.findViewById(R.id.fenshu_text);
 
-            final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressbar);
 
-            image.setWebViewClient(new WebViewClient(){
-                @Override
-                public void onPageFinished(WebView view, String url) {
-                    super.onPageFinished(view, url);
-                    progressBar.setVisibility(View.GONE);
-                }
-
-                @Override
-                public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                    super.onPageStarted(view, url, favicon);
-                    progressBar.setVisibility(View.VISIBLE);
-                }
-            });
-
-            image.getSettings().setLoadWithOverviewMode(true);
-            image.getSettings().setUseWideViewPort(true);
-            image.loadUrl(arrayList.get(arg0).getFaceuri());
+            int resId = getResources().getIdentifier("gif" + arrayList.get(arg0).getFileId(), "drawable", getPackageName());
+            if (resId != 0) {
+                image.setImageResource(resId);
+            } else {
+                image.setImageDrawable(new ColorDrawable(Color.WHITE));
+            }
 
             tv_send_fen.setText(arrayList.get(arg0).getPoints() + "分");
             if (mSelectedTags[arg0]) {
@@ -197,18 +191,7 @@ public class GiveGiftActivity extends BaseActivity implements View.OnClickListen
             } else {
                 select_img.setVisibility(View.GONE);
             }
-
-
-            View clickView = view.findViewById(R.id.click_view);
-            clickView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mSelectedTags[arg0] = mSelectedTags[arg0] ? false : true;
-                    select_img.setVisibility(mSelectedTags[arg0] ? View.VISIBLE : View.GONE);
-//                    mAdapter.notifyDataSetChanged();
-                }
-            });
-            return view;
+            return contentView;
         }
     }
 

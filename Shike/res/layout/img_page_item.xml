@@ -11,14 +11,12 @@
         android:layout_height="fill_parent"
         android:scaleType="centerCrop" />
 
-    <WebView
+    <pl.droidsonroids.gif.GifImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/web_image"
-        android:focusable="false"
+        android:id="@+id/gif_image"
         android:visibility="gone"
-        android:focusableInTouchMode="false"
-        ></WebView>
+        />
 
     <ImageView
         android:id="@+id/big_img_btn"

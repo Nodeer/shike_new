@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,6 +26,8 @@ import com.yshow.shike.utils.SKResolveJsonUtil;
 
 import java.util.ArrayList;
 
+import pl.droidsonroids.gif.GifImageView;
+
 /**
  * Created by Administrator on 2014-10-25.
  */
@@ -43,7 +47,7 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
 
     private Fase_Packs mFaceModel;
 
-    private ImageView mGiftImg, appraise_img;
+    private GifImageView mGiftImg, appraise_img;
 
     private ImageLoader mImageLoader;
 
@@ -56,8 +60,8 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
         findViewById(R.id.next_btn).setOnClickListener(this);
         findViewById(R.id.give_gift_btn).setOnClickListener(this);
         findViewById(R.id.give_praise_btn).setOnClickListener(this);
-        mGiftImg = (ImageView) findViewById(R.id.gift_img);
-        appraise_img = (ImageView) findViewById(R.id.appraise_img);
+        mGiftImg = (GifImageView) findViewById(R.id.gift_img);
+        appraise_img = (GifImageView) findViewById(R.id.appraise_img);
         mImageLoader = ImageLoader.getInstance();
         message = (SKMessage) getIntent().getExtras().getSerializable("message");
         if (message != null) {
@@ -312,17 +316,28 @@ public class AppraiseMainActivity extends BaseActivity implements View.OnClickLi
                 int index = data.getIntExtra("index", -1);
                 if (index != -1) {
                     mFaceModel = (Fase_Packs) data.getSerializableExtra("data");
-                    mImageLoader.displayImage(mFaceModel.getFase_url(), appraise_img);
+                    int resId = getResources().getIdentifier("gif" + mFaceModel.getFileId(), "drawable", getPackageName());
+                    if (resId != 0) {
+                        appraise_img.setImageResource(resId);
+                    } else {
+                        appraise_img.setImageResource(R.drawable.icon_give_praise);
+                    }
                 } else {
                     mFaceModel = null;
+                    appraise_img.setImageResource(R.drawable.icon_give_praise);
                 }
             } else if (requestCode == GIVE_GIFT) {
                 count = data.getIntExtra("count", 0);
                 if (count != 0) {
                     String files = data.getStringExtra("data");
                     Jifen_file_id = files.split(",");
-                    String url = data.getStringExtra("url");
-                    mImageLoader.displayImage(url, mGiftImg);
+                    String url = data.getStringExtra("url");//这里已经改成fileId了
+                    int resId = getResources().getIdentifier("gif" + url, "drawable", getPackageName());
+                    if (resId != 0) {
+                        mGiftImg.setImageResource(resId);
+                    } else {
+                        mGiftImg.setImageResource(R.drawable.icon_give_gift);
+                    }
                 } else {
                     Jifen_file_id = new String[0];
                     mGiftImg.setImageResource(R.drawable.icon_give_gift);

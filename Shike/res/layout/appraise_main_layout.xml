@@ -85,7 +85,7 @@
                 android:layout_toRightOf="@id/left_text"
                 android:layout_toLeftOf="@id/right_arrow">
 
-                <ImageView
+                <pl.droidsonroids.gif.GifImageView
                     android:id="@+id/appraise_img"
                     android:layout_width="100dp"
                     android:layout_gravity="center"
@@ -143,7 +143,7 @@
                 android:layout_toRightOf="@id/left_text"
                 android:layout_toLeftOf="@id/right_arrow">
 
-                <ImageView
+                <pl.droidsonroids.gif.GifImageView
                     android:layout_width="100dp"
                     android:layout_gravity="center"
                     android:id="@+id/gift_img"

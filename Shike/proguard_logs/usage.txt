@@ -488,9 +488,6 @@ com.yshow.shike.activities.Student_Main_Activity:
 com.yshow.shike.activities.TeacherExchangeMoneyActivity:
     164:171:private void refreshUserInfo()
 com.yshow.shike.activities.TeacherExchangeMoneyActivity$4
-com.yshow.shike.activities.TeacherInfoActivity:
-    private java.lang.String myteather
-    private boolean isMyTeacher
 com.yshow.shike.activities.Teather_Main_Activity:
     private android.support.v4.app.FragmentTransaction ft
     private android.app.Dialog dialog
@@ -507,8 +504,10 @@ com.yshow.shike.customview.CustomListView:
     private static final int DONE
     private static final int LOADING
     private static final int RADIO
-com.yshow.shike.db.DatabaseDao:
-    26:31:public void insert(java.lang.String)
+com.yshow.shike.db.VoiceDatabaseDao:
+    private java.lang.String result
+    private java.util.List voide_list
+    41:51:public java.util.List Query()
     60:68:public java.lang.String Query_Condition(java.lang.String)
 com.yshow.shike.fragments.Fragment_Student_GuanYu:
     private android.widget.TextView tv_wenti_send
@@ -554,9 +553,9 @@ com.yshow.shike.widget.MatrixImageview:
     private static final int DRAG
     private static final int ZOOM
 com.yshow.shike.widget.StuTapeImage:
-    37:39:public StuTapeImage(android.content.Context,android.util.AttributeSet)
-    42:44:public StuTapeImage(android.content.Context,android.util.AttributeSet,int)
-    135:135:public void startPlaying()
+    38:40:public StuTapeImage(android.content.Context,android.util.AttributeSet)
+    43:45:public StuTapeImage(android.content.Context,android.util.AttributeSet,int)
+    144:144:public void startPlaying()
 com.yshow.shike.widget.XListView:
     private static final int SCROLLBACK_HEADER
     private static final int SCROLLBACK_FOOTER
@@ -591,6 +590,19 @@ kankan.wheel.widget.WheelView:
     312:313:public void removeClickingListener(kankan.wheel.widget.OnWheelClickedListener)
     878:879:public void stopScrolling()
 kankan.wheel.widget.adapters.AdapterWheel
+pl.droidsonroids.gif.BuildConfig
+pl.droidsonroids.gif.GifDrawable
+pl.droidsonroids.gif.GifDrawable$1
+pl.droidsonroids.gif.GifDrawable$2
+pl.droidsonroids.gif.GifDrawable$3
+pl.droidsonroids.gif.GifDrawable$4
+pl.droidsonroids.gif.GifDrawable$5
+pl.droidsonroids.gif.GifDrawable$6
+pl.droidsonroids.gif.GifError
+pl.droidsonroids.gif.GifIOException
+pl.droidsonroids.gif.GifImageButton
+pl.droidsonroids.gif.GifImageView
+pl.droidsonroids.gif.GifTextView
 u.aly.A:
     private static final long e
     21:21:public java.lang.String a()
