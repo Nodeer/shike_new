@@ -15021,33 +15021,49 @@ kankan.wheel.widget.adapters.WheelViewAdapter -> kankan.wheel.widget.a.e:
     android.view.View getEmptyItem(android.view.View,android.view.ViewGroup) -> getEmptyItem
     void registerDataSetObserver(android.database.DataSetObserver) -> registerDataSetObserver
     void unregisterDataSetObserver(android.database.DataSetObserver) -> unregisterDataSetObserver
+pl.droidsonroids.gif.BuildConfig -> pl.droidsonroids.gif.BuildConfig:
+    boolean DEBUG -> DEBUG
+    java.lang.String PACKAGE_NAME -> PACKAGE_NAME
+    java.lang.String BUILD_TYPE -> BUILD_TYPE
+    java.lang.String FLAVOR -> FLAVOR
+    int VERSION_CODE -> VERSION_CODE
+    java.lang.String VERSION_NAME -> VERSION_NAME
 pl.droidsonroids.gif.GifDrawable -> pl.droidsonroids.gif.GifDrawable:
-    android.os.Handler UI_HANDLER -> b
-    int mGifInfoPtr -> c
-    boolean mIsRunning -> d
-    int[] mMetaData -> e
-    long mInputSourceLength -> f
-    float mSx -> g
-    float mSy -> h
-    boolean mApplyTransformation -> i
-    android.graphics.Rect mDstRect -> j
-    android.graphics.Paint mPaint -> a
-    int[] mColors -> k
-    java.lang.Runnable mResetTask -> l
-    java.lang.Runnable mStartTask -> m
-    java.lang.Runnable mSaveRemainderTask -> n
-    java.lang.Runnable mInvalidateTask -> o
+    android.os.Handler UI_HANDLER -> UI_HANDLER
+    int mGifInfoPtr -> mGifInfoPtr
+    boolean mIsRunning -> mIsRunning
+    int[] mMetaData -> mMetaData
+    long mInputSourceLength -> mInputSourceLength
+    float mSx -> mSx
+    float mSy -> mSy
+    boolean mApplyTransformation -> mApplyTransformation
+    android.graphics.Rect mDstRect -> mDstRect
+    android.graphics.Paint mPaint -> mPaint
+    int[] mColors -> mColors
+    java.lang.Runnable mResetTask -> mResetTask
+    java.lang.Runnable mStartTask -> mStartTask
+    java.lang.Runnable mSaveRemainderTask -> mSaveRemainderTask
+    java.lang.Runnable mInvalidateTask -> mInvalidateTask
     void renderFrame(int[],int,int[]) -> renderFrame
     int openFd(int[],java.io.FileDescriptor,long) -> openFd
+    int openByteArray(int[],byte[]) -> openByteArray
+    int openDirectByteBuffer(int[],java.nio.ByteBuffer) -> openDirectByteBuffer
+    int openStream(int[],java.io.InputStream) -> openStream
+    int openFile(int[],java.lang.String) -> openFile
     void free(int) -> free
     boolean reset(int) -> reset
+    void setSpeedFactor(int,float) -> setSpeedFactor
+    java.lang.String getComment(int) -> getComment
+    int getLoopCount(int) -> getLoopCount
     int getDuration(int) -> getDuration
     int getCurrentPosition(int) -> getCurrentPosition
     int seekToTime(int,int,int[]) -> seekToTime
+    int seekToFrame(int,int,int[]) -> seekToFrame
     int saveRemainder(int) -> saveRemainder
     int restoreRemainder(int) -> restoreRemainder
-    133:137:void runOnUiThread(java.lang.Runnable) -> a
-    309:314:void recycle() -> a
+    long getAllocationByteCount(int) -> getAllocationByteCount
+    133:137:void runOnUiThread(java.lang.Runnable) -> runOnUiThread
+    309:314:void recycle() -> recycle
     319:323:void finalize() -> finalize
     327:327:int getIntrinsicHeight() -> getIntrinsicHeight
     332:332:int getIntrinsicWidth() -> getIntrinsicWidth
@@ -15055,56 +15071,118 @@ pl.droidsonroids.gif.GifDrawable -> pl.droidsonroids.gif.GifDrawable:
     342:343:void setColorFilter(android.graphics.ColorFilter) -> setColorFilter
     352:352:int getOpacity() -> getOpacity
     361:363:void start() -> start
+    372:373:void reset() -> reset
     381:383:void stop() -> stop
     387:387:boolean isRunning() -> isRunning
+    396:396:java.lang.String getComment() -> getComment
+    406:406:int getLoopCount() -> getLoopCount
     414:414:java.lang.String toString() -> toString
-    421:421:int getNumberOfFrames() -> b
+    421:421:int getNumberOfFrames() -> getNumberOfFrames
+    430:430:pl.droidsonroids.gif.GifError getError() -> getError
+    443:447:pl.droidsonroids.gif.GifDrawable createFromResource(android.content.res.Resources,int) -> createFromResource
+    460:463:void setSpeed(float) -> setSpeed
     470:471:void pause() -> pause
     483:483:int getDuration() -> getDuration
     494:494:int getCurrentPosition() -> getCurrentPosition
     512:521:void seekTo(int) -> seekTo
+    530:539:void seekToFrame(int) -> seekToFrame
     548:548:boolean isPlaying() -> isPlaying
     559:559:int getBufferPercentage() -> getBufferPercentage
     569:569:boolean canPause() -> canPause
     580:580:boolean canSeekBackward() -> canSeekBackward
     590:590:boolean canSeekForward() -> canSeekForward
     601:601:int getAudioSessionId() -> getAudioSessionId
+    611:611:int getFrameByteCount() -> getFrameByteCount
+    621:625:long getAllocationByteCount() -> getAllocationByteCount
+    637:637:long getInputSourceByteCount() -> getInputSourceByteCount
+    648:654:void getPixels(int[]) -> getPixels
+    667:678:int getPixel(int,int) -> getPixel
     683:685:void onBoundsChange(android.graphics.Rect) -> onBoundsChange
     694:716:void draw(android.graphics.Canvas) -> draw
+    722:722:android.graphics.Paint getPaint() -> getPaint
     727:727:int getAlpha() -> getAlpha
     732:734:void setFilterBitmap(boolean) -> setFilterBitmap
     738:740:void setDither(boolean) -> setDither
     744:744:int getMinimumHeight() -> getMinimumHeight
     749:749:int getMinimumWidth() -> getMinimumWidth
-    39:39:int access$000(pl.droidsonroids.gif.GifDrawable) -> a
-    39:39:boolean access$100(int) -> a
-    39:39:int access$200(int) -> b
-    39:39:int access$300(int) -> c
-    39:39:int[] access$400(pl.droidsonroids.gif.GifDrawable) -> b
-    39:39:int access$500(int,int,int[]) -> a
-pl.droidsonroids.gif.GifDrawable$1 -> pl.droidsonroids.gif.a:
-    pl.droidsonroids.gif.GifDrawable this$0 -> a
+    39:39:int access$000(pl.droidsonroids.gif.GifDrawable) -> access$000
+    39:39:boolean access$100(int) -> access$100
+    39:39:int access$200(int) -> access$200
+    39:39:int access$300(int) -> access$300
+    39:39:int[] access$400(pl.droidsonroids.gif.GifDrawable) -> access$400
+    39:39:int access$500(int,int,int[]) -> access$500
+    39:39:int access$600(int,int,int[]) -> access$600
+pl.droidsonroids.gif.GifDrawable$1 -> pl.droidsonroids.gif.GifDrawable$1:
+    pl.droidsonroids.gif.GifDrawable this$0 -> this$0
     106:107:void run() -> run
-pl.droidsonroids.gif.GifDrawable$2 -> pl.droidsonroids.gif.b:
-    pl.droidsonroids.gif.GifDrawable this$0 -> a
+pl.droidsonroids.gif.GifDrawable$2 -> pl.droidsonroids.gif.GifDrawable$2:
+    pl.droidsonroids.gif.GifDrawable this$0 -> this$0
     113:115:void run() -> run
-pl.droidsonroids.gif.GifDrawable$3 -> pl.droidsonroids.gif.c:
-    pl.droidsonroids.gif.GifDrawable this$0 -> a
+pl.droidsonroids.gif.GifDrawable$3 -> pl.droidsonroids.gif.GifDrawable$3:
+    pl.droidsonroids.gif.GifDrawable this$0 -> this$0
     121:122:void run() -> run
-pl.droidsonroids.gif.GifDrawable$4 -> pl.droidsonroids.gif.d:
-    pl.droidsonroids.gif.GifDrawable this$0 -> a
+pl.droidsonroids.gif.GifDrawable$4 -> pl.droidsonroids.gif.GifDrawable$4:
+    pl.droidsonroids.gif.GifDrawable this$0 -> this$0
     128:129:void run() -> run
-pl.droidsonroids.gif.GifDrawable$5 -> pl.droidsonroids.gif.e:
-    int val$position -> a
-    pl.droidsonroids.gif.GifDrawable this$0 -> b
+pl.droidsonroids.gif.GifDrawable$5 -> pl.droidsonroids.gif.GifDrawable$5:
+    int val$position -> val$position
+    pl.droidsonroids.gif.GifDrawable this$0 -> this$0
     517:519:void run() -> run
-pl.droidsonroids.gif.GifIOException -> pl.droidsonroids.gif.f:
+pl.droidsonroids.gif.GifDrawable$6 -> pl.droidsonroids.gif.GifDrawable$6:
+    int val$frameIndex -> val$frameIndex
+    pl.droidsonroids.gif.GifDrawable this$0 -> this$0
+    535:537:void run() -> run
+pl.droidsonroids.gif.GifError -> pl.droidsonroids.gif.GifError:
+    pl.droidsonroids.gif.GifError NO_ERROR -> NO_ERROR
+    pl.droidsonroids.gif.GifError OPEN_FAILED -> OPEN_FAILED
+    pl.droidsonroids.gif.GifError READ_FAILED -> READ_FAILED
+    pl.droidsonroids.gif.GifError NOT_GIF_FILE -> NOT_GIF_FILE
+    pl.droidsonroids.gif.GifError NO_SCRN_DSCR -> NO_SCRN_DSCR
+    pl.droidsonroids.gif.GifError NO_IMAG_DSCR -> NO_IMAG_DSCR
+    pl.droidsonroids.gif.GifError NO_COLOR_MAP -> NO_COLOR_MAP
+    pl.droidsonroids.gif.GifError WRONG_RECORD -> WRONG_RECORD
+    pl.droidsonroids.gif.GifError DATA_TOO_BIG -> DATA_TOO_BIG
+    pl.droidsonroids.gif.GifError NOT_ENOUGH_MEM -> NOT_ENOUGH_MEM
+    pl.droidsonroids.gif.GifError CLOSE_FAILED -> CLOSE_FAILED
+    pl.droidsonroids.gif.GifError NOT_READABLE -> NOT_READABLE
+    pl.droidsonroids.gif.GifError IMAGE_DEFECT -> IMAGE_DEFECT
+    pl.droidsonroids.gif.GifError EOF_TOO_SOON -> EOF_TOO_SOON
+    pl.droidsonroids.gif.GifError NO_FRAMES -> NO_FRAMES
+    pl.droidsonroids.gif.GifError INVALID_SCR_DIMS -> INVALID_SCR_DIMS
+    pl.droidsonroids.gif.GifError INVALID_IMG_DIMS -> INVALID_IMG_DIMS
+    pl.droidsonroids.gif.GifError IMG_NOT_CONFINED -> IMG_NOT_CONFINED
+    pl.droidsonroids.gif.GifError UNKNOWN -> UNKNOWN
+    java.lang.String description -> description
+    int errorCode -> errorCode
+    pl.droidsonroids.gif.GifError[] $VALUES -> $VALUES
+    10:10:pl.droidsonroids.gif.GifError[] values() -> values
+    10:10:pl.droidsonroids.gif.GifError valueOf(java.lang.String) -> valueOf
+    103:108:pl.droidsonroids.gif.GifError fromCode(int) -> fromCode
+    116:116:int getErrorCode() -> getErrorCode
+    121:121:java.lang.String getFormattedDescription() -> getFormattedDescription
+pl.droidsonroids.gif.GifIOException -> pl.droidsonroids.gif.GifIOException:
+    long serialVersionUID -> serialVersionUID
+    pl.droidsonroids.gif.GifError reason -> reason
+pl.droidsonroids.gif.GifImageButton -> pl.droidsonroids.gif.GifImageButton:
+    60:61:void setImageResource(int) -> setImageResource
+    65:66:void setBackgroundResource(int) -> setBackgroundResource
+    69:78:void trySetGifDrawable(android.util.AttributeSet,android.content.res.Resources) -> trySetGifDrawable
+    85:102:void setResource(boolean,int,android.content.res.Resources) -> setResource
+    114:122:void setImageURI(android.net.Uri) -> setImageURI
 pl.droidsonroids.gif.GifImageView -> pl.droidsonroids.gif.GifImageView:
+    java.lang.String ANDROID_NS -> ANDROID_NS
     61:62:void setImageResource(int) -> setImageResource
     66:67:void setBackgroundResource(int) -> setBackgroundResource
-    70:79:void trySetGifDrawable(android.util.AttributeSet,android.content.res.Resources) -> a
-    86:103:void setResource(boolean,int,android.content.res.Resources) -> a
+    70:79:void trySetGifDrawable(android.util.AttributeSet,android.content.res.Resources) -> trySetGifDrawable
+    86:103:void setResource(boolean,int,android.content.res.Resources) -> setResource
     115:123:void setImageURI(android.net.Uri) -> setImageURI
+pl.droidsonroids.gif.GifTextView -> pl.droidsonroids.gif.GifTextView:
+    58:72:void parseAttrs(android.util.AttributeSet) -> parseAttrs
+    80:84:void setBackgroundInternal(android.graphics.drawable.Drawable) -> setBackgroundInternal
+    89:90:void setBackgroundResource(int) -> setBackgroundResource
+    94:110:android.graphics.drawable.Drawable getGifOrDefaultDrawable(int) -> getGifOrDefaultDrawable
+    117:119:void setCompoundDrawablesRelativeWithIntrinsicBounds(int,int,int,int) -> setCompoundDrawablesRelativeWithIntrinsicBounds
+    124:126:void setCompoundDrawablesWithIntrinsicBounds(int,int,int,int) -> setCompoundDrawablesWithIntrinsicBounds
 u.aly.A -> a.a.a:
     long a -> a
     java.lang.String b -> b

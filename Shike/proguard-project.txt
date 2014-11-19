@@ -75,6 +75,7 @@
 -libraryjars libs/umeng-analytics-v5.2.3.jar
 -libraryjars libs/universal-image-loader-1.8.7-snapshot-with-sources.jar
 -libraryjars libs/UPPayAssistEx.jar
+-libraryjars libs/classes.jar
 
 -keep class com.unionpay.**{*;}
 -keep class com.nostra13.universalimageloader.**{*;}
@@ -93,6 +94,7 @@
 -keep class com.unionpay.** { *; }
 -keep class com.baidu.** { *; }
 -keep class assets.frontia_plugin.** { *; }
+-keep class pl.droidsonroids.gif.** { *; }
 
 
 
