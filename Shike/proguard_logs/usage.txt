@@ -591,17 +591,47 @@ kankan.wheel.widget.WheelView:
     878:879:public void stopScrolling()
 kankan.wheel.widget.adapters.AdapterWheel
 pl.droidsonroids.gif.BuildConfig
-pl.droidsonroids.gif.GifDrawable
-pl.droidsonroids.gif.GifDrawable$1
-pl.droidsonroids.gif.GifDrawable$2
-pl.droidsonroids.gif.GifDrawable$3
-pl.droidsonroids.gif.GifDrawable$4
-pl.droidsonroids.gif.GifDrawable$5
+pl.droidsonroids.gif.GifDrawable:
+    private static native int openByteArray(int[],byte[])
+    private static native int openDirectByteBuffer(int[],java.nio.ByteBuffer)
+    private static native int openStream(int[],java.io.InputStream)
+    private static native int openFile(int[],java.lang.String)
+    private static native void setSpeedFactor(int,float)
+    private static native java.lang.String getComment(int)
+    private static native int getLoopCount(int)
+    private static native int seekToFrame(int,int,int[])
+    private static native long getAllocationByteCount(int)
+    161:162:public GifDrawable(android.content.res.AssetManager,java.lang.String)
+    174:180:public GifDrawable(java.lang.String)
+    189:195:public GifDrawable(java.io.File)
+    206:214:public GifDrawable(java.io.InputStream)
+    245:251:public GifDrawable(java.io.FileDescriptor)
+    261:267:public GifDrawable(byte[])
+    278:286:public GifDrawable(java.nio.ByteBuffer)
+    372:373:public void reset()
+    396:396:public java.lang.String getComment()
+    406:406:public int getLoopCount()
+    430:430:public pl.droidsonroids.gif.GifError getError()
+    443:447:public static pl.droidsonroids.gif.GifDrawable createFromResource(android.content.res.Resources,int)
+    460:463:public void setSpeed(float)
+    530:539:public void seekToFrame(int)
+    611:611:public int getFrameByteCount()
+    621:625:public long getAllocationByteCount()
+    637:637:public long getInputSourceByteCount()
+    648:654:public void getPixels(int[])
+    667:678:public int getPixel(int,int)
+    722:722:public final android.graphics.Paint getPaint()
+    39:39:static synthetic int access$600(int,int,int[])
 pl.droidsonroids.gif.GifDrawable$6
 pl.droidsonroids.gif.GifError
-pl.droidsonroids.gif.GifIOException
+pl.droidsonroids.gif.GifIOException:
+    private static final long serialVersionUID
+    public final pl.droidsonroids.gif.GifError reason
+    20:22:GifIOException(pl.droidsonroids.gif.GifError)
+    27:28:GifIOException(int)
 pl.droidsonroids.gif.GifImageButton
-pl.droidsonroids.gif.GifImageView
+pl.droidsonroids.gif.GifImageView:
+    static final java.lang.String ANDROID_NS
 pl.droidsonroids.gif.GifTextView
 u.aly.A:
     private static final long e

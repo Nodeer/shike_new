@@ -294,10 +294,10 @@
 
         <!-- 在百度开发者中心查询应用的API Key -->
         <!--师课LlsoI2KDNlevDXhgioPTD9nQ-->
-        <!--自己测试ePcKsunwv1KfNrcS4FNlAGIZ-->
+        <!--测试3Rd9BZFTKzYobnYv4nwKt3HR-->
         <meta-data
             android:name="api_key"
-            android:value="LlsoI2KDNlevDXhgioPTD9nQ" />
+            android:value="3Rd9BZFTKzYobnYv4nwKt3HR" />
         <meta-data
             android:value="53acfc3d56240bb78d09f9e2"
             android:name="UMENG_APPKEY"></meta-data>

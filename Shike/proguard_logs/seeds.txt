@@ -10419,6 +10419,28 @@ com.yshow.shike.R$drawable: int exit_press
 com.yshow.shike.R$drawable: int find_tea_bg
 com.yshow.shike.R$drawable: int find_tea_nor
 com.yshow.shike.R$drawable: int find_tea_press
+com.yshow.shike.R$drawable: int gif3365
+com.yshow.shike.R$drawable: int gif3366
+com.yshow.shike.R$drawable: int gif3368
+com.yshow.shike.R$drawable: int gif3369
+com.yshow.shike.R$drawable: int gif3371
+com.yshow.shike.R$drawable: int gif3372
+com.yshow.shike.R$drawable: int gif3392
+com.yshow.shike.R$drawable: int gif3393
+com.yshow.shike.R$drawable: int gif3394
+com.yshow.shike.R$drawable: int gif3395
+com.yshow.shike.R$drawable: int gif3396
+com.yshow.shike.R$drawable: int gif3397
+com.yshow.shike.R$drawable: int gif3719
+com.yshow.shike.R$drawable: int gif3720
+com.yshow.shike.R$drawable: int gif3721
+com.yshow.shike.R$drawable: int gif3722
+com.yshow.shike.R$drawable: int gif3723
+com.yshow.shike.R$drawable: int gif3724
+com.yshow.shike.R$drawable: int gif3725
+com.yshow.shike.R$drawable: int gif3726
+com.yshow.shike.R$drawable: int gif3727
+com.yshow.shike.R$drawable: int gif3728
 com.yshow.shike.R$drawable: int give_up0
 com.yshow.shike.R$drawable: int give_up1
 com.yshow.shike.R$drawable: int gray_btn_bg
@@ -10702,7 +10724,6 @@ com.yshow.shike.R$id: int bv_view_task_progress_dialog_loading
 com.yshow.shike.R$id: int camera_btn
 com.yshow.shike.R$id: int card_charge_btn
 com.yshow.shike.R$id: int card_pass_edit
-com.yshow.shike.R$id: int click_view
 com.yshow.shike.R$id: int confirm_btn
 com.yshow.shike.R$id: int content
 com.yshow.shike.R$id: int content_frame
@@ -10753,6 +10774,7 @@ com.yshow.shike.R$id: int fullscreen
 com.yshow.shike.R$id: int gallery
 com.yshow.shike.R$id: int get_ques_btn
 com.yshow.shike.R$id: int gf_mess_save
+com.yshow.shike.R$id: int gif_image
 com.yshow.shike.R$id: int gift_img
 com.yshow.shike.R$id: int give_gift_btn
 com.yshow.shike.R$id: int give_praise_btn
@@ -10927,7 +10949,6 @@ com.yshow.shike.R$id: int phn_name
 com.yshow.shike.R$id: int phone_search_btn
 com.yshow.shike.R$id: int phonenum
 com.yshow.shike.R$id: int pop_layout
-com.yshow.shike.R$id: int progressbar
 com.yshow.shike.R$id: int re_five_bai
 com.yshow.shike.R$id: int re_five_qain
 com.yshow.shike.R$id: int re_one_qian
@@ -11171,7 +11192,6 @@ com.yshow.shike.R$id: int vp_file_three
 com.yshow.shike.R$id: int vp_ques_coun
 com.yshow.shike.R$id: int vp_second
 com.yshow.shike.R$id: int webView
-com.yshow.shike.R$id: int web_image
 com.yshow.shike.R$id: int webview
 com.yshow.shike.R$id: int wenti_fankui_btn
 com.yshow.shike.R$id: int wuli_btn
@@ -13993,6 +14013,10 @@ pl.droidsonroids.gif.GifError: pl.droidsonroids.gif.GifError valueOf(java.lang.S
 pl.droidsonroids.gif.GifImageButton: void setImageResource(int)
 pl.droidsonroids.gif.GifImageButton: void setBackgroundResource(int)
 pl.droidsonroids.gif.GifImageButton: void setImageURI(android.net.Uri)
+pl.droidsonroids.gif.GifImageView
+pl.droidsonroids.gif.GifImageView: GifImageView(android.content.Context)
+pl.droidsonroids.gif.GifImageView: GifImageView(android.content.Context,android.util.AttributeSet)
+pl.droidsonroids.gif.GifImageView: GifImageView(android.content.Context,android.util.AttributeSet,int)
 pl.droidsonroids.gif.GifImageView: void setImageResource(int)
 pl.droidsonroids.gif.GifImageView: void setBackgroundResource(int)
 pl.droidsonroids.gif.GifImageView: void setImageURI(android.net.Uri)
