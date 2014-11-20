@@ -4,7 +4,7 @@ import android.util.Log;
 
 
 public class LogUtil {
-	private static boolean isRealease = false;
+	private static boolean isRealease = true;
 
 	private static final String DEFAULT_TAG = "shike_log";
 
